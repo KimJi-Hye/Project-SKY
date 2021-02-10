@@ -88,12 +88,6 @@ public class ClassBoardMapperTests {
 //		// 실행 전 존재하는 번호인지 확인할 것
 //		board.setBno(1L);
 //		board.setClassName("하늘반");
-//<<<<<<< HEAD
-//		board.setClassAge(5L);
-//		board.setClassTotal(10L);
-//=======
-//		board.setClassAge(7L);
-//		board.setClassTotal(20L);
 //>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 //		
 //		int count = mapper.update(board);
