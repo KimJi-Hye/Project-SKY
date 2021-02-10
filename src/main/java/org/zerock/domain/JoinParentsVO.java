@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class JoinParentsVO {
 	
-	// 테스트
+	// 테스트 xx
 	private String userId;
 	private String userPw;
 	private char atGrade;
