@@ -31,29 +31,29 @@ public class ClassApplyMapperTests {
 	
 	
 	
-	@Test
-	public void testInsert() {
-		
-		ClassApplyVO board = new ClassApplyVO();
-		
-		board.setAno("351804");
-		board.setPname("김충성");
-		board.setRelation("m");
-		board.setPbirth("930518");
-		board.setAddr("청주시 흥덕구 봉명3동");
-		board.setPhone("010-9146-5180");
-		
-		board.setCname("김..");
-		board.setCgender("man");
-		board.setCbirth("190522");
-		board.setApptype("접수유형");
-		board.setAppstate("접수");
-		board.setPw("븨번123");
-		
-		mapper.insert(board);
-		
-		log.info(board);
-	}
+//	@Test
+//	public void testInsert() {
+//		
+//		ClassApplyVO board = new ClassApplyVO();
+//		
+//		board.setAno("994804");
+//		board.setPname("test");
+//		board.setRelation("m");
+//		board.setPbirth("930915");
+//		board.setAddr("청주시 흥덕구 봉명1동");
+//		board.setPhone("010-9954-9840");
+//		
+//		board.setCname("test..");
+//		board.setCgender("girl");
+//		board.setCbirth("200202");
+//		board.setApptype("접수유형");
+//		board.setAppstate("접수");
+//		board.setPw("비번12");
+//		
+//		mapper.insert(board);
+//		
+//		log.info(board);
+//	}
 	
 	
 	
@@ -87,23 +87,52 @@ public class ClassApplyMapperTests {
 //	@Test
 //	public void testDelete() {
 //		
-//		log.info("DELETE COUNT: " + mapper.delete(2L));
+//		ClassApplyVO board = new ClassApplyVO();
+//		
+//		board.setAno("994804");
+//		board.setPw("비번12");
+//		
+//		mapper.delete(board);
+//		log.info("DELETE COUNT: " + board);
 //	}
-	
+//	
 	
 //	@Test
 //	public void testUpdate() {
 //		
-//		ClassBoardVO board = new ClassBoardVO();
-//		// 실행 전 존재하는 번호인지 확인할 것
-//		board.setBno(1L);
-//		board.setClassName("하늘반");
-//		board.setClassAge(5L);
-//		board.setClassTotal(10L);
+//		ClassApplyVO board = new ClassApplyVO();
+//
+//		board.setAno("351804");
+//		board.setPname("김지혜");
+//		board.setRelation("w");
+//		board.setPbirth("950517");
+//		board.setAddr("청주시 흥덕구 봉명4동");
+//		board.setPhone("010-4857-5080");
 //		
+//		board.setCname("김..");
+//		board.setCgender("girl");
+//		board.setCbirth("200552");
+//		board.setApptype("접수유형");
+//		board.setAppstate("접수");
+//		board.setPw("븨번123");
+//
 //		int count = mapper.update(board);
 //		log.info("UPDATE COUNT: " + count);
 //	}
 	
-
+//	@Test
+//	public void testcUpdate() {
+//		
+//		ClassApplyVO board = new ClassApplyVO();
+//		
+//		board.setAno("630192");
+//		board.setCunicode("2102100517");
+//		board.setCclass("개나리반");
+//		board.setEnter("210210");
+//		board.setGraduation("220302");
+//		board.setPw("아니뭐123");
+//		
+//		int count = mapper.cupdate(board);
+//		log.info("UPDATE COUNT: " + count);
+//	}
 }

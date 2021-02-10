@@ -16,7 +16,9 @@ public interface ClassApplyMapper {
 		
 	public ClassApplyVO read(Long bno);
 	
-	public int delete(Long bno);
+	public int delete(ClassApplyVO board);
 	
 	public int update(ClassApplyVO board);
+	
+	public int cupdate(ClassApplyVO board);
 }

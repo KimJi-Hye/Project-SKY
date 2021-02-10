@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="getList" resultType="org.zerock.domain.ClassApplyVO">
 	<![CDATA[
-		select * from tb_class where ano > 0
+		select * from tb_apply where ano > 0
 	]]>
 </select>
 
@@ -47,35 +47,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				,#{pw})
 	</insert>
 	
-	<insert id="insertSelectKey">
+<!-- 	<insert id="insertSelectKey">
 
 		<selectKey keyProperty="ano" order="BEFORE"
 			resultType="long">
 			select seq_tb_apply.nextval from dual
 		</selectKey>
 
-		insert into tb_class (bno, className, classAge, classTotal)
+		insert into tb_apply (bno, className, classAge, classTotal)
 		values (#{bno}, #{className}, #{classAge}, #{classTotal})
-	</insert>
+	</insert> -->
 
 
  	<select id="read" resultType="org.zerock.domain.ClassBoardVO">
-		select * from tb_class where bno = #{bno}
+		select * from tb_apply where ano = #{ano}
 	</select>
 	
 
 	<delete id="delete">
-		delete from tb_class where bno = #{bno}
+		delete from tb_apply
+		where ano = #{ano}
+		and pw = #{pw}
 	</delete>
 	
 	
 	<update id="update">
-	    update tb_class
-	    set className= #{className},
-	    classAge=#{classAge},
-	    classTotal = #{classTotal}
-	    where bno = #{bno}
+	    update tb_apply
+	    set 	pname = #{pname}
+				,relation = #{relation}
+				,pbirth = #{pbirth}
+				,addr = #{addr}
+				,phone = #{phone}
+				,adddate = sysdate
+				,cname = #{cname}
+				,cgender = #{cgender}
+				,cbirth = #{cbirth}
+				,apptype = #{apptype}
+				,appstate = #{appstate}
+		where ano = #{ano}
+		and pw = #{pw}
 	 </update>
+	 
+	 <update id="cupdate">
+	 	update tb_apply
+	 	set cunicode = #{cunicode}
+	 		,cclass = #{cclass}
+	 		,enter = to_date(#{enter})
+	 		,graduation = to_date(#{graduation})
+ 		where ano = #{ano}
+ 		and pw = #{pw}
+	 </update>
+	 
 
 
 </mapper>
