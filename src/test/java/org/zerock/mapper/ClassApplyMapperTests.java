@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.ClassBoardVO;
+import org.zerock.domain.ClassApplyVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -16,10 +16,10 @@ import lombok.extern.log4j.Log4j;
 //Java Config
 //@ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
 @Log4j
-public class ClassBoardMapperTests {
+public class ClassApplyMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
-	private ClassBoardMapper mapper;
+	private ClassApplyMapper mapper;
 	
 	
 	
@@ -31,18 +31,29 @@ public class ClassBoardMapperTests {
 	
 	
 	
-//	@Test
-//	public void testInsert() {
-//		
-//		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("하늘반");
-//		board.setClassAge(7L);
-//		board.setClassTotal(20L);
-//		
-//		mapper.insert(board);
-//		
-//		log.info(board);
-//	}
+	@Test
+	public void testInsert() {
+		
+		ClassApplyVO board = new ClassApplyVO();
+		
+		board.setAno("351804");
+		board.setPname("김충성");
+		board.setRelation("m");
+		board.setPbirth("930518");
+		board.setAddr("청주시 흥덕구 봉명3동");
+		board.setPhone("010-9146-5180");
+		
+		board.setCname("김..");
+		board.setCgender("man");
+		board.setCbirth("190522");
+		board.setApptype("접수유형");
+		board.setAppstate("접수");
+		board.setPw("븨번123");
+		
+		mapper.insert(board);
+		
+		log.info(board);
+	}
 	
 	
 	
@@ -50,10 +61,10 @@ public class ClassBoardMapperTests {
 //	@Test
 //	public void testInsertSelectKey() {
 //		
-//		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("우주반");
-//		board.setClassAge(6L);
-//		board.setClassTotal(10L);
+//		ClassApplyVO board = new ClassApplyVO();
+//		board.setPname("우주반");
+//		board.setRelation("");
+//		board.setPbirth("");
 //		
 //		mapper.insertSelectKey(board);;
 //		

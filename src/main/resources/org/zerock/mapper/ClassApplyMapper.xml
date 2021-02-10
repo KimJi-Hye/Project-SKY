@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ClassApplyMapper">
+
+<select id="getList" resultType="org.zerock.domain.ClassApplyVO">
+	<![CDATA[
+		select * from tb_class where ano > 0
+	]]>
+</select>
+
+ 	<insert id="insert">
+		insert into tb_apply (ano
+								,pname
+								,relation
+								,pbirth
+								,addr
+								,phone
+								,adddate
+								,cname
+								,cgender
+								,cbirth
+								,apptype
+								,appstate
+								,cunicode
+								,cclass
+								,enter
+								,graduation
+								,pw)
+		values (#{ano}
+				,#{pname}
+				,#{relation}
+				,#{pbirth}
+				,#{addr}
+				,#{phone}
+				,sysdate
+				,#{cname}
+				,#{cgender}
+				,#{cbirth}
+				,#{apptype}
+				,#{appstate}
+				,null
+				,null
+				,null
+				,null
+				,#{pw})
+	</insert>
+	
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="ano" order="BEFORE"
+			resultType="long">
+			select seq_tb_apply.nextval from dual
+		</selectKey>
+
+		insert into tb_class (bno, className, classAge, classTotal)
+		values (#{bno}, #{className}, #{classAge}, #{classTotal})
+	</insert>
+
+
+ 	<select id="read" resultType="org.zerock.domain.ClassBoardVO">
+		select * from tb_class where bno = #{bno}
+	</select>
+	
+
+	<delete id="delete">
+		delete from tb_class where bno = #{bno}
+	</delete>
+	
+	
+	<update id="update">
+	    update tb_class
+	    set className= #{className},
+	    classAge=#{classAge},
+	    classTotal = #{classTotal}
+	    where bno = #{bno}
+	 </update>
+
+
+</mapper>
