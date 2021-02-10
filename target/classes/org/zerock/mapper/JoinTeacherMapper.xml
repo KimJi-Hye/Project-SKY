@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.JoinTeacherMapper">
+
+	<!-- 선생님 전체 조회 -->
+	<select id="getList" resultType="org.zerock.domain.JoinTeacherVO">
+		<![CDATA[
+			select * from tb_teacher
+		]]>
+	</select>
+	
+	<insert id="insert">
+		insert into tb_teacher(userid, atgrade, classname, username, userpw, userphone, useraddr, useremail, usertype)
+		values (#{userId}, #{atGrade}, #{className}, #{userName}, #{userPw}, #{userPhone}, #{addr}, #{userEmail}, #{userType})
+	</insert>
+</mapper>

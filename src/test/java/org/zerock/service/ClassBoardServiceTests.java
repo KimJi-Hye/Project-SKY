@@ -22,18 +22,18 @@ public class ClassBoardServiceTests {
 	@Setter(onMethod_ = {@Autowired })
 	private ClassBoardService service;
 	
-//	@Test
-//	public void testExist() {
-//		
-//		log.info(service);
-//		assertNotNull(service);
-//	}
+	@Test
+	public void testExist() {
+		
+		log.info(service);
+		assertNotNull(service);
+	}
 	
 	
 //	@Test
 //	public void testRegister() {
 //		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("테스트");
+//		board.setClassName("테스트2");
 //		board.setClassAge(7L);
 //		board.setClassTotal(20L);
 //		
@@ -43,11 +43,11 @@ public class ClassBoardServiceTests {
 //	}
 	
 	
-//	@Test
-//	public void testGetList() {
-//		
-//		service.getList().forEach(board -> log.info(board));
-//	}
+	@Test
+	public void testGetList() {
+		
+		service.getList().forEach(board -> log.info(board));
+	}
 	
 	
 //	@Test
@@ -67,17 +67,17 @@ public class ClassBoardServiceTests {
 //	}
 	
 	
-	@Test
-	public void testUpdate() {
-		
-		ClassBoardVO board = service.get(1L);
-		
-		if (board == null) {
-			return;
-		}
-		
-		board.setClassName("테스트");
-		log.info("MODIFY RESULT: " + service.modify(board));
-	}
+//	@Test
+//	public void testUpdate() {
+//		
+//		ClassBoardVO board = service.get(1L);
+//		
+//		if (board == null) {
+//			return;
+//		}
+//		
+//		board.setClassName("테스트");
+//		log.info("MODIFY RESULT: " + service.modify(board));
+//	}
 	
 }

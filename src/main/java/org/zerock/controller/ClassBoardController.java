@@ -43,24 +43,24 @@ public class ClassBoardController {
 		return "redirect:/board/classList";
 	}
 
-	@GetMapping({"/get","/modify"})
+	@GetMapping({"/classGet","/classModify"})
 	public void get(@RequestParam("bno") Long bno, Model model) {
-		log.info("/get or modify");
+		log.info("/classGet or classModify");
 		model.addAttribute("board", service.get(bno));
 	}
 
-	@PostMapping("/modify")
+	@PostMapping("/classModify")
 	public String modify(ClassBoardVO board, RedirectAttributes rttr) {
-		log.info("modify:" + board);
+		log.info("classModify:" + board);
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/classList";
 	}
 
-	@PostMapping("/remove")
+	@PostMapping("/classRemove")
 	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
-		log.info("remove... " + bno);
+		log.info("classRemove... " + bno);
 		if (service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}

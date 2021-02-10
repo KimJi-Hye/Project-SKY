@@ -31,7 +31,6 @@
 							<th>#번호</th>
 							<th>반이름</th>
 							<th>연령</th>
-							<th>담당선생님</th>
 							<th>정원</th>
 						</tr>
 					</thead>
@@ -39,9 +38,8 @@
 					<c:forEach items="${classList}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-							<td><a href='/board/get?bno=<c:out value="${board.bno}"/>'>
+							<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'>
 							<c:out value="${board.className}" /></a></td>
-							<td><c:out value="${board.classAge}" /></td>
 							<td><c:out value="${board.classAge}" /></td>
 							<td><c:out value="${board.classTotal}" /></td>
 						</tr>
@@ -49,7 +47,7 @@
 
 				</table>
 
-<!-- 				Modal
+<!-- 				Modal -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -59,7 +57,7 @@
 									aria-hidden="true">&times;</button>
 								<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 							</div>
-							<div class="modal-body">처리가 완료되었습니다.</div>
+							<div class="modal-body">신규반 등록이 완료되었습니다.</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
@@ -67,42 +65,39 @@
 									changes</button>
 							</div>
 						</div>
-						/.modal-content
+<!-- 						/.modal-content -->
 					</div>
-					/.modal-dialog
+<!-- 					/.modal-dialog -->
 				</div>
-				/.modal
+<!-- 				/.modal -->
 
 			</div>
-			/.panel-body
+<!-- 			/.panel-body -->
 		</div>
-		/.panel
+<!-- 		/.panel -->
 	</div>
-	/.col-lg-6
+<!-- 	/.col-lg-6 -->
 </div>
-/.row
-<
-<script type="text/javascript">
+<!-- /.row -->
+
+<!-- <script type="text/javascript">
 $(document).ready(function(){
+	
 	var result = '<c:out value="${result}"/>';
 	
 	checkModal(result);
 	
-	history.replaceState({},null,null);
 	
 	function checkModal(result) {
-		if(result === '' || history.state) {
+		if(result === '') {
 			return;
 		}
 		if(parseInt(result) > 0) {
 			$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
-			$("#myModal").modal("show");
 		}
 		$("#myModal").modal("show");
 	}
-	$("#regBtn").on("click", function() {
-		self.location="/board/register";
-	});
+
 });
 </script> -->
 
