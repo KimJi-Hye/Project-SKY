@@ -39,7 +39,6 @@ public class JoinTeacherMapperTests {
 		
 		mapper.insert(board);
 		log.info(board);
-		log.info("======");
 	}
 	
 }
