@@ -6,13 +6,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="getList" resultType="org.zerock.domain.ClassBoardVO">
 	<![CDATA[
-		select * from tb_class where bno > 0
+		select a.bno, a.className, a.classAge, b.userName, a.classTotal
+		from tb_class a, tb_teacher b
+		where a.className = b.className
 	]]>
 </select>
 
  	<insert id="insert">
-		insert into tb_class (bno, className, classAge, classTotal)
-		values (seq_tb_class.nextval, #{className}, #{classAge}, #{classTotal})
+		insert into tb_class (bno, className, classAge, userName, classTotal)
+		values (seq_tb_class.nextval, #{className}, #{classAge}, #{userName}, #{classTotal})
 	</insert>
 	
 	<insert id="insertSelectKey">
@@ -22,8 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select seq_tb_class.nextval from dual
 		</selectKey>
 
-		insert into tb_class (bno, className, classAge, classTotal)
-		values (#{bno}, #{className}, #{classAge}, #{classTotal})
+		insert into tb_class (bno, className, classAge, userName, classTotal)
+		values (#{bno}, #{className}, #{classAge}, #{userName},  #{classTotal})
 	</insert>
 
 
@@ -41,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    update tb_class
 	    set className= #{className},
 	    classAge=#{classAge},
+	    userName=#{userName},
 	    classTotal = #{classTotal}
 	    where bno = #{bno}
 	 </update>

@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert> -->
 
 
- 	<select id="read" resultType="org.zerock.domain.ClassBoardVO">
+ 	<select id="read" resultType="org.zerock.domain.ClassApplyVO">
 		select * from tb_apply where ano = #{ano}
 	</select>
 	
