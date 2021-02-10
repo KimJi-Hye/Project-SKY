@@ -56,8 +56,4 @@ public class ClassBoardServiceImpl implements ClassBoardService{
 		
 		return mapper.delete(bno) == 1;
 	}
-
-
-
-
 }

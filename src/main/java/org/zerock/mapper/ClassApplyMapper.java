@@ -14,9 +14,11 @@ public interface ClassApplyMapper {
 	
 	public void insertSelectKey(ClassApplyVO board);
 		
-	public ClassApplyVO read(Long bno);
+	public ClassApplyVO read(Long ano);
 	
 	public int delete(ClassApplyVO board);
+	
+	public int delete(Long ano);
 	
 	public int update(ClassApplyVO board);
 	

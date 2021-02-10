@@ -23,37 +23,37 @@ public class ClassApplyMapperTests {
 	
 	
 	
-//	@Test
-//	public void testGetList() {
-//		
-//		mapper.getList().forEach(board -> log.info(board));
-//	}
-	
-	
-	
 	@Test
-	public void testInsert() {
+	public void testGetList() {
 		
-		ClassApplyVO board = new ClassApplyVO();
-		
-		board.setAno("994804");
-		board.setPname("test");
-		board.setRelation("m");
-		board.setPbirth("930915");
-		board.setAddr("청주시 흥덕구 봉명1동");
-		board.setPhone("010-9954-9840");
-		
-		board.setCname("test..");
-		board.setCgender("girl");
-		board.setCbirth("200202");
-		board.setApptype("접수유형");
-		board.setAppstate("접수");
-		board.setPw("비번12");
-		
-		mapper.insert(board);
-		
-		log.info(board);
+		mapper.getList().forEach(board -> log.info(board));
 	}
+	
+	
+	
+//	@Test
+//	public void testInsert() {
+//		
+//		ClassApplyVO board = new ClassApplyVO();
+//		
+//		board.setAno("994804");
+//		board.setPname("test");
+//		board.setRelation("m");
+//		board.setPbirth("930915");
+//		board.setAddr("청주시 흥덕구 봉명1동");
+//		board.setPhone("010-9954-9840");
+//		
+//		board.setCname("test..");
+//		board.setCgender("girl");
+//		board.setCbirth("200202");
+//		board.setApptype("접수유형");
+//		board.setAppstate("접수");
+//		board.setPw("비번12");
+//		
+//		mapper.insert(board);
+//		
+//		log.info(board);
+//	}
 	
 	
 	
@@ -95,7 +95,6 @@ public class ClassApplyMapperTests {
 //		mapper.delete(board);
 //		log.info("DELETE COUNT: " + board);
 //	}
-//	
 	
 //	@Test
 //	public void testUpdate() {
