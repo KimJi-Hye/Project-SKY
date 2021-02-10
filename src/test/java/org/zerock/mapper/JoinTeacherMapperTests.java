@@ -25,20 +25,55 @@ public class JoinTeacherMapperTests {
 //	}
 	
 	// insert
+//	@Test
+//	public void testInsert() {
+//		JoinTeacherVO board = new JoinTeacherVO();
+//		board.setUserId("testid3");
+//		board.setAtGrade('C');
+//		board.setClassName("우주반");
+//		board.setUserName("박선생");
+//		board.setUserPw("1234");
+//		board.setUserPhone("011");
+//		board.setUserAddr("우리집");
+//		board.setUserEmail("email@");
+//		board.setUserType('T');
+//		
+//		mapper.insert(board);
+//		log.info(board);
+//	}
+	
+	// read
+//	@Test
+//	public void testRead() {
+//		JoinTeacherVO read = mapper.read("박선생");
+//		log.info(read);
+//	}
+	
+	// update
+//	@Test
+//	public void testUpdate() {
+//		JoinTeacherVO board = new JoinTeacherVO();
+//		board.setUserId("testid3");
+//		board.setAtGrade('B');
+//		board.setClassName("하늘반");
+//		board.setUserName("박선생");
+//		board.setUserPw("1234");
+//		board.setUserPhone("011");
+//		board.setUserAddr("청주시 흥덕구");
+//		board.setUserEmail("email@");
+//		
+//		int count = mapper.update(board);
+//		log.info("UPDATE COUNT: " + count);
+//	}
+	
+	// delete
 	@Test
-	public void testInsert() {
+	public void testDelete() {
 		JoinTeacherVO board = new JoinTeacherVO();
 		board.setUserId("testid3");
-		board.setAtGrade('C');
-		board.setClassName("우주반");
-		board.setUserName("박선생");
-		board.setUserPw("1234");
-		board.setUserPhone("011");
-		board.setUserAddr("우리집");
-		board.setUserType('T');
 		
-		mapper.insert(board);
-		log.info(board);
+		int count = mapper.delete(board);
+		log.info("DELETE COUNT: " + count);
 	}
 	
 }

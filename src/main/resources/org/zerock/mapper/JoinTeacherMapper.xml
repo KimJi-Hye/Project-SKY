@@ -11,8 +11,33 @@
 		]]>
 	</select>
 	
+	<!-- insert -->
 	<insert id="insert">
 		insert into tb_teacher(userid, atgrade, classname, username, userpw, userphone, useraddr, useremail, usertype)
-		values (#{userId}, #{atGrade}, #{className}, #{userName}, #{userPw}, #{userPhone}, #{addr}, #{userEmail}, #{userType})
+		values (#{userId}, #{atGrade}, #{className}, #{userName}, #{userPw}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
 	</insert>
+	
+	<!-- read -->
+	<select id="read" resultType="org.zerock.domain.JoinTeacherVO">
+		select * from tb_teacher where username = #{userName}
+	</select>
+	
+	<!-- update -->
+	<update id="update">
+		update tb_teacher
+		set atgrade = #{atGrade},
+		classname = #{className},
+		username = #{userName},
+		userpw = #{userPw},
+		userphone = #{userPhone},
+		useraddr = #{userAddr},
+		useremail = #{userEmail}
+		where userid = #{userId}
+	</update>
+	
+	<!-- delete -->
+	<delete id="delete">
+		delete tb_teacher where userid = #{userId}
+	</delete>
+	
 </mapper>
