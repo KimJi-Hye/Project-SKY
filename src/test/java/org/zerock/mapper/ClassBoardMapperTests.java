@@ -31,18 +31,19 @@ public class ClassBoardMapperTests {
 	
 	
 	
-//	@Test
-//	public void testInsert() {
-//		
-//		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("하늘반");
-//		board.setClassAge(7L);
-//		board.setClassTotal(20L);
-//		
-//		mapper.insert(board);
-//		
-//		log.info(board);
-//	}
+	@Test
+	public void testInsert() {
+		
+		ClassBoardVO board = new ClassBoardVO();
+		board.setClassName("하늘반");
+		board.setClassAge(7L);
+		board.setUserName("선생님");
+		board.setClassTotal(20L);
+		
+		mapper.insert(board);
+		
+		log.info(board);
+	}
 	
 	
 	
@@ -80,19 +81,19 @@ public class ClassBoardMapperTests {
 //	}
 	
 	
-	@Test
-	public void testUpdate() {
-		
-		ClassBoardVO board = new ClassBoardVO();
-		// 실행 전 존재하는 번호인지 확인할 것
-		board.setBno(1L);
-		board.setClassName("하늘반");
-		board.setClassAge(7L);
-		board.setClassTotal(20L);
-		
-		int count = mapper.update(board);
-		log.info("UPDATE COUNT: " + count);
-	}
+//	@Test
+//	public void testUpdate() {
+//		
+//		ClassBoardVO board = new ClassBoardVO();
+//		// 실행 전 존재하는 번호인지 확인할 것
+//		board.setBno(1L);
+//		board.setClassName("하늘반");
+//		board.setClassAge(7L);
+//		board.setClassTotal(20L);
+//		
+//		int count = mapper.update(board);
+//		log.info("UPDATE COUNT: " + count);
+//	}
 	
 
 }
