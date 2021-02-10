@@ -67,13 +67,13 @@ public class JoinTeacherMapperTests {
 //	}
 	
 	// delete
-	@Test
-	public void testDelete() {
-		JoinTeacherVO board = new JoinTeacherVO();
-		board.setUserId("testid3");
-		
-		int count = mapper.delete(board);
-		log.info("DELETE COUNT: " + count);
-	}
+//	@Test
+//	public void testDelete() {
+//		JoinTeacherVO board = new JoinTeacherVO();
+//		board.setUserId("testid3");
+//		
+//		int count = mapper.delete(board);
+//		log.info("DELETE COUNT: " + count);
+//	}
 	
 }
