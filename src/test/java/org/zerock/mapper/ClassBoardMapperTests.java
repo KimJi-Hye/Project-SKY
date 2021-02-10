@@ -35,9 +35,8 @@ public class ClassBoardMapperTests {
 	public void testInsert() {
 		
 		ClassBoardVO board = new ClassBoardVO();
-		board.setClassName("하늘반");
+		board.setClassName("테스트반");
 		board.setClassAge(7L);
-		board.setUserName("선생님");
 		board.setClassTotal(20L);
 		
 		mapper.insert(board);
