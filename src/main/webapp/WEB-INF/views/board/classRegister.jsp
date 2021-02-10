@@ -33,10 +33,6 @@
 				<input class="form-control" name='classAge'>
 				</div>
 				
-				<div class="form-group">
-				<label>담당선생님</label> 
-				<input class="form-control" name='classAge'>
-				</div>
 				
 				<div class="form-group">
 				<label>정원</label> 

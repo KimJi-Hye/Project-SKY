@@ -31,19 +31,18 @@ public class ClassBoardMapperTests {
 	
 	
 	
-	@Test
-	public void testInsert() {
-		
-		ClassBoardVO board = new ClassBoardVO();
-		board.setClassName("하늘반");
-		board.setClassAge(7L);
-		board.setUserName("선생님");
-		board.setClassTotal(20L);
-		
-		mapper.insert(board);
-		
-		log.info(board);
-	}
+//	@Test
+//	public void testInsert() {
+//		
+//		ClassBoardVO board = new ClassBoardVO();
+//		board.setClassName("테스트반");
+//		board.setClassAge(7L);
+//		board.setClassTotal(20L);
+//		
+//		mapper.insert(board);
+//		
+//		log.info(board);
+//	}
 	
 	
 	
@@ -52,7 +51,7 @@ public class ClassBoardMapperTests {
 //	public void testInsertSelectKey() {
 //		
 //		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("우주반");
+//		board.setClassName("테스트2반");
 //		board.setClassAge(6L);
 //		board.setClassTotal(10L);
 //		
@@ -67,7 +66,7 @@ public class ClassBoardMapperTests {
 //	public void testRead() {
 //		
 //		// 존재하는 게시물 번호로 테스트
-//		ClassBoardVO board = mapper.read(1L);
+//		ClassBoardVO board = mapper.read(29L);
 //		
 //		log.info(board);
 //	}
@@ -77,22 +76,24 @@ public class ClassBoardMapperTests {
 //	@Test
 //	public void testDelete() {
 //		
-//		log.info("DELETE COUNT: " + mapper.delete(2L));
+//		log.info("DELETE COUNT: " + mapper.delete(29L));
 //	}
 	
 	
-//	@Test
-//	public void testUpdate() {
-//		
-//		ClassBoardVO board = new ClassBoardVO();
-//		// 실행 전 존재하는 번호인지 확인할 것
-//		board.setBno(1L);
-//		board.setClassName("하늘반");
-//>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
-//		
-//		int count = mapper.update(board);
-//		log.info("UPDATE COUNT: " + count);
-//	}
+	@Test
+	public void testUpdate() {
+		
+		ClassBoardVO board = new ClassBoardVO();
+		// 실행 전 존재하는 번호인지 확인할 것
+		board.setBno(31L);
+		board.setClassName("테스트반");
+		board.setClassAge(6L);
+		board.setClassTotal(10L);
+
+		
+		int count = mapper.update(board);
+		log.info("UPDATE COUNT: " + count);
+	}
 	
 
 }
