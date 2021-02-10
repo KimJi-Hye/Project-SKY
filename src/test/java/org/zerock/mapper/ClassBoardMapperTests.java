@@ -88,8 +88,6 @@ public class ClassBoardMapperTests {
 //		// 실행 전 존재하는 번호인지 확인할 것
 //		board.setBno(1L);
 //		board.setClassName("하늘반");
-//		board.setClassAge(7L);
-//		board.setClassTotal(20L);
 //		
 //		int count = mapper.update(board);
 //		log.info("UPDATE COUNT: " + count);
