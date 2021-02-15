@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.ClassNoteVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -19,21 +20,23 @@ public class ClassNoteMapperTests {
 	
 	
 	
-//	@Test
-//	public void testGetList() {
-//		
-//		mapper.getList().forEach(board -> log.info(board));
-//	}
+	@Test
+	public void testGetList() {
+		
+		mapper.getList().forEach(board -> log.info(board));
+	}
 	
 	
-	
+
 //	@Test
 //	public void testInsert() {
 //		
-//		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("테스트반");
-//		board.setClassAge(7L);
-//		board.setClassTotal(20L);
+//		ClassNoteVO board = new ClassNoteVO();
+//		board.setClassName("하늘반");
+//		board.setCUnicode("C210210001");
+//		board.setTitle("제목");
+//		board.setContent("내용");
+//		board.setWriter("작성자");
 //		
 //		mapper.insert(board);
 //		
@@ -46,10 +49,12 @@ public class ClassNoteMapperTests {
 //	@Test
 //	public void testInsertSelectKey() {
 //		
-//		ClassBoardVO board = new ClassBoardVO();
-//		board.setClassName("테스트2반");
-//		board.setClassAge(6L);
-//		board.setClassTotal(10L);
+//		ClassNoteVO board = new ClassNoteVO();
+//		board.setClassName("하늘반");
+//		board.setCUnicode("C210210002");
+//		board.setTitle("제목2");
+//		board.setContent("내용2");
+//		board.setWriter("작성자2");
 //		
 //		mapper.insertSelectKey(board);;
 //		
@@ -62,7 +67,7 @@ public class ClassNoteMapperTests {
 //	public void testRead() {
 //		
 //		// 존재하는 게시물 번호로 테스트
-//		ClassBoardVO board = mapper.read(29L);
+//		ClassNoteVO board = mapper.read(6L);
 //		
 //		log.info(board);
 //	}
@@ -72,19 +77,21 @@ public class ClassNoteMapperTests {
 //	@Test
 //	public void testDelete() {
 //		
-//		log.info("DELETE COUNT: " + mapper.delete(29L));
+//		log.info("DELETE COUNT: " + mapper.delete(6L));
 //	}
 	
 	
 //	@Test
 //	public void testUpdate() {
 //		
-//		ClassMngVO board = new ClassMngVO();
+//		ClassNoteVO board = new ClassNoteVO();
 //		// 실행 전 존재하는 번호인지 확인할 것
-//		board.setBno(31L);
-//		board.setClassName("테스트반");
-//		board.setClassAge(6L);
-//		board.setClassTotal(10L);
+//		board.setBno(7L);
+//		board.setClassName("하늘반");
+//		board.setCUnicode("C210210002");
+//		board.setTitle("제목1");
+//		board.setContent("내용1");
+//		board.setWriter("작성자1");
 //
 //		
 //		int count = mapper.update(board);
