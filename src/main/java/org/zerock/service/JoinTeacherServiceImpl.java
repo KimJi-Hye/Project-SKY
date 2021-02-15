@@ -16,30 +16,35 @@ public class JoinTeacherServiceImpl implements JoinTeacherService {
 	
 	private JoinTeacherMapper mapper;
 
+	// 등록
 	@Override
-	public void register(JoinTeacherVO join) {
-		log.info("register....Join......." + join);
+	public void join(JoinTeacherVO join) {
+		log.info("Join......." + join);
 		mapper.insert(join);
 	}
 
+	// 조회
 	@Override
 	public JoinTeacherVO get(String userId) {
 		log.info("get........" + userId);
 		return mapper.read(userId);
 	}
 
+	// 수정
 	@Override
 	public boolean modify(JoinTeacherVO join) {
 		log.info("modify....." + join);
 		return mapper.update(join) == 1;
 	}
 
+	// 삭제
 	@Override
 	public boolean remove(String userId) {
 		log.info("remove....." + userId);
 		return mapper.delete(userId) == 1;
 	}
 
+	// 리스트
 	@Override
 	public List<JoinTeacherVO> getList() {
 		log.info("getList...........");

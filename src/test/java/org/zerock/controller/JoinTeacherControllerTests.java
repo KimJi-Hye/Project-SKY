@@ -34,12 +34,68 @@ public class JoinTeacherControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 	
+	// 리스트
 	@Test
 	public void testList() throws Exception {
-		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/member/list"))
+		log.info(mockMvc.perform(MockMvcRequestBuilders.get("/member/list")
+				.param("userType", "P"))
 				.andReturn()
 				.getModelAndView()
 				.getModelMap());
 	}
+	
+	// 유형선택
+	
+	// 회원가입
+//	@Test
+//	public void testJoin() throws Exception {
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/join")
+//				.param("userId", "teacher2")
+//				.param("atGrade", "b")
+//				.param("className", "하늘반")
+//				.param("userName", "홍선생")
+//				.param("userPw", "1234")
+//				.param("userPhone", "tel")
+//				.param("userAddr", "home")
+//				.param("userEmail", "email")
+//				.param("userType", "T")
+//				).andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//	}
+	
+	// 조회
+//	@Test
+//	public void testGet() throws Exception {
+//		log.info(mockMvc.perform(MockMvcRequestBuilders
+//				.get("/member/get")
+//				.param("userId", "teacher2"))
+//				.andReturn().getModelAndView().getModelMap());
+//	}
+	
+	// 수정
+//	@Test
+//	public void testModify() throws Exception {
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/modify")
+//				.param("userId", "teacher2")
+//				.param("atGrade", "b")
+//				.param("className", "하늘반")
+//				.param("userName", "홍선생")
+//				.param("userPw", "1234")
+//				.param("userPhone", "tel수정")
+//				.param("userAddr", "home수정")
+//				.param("userEmail", "email수정")
+//				.param("userType", "T")
+//				).andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//	}
+	
+	// 삭제
+//	@Test
+//	public void testRemove() throws Exception {
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/remove")
+//				.param("userId", "teacher2"))
+//				.andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//	}
 	
 }

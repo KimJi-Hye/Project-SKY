@@ -28,22 +28,22 @@ public class JoinTeacherServiceTests {
 //	}
 	
 	// 회원가입
-//	@Test
-//	public void testRegister() {
-//		JoinTeacherVO join = new JoinTeacherVO();
-//		join.setUserId("teacher1");
-//		join.setAtGrade('B');
-//		join.setClassName("하늘반");
-//		join.setUserName("최선생");
-//		join.setUserPw("4321");
-//		join.setUserPhone("010");
-//		join.setUserAddr("청주시 가경동");
-//		join.setUserEmail("email@email");
-//		join.setUserType('T');
-//		
-//		service.register(join);
-//		log.info(">> 회원가입 된 회원 아이디 : " + join.getUserId());
-//	}
+	@Test
+	public void testJoin() {
+		JoinTeacherVO join = new JoinTeacherVO();
+		join.setUserId("teacher1");
+		join.setAtGrade('B');
+		join.setClassName("하늘반");
+		join.setUserName("최선생");
+		join.setUserPw("4321");
+		join.setUserPhone("010");
+		join.setUserAddr("청주시 가경동");
+		join.setUserEmail("email@email");
+		join.setUserType('T');
+		
+		service.join(join);
+		log.info(">> 회원가입 된 회원 아이디 : " + join.getUserId());
+	}
 	
 	// 회원리스트
 //	@Test
