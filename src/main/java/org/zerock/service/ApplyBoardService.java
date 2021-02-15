@@ -12,6 +12,8 @@ public interface ApplyBoardService {
 	
 	public boolean modify(ApplyBoardVO board);
 	
+	public boolean update(ApplyBoardVO board);
+	
 	public boolean remove(Long ano);
 	
 	public List<ApplyBoardVO> getList();

@@ -25,5 +25,4 @@ public class ApplyBoardVO {
 	private String graduation;
 	private String pw;
 	
-	
 }

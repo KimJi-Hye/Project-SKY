@@ -73,7 +73,7 @@ $(document).ready(function() {
 
 	$('#regBtn').click(function() {
 
-		$(location).attr('href','applyRegister.php');
+		$(location).attr('href','applyRegister');
 
 	});
 });

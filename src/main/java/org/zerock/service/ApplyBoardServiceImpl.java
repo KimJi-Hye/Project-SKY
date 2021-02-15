@@ -22,7 +22,7 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 	
 		log.info("register......" + board);
 		
-		mapper.insertSelectKey(board);
+		mapper.insert(board);
 	}
 	
 	@Override
@@ -48,6 +48,14 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		
 		return mapper.update(board) == 1;
 	}
+	
+	@Override
+	public boolean update(ApplyBoardVO board) {
+
+		log.info("update......" + board);
+		
+		return mapper.cupdate(board) == 1;
+	}	
 
 	@Override
 	public boolean remove(Long ano) {
