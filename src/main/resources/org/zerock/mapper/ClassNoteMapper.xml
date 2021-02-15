@@ -37,23 +37,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
  	<select id="read" resultType="org.zerock.domain.ClassNoteVO">
-<!-- 	  {call
-      declare
-      begin
-      update tkawy_tb
-      set t_progress=
-      '수거완료'
-      where t_note = #{t_note};
-      
-      select * from tb_note; 
-      
-      update mber_tb set m_point = m_point +
-      (#{t_plastic} * 2) + #{t_plastic_cap}
-      where m_num = #{m_num};
-      end
-      
-      select cName from tb_child where cUnicode =#{cUnicode};
-      } -->
+			SELECT A.bno
+          ,A.cUnicode
+          ,A.className
+      	  ,A.regdate
+      	  ,A.content
+      	  ,A.writer
+      	  ,A.title
+      	  ,B.cName             
+	FROM tb_note A,tb_child B
+	WHERE A.cUnicode=B.cUnicode and bno = #{bno}
 	</select>
 	
 
