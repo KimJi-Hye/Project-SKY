@@ -6,7 +6,7 @@ import org.zerock.domain.JoinTeacherVO;
 
 public interface JoinTeacherService {
 	
-	public void register(JoinTeacherVO join);
+	public void join(JoinTeacherVO join);
 	
 	public JoinTeacherVO get(String userId);
 	

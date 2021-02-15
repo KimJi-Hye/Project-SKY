@@ -17,11 +17,11 @@
 	</insert>
 	
 	<!-- read -->
-	<select id="read" resultType="org.zerock.domain.JoinTeacherVO">
-		select p.userid, p.atgrade, p.username, p.userpw, p.userphone, p.useraddr, p.useremail, p.usertype, c.cunicode, c.classname, c.cname, c.cbirth
+	<select id="read" resultType="org.zerock.domain.JoinParentsVO">
+		select p.userid, p.atgrade, p.username, p.userpw, p.userphone, p.useraddr, p.useremail, p.usertype, p.cunicode, c.classname, c.cname, c.cbirth
 		from tb_parents p, tb_child c
-		where p.cUnicode = c.cUnicode
-		and p.userId = #{userId}
+		where p.userId = #{userId}
+		and p.cUnicode = c.cUnicode
 	</select>
 	
 	<!-- update -->

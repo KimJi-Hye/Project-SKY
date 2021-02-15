@@ -22,32 +22,43 @@ public class ApplyBoardServiceTests {
 	@Setter(onMethod_ = {@Autowired })
 	private ApplyBoardService service;
 	
-//	@Test
-//	public void testExist() {
-//		
-//		log.info(service);
-//		assertNotNull(service);
-//	}
+	@Test
+	public void testExist() {
+		
+		log.info(service);
+		assertNotNull(service);
+	}
 	
 	
 //	@Test
 //	public void testRegister() {
-//		ApplyVO board = new ApplyVO();
-//		board.setClassName("테스트2");
-//		board.setClassAge(7L);
-//		board.setClassTotal(20L);
+//		ApplyBoardVO board = new ApplyBoardVO();
+//
+//		board.setAno("684514");
+//		board.setPName("test");
+//		board.setRelation("m");
+//		board.setPBirth("930915");
+//		board.setAddr("청주시 흥덕구 봉명1동");
+//		board.setPhone("010-9954-9840");
+//		
+//		board.setCName("test..");
+//		board.setCGender("girl");
+//		board.setCBirth("200202");
+//		board.setAppType("접수유형");
+//		board.setAppState("접수");
+//		board.setPw("비번12");
 //		
 //		service.register(board);
 //		
-//		log.info("생성된 게시물의 번호: " + board.getBno());
+//		log.info("생성된 게시물의 번호: " + board.getAno());
 //	}
-	
-	
-//	@Test
-//	public void testGetList() {
-//		
-//		service.getList().forEach(board -> log.info(board));
-//	}
+//	
+//	
+	@Test
+	public void testGetList() {
+		
+		service.getList().forEach(board -> log.info(board));
+	}
 //	
 //	
 //	@Test
@@ -76,7 +87,7 @@ public class ApplyBoardServiceTests {
 //			return;
 //		}
 //		
-//		board.setPname("테스트");
+//		board.setPName("테스트");
 //		log.info("MODIFY RESULT: " + service.modify(board));
 //	}
 	

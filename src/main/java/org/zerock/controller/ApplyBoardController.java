@@ -59,11 +59,20 @@ public class ApplyBoardController {
 	}
 
 	@PostMapping("/applyRemove")
-	public String remove(@RequestParam("ano") Long bno, RedirectAttributes rttr) {
-		log.info("applyRemove... " + bno);
-		if (service.remove(bno)) {
+	public String remove(@RequestParam("ano") Long ano, RedirectAttributes rttr) {
+		log.info("applyRemove... " + ano);
+		if (service.remove(ano)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/applyList";
 	}
+	
+	@PostMapping("/applyUpdate")
+	public String update(ApplyBoardVO board, RedirectAttributes rttr) {
+		log.info("applyUpdate:" + board);
+		if (service.update(board)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/board/applyList";
+	}	
 }

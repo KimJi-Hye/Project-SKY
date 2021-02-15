@@ -23,71 +23,71 @@ public class ApplyBoardMapperTests {
 	
 	
 	
-//	@Test
-//	public void testGetList() {
-//		
-//		mapper.getList().forEach(board -> log.info(board));
-//	}
-	
-	
-	
 	@Test
-	public void testInsert() {
+	public void testGetList() {
 		
-		ApplyBoardVO board = new ApplyBoardVO();
-		
-		board.setAno("994804");
-		board.setPname("test");
-		board.setRelation("m");
-		board.setPbirth("930915");
-		board.setAddr("청주시 흥덕구 봉명1동");
-		board.setPhone("010-9954-9840");
-		
-		board.setCname("test..");
-		board.setCgender("girl");
-		board.setCbirth("200202");
-		board.setApptype("접수유형");
-		board.setAppstate("접수");
-		board.setPw("비번12");
-		
-		mapper.insert(board);
-		
-		log.info(board);
+		mapper.getList().forEach(board -> log.info(board));
 	}
 	
 	
 	
-	
+//	@Test
+//	public void testInsert() {
+//		
+//		ApplyBoardVO board = new ApplyBoardVO();
+//		
+//		board.setAno("994804");
+//		board.setPName("test");
+//		board.setRelation("m");
+//		board.setPBirth("930915");
+//		board.setAddr("청주시 흥덕구 봉명1동");
+//		board.setPhone("010-9954-9840");
+//		
+//		board.setCName("test..");
+//		board.setCGender("girl");
+//		board.setCBirth("200202");
+//		board.setAppType("접수유형");
+//		board.setAppState("접수");
+//		board.setPw("비번12");
+//		
+//		mapper.insert(board);
+//		
+//		log.info(board);
+//	}
+//	
+//	
+//	
+//	
 //	@Test
 //	public void testInsertSelectKey() {
 //		
-//		ApplyVO board = new ApplyVO();
-//		board.setPname("우주반");
+//		ApplyBoardVO board = new ApplyBoardVO();
+//		board.setPName("우주반");
 //		board.setRelation("");
-//		board.setPbirth("");
+//		board.setPBirth("");
 //		
 //		mapper.insertSelectKey(board);;
 //		
 //		log.info(board);
 //	}
-	
-	
-	
+//	
+//	
+//	
 //	@Test
 //	public void testRead() {
 //		
 //		// 존재하는 게시물 번호로 테스트
-//		ApplyVO board = mapper.read(1L);
+//		ApplyBoardVO board = mapper.read(1L);
 //		
 //		log.info(board);
 //	}
-
-	
-	
+//
+//	
+//	
 //	@Test
 //	public void testDelete() {
 //		
-//		ApplyVO board = new ApplyVO();
+//		ApplyBoardVO board = new ApplyBoardVO();
 //		
 //		board.setAno("994804");
 //		board.setPw("비번12");
@@ -95,38 +95,38 @@ public class ApplyBoardMapperTests {
 //		mapper.delete(board);
 //		log.info("DELETE COUNT: " + board);
 //	}
-	
+//	
 //	@Test
 //	public void testUpdate() {
 //		
-//		ApplyVO board = new ApplyVO();
+//		ApplyBoardVO board = new ApplyBoardVO();
 //
 //		board.setAno("351804");
-//		board.setPname("김지혜");
+//		board.setPName("김지혜");
 //		board.setRelation("w");
-//		board.setPbirth("950517");
+//		board.setPBirth("950517");
 //		board.setAddr("청주시 흥덕구 봉명4동");
 //		board.setPhone("010-4857-5080");
 //		
-//		board.setCname("김..");
-//		board.setCgender("girl");
-//		board.setCbirth("200552");
-//		board.setApptype("접수유형");
-//		board.setAppstate("접수");
+//		board.setCName("김..");
+//		board.setCGender("girl");
+//		board.setCBirth("200552");
+//		board.setAppType("접수유형");
+//		board.setAppState("접수");
 //		board.setPw("븨번123");
 //
 //		int count = mapper.update(board);
 //		log.info("UPDATE COUNT: " + count);
 //	}
-	
+//	
 //	@Test
 //	public void testcUpdate() {
 //		
-//		ApplyVO board = new ApplyVO();
+//		ApplyBoardVO board = new ApplyBoardVO();
 //		
 //		board.setAno("630192");
-//		board.setCunicode("2102100517");
-//		board.setCclass("개나리반");
+//		board.setCUnicode("2102100517");
+//		board.setCClass("개나리반");
 //		board.setEnter("210210");
 //		board.setGraduation("220302");
 //		board.setPw("아니뭐123");
