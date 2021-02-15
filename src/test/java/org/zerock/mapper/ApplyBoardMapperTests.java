@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.ClassApplyVO;
+import org.zerock.domain.ApplyBoardVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -16,44 +16,44 @@ import lombok.extern.log4j.Log4j;
 //Java Config
 //@ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
 @Log4j
-public class ClassApplyMapperTests {
+public class ApplyBoardMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
-	private ClassApplyMapper mapper;
-	
-	
-	
-	@Test
-	public void testGetList() {
-		
-		mapper.getList().forEach(board -> log.info(board));
-	}
+	private ApplyBoardMapper mapper;
 	
 	
 	
 //	@Test
-//	public void testInsert() {
+//	public void testGetList() {
 //		
-//		ClassApplyVO board = new ClassApplyVO();
-//		
-//		board.setAno("994804");
-//		board.setPname("test");
-//		board.setRelation("m");
-//		board.setPbirth("930915");
-//		board.setAddr("청주시 흥덕구 봉명1동");
-//		board.setPhone("010-9954-9840");
-//		
-//		board.setCname("test..");
-//		board.setCgender("girl");
-//		board.setCbirth("200202");
-//		board.setApptype("접수유형");
-//		board.setAppstate("접수");
-//		board.setPw("비번12");
-//		
-//		mapper.insert(board);
-//		
-//		log.info(board);
+//		mapper.getList().forEach(board -> log.info(board));
 //	}
+	
+	
+	
+	@Test
+	public void testInsert() {
+		
+		ApplyBoardVO board = new ApplyBoardVO();
+		
+		board.setAno("994804");
+		board.setPname("test");
+		board.setRelation("m");
+		board.setPbirth("930915");
+		board.setAddr("청주시 흥덕구 봉명1동");
+		board.setPhone("010-9954-9840");
+		
+		board.setCname("test..");
+		board.setCgender("girl");
+		board.setCbirth("200202");
+		board.setApptype("접수유형");
+		board.setAppstate("접수");
+		board.setPw("비번12");
+		
+		mapper.insert(board);
+		
+		log.info(board);
+	}
 	
 	
 	
@@ -61,7 +61,7 @@ public class ClassApplyMapperTests {
 //	@Test
 //	public void testInsertSelectKey() {
 //		
-//		ClassApplyVO board = new ClassApplyVO();
+//		ApplyVO board = new ApplyVO();
 //		board.setPname("우주반");
 //		board.setRelation("");
 //		board.setPbirth("");
@@ -77,7 +77,7 @@ public class ClassApplyMapperTests {
 //	public void testRead() {
 //		
 //		// 존재하는 게시물 번호로 테스트
-//		ClassBoardVO board = mapper.read(1L);
+//		ApplyVO board = mapper.read(1L);
 //		
 //		log.info(board);
 //	}
@@ -87,7 +87,7 @@ public class ClassApplyMapperTests {
 //	@Test
 //	public void testDelete() {
 //		
-//		ClassApplyVO board = new ClassApplyVO();
+//		ApplyVO board = new ApplyVO();
 //		
 //		board.setAno("994804");
 //		board.setPw("비번12");
@@ -99,7 +99,7 @@ public class ClassApplyMapperTests {
 //	@Test
 //	public void testUpdate() {
 //		
-//		ClassApplyVO board = new ClassApplyVO();
+//		ApplyVO board = new ApplyVO();
 //
 //		board.setAno("351804");
 //		board.setPname("김지혜");
@@ -122,7 +122,7 @@ public class ClassApplyMapperTests {
 //	@Test
 //	public void testcUpdate() {
 //		
-//		ClassApplyVO board = new ClassApplyVO();
+//		ApplyVO board = new ApplyVO();
 //		
 //		board.setAno("630192");
 //		board.setCunicode("2102100517");
