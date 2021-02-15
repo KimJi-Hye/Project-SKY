@@ -6,9 +6,7 @@
 
 	<!-- 선생님 전체 조회 -->
 	<select id="getList" resultType="org.zerock.domain.JoinTeacherVO">
-		<![CDATA[
-			select * from tb_teacher
-		]]>
+		select * from tb_teacher
 	</select>
 	
 	<!-- insert -->
@@ -19,7 +17,7 @@
 	
 	<!-- read -->
 	<select id="read" resultType="org.zerock.domain.JoinTeacherVO">
-		select * from tb_teacher where username = #{userName}
+		select * from tb_teacher where userid = #{userId}
 	</select>
 	
 	<!-- update -->

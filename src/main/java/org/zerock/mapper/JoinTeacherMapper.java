@@ -10,10 +10,10 @@ public interface JoinTeacherMapper {
 	
 	public void insert(JoinTeacherVO board);
 	
-	public JoinTeacherVO read(String username);
+	public JoinTeacherVO read(String userId);
 	
 	public int update(JoinTeacherVO board);
 	
-	public int delete(JoinTeacherVO board);
+	public int delete(String userId);
 	
 }
