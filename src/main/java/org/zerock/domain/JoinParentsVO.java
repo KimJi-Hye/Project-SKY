@@ -5,15 +5,20 @@ import lombok.Data;
 @Data
 public class JoinParentsVO {
 	
-	// 테스트 xx
+	// 학부모
 	private String userId;
-	private String userPw;
 	private char atGrade;
-	private String cUnicode;
 	private String userName;
+	private String userPw;
 	private String userPhone;
-	private String addr;
+	private String userAddr;
 	private String userEmail;
 	private char userType;
+	
+	// 아동
+	private String cUnicode;
+	private String className;
+	private String cName;
+	private String cBirth;
 	
 }

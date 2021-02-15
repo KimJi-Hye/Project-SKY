@@ -2,53 +2,42 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<%-- <%@include file="../includes/header.jsp"%> --%>
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>Class List Page</h1>
-</body>
-</html>
-
-
-
-
-<!-- /.row -->
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">Class List Page
-			<button id='regBtn' type="button" class="btn btn-xs pull-right">신규반등록</button>
+			<button id='regBtn' type="button" class="btn btn-xs pull-right">접수</button>
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>#번호</th>
-							<th>반이름</th>
-							<th>연령</th>
-							<th>정원</th>
+							<th>#접수번호</th>
+							<th>학부모이름</th>
+							<th>접수유형</th>
+							<th>접수상태</th>
+							<th>접수일</th>
 						</tr>
 					</thead>
 
-					<c:forEach items="${classList}" var="board">
+					<c:forEach items="${applyList}" var="board">
 						<tr>
-							<td><c:out value="${board.bno}" /></td>
-							<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'>
-							<c:out value="${board.className}" /></a></td>
-							<td><c:out value="${board.classAge}" /></td>
-							<td><c:out value="${board.classTotal}" /></td>
+							<td><c:out value="${board.ano}" /></td>
+							<td><a href='/board/applyGet?ano=<c:out value="${board.ano}"/>'>
+							<c:out value="${board.pname}" /></a></td>
+							<td><c:out value="${board.apptype}" /></td>
+							<td><c:out value="${board.appstate}" /></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td>
 						</tr>
 					</c:forEach>
-
 				</table>
 
 <!-- 				Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+<!-- 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -65,10 +54,10 @@
 									changes</button>
 							</div>
 						</div>
-<!-- 						/.modal-content -->
+						/.modal-content
 					</div>
-<!-- 					/.modal-dialog -->
-				</div>
+					/.modal-dialog
+				</div> -->
 <!-- 				/.modal -->
 
 			</div>
@@ -78,26 +67,33 @@
 	</div>
 <!-- 	/.col-lg-6 -->
 </div>
-<!-- /.row -->
 
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-	
-	var result = '<c:out value="${result}"/>';
-	
-	checkModal(result);
-	
-	
-	function checkModal(result) {
-		if(result === '') {
-			return;
-		}
-		if(parseInt(result) > 0) {
-			$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
-		}
-		$("#myModal").modal("show");
-	}
+<script type="text/javascript">
+$(document).ready(function() {
 
+	$('#regBtn').click(function() {
+
+		$(location).attr('href','applyRegister.php');
+
+	});
 });
-</script> -->
+</script>
+
+
+<%-- <%@include file="../includes/footer.jsp"%> --%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

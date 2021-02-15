@@ -39,7 +39,7 @@ public class ClassBoardControllerTests {
 //	public void testList() throws Exception {
 //
 //		log.info(
-//				mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/classList"))
 //				.andReturn()
 //				.getModelAndView()
 //				.getModel());
@@ -47,7 +47,7 @@ public class ClassBoardControllerTests {
 	
 //	@Test
 //	public void testRegister() throws Exception {
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/register")
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/classRegister")
 //				.param("className", "반이름")
 //				.param("classAge", "7")
 //				.param("classTotal", "20")
@@ -58,8 +58,8 @@ public class ClassBoardControllerTests {
 //	@Test
 //	public void testGet() throws Exception {
 //		log.info(mockMvc.perform(MockMvcRequestBuilders
-//				.get("/board/get")
-//				.param("bno", "22"))
+//				.get("/board/classGet")
+//				.param("bno", "23"))
 //				.andReturn()
 //				.getModelAndView().getModelMap());
 //	}
@@ -67,9 +67,9 @@ public class ClassBoardControllerTests {
 //	@Test
 //	public void testModify() throws Exception {
 //		String resultPage = mockMvc
-//				.perform(MockMvcRequestBuilders.post("/board/modify")
-//				.param("bno", "22")
-//				.param("className", "반이름")
+//				.perform(MockMvcRequestBuilders.post("/board/classModify")
+//				.param("bno", "33")
+//				.param("className", "test")
 //				.param("classAge", "6")
 //				.param("classTotal", "10"))
 //				.andReturn().getModelAndView().getViewName();
@@ -77,14 +77,14 @@ public class ClassBoardControllerTests {
 //						
 //	}
 	
-	@Test
-	public void testRemove()throws Exception {
-		// 삭제전 데이터베이스에 게시물 번호 확인할 것
-		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
-				.param("bno", "22")
-				).andReturn().getModelAndView().getViewName();
-		log.info(resultPage);
-	}
+//	@Test
+//	public void testRemove()throws Exception {
+//		// 삭제전 데이터베이스에 게시물 번호 확인할 것
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/classRemove")
+//				.param("bno", "33")
+//				).andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//	}
 
 
 
