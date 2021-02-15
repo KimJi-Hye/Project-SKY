@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.zerock.mapper.ClassBoardMapper">
+<mapper namespace="org.zerock.mapper.ClassNoteMapper">
 
-<select id="getList" resultType="org.zerock.domain.ClassBoardVO">
+<select id="getList" resultType="org.zerock.domain.ClassNoteVO">
 	<![CDATA[
-		select * from tb_class where bno > 0
+		select * from tb_note board where bno > 0
 	]]>
 </select>
 
@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 
- 	<select id="read" resultType="org.zerock.domain.ClassBoardVO">
+ 	<select id="read" resultType="org.zerock.domain.ClassMngVO">
 		select * from tb_class where bno = #{bno}
 	</select>
 	
