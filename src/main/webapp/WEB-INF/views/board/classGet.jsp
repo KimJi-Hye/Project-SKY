@@ -34,8 +34,8 @@
 				value='<c:out value="${board.classTotal }"/>' readonly="readonly">
 				</div>
 				
-				<button data-oper='modify' class="btn btn-default">Modify</button>
-				<button data-oper='list' class="btn btn-info">List</button>
+				<button data-oper='modify' class="btn btn-default" onclick="location.href='/board/classModify?bno=<c:out value="${board.bno }"/>'" }>수정</button>
+				<button data-oper='list' class="btn btn-info" onclick="location.href='/board/classList'">목록</button>
 				
                 <form id='operForm' action="/board/classModify" method="get">
 				<input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
@@ -51,7 +51,7 @@
 	<!-- /.col-lg-6 -->
 </div>
 <!-- /.row -->
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
 	var operForm = $("#operForm");
 $("button[data-oper='modify']").on("click", function(e){

@@ -14,14 +14,14 @@
 </html>
 
 
-
+				
 
 <!-- /.row -->
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">Class List Page
-			<button id='regBtn' type="button" class="btn btn-xs pull-right">신규반등록</button>
+			<button data-oper='submit' class="btn btn-info" onclick="location.href='/board/classRegister'">반등록</button>
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -80,8 +80,11 @@
 </div>
 <!-- /.row -->
 
-<!-- <script type="text/javascript">
-$(document).ready(function(){
+<script>
+$("#regBtn").on("click", function() {
+	self.location ="/board/classRegister";
+});
+ $(document).ready(function(){
 	
 	var result = '<c:out value="${result}"/>';
 	
@@ -99,5 +102,5 @@ $(document).ready(function(){
 	}
 
 });
-</script> -->
+</script>
 

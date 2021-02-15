@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.ClassBoardVO;
+import org.zerock.domain.ClassMngVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -17,10 +17,10 @@ import lombok.extern.log4j.Log4j;
 //Java Config
 //@Contextconfiguration(classes = {org.zerock.config.RootConfig.class})
 @Log4j
-public class ClassBoardServiceTests {
+public class ClassMngServiceTests {
 
 	@Setter(onMethod_ = {@Autowired })
-	private ClassBoardService service;
+	private ClassMngService service;
 	
 	@Test
 	public void testExist() {

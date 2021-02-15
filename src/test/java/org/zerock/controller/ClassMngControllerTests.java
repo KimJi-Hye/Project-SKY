@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j;
 })
 
 @Log4j
-public class ClassBoardControllerTests {
+public class ClassMngControllerTests {
 	@Setter(onMethod_ = {@Autowired} )
 	private WebApplicationContext ctx;
 

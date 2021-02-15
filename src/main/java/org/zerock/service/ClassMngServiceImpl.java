@@ -3,8 +3,8 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.zerock.domain.ClassBoardVO;
-import org.zerock.mapper.ClassBoardMapper;
+import org.zerock.domain.ClassMngVO;
+import org.zerock.mapper.ClassMngMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -12,13 +12,13 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class ClassBoardServiceImpl implements ClassBoardService{
+public class ClassMngServiceImpl implements ClassMngService{
 
 	//spring 4.3 이상에서 자동 처리
-	private ClassBoardMapper mapper;
+	private ClassMngMapper mapper;
 	
 	@Override
-	public void register(ClassBoardVO board) {
+	public void register(ClassMngVO board) {
 	
 		log.info("register......" + board);
 		
@@ -26,7 +26,7 @@ public class ClassBoardServiceImpl implements ClassBoardService{
 	}
 	
 	@Override
-	public List<ClassBoardVO> getList() {
+	public List<ClassMngVO> getList() {
 
 		log.info("getList.........");
 		
@@ -34,7 +34,7 @@ public class ClassBoardServiceImpl implements ClassBoardService{
 	}
 
 	@Override
-	public ClassBoardVO get(Long bno) {
+	public ClassMngVO get(Long bno) {
 
 		log.info("get......" + bno);
 		
@@ -42,7 +42,7 @@ public class ClassBoardServiceImpl implements ClassBoardService{
 	}
 
 	@Override
-	public boolean modify(ClassBoardVO board) {
+	public boolean modify(ClassMngVO board) {
 
 		log.info("modify......" + board);
 		

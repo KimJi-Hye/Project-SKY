@@ -4,7 +4,7 @@ package org.zerock.domain;
 import lombok.Data;
 
 @Data
-public class ClassBoardVO {
+public class ClassMngVO {
 	
 	private Long bno;
 	private String className;

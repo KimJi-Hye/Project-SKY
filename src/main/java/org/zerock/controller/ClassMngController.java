@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.domain.ClassBoardVO;
-import org.zerock.service.ClassBoardService;
+import org.zerock.domain.ClassMngVO;
+import org.zerock.service.ClassMngService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -17,9 +17,9 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/board/*")
 @AllArgsConstructor
-public class ClassBoardController {
+public class ClassMngController {
 
-	private ClassBoardService service;
+	private ClassMngService service;
 
 	@GetMapping("/classList")
 
@@ -35,7 +35,7 @@ public class ClassBoardController {
 	}
  
 	@PostMapping("/classRegister")
-	public String register(ClassBoardVO board, RedirectAttributes rttr) {
+	public String register(ClassMngVO board, RedirectAttributes rttr) {
 
 		log.info("classRegister: " + board);
 		service.register(board);
@@ -50,7 +50,7 @@ public class ClassBoardController {
 	}
 
 	@PostMapping("/classModify")
-	public String modify(ClassBoardVO board, RedirectAttributes rttr) {
+	public String modify(ClassMngVO board, RedirectAttributes rttr) {
 		log.info("classModify:" + board);
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");

@@ -40,7 +40,8 @@
 				</div>
 				
 				<button type="submit" class="btn btn-default">등록</button>
-<!-- 				<button type="reset" class="btn btn-default">Reset Button</button> -->
+				<button type="button" onclick="location.href='/board/classList'">목록</button>
+
 			</form>
 			
 			

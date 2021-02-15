@@ -3,7 +3,7 @@ package org.zerock.mapper;
 import java.util.List;
 
 import org.zerock.domain.ClassApplyVO;
-import org.zerock.domain.ClassBoardVO;
+import org.zerock.domain.ClassMngVO;
 
 public interface ClassApplyMapper {
 
