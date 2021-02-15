@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.ApplyBoardVO;
-import org.zerock.domain.ClassBoardVO;
 import org.zerock.service.ApplyBoardService;
 
 import lombok.AllArgsConstructor;
