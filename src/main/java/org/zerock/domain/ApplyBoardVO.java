@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 @Data
-public class ClassApplyVO {
+public class ApplyBoardVO {
 
 	private String ano;
 	private String pname;

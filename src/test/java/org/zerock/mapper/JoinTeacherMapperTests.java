@@ -45,7 +45,7 @@ public class JoinTeacherMapperTests {
 	// read
 //	@Test
 //	public void testRead() {
-//		JoinTeacherVO read = mapper.read("박선생");
+//		JoinTeacherVO read = mapper.read("testid3");
 //		log.info(read);
 //	}
 	
@@ -69,11 +69,7 @@ public class JoinTeacherMapperTests {
 	// delete
 //	@Test
 //	public void testDelete() {
-//		JoinTeacherVO board = new JoinTeacherVO();
-//		board.setUserId("testid3");
-//		
-//		int count = mapper.delete(board);
-//		log.info("DELETE COUNT: " + count);
+//		log.info("DELETE COUNT: " + mapper.delete("testid3"));
 //	}
 	
 }
