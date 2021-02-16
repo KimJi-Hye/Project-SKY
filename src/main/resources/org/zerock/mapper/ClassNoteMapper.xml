@@ -19,6 +19,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 </select>
 
+
+
+<select id="getListWithPaging" resultType="org.zerock.domain.ClassNoteVO">
+
+	<![CDATA[
+     select
+       rn, bno, cunicode, classname, regdate, content, writer, title, cname
+    from
+       (
+		select /*+INDEX_DESC(tb_note pk_tb_note) */
+			rownum rn,A.bno
+			,A.cUnicode
+			,A.className
+			,A.regdate
+			,A.content
+			,A.writer
+			,A.title
+			,B.cName 
+		from
+          tb_note A,tb_child B
+		where rownum <= #{pageNum} * #{amount}
+	  )
+		where rn > (#{pageNum} -1) * #{amount}
+ 
+	]]>
+
+</select>
+
+<select id="getTotalCount" resultType="int">
+	select count(*) from tb_note where bno > 0
+</select>
+
  	<insert id="insert">
 		insert into tb_note (bno, className, cUnicode, title, content, writer)
 		values (seq_tb_note.nextval, #{className}, #{cUnicode}, #{title}, #{content}, #{writer})
@@ -59,7 +91,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    update tb_note
 	    set title= #{title},
 	    className=#{className},
-	    cUnicode=#{cUnicode},
+	    cName=#{cName},
 	    content = #{content},
 	    writer=#{writer},
 	    regdate=sysdate

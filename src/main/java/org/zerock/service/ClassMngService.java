@@ -12,6 +12,8 @@ public interface ClassMngService {
 	
 	public boolean modify(ClassMngVO board);
 	
+	public boolean update(ClassMngVO board);
+	
 	public boolean remove(Long bno);
 	
 	public List<ClassMngVO> getList();

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.ClassMngVO;
 import org.zerock.service.ClassMngService;
 
@@ -67,7 +68,14 @@ public class ClassMngController {
 		return "redirect:/board/classList";
 	}
 
-
+	@PostMapping("/classUpdate")
+	public String update(ClassMngVO board, RedirectAttributes rttr) {
+		log.info("classUpdate:" + board);
+		if (service.update(board)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/board/classList";
+	}	
 
 
 

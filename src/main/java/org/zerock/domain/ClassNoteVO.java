@@ -16,4 +16,5 @@ public class ClassNoteVO {
 	private String writer;
 	private Date regdate;
 	
+	
 }

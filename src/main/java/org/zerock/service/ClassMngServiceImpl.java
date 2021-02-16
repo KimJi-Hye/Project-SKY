@@ -56,4 +56,12 @@ public class ClassMngServiceImpl implements ClassMngService{
 		
 		return mapper.delete(bno) == 1;
 	}
+
+	@Override
+	public boolean update(ClassMngVO board) {
+		
+		log.info("update......" + board);
+		
+		return mapper.update(board) == 1;
+	}
 }
