@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				,#{addr}
 				,#{phone}
 				,sysdate
-				,#{cbame}
+				,#{cname}
 				,#{cgender}
 				,#{cbirth}
 				,#{apptype}
@@ -67,20 +67,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 </update>
 	 
 	 <update id="cupdate">
-	 	{
 		 	update tb_apply
 		 	set cunicode = #{cunicode}
 		 		,cclass = #{cclass}
 		 		,enter = to_date(#{enter})
 		 		,graduation = to_date(#{graduation})
-	 		where ano = #{ano};
-	 		<!-- and pw = #{pw} -->
-	 		
-	 		update tb_child
-	 		
-	 		insert into tb_child(cunicode, className, cname, cbirth)
-	 		values(#{cunicode}, #{cclass}, #{cname}, #{cbirth});
- 		}
+	 		where ano = #{ano}
+
 	 </update>
 	 
 	 
