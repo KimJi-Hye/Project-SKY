@@ -29,8 +29,8 @@ public class JoinParentsMapperTests {
 //	public void testInsert() {
 //		JoinParentsVO board = new JoinParentsVO();
 //		board.setUserId("pid4");
-//		board.setCUnicode("C210210004");
 //		board.setAtGrade('c');
+//		board.setCUnicode("C210210002");
 //		board.setUserName("나부모");
 //		board.setUserPw("1234");
 //		board.setUserPhone("010");
@@ -42,11 +42,11 @@ public class JoinParentsMapperTests {
 //	}
 	
 	// read
-//	@Test
-//	public void testRead() {
-//		JoinParentsVO read = mapper.read("나부모");
-//		log.info(read);
-//	}
+	@Test
+	public void testRead() {
+		JoinParentsVO read = mapper.read("pid4");
+		log.info(read);
+	}
 	
 	// update
 //	@Test

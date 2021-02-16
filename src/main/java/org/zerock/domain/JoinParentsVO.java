@@ -16,9 +16,9 @@ public class JoinParentsVO {
 	private char userType;
 	
 	// 아동
-	private String cUnicode;
-	private String className;
-	private String cName;
-	private String cBirth;
-	
+	private String cunicode;
+	private String classname;
+	private String cname;
+	private String cbirth;
+		
 }

@@ -22,7 +22,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">Note List Page
-			<button data-oper='submit' class="btn btn-info" onclick="location.href='/board/classNoteRegister'">알림장 등록</button>
+			<button data-oper='submit' class="btn btn-info" onclick="location.href='/board/noteRegister'">알림장 등록</button>
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
