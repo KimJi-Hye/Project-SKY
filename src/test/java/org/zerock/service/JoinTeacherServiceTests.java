@@ -70,9 +70,9 @@ public class JoinTeacherServiceTests {
 //	}
 	
 	// 회원 탈퇴
-//	@Test
-//	public void testDelete() {
-//		log.info("REMOVE RESULT : " + service.remove("teacher1"));
-//	}
+	@Test
+	public void testDelete() {
+		log.info("REMOVE RESULT : " + service.remove("teacher1"));
+	}
 	
 }
