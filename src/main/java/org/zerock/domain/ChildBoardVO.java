@@ -6,13 +6,16 @@ import lombok.Data;
 public class ChildBoardVO {
 	
 	//원아테이블
-	private String cUnicode;
-	private String cName;
-	private String cBirth;
+	private String cunicode;
+	private String cname;
+	private String cbirth;
+	private String enter;
+	private String graduation;
 	
 	//학부모 테이블
-	private String userName;
+	private String username;
 	
 	//반 테이블
-	private String className;
+	private String classname;
+
 }

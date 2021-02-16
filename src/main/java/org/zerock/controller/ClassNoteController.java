@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.service.ClassMngService;
 import org.zerock.service.ClassNoteService;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ import lombok.extern.log4j.Log4j;
 public class ClassNoteController {
 
 	private ClassNoteService service;
+	private ClassMngService mngService;
 
 	@GetMapping("/noteList")
 
@@ -30,9 +32,11 @@ public class ClassNoteController {
 	}
 	
 	@GetMapping("/noteRegister")
-	public void register() {
+	public void register(Model model) {
 		
+		model.addAttribute("mngList", mngService.getList());
 	}
+	
  
 	@PostMapping("/noteRegister")
 	public String register(ClassNoteVO board, RedirectAttributes rttr) {
