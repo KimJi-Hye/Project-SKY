@@ -41,7 +41,7 @@
 					<c:forEach items="${classList}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-							<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'>
+							<td><a href='/board/classGet?className=<c:out value="${board.className}"/>'>
 							<c:out value="${board.className}" /></a></td>
 							<td><c:out value="${board.classAge}" /></td>
 							<td><c:out value="${board.classTotal}" /></td>

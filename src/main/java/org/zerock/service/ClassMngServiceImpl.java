@@ -3,7 +3,9 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.zerock.domain.ChildBoardVO;
 import org.zerock.domain.ClassMngVO;
+import org.zerock.domain.JoinTeacherVO;
 import org.zerock.mapper.ClassMngMapper;
 
 import lombok.AllArgsConstructor;
@@ -34,11 +36,11 @@ public class ClassMngServiceImpl implements ClassMngService{
 	}
 
 	@Override
-	public ClassMngVO get(Long bno) {
+	public ClassMngVO get(String className) {
 
-		log.info("get......" + bno);
+		log.info("get......" + className);
 		
-		return mapper.read(bno);
+		return mapper.read(className);
 	}
 
 	@Override
@@ -63,5 +65,19 @@ public class ClassMngServiceImpl implements ClassMngService{
 		log.info("update......" + board);
 		
 		return mapper.update(board) == 1;
+	}
+
+	@Override
+	public ChildBoardVO getChild(String className) {
+		log.info("getchild......" + className);
+		
+		return mapper.readChild(className);
+	}
+
+	@Override
+	public JoinTeacherVO getTeacher(String className) {
+		log.info("getteacher......" + className);
+		
+		return mapper.readTeacher(className);
 	}
 }

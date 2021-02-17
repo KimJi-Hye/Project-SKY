@@ -35,15 +35,15 @@ public class ClassMngControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
-	@Test
-	public void testList() throws Exception {
-
-		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/classList"))
-				.andReturn()
-				.getModelAndView()
-				.getModel());
-	}
+//	@Test
+//	public void testList() throws Exception {
+//
+//		log.info(
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/classList"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModel());
+//	}
 	
 //	@Test
 //	public void testRegister() throws Exception {
@@ -55,14 +55,14 @@ public class ClassMngControllerTests {
 //		log.info(resultPage);
 //	}
 	
-//	@Test
-//	public void testGet() throws Exception {
-//		log.info(mockMvc.perform(MockMvcRequestBuilders
-//				.get("/board/classGet")
-//				.param("bno", "23"))
-//				.andReturn()
-//				.getModelAndView().getModelMap());
-//	}
+	@Test
+	public void testGet() throws Exception {
+		log.info(mockMvc.perform(MockMvcRequestBuilders
+				.get("/board/classGet")
+				.param("className", "하늘반"))
+				.andReturn()
+				.getModelAndView().getModelMap());
+	}
 	
 //	@Test
 //	public void testModify() throws Exception {

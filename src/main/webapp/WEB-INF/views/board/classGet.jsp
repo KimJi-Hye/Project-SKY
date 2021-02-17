@@ -20,7 +20,7 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 
-				<form id='operForm' action="/board/classModify" method="post">
+				<form id='operForm' action="/board/classGet" method="post">
 				
 				  <div class="form-group">
 	         		 <label>Bno</label>
@@ -43,7 +43,18 @@
 						<label>정원</label> <input class="form-control" name='classTotal'
 							value='<c:out value="${board.classTotal }"/>' readonly="readonly">
 					</div>
+					
+					<div class="form-group">
+						<ul>
+							<c:forEach items="${boardC}" var="boardC">
+							<li><c:out value="${boardC.cname }"/></li>	
+							</c:forEach>
+						</ul>
+					</div>
 
+				
+					
+					
 					<button data-oper='classModify' class="btn btn-default">수정</button>
 					<button data-oper='classList' class="btn btn-info">목록</button>
 
