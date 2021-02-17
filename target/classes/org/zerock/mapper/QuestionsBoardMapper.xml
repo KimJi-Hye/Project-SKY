@@ -2,51 +2,28 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.zerock.mapper.ApplyBoardMapper">
+<mapper namespace="org.zerock.mapper.QuestionsBoardMapper">
 
-<select id="getList" resultType="org.zerock.domain.ApplyBoardVO">
+<select id="getList" resultType="org.zerock.domain.QuestionsBoardVO">
 	<![CDATA[
-		select * from tb_apply where ano > 0
+		select * from tb_qna where ano > 0
 	]]>
 </select>
 
  	<insert id="insert">
-		insert into tb_apply (ano
-								,pname
-								,relation
-								,pbirth
-								,addr
-								,phone
-								,adddate
-								,cname
-								,cgender
-								,cbirth
-								,apptype
-								,appstate
-								,pw)
-		values (seq_tb_apply.nextval
-				,#{pname}
-				,#{relation}
-				,#{pbirth}
-				,#{addr}
-				,#{phone}
-				,sysdate
-				,#{cname}
-				,#{cgender}
-				,#{cbirth}
-				,#{apptype}
-				,'접수대기'
-				,#{pw})
+		insert into tb_apply (bno, 
+		values (seq_tb_apply.nextval,
+
 	</insert>
 
  	<select id="read" resultType="org.zerock.domain.ApplyBoardVO">
-		select * from tb_apply where ano = #{ano}
+		select * from tb_qna where bno = #{bno}
 	</select>
 	
 
 	<delete id="delete">
-		delete from tb_apply
-		where ano = #{ano}
+		delete from tb_qna
+		where bno = #{bno}
 		<!-- and pw = #{pw} -->
 	</delete>
 	

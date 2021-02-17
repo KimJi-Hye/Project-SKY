@@ -102,9 +102,49 @@
 
 				<button data-oper='applyModify' class="btn btn-default">수정</button>
 				<button data-oper='applyList' class="btn btn-info">돌아가기</button>
-				<button data-oper='applyRemove' class="btn btn-default">탈퇴하기</button>
-				<button data-oper='applyUpdate' class="btn btn-default">원아정보수정</button>
+				<button data-oper='applyRemove' class="btn btn-default">접수취소</button>
 
+				</form>
+				
+				<form id='operForm' action="/board/applyPass" method="post">
+				
+					<div class="form-group">
+						<input class="form-control" name='ano'
+							value='<c:out value="${board.ano}"/>' type='hidden'>
+					</div>
+					
+					<div class="form-group">
+						<input class="form-control" name='cname'
+							value='<c:out value="${board.cname}"/>' type='hidden'>
+					</div>
+				
+					<div class="form-group">
+						<input class="form-control" name='cbirth'
+							value='<c:out value="${board.cbirth}"/>' type='hidden'>
+					</div>
+				
+					<h1>관리자 승인용</h1>
+					<div class="form-group">
+						<label>아동고유번호</label> <input class="form-control" name='cunicode'>
+					</div>
+					
+	   				담당 반
+   				 	<select name="cclass">
+   						<option value="" selected>선택</option>
+   						<c:forEach items="${mngList}" var="boardMng">
+       						<option value="${boardMng.className}">${boardMng.className}</option>
+       					</c:forEach>
+					</select>
+					
+					<div class="form-group">
+						<label>입학일</label> <input class="form-control" name='enter'>
+					</div>
+					
+					<div class="form-group">
+						<label>졸업일</label> <input class="form-control" name='graduation'>
+					</div>
+					
+					<button data-oper='applyPass' class="btn btn-default">최종 승인</button>
 				</form>
 				
 			</div>
@@ -166,8 +206,8 @@ $(document).ready(function() {
 		operForm.attr("action", "/board/applyRemove").submit();
 	});
 	
-	$("button[data-oper='applyUpdate']").on("click", function(e){
-		operForm.attr("action", "/board/applyUpdate").submit();
+	$("button[data-oper='applyPass']").on("click", function(e){
+		operForm.attr("action", "/board/applyPass").submit();
 	});
 });
 </script>
