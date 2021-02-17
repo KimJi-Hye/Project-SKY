@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<%@include file="../includes/header.jsp"%>
 
 <html>
 <head>
@@ -21,7 +24,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">Class List Page
-			<button data-oper='submit' class="btn btn-info" onclick="location.href='/board/classRegister'">반등록</button>
+			<button id='regBtn' type="button" class="btn btn-xs pull-right">등록</button>
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -38,7 +41,7 @@
 					<c:forEach items="${classList}" var="board">
 						<tr>
 							<td><c:out value="${board.bno}" /></td>
-							<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'>
+							<td><a href='/board/classGet?className=<c:out value="${board.className}"/>'>
 							<c:out value="${board.className}" /></a></td>
 							<td><c:out value="${board.classAge}" /></td>
 							<td><c:out value="${board.classTotal}" /></td>
@@ -47,29 +50,6 @@
 
 				</table>
 
-<!-- 				Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;</button>
-								<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-							</div>
-							<div class="modal-body">신규반 등록이 완료되었습니다.</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save
-									changes</button>
-							</div>
-						</div>
-<!-- 						/.modal-content -->
-					</div>
-<!-- 					/.modal-dialog -->
-				</div>
-<!-- 				/.modal -->
 
 			</div>
 <!-- 			/.panel-body -->
@@ -80,27 +60,15 @@
 </div>
 <!-- /.row -->
 
-<script>
-$("#regBtn").on("click", function() {
-	self.location ="/board/classRegister";
-});
- $(document).ready(function(){
-	
-	var result = '<c:out value="${result}"/>';
-	
-	checkModal(result);
-	
-	
-	function checkModal(result) {
-		if(result === '') {
-			return;
-		}
-		if(parseInt(result) > 0) {
-			$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
-		}
-		$("#myModal").modal("show");
-	}
+<script type="text/javascript">
+$(document).ready(function() {
 
+	$('#regBtn').click(function() {
+
+		$(location).attr('href','classRegister');
+
+	});
 });
 </script>
 
+<%@include file="../includes/footer.jsp"%>

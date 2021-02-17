@@ -2,7 +2,9 @@ package org.zerock.mapper;
 
 import java.util.List;
 
+import org.zerock.domain.ChildBoardVO;
 import org.zerock.domain.ClassMngVO;
+import org.zerock.domain.JoinTeacherVO;
 
 public interface ClassMngMapper {
 
@@ -13,7 +15,11 @@ public interface ClassMngMapper {
 	
 	public void insertSelectKey(ClassMngVO board);
 		
-	public ClassMngVO read(Long bno);
+	public ClassMngVO read(String className);
+	
+	public ChildBoardVO readChild (String className);
+	
+	public JoinTeacherVO readTeacher (String className);
 	
 	public int delete(Long bno);
 	

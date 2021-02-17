@@ -10,6 +10,7 @@ public class ClassMngVO {
 	private String className;
 	private Long classAge;
 	private Long classTotal;
+	
 
 
 }

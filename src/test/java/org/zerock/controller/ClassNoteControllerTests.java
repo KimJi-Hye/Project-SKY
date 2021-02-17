@@ -35,16 +35,25 @@ public class ClassNoteControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
-	@Test
-	public void testList() throws Exception {
-
-		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/noteList"))
-				.andReturn()
-				.getModelAndView()
-				.getModel());
-	}
+//	@Test
+//	public void testList() throws Exception {
+//
+//		log.info(
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/noteList"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModel());
+//	}
 	
+//	@Test
+//	public void testListPaging() throws Exception {
+//
+//		log.info(
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/noteList")
+//				.param("pageNum", "1")
+//				.param("amount", "10"))
+//				.andReturn().getModelAndView().getModelMap());
+//	}
 	
 //	@Test
 //	public void testRegister() throws Exception {
@@ -67,20 +76,20 @@ public class ClassNoteControllerTests {
 //				.getModelAndView().getModelMap());
 //	}
 	
-//	@Test
-//	public void testModify() throws Exception {
-//		String resultPage = mockMvc
-//				.perform(MockMvcRequestBuilders.post("/board/noteModify")
-//				.param("bno", "8")
-//				.param("className", "하늘반")
-//				.param("cUnicode", "C210210001")
-//				.param("Title", "제목10")
-//				.param("Content", "내용10")
-//				.param("Writer", "작성자10"))
-//				.andReturn().getModelAndView().getViewName();
-//		log.info(resultPage);
-//						
-//	}
+	@Test
+	public void testModify() throws Exception {
+		String resultPage = mockMvc
+				.perform(MockMvcRequestBuilders.post("/board/noteModify")
+				.param("bno", "4241")
+				.param("className", "하늘반")
+				.param("cUnicode", "C210210001")
+				.param("Title", "제목10")
+				.param("Content", "내용10")
+				.param("Writer", "작성자10"))
+				.andReturn().getModelAndView().getViewName();
+		log.info(resultPage);
+						
+	}
 	
 //	@Test
 //	public void testRemove()throws Exception {

@@ -3,11 +3,15 @@ package org.zerock.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.domain.ClassMngVO;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
+import org.zerock.domain.NotePageDTO;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.ClassNoteService;
 
@@ -25,10 +29,18 @@ public class ClassNoteController {
 
 	@GetMapping("/noteList")
 
-	public void list(Model model) {
-		log.info("noteList");
+	public void list(Criteria cri,Model model) {
+		
+		log.info("noteList: " + cri);
 
-		model.addAttribute("noteList", service.getList());
+		model.addAttribute("noteList", service.getList(cri)); 
+		//model.addAttribute("pageMaker", new NotePageDTO(cri, 123));
+		
+		int total = service.getTotal(cri);
+		
+		log.info("total: " + total);
+		
+		model.addAttribute("pageMaker", new NotePageDTO(cri, total));
 	}
 	
 	@GetMapping("/noteRegister")
@@ -48,30 +60,46 @@ public class ClassNoteController {
 	}
 
 	@GetMapping({"/noteGet","/noteModify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/noteGet or noteModify");
 		model.addAttribute("board", service.get(bno));
 	}
 
 	@PostMapping("/noteModify")
-	public String modify(ClassNoteVO board, RedirectAttributes rttr) {
+	public String modify(ClassNoteVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("noteModify:" + board);
+		
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		
 		return "redirect:/board/noteList";
 	}
 
 	@PostMapping("/noteRemove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("noteRemove... " + bno);
 		if (service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		
 		return "redirect:/board/noteList";
 	}
 
-
+	@PostMapping("/noteUpdate")
+	public String update(ClassNoteVO board, RedirectAttributes rttr) {
+		log.info("noteUpdate:" + board);
+		if (service.update(board)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/board/noteUpdate";
+	}	
 
 
 
