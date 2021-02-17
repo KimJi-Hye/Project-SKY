@@ -2,6 +2,7 @@ package org.zerock.service;
 
 import java.util.List;
 
+import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.JoinParentsVO;
 
 public interface JoinParentsService {
@@ -9,6 +10,8 @@ public interface JoinParentsService {
 	public void join(JoinParentsVO join);
 	
 	public JoinParentsVO get(String userId);
+	
+	public ApplyBoardVO getParents(String cunicode);
 	
 	public boolean modify(JoinParentsVO join);
 	

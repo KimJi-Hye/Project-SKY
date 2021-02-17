@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.domain.ApplyBoardVO;
+import org.zerock.domain.ChildBoardVO;
 import org.zerock.domain.JoinParentsVO;
 import org.zerock.domain.JoinTeacherVO;
+import org.zerock.service.ApplyBoardService;
+import org.zerock.service.ChildBoardService;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.JoinParentsService;
 import org.zerock.service.JoinTeacherService;
@@ -33,11 +37,6 @@ public class JoinTeacherController {
 	@GetMapping("/list")
 	public void list(Model model) {
 		log.info("list");
-//		if(userType == 'T') {
-//			model.addAttribute("Tlist", serviceT.getList());
-//		} else if(userType == 'P') {
-//			model.addAttribute("Plist", serviceP.getList());
-//		}
 		model.addAttribute("Tlist", serviceT.getList());
 		model.addAttribute("Plist", serviceP.getList());
 	}
@@ -46,21 +45,16 @@ public class JoinTeacherController {
 	@GetMapping("/joinType")
 	public void joinType() {}
 	@PostMapping("/joinType")
-	public String joinType(String joinPage, RedirectAttributes rttr) {
+	public String joinType(ApplyBoardVO apply, String joinPage, RedirectAttributes rttr) {
+		
 		log.info("joinType: " + joinPage);
+		
 		rttr.addFlashAttribute("result", joinPage);
+		
+		// 부모 회원가입 시에만
+		rttr.addFlashAttribute("apply", apply.getCunicode());
+		
 		return "redirect:/member/join" + joinPage;
-	}
-
-	// http://localhost:8080/member/join
-	@GetMapping("/join")
-	public void join() {}
-	@PostMapping("/join")
-	public String join(JoinTeacherVO join, RedirectAttributes rttr) {
-		log.info("TeacherJoin: " + join);
-		serviceT.join(join);
-		rttr.addFlashAttribute("result", join.getUserId());
-		return "redirect:/member/joinSuccess";
 	}
 
 	// http://localhost:8080/member/jointeacher
@@ -70,7 +64,7 @@ public class JoinTeacherController {
 	}
 	@PostMapping("/jointeacher")
 	public String jointeacher(JoinTeacherVO join, RedirectAttributes rttr) {
-		log.info("join: " + join);
+		log.info("teacher join: " + join);
 		serviceT.join(join);
 		rttr.addFlashAttribute("result", join.getUserId());
 		return "redirect:/member/joinSuccess";
@@ -78,14 +72,22 @@ public class JoinTeacherController {
 	
 	// http://localhost:8080/member/joinparents
 	@GetMapping("/joinparents")
-	public void joinparents() {}
+	public void joinparents() {
+	}
 	@PostMapping("/joinparents")
 	public String joinparents(JoinParentsVO join, RedirectAttributes rttr) {
-		log.info("join: " + join);
+		log.info("parents join: " + join);
 		serviceP.join(join);
 		rttr.addFlashAttribute("result", join.getUserId());
 		return "redirect:/member/joinSuccess";
 	}
+//	@PostMapping("/joinparents")
+//	public String joinparents(JoinParentsVO join, RedirectAttributes rttr) {
+//		log.info("join: " + join);
+//		serviceP.join(join);
+//		rttr.addFlashAttribute("result", join.getUserId());
+//		return "redirect:/member/joinSuccess";
+//	}
 	
 	// http://localhost:8080/member/joinSuccess
 	@GetMapping("/joinSuccess")
