@@ -3,6 +3,7 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.JoinParentsVO;
 import org.zerock.mapper.JoinParentsMapper;
 
@@ -28,6 +29,13 @@ public class JoinParentsServiceImpl implements JoinParentsService {
 	public JoinParentsVO get(String userId) {
 		log.info("get........" + userId);
 		return mapper.read(userId);
+	}
+	
+	// 원아접수 조회
+	@Override
+	public ApplyBoardVO getParents(String cunicode) {
+		log.info("get Parents......" + cunicode);
+		return mapper.readParents(cunicode);
 	}
 
 	// 수정

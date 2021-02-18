@@ -9,7 +9,7 @@
     <div>
     	<h2>회원가입</h2>
     	
-    	<form role="form" action="/member/join" method="post">
+    	<form role="form" action="/member/jointeacher" method="post">
 	    	<div>
 			   	<div>
 			   		<h3>교직원 정보 입력 (필수)</h3>

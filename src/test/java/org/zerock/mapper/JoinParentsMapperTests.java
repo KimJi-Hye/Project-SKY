@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.JoinParentsVO;
 
 import lombok.Setter;
@@ -19,10 +20,10 @@ public class JoinParentsMapperTests {
 	private JoinParentsMapper mapper;
 	
 	// 부모 리스트
-	@Test
-	public void testGetList() {
-		mapper.getList().forEach(list -> log.info(list));
-	}
+//	@Test
+//	public void testGetList() {
+//		mapper.getList().forEach(list -> log.info(list));
+//	}
 	
 	// insert
 //	@Test
@@ -30,7 +31,7 @@ public class JoinParentsMapperTests {
 //		JoinParentsVO board = new JoinParentsVO();
 //		board.setUserId("pid4");
 //		board.setAtGrade('c');
-//		board.setCUnicode("C210210002");
+//		board.setCunicode("C210210002");
 //		board.setUserName("나부모");
 //		board.setUserPw("1234");
 //		board.setUserPhone("010");
@@ -42,9 +43,16 @@ public class JoinParentsMapperTests {
 //	}
 	
 	// read
+//	@Test
+//	public void testRead() {
+//		JoinParentsVO read = mapper.read("pid4");
+//		log.info(read);
+//	}
+	
+	// read apply
 	@Test
-	public void testRead() {
-		JoinParentsVO read = mapper.read("pid4");
+	public void testReadParents() {
+		ApplyBoardVO read = mapper.readParents("C210210002");
 		log.info(read);
 	}
 	
