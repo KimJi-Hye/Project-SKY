@@ -36,11 +36,25 @@ public class ClassMngServiceImpl implements ClassMngService{
 	}
 
 	@Override
-	public ClassMngVO get(String className) {
+	public ClassMngVO get(Long bno) {
 
-		log.info("get......" + className);
+		log.info("get......" + bno);
 		
-		return mapper.read(className);
+		return mapper.read(bno);
+	}
+	
+	@Override
+	public ChildBoardVO getChild(Long bno) {
+		log.info("getchild......" + bno);
+		
+		return mapper.readChild(bno);
+	}
+
+	@Override
+	public JoinTeacherVO getTeacher(Long bno) {
+		log.info("getteacher......" + bno);
+		
+		return mapper.readTeacher(bno);
 	}
 
 	@Override
@@ -59,25 +73,6 @@ public class ClassMngServiceImpl implements ClassMngService{
 		return mapper.delete(bno) == 1;
 	}
 
-	@Override
-	public boolean update(ClassMngVO board) {
-		
-		log.info("update......" + board);
-		
-		return mapper.update(board) == 1;
-	}
 
-	@Override
-	public ChildBoardVO getChild(String className) {
-		log.info("getchild......" + className);
-		
-		return mapper.readChild(className);
-	}
 
-	@Override
-	public JoinTeacherVO getTeacher(String className) {
-		log.info("getteacher......" + className);
-		
-		return mapper.readTeacher(className);
-	}
 }

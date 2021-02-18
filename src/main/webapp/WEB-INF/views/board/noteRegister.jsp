@@ -29,32 +29,24 @@
 			<form id="operForm" action="/board/noteRegister" method="post">
 			<div class="form-group">
 				<label>반 이름</label> 
-				 <select id="inputState" class="form-control" >
-   					<option selected>선택</option>
+				 <select name="className">
+   					<option value="" selected>선택</option>
    					<c:forEach items="${mngList}" var="boardMng">
        				<option value="${boardMng.className}">${boardMng.className}</option>
        				</c:forEach>
 				 </select>
 			</div>
 		
-		
+	        
 			<div class="form-group">
-				<label>원아이름</label> 
-				 <select id="inputState" class="form-control" >
-   					<option selected>선택</option>
-   					<c:forEach items="${mngList}" var="boardMng">
-       				<option value="${boardMng.cName}">${boardMng.cName}</option>
-       				</c:forEach>
+				<label>원아 이름</label> 
+				 <select name="cunicode">
+   					<option value="" selected>선택</option>
+   					
 				 </select>
 			</div>
-				
 
-				<div class="form-group">
-				<label>원아이름</label> 
-				<input class="form-control" name='cName'>
-				</div>
-				
-				
+	
 				<div class="form-group">
 				<label>제목</label> 
 				<input class="form-control" name='title'>
@@ -70,8 +62,9 @@
 				<input class="form-control" name='writer'>
 				</div>
 				
-				<button type="submit">등록</button>
+				<input type="submit" value="등록">
 				<button data-oper='noteList' class="btn btn-info">목록</button>
+
 
 			</form>
 			
@@ -95,9 +88,26 @@
 					operForm.find("#bno").remove();
 					operForm.attr("action", "/board/noteList").attr(
 							"method", "get").submit();
-				});
+				});	
+		
+		$("select[name='className']").change(function(){
+			var name = $("select[name='cunicode']");
+			var str ="";
+			
+			str +="<option value='' selected>선택</option>";
+			str +="<c:forEach items='${cnameList}' var='boardChild'>";
+			if($(this).val() == "${boardChild.classname}"){
+			str +="<option value='${boardChild.cunicode}'>${boardChild.cname}(${boardChild.cunicode})</option>";
+			}
+			
+			str +="</c:forEach>";
+			
+			name.html(str);
+		});
 	});
 </script>
+
+
 
 
 <%@include file="../includes/footer.jsp"%>

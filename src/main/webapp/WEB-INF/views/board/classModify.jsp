@@ -50,7 +50,7 @@
                    value='<c:out value="${board.classTotal }"/>'>
           </div>
           
-          <button data-oper='classUpdate' class="btn btn-default">수정</button>
+          <button data-oper='classModify' class="btn btn-default">수정</button>
 		  <button data-oper='classList' class="btn btn-info">목록</button>
 		  <button data-oper='classRemove' class="btn btn-danger">삭제</button>
 
@@ -74,9 +74,9 @@
 
 				var operForm = $("#operForm");
 
-				$("button[data-oper='classUpdate']").on("click", function(e) {
+				$("button[data-oper='classModify']").on("click", function(e) {
 					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classUpdate").attr("result", "success").submit();
+					operForm.attr("action", "/board/classModify").attr("result", "success").submit();
 				});
 
 				$("button[data-oper='classList']").on("click", function(e) {

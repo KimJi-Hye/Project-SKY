@@ -80,10 +80,8 @@ public class ClassNoteControllerTests {
 	public void testModify() throws Exception {
 		String resultPage = mockMvc
 				.perform(MockMvcRequestBuilders.post("/board/noteModify")
-				.param("bno", "4241")
-				.param("className", "하늘반")
-				.param("cUnicode", "C210210001")
-				.param("Title", "제목10")
+				.param("bno", "4150")
+				.param("Title", "제목1000")
 				.param("Content", "내용10")
 				.param("Writer", "작성자10"))
 				.andReturn().getModelAndView().getViewName();

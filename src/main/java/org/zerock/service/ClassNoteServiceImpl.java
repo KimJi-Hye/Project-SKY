@@ -66,11 +66,5 @@ public class ClassNoteServiceImpl implements ClassNoteService{
 		return mapper.delete(bno) == 1;
 	}
 	
-	@Override
-	public boolean update(ClassNoteVO board) {
-		
-		log.info("update......" + board);
-		
-		return mapper.update(board) == 1;
-	}
+
 }

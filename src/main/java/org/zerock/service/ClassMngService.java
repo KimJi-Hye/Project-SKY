@@ -10,15 +10,13 @@ public interface ClassMngService {
 
 	public void register(ClassMngVO board);
 	
-	public ClassMngVO get(String className);
+	public ClassMngVO get(Long bno);
 	
-	public ChildBoardVO getChild (String className);
+	public ChildBoardVO getChild (Long bno);
 	
-	public JoinTeacherVO getTeacher (String className);
+	public JoinTeacherVO getTeacher (Long bno);
 	
 	public boolean modify(ClassMngVO board);
-	
-	public boolean update(ClassMngVO board);
 	
 	public boolean remove(Long bno);
 	

@@ -51,11 +51,11 @@ public class ClassMngController {
 	}
 
 	@GetMapping({"/classGet","/classModify"})
-	public void get(@RequestParam("className") String className, Model model) {
+	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info("/classGet or classModify");
-		model.addAttribute("board", service.get(className));
-		//model.addAttribute("boardC", service.getChild(className));
-		//model.addAttribute("boardT", serviceT.getList());
+		model.addAttribute("board", service.get(bno));
+		model.addAttribute("boardC", serviceC.getList());
+		model.addAttribute("boardT", serviceT.getList());
 	}
 
 	@PostMapping("/classModify")
@@ -76,14 +76,7 @@ public class ClassMngController {
 		return "redirect:/board/classList";
 	}
 
-	@PostMapping("/classUpdate")
-	public String update(ClassMngVO board, RedirectAttributes rttr) {
-		log.info("classUpdate:" + board);
-		if (service.update(board)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/board/classList";
-	}	
+
 
 
 

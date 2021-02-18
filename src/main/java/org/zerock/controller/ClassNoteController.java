@@ -12,6 +12,7 @@ import org.zerock.domain.ClassMngVO;
 import org.zerock.domain.ClassNoteVO;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.NotePageDTO;
+import org.zerock.service.ChildBoardService;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.ClassNoteService;
 
@@ -26,6 +27,7 @@ public class ClassNoteController {
 
 	private ClassNoteService service;
 	private ClassMngService mngService;
+	private ChildBoardService childService;
 
 	@GetMapping("/noteList")
 
@@ -47,6 +49,8 @@ public class ClassNoteController {
 	public void register(Model model) {
 		
 		model.addAttribute("mngList", mngService.getList());
+		model.addAttribute("cnameList", childService.getList());
+		
 	}
 	
  
@@ -68,7 +72,6 @@ public class ClassNoteController {
 	@PostMapping("/noteModify")
 	public String modify(ClassNoteVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("noteModify:" + board);
-		
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
@@ -92,14 +95,7 @@ public class ClassNoteController {
 		return "redirect:/board/noteList";
 	}
 
-	@PostMapping("/noteUpdate")
-	public String update(ClassNoteVO board, RedirectAttributes rttr) {
-		log.info("noteUpdate:" + board);
-		if (service.update(board)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/board/noteUpdate";
-	}	
+
 
 
 
