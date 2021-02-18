@@ -5,6 +5,7 @@
 
 <div>
 	회원가입 추카추카
+	<a href="../">메인으로 > </a>
 </div>
 
 <%@ include file="../includes/footer.jsp"%>

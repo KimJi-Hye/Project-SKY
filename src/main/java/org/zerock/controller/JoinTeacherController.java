@@ -33,28 +33,21 @@ public class JoinTeacherController {
 	
 	private ClassMngService mngService;
 	
+	private ApplyBoardService applyService;
+	
 	// http://localhost:8080/member/list
-	@GetMapping("/list")
+	@GetMapping("/memList")
 	public void list(Model model) {
-		log.info("list");
+		log.info("Member List");
 		model.addAttribute("Tlist", serviceT.getList());
 		model.addAttribute("Plist", serviceP.getList());
 	}
 	
-	// http://localhost:8080/member/joinType
-	@GetMapping("/joinType")
-	public void joinType() {}
-	@PostMapping("/joinType")
-	public String joinType(ApplyBoardVO apply, String joinPage, RedirectAttributes rttr) {
-		
-		log.info("joinType: " + joinPage);
-		
-		rttr.addFlashAttribute("result", joinPage);
-		
-		// 부모 회원가입 시에만
-		rttr.addFlashAttribute("apply", apply.getCunicode());
-		
-		return "redirect:/member/join" + joinPage;
+	// http://localhost:8080/member/join
+	@GetMapping("/join")
+	public void join(Model model) {
+		model.addAttribute("type", applyService.getList());
+		model.addAttribute("usercode", serviceP.getList());
 	}
 
 	// http://localhost:8080/member/jointeacher
@@ -72,7 +65,8 @@ public class JoinTeacherController {
 	
 	// http://localhost:8080/member/joinparents
 	@GetMapping("/joinparents")
-	public void joinparents() {
+	public void joinparents(@RequestParam("cunicode") String cunicode, Model model) {
+		model.addAttribute("apply", serviceP.getParents(cunicode));
 	}
 	@PostMapping("/joinparents")
 	public String joinparents(JoinParentsVO join, RedirectAttributes rttr) {
@@ -81,43 +75,40 @@ public class JoinTeacherController {
 		rttr.addFlashAttribute("result", join.getUserId());
 		return "redirect:/member/joinSuccess";
 	}
-//	@PostMapping("/joinparents")
-//	public String joinparents(JoinParentsVO join, RedirectAttributes rttr) {
-//		log.info("join: " + join);
-//		serviceP.join(join);
-//		rttr.addFlashAttribute("result", join.getUserId());
-//		return "redirect:/member/joinSuccess";
-//	}
 	
 	// http://localhost:8080/member/joinSuccess
 	@GetMapping("/joinSuccess")
 	public void joinSuccess() {}
 	
 	// http://localhost:8080/member/get
-	@GetMapping("/get")
-	public void get(@RequestParam("userId") String userId, Model model) {
-		log.info("/get");
-		model.addAttribute("member", serviceT.get(userId));
+	@GetMapping("/memGet")
+	public void get(@RequestParam("userId") String userId, @RequestParam("userType") String userType, Model model) {
+		log.info("/member get");
+		if(userType.charAt(0) == 'T') {
+			model.addAttribute("member", serviceT.get(userId));			
+		} else {
+			model.addAttribute("member", serviceP.get(userId));
+		}
 	}
 	
 	// http://localhost:8080/member/modify
-	@PostMapping("/modify")
+	@PostMapping("/memModify")
 	public String modify(JoinTeacherVO join, RedirectAttributes rttr) {
-		log.info("modify:" + join);
+		log.info("member modify:" + join);
 		if(serviceT.modify(join)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/member/list";
+		return "redirect:/member/memList";
 	}
 	
 	// http://localhost:8080/member/remove
-	@PostMapping("/remove")
+	@PostMapping("/memRemove")
 	public String remove(@RequestParam("userId") String userId, RedirectAttributes rttr) {
-		log.info("remove...... " + userId);
+		log.info("member remove...... " + userId);
 		if(serviceT.remove(userId)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/member/list";
+		return "redirect:/member/memList";
 	}
 	
 	// http://localhost:8080/member/mypage

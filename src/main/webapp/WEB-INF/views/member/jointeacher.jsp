@@ -39,7 +39,7 @@
 			   	</div> 
 	    	</div>
 	    	<div>
-	    		<a href="/member/joinType">뒤로가기</a>
+	    		<a href="/member/join">뒤로가기</a>
 	    		<input type="reset" value="초기화">
 	    		<input type="submit" value="회원가입">
 	    	</div>
@@ -61,7 +61,7 @@
    		// no type
    		var result = '<c:out value="${result}" />';
    		if(result == ''){
-   			location.href="/member/joinType";
+   			//location.href="/member/joinType";
    		}
    		
    		// popup
