@@ -20,20 +20,15 @@ public class JoinParentsMapperTests {
 	private JoinParentsMapper mapper;
 	
 	// 부모 리스트
-<<<<<<< HEAD
-=======
 //	@Test
 //	public void testGetList() {
 //		mapper.getList().forEach(list -> log.info(list));
 //	}
 	
 	// insert
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 //	@Test
-<<<<<<< HEAD
 //	public void testGetList() {
 //		mapper.getList().forEach(list -> log.info(list));
-=======
 //	public void testInsert() {
 //		JoinParentsVO board = new JoinParentsVO();
 //		board.setUserId("pid4");
@@ -47,12 +42,9 @@ public class JoinParentsMapperTests {
 //		board.setUserType('P');
 //		mapper.insert(board);
 //		log.info(board);
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 //	}
 	
-<<<<<<< HEAD
 	// insert
-=======
 	// read
 //	@Test
 //	public void testRead() {
@@ -61,9 +53,7 @@ public class JoinParentsMapperTests {
 //	}
 	
 	// read apply
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	@Test
-<<<<<<< HEAD
 	public void testInsert() {
 		JoinParentsVO board = new JoinParentsVO();
 		board.setUserId("pid6");
@@ -77,11 +67,10 @@ public class JoinParentsMapperTests {
 		board.setUserType('P');
 		mapper.insert(board);
 		log.info(board);
-=======
+	}
 	public void testReadParents() {
 		ApplyBoardVO read = mapper.readParents("C210210002");
 		log.info(read);
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	}
 	
 	// read
