@@ -89,9 +89,9 @@ public class ClassNoteMapperTests {
 		
 		ClassNoteVO board = new ClassNoteVO();
 		// 실행 전 존재하는 번호인지 확인할 것
-		board.setBno(4142L);
+		board.setBno(4150L);
 		board.setClassName("하늘반");
-		board.setCUnicode("C210210002");
+		board.setCunicode("C210210002");
 		board.setTitle("제목1");
 		board.setContent("내용1");
 		board.setWriter("작성자1");

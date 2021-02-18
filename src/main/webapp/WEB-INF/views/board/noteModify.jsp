@@ -35,13 +35,13 @@
           <div class="form-group">
             <label>반이름</label> 
             <input class="form-control" name='className'
-                   value='<c:out value="${board.className }"/>'>
+                   value='<c:out value="${board.className }"/>' readonly="readonly">
           </div>
 
           <div class="form-group">
             <label>원아이름</label> 
-            <input class="form-control" name='cname'
-                   value='<c:out value="${board.cname }"/>'>
+            <input class="form-control" name='cunicode'
+                   value='<c:out value="${board.cunicode }"/>' readonly="readonly">
           </div>
 
 		<div class="form-group">
@@ -65,7 +65,7 @@
 		</div>
           
            
-          <button data-oper='noteUpdate' class="btn btn-default">수정</button>
+          <button data-oper='noteModify' class="btn btn-default">수정</button>
 		  <button data-oper='noteList' class="btn btn-info">목록</button>
 		  <button data-oper='noteRemove' class="btn btn-danger">삭제</button>
 		  
@@ -91,9 +91,9 @@
 
 				var operForm = $("#operForm");
 
-				$("button[data-oper='noteUpdate']").on("click", function(e) {
+				$("button[data-oper='noteModify']").on("click", function(e) {
 					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/noteUpdate").attr("result", "success").submit();
+					operForm.attr("action", "/board/noteModify").attr("result", "success").submit();
 				});
 
 				$("button[data-oper='noteList']").on("click", function(e) {

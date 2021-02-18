@@ -44,17 +44,34 @@
 							value='<c:out value="${board.classTotal }"/>' readonly="readonly">
 					</div>
 					
+					
 					<div class="form-group">
-						<ul>
-							<c:forEach items="${boardC}" var="boardC">
-							<li><c:out value="${boardC.cname }"/></li>	
-							</c:forEach>
-						</ul>
+					<label>담임선생님</label> 
+					<select id="inputState" class="form-control" >
+   					<option selected>선생님명단</option>
+					<c:forEach items="${boardT}" var="testt">
+						<c:if test="${testt.className eq board.className}">
+	       			<option value="${testt.userName}">${testt.userName}</option>
+						</c:if>
+					</c:forEach>
+					</select>
+					</div>	
+					
+					
+					<div class="form-group">
+					<label>소속원아</label> 
+					<select id="inputState" class="form-control" >
+   					<option selected>원아명단</option>
+					<c:forEach items="${boardC}" var="test">
+						<c:if test="${test.classname eq board.className}">
+	       			<option value="${test.cname}">${test.cname}</option>
+						</c:if>
+					</c:forEach>
+					</select>
 					</div>
+					
 
-				
-					
-					
+
 					<button data-oper='classModify' class="btn btn-default">수정</button>
 					<button data-oper='classList' class="btn btn-info">목록</button>
 

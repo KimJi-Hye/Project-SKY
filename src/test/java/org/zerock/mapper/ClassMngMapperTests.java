@@ -68,7 +68,7 @@ public class ClassMngMapperTests {
 //		
 //
 //		// 존재하는 게시물 번호로 테스트
-//		ClassMngVO board = mapper.read(5L);
+//		ClassMngVO board = mapper.read("하늘반");
 //		
 //		log.info(board);
 //	}

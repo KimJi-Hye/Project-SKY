@@ -71,13 +71,13 @@ public class ClassNoteServiceTests {
 	@Test
 	public void testUpdate() {
 		
-		ClassNoteVO board = service.get(4142L);
+		ClassNoteVO board = service.get(4150L);
 		
 		if (board == null) {
 			return;
 		}
 		
-		board.setTitle("테스트");
+		board.setTitle("테스트1111");
 		log.info("MODIFY RESULT: " + service.modify(board));
 	}
 	

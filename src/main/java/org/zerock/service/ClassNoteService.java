@@ -13,8 +13,6 @@ public interface ClassNoteService {
 	
 	public boolean modify(ClassNoteVO board);
 	
-	public boolean update(ClassNoteVO board);
-	
 	public boolean remove(Long bno);
 	
 	public List<ClassNoteVO> getList(Criteria cri);

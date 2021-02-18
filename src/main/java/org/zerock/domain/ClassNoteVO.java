@@ -9,7 +9,7 @@ public class ClassNoteVO {
 
 	private Long bno;
 	private String className;
-	private String cUnicode;
+	private String cunicode;
 	private String cname;
 	private String title;
 	private String content;

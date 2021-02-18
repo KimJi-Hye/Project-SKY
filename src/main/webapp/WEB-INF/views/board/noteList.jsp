@@ -40,16 +40,16 @@
 						</tr>
 					</thead>
 
-					<c:forEach items="${noteList}" var="board">
+					<c:forEach items="${noteList}" var="boardNote">
 						<tr>
-							<td><c:out value="${board.bno}" /></td>
-							<td><c:out value="${board.className}" /></td>
-							<td><c:out value="${board.cname}" /></td>
+							<td><c:out value="${boardNote.bno}" /></td>
+							<td><c:out value="${boardNote.className}" /></td>
+							<td><c:out value="${boardNote.cname}" /></td>
 							<%-- <td><a href='/board/noteGet?bno=<c:out value="${board.bno}"/>'> --%>
-							<td><a class='move' href='<c:out value="${board.bno}"/>'>
-							<c:out value="${board.title}" /></a></td>
-							<td><c:out value="${board.writer}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
+							<td><a class='move' href='<c:out value="${boardNote.bno}"/>'>
+							<c:out value="${boardNote.title}" /></a></td>
+							<td><c:out value="${boardNote.writer}" /></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${boardNote.regdate}" /></td>
 						</tr>
 					</c:forEach>
 

@@ -44,9 +44,15 @@ public class ClassMngController {
 	}
 
 	@GetMapping({"/classGet","/classModify"})
-	public void get(@RequestParam("className") String className, Model model) {
+	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info("/classGet or classModify");
+<<<<<<< HEAD
 		model.addAttribute("board", service.get(className));
+=======
+		model.addAttribute("board", service.get(bno));
+		model.addAttribute("boardC", serviceC.getList());
+		model.addAttribute("boardT", serviceT.getList());
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	}
 
 	@PostMapping("/classModify")

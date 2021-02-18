@@ -12,9 +12,13 @@
 	
 	<!-- insert -->
 	<insert id="insert">
+<<<<<<< HEAD
 
 		insert into tb_parents(userid, atgrade, cunicode, username, userpw, userphone, useraddr, useremail, usertype)
 
+=======
+		insert into tb_parents(userid, atgrade, cUnicode, username, userpw, userphone, useraddr, useremail, usertype)
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 		values (#{userId}, #{atGrade}, #{cunicode}, #{userName}, #{userPw}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
 	</insert>
 	
@@ -34,7 +38,11 @@
 	<update id="update">
 		update tb_parents
 		set atgrade = #{atGrade},
+<<<<<<< HEAD
 		cunicode = #{cunicode},
+=======
+		cUnicode = #{cunicode},
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 		username = #{userName},
 		userpw = #{userPw},
 		userphone = #{userPhone},

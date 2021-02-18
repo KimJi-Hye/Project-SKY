@@ -53,7 +53,7 @@ public class ClassMngServiceTests {
 //	@Test
 //	public void testGet() {
 //		
-//		log.info(service.get(5L));
+//		log.info(service.get("하늘반"));
 //	}
 	
 	

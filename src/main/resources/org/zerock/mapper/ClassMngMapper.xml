@@ -28,19 +28,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
  	<select id="read" resultType="org.zerock.domain.ClassMngVO">
-		select * from tb_class where className = #{className}
+		select * from tb_class where bno = #{bno}
 	</select>
 	
-	<select id="readChild" resultType="org.zerock.domain.ChildBoardVO">
-		select cname
-		
-	    from tb_child where className = #{className}
-	</select>
-	
-	<select id="readTeacher" resultType="org.zerock.domain.JoinTeacherVO">
-		select username
-		 from tb_teacher where className = #{className}
-	</select>
 
 	<delete id="delete">
 		delete from tb_class where bno = #{bno}

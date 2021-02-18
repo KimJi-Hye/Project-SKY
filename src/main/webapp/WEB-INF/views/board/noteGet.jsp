@@ -21,7 +21,7 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 
-				<form id='operForm' action="/board/noteGet" method="post">
+		
 					<div class="form-group">
 						<label>bno</label> <input class="form-control" name='bno'
 							value='<c:out value="${board.bno }"/>' readonly="readonly">
@@ -61,13 +61,14 @@
 
 					<button data-oper='noteModify' class="btn btn-default">수정</button>
 					<button data-oper='noteList' class="btn btn-info">목록</button>
-					
+		   
+		   <form id='operForm' action="/board/noteModify" method="get">	
 				<input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
 				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 				<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
 
 				
-				</form>
+			</form>
 
 
 			</div>
@@ -83,8 +84,7 @@
 			function() {
 				var operForm = $("#operForm");
 				$("button[data-oper='noteModify']").on("click", function(e) {
-					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/noteModify").attr("method", "get").submit();
+					operForm.attr("action", "/board/noteModify").submit();
 				});
 				$("button[data-oper='noteList']").on("click",function(e) {
 					operForm.find("#bno").remove();

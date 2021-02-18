@@ -37,9 +37,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			,A.writer
 			,A.title
 			,B.cName 
-		from
-          tb_note A,tb_child B
-		where rownum <= #{pageNum} * #{amount}
+		from tb_note A,tb_child B
+		WHERE A.cUnicode=B.cUnicode
+		and rownum <= #{pageNum} * #{amount}
 	  )
 		where rn > (#{pageNum} -1) * #{amount}
  
@@ -52,8 +52,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
  	<insert id="insert">
-		insert into tb_note (bno, className, cUnicode, title, content, writer)
-		values (seq_tb_note.nextval, #{className}, #{cUnicode}, #{title}, #{content}, #{writer})
+		insert into tb_note (bno, className, cunicode, title, content, writer)
+		values (seq_tb_note.nextval, #{className}, #{cunicode}, #{title}, #{content}, #{writer})
 	</insert>
 	
 	<insert id="insertSelectKey">
@@ -63,8 +63,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select seq_tb_note.nextval from dual
 		</selectKey>
 
-		insert into tb_note (bno, className, cUnicode, title, content, writer)
-		values (#{bno}, #{className}, #{cUnicode}, #{title}, #{content}, #{writer})
+		insert into tb_note (bno, className, cunicode, title, content, writer)
+		values (#{bno}, #{className}, #{cunicode}, #{title}, #{content}, #{writer})
 	</insert>
 
 
@@ -90,8 +90,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 	    update tb_note
 	    set title= #{title},
-	    className=#{className},
-	    cName=#{cName},
 	    content = #{content},
 	    writer=#{writer},
 	    regdate=sysdate

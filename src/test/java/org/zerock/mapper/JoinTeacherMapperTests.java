@@ -30,7 +30,7 @@ public class JoinTeacherMapperTests {
 //		JoinTeacherVO board = new JoinTeacherVO();
 //		board.setUserId("testid3");
 //		board.setAtGrade('C');
-//		board.setClassName("우주반");
+//		board.setClassname("우주반");
 //		board.setUserName("박선생");
 //		board.setUserPw("1234");
 //		board.setUserPhone("011");
@@ -55,7 +55,7 @@ public class JoinTeacherMapperTests {
 //		JoinTeacherVO board = new JoinTeacherVO();
 //		board.setUserId("testid3");
 //		board.setAtGrade('B');
-//		board.setClassName("하늘반");
+//		board.setClassname("하늘반");
 //		board.setUserName("박선생");
 //		board.setUserPw("1234");
 //		board.setUserPhone("011");

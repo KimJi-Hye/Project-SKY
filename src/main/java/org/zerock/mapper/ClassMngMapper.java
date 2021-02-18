@@ -15,11 +15,11 @@ public interface ClassMngMapper {
 	
 	public void insertSelectKey(ClassMngVO board);
 		
-	public ClassMngVO read(String className);
+	public ClassMngVO read(Long bno);
 	
-	public ChildBoardVO readChild (String className);
+	public ChildBoardVO readChild (Long bno);
 	
-	public JoinTeacherVO readTeacher (String className);
+	public JoinTeacherVO readTeacher (Long bno);
 	
 	public int delete(Long bno);
 	

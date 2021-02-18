@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.JoinParentsVO;
 
 import lombok.Setter;
@@ -19,13 +20,50 @@ public class JoinParentsMapperTests {
 	private JoinParentsMapper mapper;
 	
 	// 부모 리스트
+<<<<<<< HEAD
+=======
 //	@Test
 //	public void testGetList() {
 //		mapper.getList().forEach(list -> log.info(list));
 //	}
 	
 	// insert
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
+//	@Test
+<<<<<<< HEAD
+//	public void testGetList() {
+//		mapper.getList().forEach(list -> log.info(list));
+=======
+//	public void testInsert() {
+//		JoinParentsVO board = new JoinParentsVO();
+//		board.setUserId("pid4");
+//		board.setAtGrade('c');
+//		board.setCunicode("C210210002");
+//		board.setUserName("나부모");
+//		board.setUserPw("1234");
+//		board.setUserPhone("010");
+//		board.setUserAddr("우리집");
+//		board.setUserEmail("email@");
+//		board.setUserType('P');
+//		mapper.insert(board);
+//		log.info(board);
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
+//	}
+	
+<<<<<<< HEAD
+	// insert
+=======
+	// read
+//	@Test
+//	public void testRead() {
+//		JoinParentsVO read = mapper.read("pid4");
+//		log.info(read);
+//	}
+	
+	// read apply
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	@Test
+<<<<<<< HEAD
 	public void testInsert() {
 		JoinParentsVO board = new JoinParentsVO();
 		board.setUserId("pid6");
@@ -39,6 +77,11 @@ public class JoinParentsMapperTests {
 		board.setUserType('P');
 		mapper.insert(board);
 		log.info(board);
+=======
+	public void testReadParents() {
+		ApplyBoardVO read = mapper.readParents("C210210002");
+		log.info(read);
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	}
 	
 	// read
