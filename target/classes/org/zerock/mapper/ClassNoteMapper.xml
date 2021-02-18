@@ -1,92 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ClassNoteMapper">
 
-<select id="getList" resultType="org.zerock.domain.ClassNoteVO">
 
-	SELECT A.bno
-          ,A.cUnicode
-          ,A.className
-      	  ,A.regdate
-      	  ,A.content
-      	  ,A.writer
-      	  ,A.title
-      	  ,B.cName             
-	FROM tb_note A,tb_child B
-	WHERE A.cUnicode=B.cUnicode
+	<select id="getList" resultType="org.zerock.domain.ClassNoteVO">
 
-</select>
+		<![CDATA[
+			SELECT   A.bno
+					,A.cunicode
+					,A.classname
+					,A.regdate
+					,A.content
+					,A.writer
+					,A.title
+					,B.cname             
+			FROM tb_note A,tb_child B
+			WHERE A.cunicode = B.cunicode
+		]]>
 
+	</select>
 
-
-<select id="getListWithPaging" resultType="org.zerock.domain.ClassNoteVO">
-
-	<![CDATA[
-     select
-       rn, bno, cunicode, classname, regdate, content, writer, title, cname
-    from
-       (
-		select /*+INDEX_DESC(tb_note pk_tb_note) */
-			rownum rn,A.bno
-			,A.cUnicode
-			,A.className
-			,A.regdate
-			,A.content
-			,A.writer
-			,A.title
-			,B.cName 
-		from tb_note A,tb_child B
-		WHERE A.cUnicode=B.cUnicode
-		and rownum <= #{pageNum} * #{amount}
-	  )
-		where rn > (#{pageNum} -1) * #{amount}
- 
-	]]>
-
-</select>
-
-<select id="getTotalCount" resultType="int">
-	select count(*) from tb_note where bno > 0
-</select>
 
  	<insert id="insert">
-		insert into tb_note (bno, className, cunicode, title, content, writer)
-		values (seq_tb_note.nextval, #{className}, #{cunicode}, #{title}, #{content}, #{writer})
+		insert into tb_note (bno, classname, cunicode, title, content, writer)
+		values (seq_tb_note.nextval, #{classname}, #{cunicode}, #{title}, #{content}, #{writer})
 	</insert>
 	
+	
 	<insert id="insertSelectKey">
-
 		<selectKey keyProperty="bno" order="BEFORE"
 			resultType="long">
 			select seq_tb_note.nextval from dual
 		</selectKey>
 
-		insert into tb_note (bno, className, cunicode, title, content, writer)
-		values (#{bno}, #{className}, #{cunicode}, #{title}, #{content}, #{writer})
+			insert into tb_note (bno, classname, cunicode, title, content, writer)
+			values (#{bno}, #{classname}, #{cunicode}, #{title}, #{content}, #{writer})			
 	</insert>
-
-
- 	<select id="read" resultType="org.zerock.domain.ClassNoteVO">
-			SELECT A.bno
-          ,A.cUnicode
-          ,A.className
-      	  ,A.regdate
-      	  ,A.content
-      	  ,A.writer
-      	  ,A.title
-      	  ,B.cName             
-	FROM tb_note A,tb_child B
-	WHERE A.cUnicode=B.cUnicode and bno = #{bno}
-	</select>
 	
+	
+	<select id="read" resultType="org.zerock.domain.ClassNoteVO">
+			SELECT   A.bno
+					,A.cunicode
+					,A.classname
+					,A.regdate
+					,A.content
+					,A.writer
+					,A.title
+					,B.cname             
+			FROM tb_note A,tb_child B
+			WHERE A.cunicode = B.cunicode and bno = #{bno}
+	</select>
+
 
 	<delete id="delete">
-		delete from tb_note where bno = #{bno}
+			delete from tb_note where bno = #{bno}
 	</delete>
 	
-	
+
 	<update id="update">
 	    update tb_note
 	    set title= #{title},
@@ -94,7 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    writer=#{writer},
 	    regdate=sysdate
 	    where bno = #{bno}
-	 </update>
+	 </update>	
 
 
 </mapper>
