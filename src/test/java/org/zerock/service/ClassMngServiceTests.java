@@ -22,12 +22,12 @@ public class ClassMngServiceTests {
 	@Setter(onMethod_ = {@Autowired })
 	private ClassMngService service;
 	
-	@Test
-	public void testExist() {
-		
-		log.info(service);
-		assertNotNull(service);
-	}
+//	@Test
+//	public void testExist() {
+//		
+//		log.info(service);
+//		assertNotNull(service);
+//	}
 	
 	
 //	@Test
@@ -43,17 +43,17 @@ public class ClassMngServiceTests {
 //	}
 	
 	
-	@Test
-	public void testGetList() {
-		
-		service.getList().forEach(board -> log.info(board));
-	}
+//	@Test
+//	public void testGetList() {
+//		
+//		service.getList().forEach(board -> log.info(board));
+//	}
 	
 	
 //	@Test
 //	public void testGet() {
 //		
-//		log.info(service.get(1L));
+//		log.info(service.get(5L));
 //	}
 	
 	

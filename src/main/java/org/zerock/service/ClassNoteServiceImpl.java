@@ -3,7 +3,9 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.zerock.domain.ClassMngVO;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.ClassNoteMapper;
 
 import lombok.AllArgsConstructor;
@@ -26,13 +28,20 @@ public class ClassNoteServiceImpl implements ClassNoteService{
 	}
 	
 	@Override
-	public List<ClassNoteVO > getList() {
+	public List<ClassNoteVO > getList(Criteria cri) {
 
-		log.info("getList.........");
+		log.info("get List with criteria cri: " + cri);
 		
-		return mapper.getList();
+		return mapper.getListWithPaging(cri);
 	}
 
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+	
 	@Override
 	public ClassNoteVO  get(Long bno) {
 
@@ -55,5 +64,13 @@ public class ClassNoteServiceImpl implements ClassNoteService{
 		log.info("remove...." + bno);
 		
 		return mapper.delete(bno) == 1;
+	}
+	
+	@Override
+	public boolean update(ClassNoteVO board) {
+		
+		log.info("update......" + board);
+		
+		return mapper.update(board) == 1;
 	}
 }

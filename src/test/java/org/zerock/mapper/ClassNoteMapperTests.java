@@ -1,11 +1,14 @@
 package org.zerock.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -20,11 +23,11 @@ public class ClassNoteMapperTests {
 	
 	
 	
-	@Test
-	public void testGetList() {
-		
-		mapper.getList().forEach(board -> log.info(board));
-	}
+//	@Test
+//	public void testGetList() {
+//		
+//		mapper.getList().forEach(board -> log.info(board));
+//	}
 	
 	
 
@@ -81,20 +84,33 @@ public class ClassNoteMapperTests {
 //	}
 	
 	
+	@Test
+	public void testUpdate() {
+		
+		ClassNoteVO board = new ClassNoteVO();
+		// 실행 전 존재하는 번호인지 확인할 것
+		board.setBno(4142L);
+		board.setClassName("하늘반");
+		board.setCUnicode("C210210002");
+		board.setTitle("제목1");
+		board.setContent("내용1");
+		board.setWriter("작성자1");
+
+		
+		int count = mapper.update(board);
+		log.info("UPDATE COUNT: " + count);
+	}
+	
 //	@Test
-//	public void testUpdate() {
+//	public void testPaging() {
 //		
-//		ClassNoteVO board = new ClassNoteVO();
-//		// 실행 전 존재하는 번호인지 확인할 것
-//		board.setBno(7L);
-//		board.setClassName("하늘반");
-//		board.setCUnicode("C210210002");
-//		board.setTitle("제목1");
-//		board.setContent("내용1");
-//		board.setWriter("작성자1");
-//
+//		Criteria cri = new Criteria();
 //		
-//		int count = mapper.update(board);
-//		log.info("UPDATE COUNT: " + count);
+//		cri.setPageNum(1);
+//		cri.setAmount(10);
+//		
+//		List<ClassNoteVO> list = mapper.getListWithPaging(cri);
+//		
+//		list.forEach(board -> log.info(board));
 //	}
 }

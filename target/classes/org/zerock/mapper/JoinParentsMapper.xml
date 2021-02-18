@@ -12,7 +12,9 @@
 	
 	<!-- insert -->
 	<insert id="insert">
+
 		insert into tb_parents(userid, atgrade, cunicode, username, userpw, userphone, useraddr, useremail, usertype)
+
 		values (#{userId}, #{atGrade}, #{cunicode}, #{userName}, #{userPw}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
 	</insert>
 	
@@ -22,6 +24,10 @@
 		from tb_parents p, tb_child c
 		where p.userId = #{userId}
 		and p.cUnicode = c.cUnicode
+	</select>
+	
+	<select id="readParents" resultType="org.zerock.domain.ApplyBoardVO">
+		select * from tb_apply where cunicode = #{cunicode}
 	</select>
 	
 	<!-- update -->

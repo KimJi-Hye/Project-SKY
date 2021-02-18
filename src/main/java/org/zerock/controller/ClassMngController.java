@@ -44,9 +44,9 @@ public class ClassMngController {
 	}
 
 	@GetMapping({"/classGet","/classModify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("className") String className, Model model) {
 		log.info("/classGet or classModify");
-		model.addAttribute("board", service.get(bno));
+		model.addAttribute("board", service.get(className));
 	}
 
 	@PostMapping("/classModify")

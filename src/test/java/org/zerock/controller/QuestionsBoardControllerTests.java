@@ -24,7 +24,8 @@ import lombok.extern.log4j.Log4j;
 })
 
 @Log4j
-public class ClassNoteControllerTests {
+public class QuestionsBoardControllerTests {
+	
 	@Setter(onMethod_ = {@Autowired} )
 	private WebApplicationContext ctx;
 
@@ -39,69 +40,54 @@ public class ClassNoteControllerTests {
 //	public void testList() throws Exception {
 //
 //		log.info(
-//				mockMvc.perform(MockMvcRequestBuilders.get("/board/noteList"))
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/questionsList"))
 //				.andReturn()
 //				.getModelAndView()
 //				.getModel());
 //	}
 	
-//	@Test
-//	public void testListPaging() throws Exception {
-//
-//		log.info(
-//				mockMvc.perform(MockMvcRequestBuilders.get("/board/noteList")
-//				.param("pageNum", "1")
-//				.param("amount", "10"))
-//				.andReturn().getModelAndView().getModelMap());
-//	}
 	
 //	@Test
 //	public void testRegister() throws Exception {
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/noteRegister")
-//				.param("className", "하늘반")
-//				.param("cUnicode", "C210210002")
-//				.param("Title", "제목2")
-//				.param("Content", "내용2")
-//				.param("Writer", "작성자2"))
-//				.andReturn().getModelAndView().getViewName();
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/questionsRegister")
+//				.param("title", "박준용")
+//				.param("content", "가나다라")
+//				.param("writer", "마바사")
+//				.param("pw", "2314")
+//				).andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
 //	}
 	
 //	@Test
 //	public void testGet() throws Exception {
 //		log.info(mockMvc.perform(MockMvcRequestBuilders
-//				.get("/board/noteGet")
-//				.param("bno", "8"))
+//				.get("/board/questionsGet")
+//				.param("bno", "5"))
 //				.andReturn()
 //				.getModelAndView().getModelMap());
 //	}
 	
-	@Test
-	public void testModify() throws Exception {
-		String resultPage = mockMvc
-				.perform(MockMvcRequestBuilders.post("/board/noteModify")
-				.param("bno", "4241")
-				.param("className", "하늘반")
-				.param("cUnicode", "C210210001")
-				.param("Title", "제목10")
-				.param("Content", "내용10")
-				.param("Writer", "작성자10"))
-				.andReturn().getModelAndView().getViewName();
-		log.info(resultPage);
-						
-	}
+//	@Test
+//	public void testModify() throws Exception {
+//		String resultPage = mockMvc
+//				.perform(MockMvcRequestBuilders.post("/board/questionsModify")
+//				.param("bno", "5")
+//				.param("title", "테스트01")
+//				.param("content", "테스트02")
+//				.param("writer", "한글1")
+//				.param("pw", "5854")
+//				).andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//						
+//	}
 	
 //	@Test
 //	public void testRemove()throws Exception {
 //		// 삭제전 데이터베이스에 게시물 번호 확인할 것
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/noteRemove")
-//				.param("bno", "18")
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/questionsRemove")
+//				.param("bno", "5")
 //				).andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
 //	}
-
-
-
-
-
+	
 }

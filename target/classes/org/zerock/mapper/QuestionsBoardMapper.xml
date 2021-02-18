@@ -6,59 +6,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="getList" resultType="org.zerock.domain.QuestionsBoardVO">
 	<![CDATA[
-		select * from tb_qna where ano > 0
+		select * from tb_qna where bno > 0
 	]]>
 </select>
 
  	<insert id="insert">
-		insert into tb_apply (bno, 
-		values (seq_tb_apply.nextval,
+		insert into tb_qna (bno, title, content, writer, regdate, updatedate, pw)
+		values (seq_tb_qna.nextval, #{title}, #{content}, #{writer}, sysdate, sysdate, #{pw})
 
 	</insert>
 
- 	<select id="read" resultType="org.zerock.domain.ApplyBoardVO">
+ 	<select id="read" resultType="org.zerock.domain.QuestionsBoardVO">
 		select * from tb_qna where bno = #{bno}
 	</select>
 	
-
 	<delete id="delete">
 		delete from tb_qna
 		where bno = #{bno}
-		<!-- and pw = #{pw} -->
 	</delete>
 	
-	
 	<update id="update">
-	    update tb_apply
-	    set 	pname = #{pname}
-				,relation = #{relation}
-				,pbirth = #{pbirth}
-				,addr = #{addr}
-				,phone = #{phone}
-				,cname = #{cname}
-				,cgender = #{cgender}
-				,cbirth = #{cbirth}
-				,apptype = #{apptype}
-				,cunicode = #{cunicode}
-		where ano = #{ano}
+	    update tb_qna
+	    set 	title = #{title}
+	    		,content = #{content}
+	    		,writer = #{writer}
+	    		,updatedate = sysdate
+	   			,pw = #{pw}
+		where bno = #{bno}
 		<!-- and pw = #{pw} -->
-	 </update>
-	 
-	 <update id="pass">
-	 {call
-	 	declare
-	 	begin
-			insert into tb_child(cunicode, classname, cname, cbirth)
-			values(#{cunicode}, #{cclass}, #{cname}, #{cbirth});
-			
-			update tb_apply
-			set		cunicode = #{cunicode}
-					,cclass = #{cclass}
-					,enter = #{enter}
-					,graduation = #{graduation}
-			where ano = #{ano};
-		end
-	 }
 	 </update>
 	 
 </mapper>

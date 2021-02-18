@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -20,19 +21,19 @@ public class ClassNoteServiceTests {
 	@Setter(onMethod_ = {@Autowired })
 	private ClassNoteService service;
 	
-	@Test
-	public void testExist() {
-		
-		log.info(service);
-		assertNotNull(service);
-	}
+//	@Test
+//	public void testExist() {
+//		
+//		log.info(service);
+//		assertNotNull(service);
+//	}
 	
 	
 //	@Test
 //	public void testRegister() {
 //		ClassNoteVO board = new ClassNoteVO();
-//		board.setClassName("하늘반");
-//		board.setCUnicode("C210210001");
+//		board.setClassName("우주반");
+//		board.setCUnicode("C210210002");
 //		board.setTitle("제목");
 //		board.setContent("내용");
 //		board.setWriter("작성자");
@@ -46,7 +47,7 @@ public class ClassNoteServiceTests {
 //	@Test
 //	public void testGetList() {
 //		
-//		service.getList().forEach(board -> log.info(board));
+//		service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
 //	}
 	
 	
@@ -67,17 +68,19 @@ public class ClassNoteServiceTests {
 //	}
 	
 	
-//	@Test
-//	public void testUpdate() {
-//		
-//		ClassNoteVO board = service.get(8L);
-//		
-//		if (board == null) {
-//			return;
-//		}
-//		
-//		board.setTitle("테스트");
-//		log.info("MODIFY RESULT: " + service.modify(board));
-//	}
+	@Test
+	public void testUpdate() {
+		
+		ClassNoteVO board = service.get(4142L);
+		
+		if (board == null) {
+			return;
+		}
+		
+		board.setTitle("테스트");
+		log.info("MODIFY RESULT: " + service.modify(board));
+	}
+	
+
 	
 }

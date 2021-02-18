@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.service.ClassMngService;
+import org.zerock.domain.ChildBoardVO;
+import org.zerock.domain.QuestionsBoardVO;
+import org.zerock.service.QuestionsBoardService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -18,53 +20,50 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class QuestionsBoardController {
 
-//	private QuestionsBoardService service;
-//	
-//	private ClassMngService mngService;
+	private QuestionsBoardService service;
 
-//	@GetMapping("/questiondList")
-//
-//	public void list(Model model) {
-//		log.info("childList");
-//
-//		model.addAttribute("questiondList", service.getList());
-//	}
-//	
-//	@GetMapping("/questionsRegister")
-//	public void register(Model model) {
-//		model.addAttribute("mngList", mngService.getList());
-//	}
-//	
-//	@PostMapping("/childRegister")
-//	public String register(ChildBoardVO board, RedirectAttributes rttr) {
-//
-//		log.info("childRegister: " + board);
-//		service.register(board);
-//		rttr.addFlashAttribute("result", board.getCunicode());
-//		return "redirect:/board/childList";
-//	}
-//	
-//	@GetMapping({"/childGet","/childModify"})
-//	public void get(@RequestParam("cunicode") String cunicode, Model model) {
-//		log.info("/childGet or childModify");
-//		model.addAttribute("board", service.get(cunicode));
-//	}
-//	
-//	@PostMapping("/childModify")
-//	public String modify(ChildBoardVO board, RedirectAttributes rttr) {
-//		log.info("childModify:" + board);
-//		if (service.modify(board)) {
-//			rttr.addFlashAttribute("result", "success");
-//		}
-//		return "redirect:/board/childList";
-//	}
-//
-//	@PostMapping("/childRemove")
-//	public String remove(@RequestParam("cunicode") String cunicode, RedirectAttributes rttr) {
-//		log.info("childRemove... " + cunicode);
-//		if (service.remove(cunicode)) {
-//			rttr.addFlashAttribute("result", "success");
-//		}
-//		return "redirect:/board/childList";
-//	}
+	@GetMapping("/questionsList")
+
+	public void list(Model model) {
+		log.info("questionsList");
+
+		model.addAttribute("questionsList", service.getList());
+	}
+	
+	@GetMapping("/questionsRegister")
+	public void register(Model model) {
+	}
+	
+	@PostMapping("/questionsRegister")
+	public String register(QuestionsBoardVO board, RedirectAttributes rttr) {
+
+		log.info("questionsRegister: " + board);
+		service.register(board);
+		rttr.addFlashAttribute("result", board.getBno());
+		return "redirect:/board/QuestionsList";
+	}
+	
+	@GetMapping({"/questionsGet","/questionsModify"})
+	public void get(@RequestParam("bno") Long bno, Model model) {
+		log.info("/questionsGet or questionsModify");
+		model.addAttribute("board", service.get(bno));
+	}
+	
+	@PostMapping("/questionsModify")
+	public String modify(QuestionsBoardVO board, RedirectAttributes rttr) {
+		log.info("questionsModify:" + board);
+		if (service.modify(board)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/board/childList";
+	}
+
+	@PostMapping("/questionsRemove")
+	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+		log.info("questionsRemove... " + bno);
+		if (service.remove(bno)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/board/questionsList";
+	}
 }

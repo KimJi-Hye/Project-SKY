@@ -1,12 +1,15 @@
 package org.zerock.mapper;
 
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.QuestionsBoardVO;
+import org.zerock.domain.Criteria;
+import org.zerock.domain.QnaReplyVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -16,25 +19,54 @@ import lombok.extern.log4j.Log4j;
 //Java Config
 //@ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
 @Log4j
-public class QuestionsBoardMapperTests {
+public class QnaReplyMapperTests {
 
+	
+	private Long[] bnoArr = {4L, 6L, 7L, 8L};
+	
 	@Setter(onMethod_ = @Autowired)
-	private QuestionsBoardMapper mapper;
+	private QnaReplyMapper mapper;
 	
+//	@Test
+//	public void testCreate() {
+//		
+//		IntStream.rangeClosed(1, 10).forEach(i -> {
+//
+//			QnaReplyVO vo = new QnaReplyVO();
+//			
+//			vo.setBno(bnoArr[i % 5]);
+//			vo.setContent("댓글 테스트 + i");
+//			vo.setWriter("replyer" + i);
+//			
+//			mapper.insert(vo);
+//			
+//			log.info(vo);
+//			
+//		});
+//	}
+
 	
+//	@Test
+//	public void testRead() {
+//		
+//		Long targetRno = 4L;
+//		
+//		QnaReplyVO vo = mapper.read(targetRno);
+//		
+//		log.info(vo);
+//	}
 	
 //	@Test
 //	public void testGetList() {
 //		
 //		mapper.getList().forEach(board -> log.info(board));
 //	}
-	
-	
+
 	
 //	@Test
 //	public void testInsert() {
 //		
-//		QuestionsBoardVO board = new QuestionsBoardVO();
+//		QnaReplyVO vo = new QnaReplyVO();
 //		
 //		board.setTitle("test002");
 //		board.setContent("test002");
@@ -45,14 +77,12 @@ public class QuestionsBoardMapperTests {
 //		
 //		log.info(board);
 //	}
-//	
-//	
-//	
-//	
+	
+	
 //	@Test
 //	public void testInsertSelectKey() {
 //		
-//		ApplyBoardVO board = new ApplyBoardVO();
+//		QnaReplyVO board = new QnaReplyVO();
 //		board.setPName("우주반");
 //		board.setRelation("");
 //		board.setPBirth("");
@@ -68,7 +98,7 @@ public class QuestionsBoardMapperTests {
 //	public void testRead() {
 //		
 //		// 존재하는 게시물 번호로 테스트
-//		QuestionsBoardVO board = mapper.read(2L);
+//		QnaReplyVO board = mapper.read(2L);
 //		
 //		log.info(board);
 //	}
@@ -78,27 +108,36 @@ public class QuestionsBoardMapperTests {
 //	@Test
 //	public void testDelete() {
 //		
-//		QuestionsBoardVO board = new QuestionsBoardVO();
+//		QnaReplyVO vo = new QnaReplyVO();
 //		
-//		board.setBno(2L);
+//		vo.setBno(3L);
 //		
-//		mapper.delete(board);
-//		log.info("DELETE COUNT: " + board);
+//		mapper.delete(vo);
+//		log.info("DELETE COUNT: " + vo);
 //	}
 //	
 //	@Test
 //	public void testUpdate() {
 //		
-//		QuestionsBoardVO board = new QuestionsBoardVO();
+//		QnaReplyVO reply = new QnaReplyVO();
 //
-//		board.setBno(3L);
-//		board.setTitle("김충성");
-//		board.setContent("정혜윤");
-//		board.setWriter("박준용");
-//		board.setPw("4321");
+//		reply.setBno(4L);
+//		reply.setContent("할로");
+//		reply.setWriter("반갑습니다");
 //
-//		int count = mapper.update(board);
+//		int count = mapper.update(reply);
 //		log.info("UPDATE COUNT: " + count);
 //	}
-//	
+	
+	@Test
+	public void testList() {
+		
+		Criteria cri = new Criteria();
+		
+		List<QnaReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+		
+		replies.forEach(reply -> log.info(reply));
+	}
+	
+	
 }

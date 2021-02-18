@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+<%@include file="../includes/header.jsp"%>
 
 <div class="row">
   <div class="col-lg-12">
@@ -22,7 +24,7 @@
       <div class="panel-body">
        
 <!-- 추가 -->
-     <form role="form" action="/board/classModify" method="post">
+     <form id="operForm" action="/board/classUpdate" method="post">
  
  		 <div class="form-group">
 	          <label>Bno</label>
@@ -48,11 +50,10 @@
                    value='<c:out value="${board.classTotal }"/>'>
           </div>
           
-          
+          <button data-oper='classUpdate' class="btn btn-default">수정</button>
+		  <button data-oper='classList' class="btn btn-info">목록</button>
+		  <button data-oper='classRemove' class="btn btn-danger">삭제</button>
 
-	      <button type="submit" data-oper='modify' class="btn btn-default">수정</button>
-	      <button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
-		  <button type="button" onclick="location.href='/board/classList'">목록</button>
 		  
 	</form>
 	
@@ -68,31 +69,27 @@
 <!-- /.row -->
 
 <script>
-$(document).ready(function() {
+	$(document).ready(
+			function() {
 
-	  var formObj = $("form");
+				var operForm = $("#operForm");
 
-	  $('button').on("click", function(e){
-	    
-	    e.preventDefault(); 
-	    
-	    var operation = $(this).data("oper");
-	    
-	    console.log(operation);
-	    
-	    if(operation === 'remove'){
-	      formObj.attr("action", "/board/classRemove");
-	      
-	    }else if(operation === 'list'){
-	      //move to list
-	      formObj.attr("action", "/board/classList").attr("method","get");
-	      formObj.empty();
-		}
-	    
-	    formObj.submit();
-	  });
+				$("button[data-oper='classUpdate']").on("click", function(e) {
+					operForm.find("#bno").remove();
+					operForm.attr("action", "/board/classUpdate").attr("result", "success").submit();
+				});
 
-});
+				$("button[data-oper='classList']").on("click", function(e) {
+					operForm.find("#bno").remove();
+					operForm.attr("action", "/board/classList").attr("method", "get").submit();
+				});
+
+				$("button[data-oper='classRemove']").on("click", function(e) {
+					operForm.find("#bno").remove();
+					operForm.attr("action", "/board/classRemove").attr("result", "success").submit();
+				});
+
+			});
 </script>
 
-
+<%@include file="../includes/footer.jsp"%>

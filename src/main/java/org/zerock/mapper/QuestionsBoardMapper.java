@@ -14,8 +14,6 @@ public interface QuestionsBoardMapper {
 		
 	public QuestionsBoardVO read(Long bno);
 	
-	public int delete(QuestionsBoardVO board);
-	
 	public int delete(Long bno);
 	
 	public int update(QuestionsBoardVO board);
