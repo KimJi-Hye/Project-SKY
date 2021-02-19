@@ -26,8 +26,8 @@ public class JDBCTests {
 		try(Connection con =
 			DriverManager.getConnection(
 					"jdbc:oracle:thin:@192.168.0.80:1521:XE",
-					"sky",
-					"sky")){
+					"sky_erd",
+					"sky_erd")){
 			
 			log.info(con);
 		} catch (Exception e) {

@@ -7,19 +7,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.domain.ApplyBoardVO;
-import org.zerock.domain.ChildBoardVO;
 import org.zerock.domain.JoinParentsVO;
 import org.zerock.domain.JoinTeacherVO;
 import org.zerock.service.ApplyBoardService;
-import org.zerock.service.ChildBoardService;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.JoinParentsService;
 import org.zerock.service.JoinTeacherService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @Log4j
@@ -81,9 +77,9 @@ public class JoinTeacherController {
 	public void joinSuccess() {}
 	
 	// http://localhost:8080/member/get
-	@GetMapping("/memGet")
+	@GetMapping({"/memGet", "/memModify"})
 	public void get(@RequestParam("userId") String userId, @RequestParam("userType") String userType, Model model) {
-		log.info("/member get");
+		log.info("/member get or modify");
 		if(userType.charAt(0) == 'T') {
 			model.addAttribute("member", serviceT.get(userId));			
 		} else {
@@ -93,20 +89,34 @@ public class JoinTeacherController {
 	
 	// http://localhost:8080/member/modify
 	@PostMapping("/memModify")
-	public String modify(JoinTeacherVO join, RedirectAttributes rttr) {
-		log.info("member modify:" + join);
-		if(serviceT.modify(join)) {
-			rttr.addFlashAttribute("result", "success");
+	public String modify(@RequestParam("userType") String userType, JoinTeacherVO joinT, JoinParentsVO joinP, RedirectAttributes rttr) {
+		if(userType.charAt(0) == 'T') {
+			log.info("member modify:" + joinT);
+			if(serviceT.modify(joinT)) {
+				rttr.addFlashAttribute("result", "success");
+			}		
+		} else {
+			log.info("member modify:" + joinP);
+			if(serviceP.modify(joinP)) {
+				rttr.addFlashAttribute("result", "success");
+			}		
 		}
 		return "redirect:/member/memList";
 	}
 	
 	// http://localhost:8080/member/remove
 	@PostMapping("/memRemove")
-	public String remove(@RequestParam("userId") String userId, RedirectAttributes rttr) {
-		log.info("member remove...... " + userId);
-		if(serviceT.remove(userId)) {
-			rttr.addFlashAttribute("result", "success");
+	public String remove(@RequestParam("userId") String userId, @RequestParam("userType") String userType, RedirectAttributes rttr) {
+		if(userType.charAt(0) == 'T') {
+			log.info("member remove...... " + userId);
+			if(serviceT.remove(userId)) {
+				rttr.addFlashAttribute("result", "success");
+			}
+		} else {
+			log.info("member remove...... " + userId);
+			if(serviceP.remove(userId)) {
+				rttr.addFlashAttribute("result", "success");
+			}
 		}
 		return "redirect:/member/memList";
 	}

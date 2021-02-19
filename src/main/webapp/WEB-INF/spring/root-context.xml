@@ -15,8 +15,8 @@
 		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@192.168.0.80:1521:XE"></property>
 
-		<property name="username" value="sky"></property>
-		<property name="password" value="sky"></property>
+		<property name="username" value="sky_erd"></property>
+		<property name="password" value="sky_erd"></property>
 	</bean>
 
 	<!-- HikariCP configuration -->
