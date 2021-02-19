@@ -38,9 +38,21 @@
 					<div class="form-group">
 						<label>이름</label> <input class="form-control" name='cname'>
 					</div>
+					
+					<div class="form-group">
+						<label>성별</label> <input class="form-control" name='cgender'>
+					</div>
 
 					<div class="form-group">
-						<label>원아생년월일</label> <input class="form-control" name='cbirth'>
+						<label>원아생년월일</label> <input class="form-control" name='cbirth' type='date'>
+					</div>
+					
+					<div class="form-group">
+						<label>입학일</label> <input class="form-control" name='enter' type='date'>
+					</div>
+					
+					<div class="form-group">
+						<label>졸업일</label> <input class="form-control" name='graduation' type='date'>
 					</div>
 					
 					<button type="submit" class="btn btn-default">접수 신청</button>

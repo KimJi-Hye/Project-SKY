@@ -35,17 +35,18 @@ public class ApplyBoardServiceTests {
 //		ApplyBoardVO board = new ApplyBoardVO();
 //
 //		board.setAno("684514");
-//		board.setPName("test");
+//		board.setCname("test");
 //		board.setRelation("m");
-//		board.setPBirth("930915");
+//		board.setPbirth("930915");
 //		board.setAddr("청주시 흥덕구 봉명1동");
 //		board.setPhone("010-9954-9840");
+//		board.setUseremail("cjdwod@naver.com");
 //		
-//		board.setCName("test..");
-//		board.setCGender("girl");
-//		board.setCBirth("200202");
-//		board.setAppType("접수유형");
-//		board.setAppState("접수");
+//		board.setCname("test..");
+//		board.setCgender("girl");
+//		board.setCbirth("200202");
+//		board.setApptype("접수유형");
+//		board.setAppstate("접수");
 //		board.setPw("비번12");
 //		
 //		service.register(board);
@@ -54,11 +55,11 @@ public class ApplyBoardServiceTests {
 //	}
 //	
 //	
-	@Test
-	public void testGetList() {
-		
-		service.getList().forEach(board -> log.info(board));
-	}
+//	@Test
+//	public void testGetList() {
+//		
+//		service.getList().forEach(board -> log.info(board));
+//	}
 //	
 //	
 //	@Test

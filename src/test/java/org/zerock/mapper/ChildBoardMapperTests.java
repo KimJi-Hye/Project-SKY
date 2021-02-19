@@ -38,8 +38,12 @@ public class ChildBoardMapperTests {
 //		
 //		board.setCunicode("C210210003");
 //		board.setClassname("하늘반");
+//		board.setCgender("남자");
 //		board.setCname("박준용");
 //		board.setCbirth("20/10/23");
+//		board.setEnter("2021/7/15");
+//		board.setGraduation("2021/3/24");
+//		
 //		
 //		mapper.insert(board);
 //		

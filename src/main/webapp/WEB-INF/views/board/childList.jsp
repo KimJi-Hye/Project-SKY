@@ -18,9 +18,12 @@
 						<tr>
 							<th>고유번호</th>
 							<th>원아이름</th>
+							<th>성별</th>
 							<th>반이름</th>
 							<th>생년월일</th>
 							<th>학부모이름</th>
+							<th>입학일</th>
+							<th>졸업일</th>
 						</tr>
 					</thead>
 
@@ -29,9 +32,12 @@
 							<td><c:out value="${board.cunicode}" /></td>
 							<td><a href='/board/childGet?cunicode=<c:out value="${board.cunicode}"/>'>
 							<c:out value="${board.cname}" /></a></td>
+							<td><c:out value="${board.cgender}" /></td>
 							<td><c:out value="${board.classname}" /></td>
 							<td><c:out value="${board.cbirth}" /></td>
 							<td><c:out value="${board.username}" /></td>
+							<td><c:out value="${board.enter}" /></td>
+							<td><c:out value="${board.graduation}" /></td>
 							<%-- <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td> --%>
 						</tr>
 					</c:forEach>

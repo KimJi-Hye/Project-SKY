@@ -13,6 +13,7 @@ public class ApplyBoardVO {
 	private String pbirth;
 	private String addr;
 	private String phone;
+	private String useremail;
 	private Date adddate;
 	private String cname;
 	private String cgender;
@@ -21,8 +22,6 @@ public class ApplyBoardVO {
 	private String appstate;
 	private String cunicode;
 	private String cclass;
-	private String enter;
-	private String graduation;
 	private String pw;
 	
 }

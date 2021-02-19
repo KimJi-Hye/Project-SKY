@@ -105,8 +105,6 @@
 						<div class="header">
 							<strong class="primary-font">user00</strong>
 							<small class="pull-right text-muted">2018-01-01 13:13</small>
-							<!-- <button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
-        					<button id='modalRemoveBtn' type="button" class="btn btn-danger">삭제</button> -->
 						</div>
 						<p>Good job!</p>
 					</div>
@@ -268,7 +266,7 @@ $(document).ready(function() {
 	$(document).on("click", '#hidebutton', function(){
 		
  		var rno = $(this).parent().find(".test").text();
- 		var content = $("#inputdis").val();
+ 		var content = $(this).parent().find('#inputdis').val();
 		
 		var reply = {rno, content};
 		

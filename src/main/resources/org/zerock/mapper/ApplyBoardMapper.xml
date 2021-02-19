@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 								,pbirth
 								,addr
 								,phone
+								,useremail
 								,adddate
 								,cname
 								,cgender
@@ -30,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				,#{pbirth}
 				,#{addr}
 				,#{phone}
+				,#{useremail}
 				,sysdate
 				,#{cname}
 				,#{cgender}
@@ -58,11 +60,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				,pbirth = #{pbirth}
 				,addr = #{addr}
 				,phone = #{phone}
+				,useremail = #{useremail}
 				,cname = #{cname}
 				,cgender = #{cgender}
 				,cbirth = #{cbirth}
 				,apptype = #{apptype}
-				,cunicode = #{cunicode}
+				,appstate = #{appstate}
+				,pw = #{pw}
 		where ano = #{ano}
 		<!-- and pw = #{pw} -->
 	 </update>
@@ -77,8 +81,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			update tb_apply
 			set		cunicode = #{cunicode}
 					,cclass = #{cclass}
-					,enter = #{enter}
-					,graduation = #{graduation}
 			where ano = #{ano};
 		end
 	 }
