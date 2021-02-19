@@ -4,69 +4,133 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ClassNoteMapper">
 
+	<sql id="criteria">
+			<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'N'.toString()">
+							A.classname like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							B.cname like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>		
+	</sql>		
 
 	<select id="getList" resultType="org.zerock.domain.ClassNoteVO">
 
-		<![CDATA[
-			SELECT   A.bno
-					,A.cunicode
-					,A.classname
-					,A.regdate
-					,A.content
-					,A.writer
-					,A.title
-					,B.cname             
-			FROM tb_note A,tb_child B
-			WHERE A.cunicode = B.cunicode
-		]]>
+		SELECT A.bno
+		,A.cunicode
+		,A.classname
+		,A.regdate
+		,A.content
+		,A.writer
+		,A.title
+		,B.cname
+		FROM tb_note
+		A,tb_child B
+		WHERE A.cunicode=B.cunicode
 
 	</select>
 
 
- 	<insert id="insert">
-		insert into tb_note (bno, classname, cunicode, title, content, writer)
-		values (seq_tb_note.nextval, #{classname}, #{cunicode}, #{title}, #{content}, #{writer})
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.ClassNoteVO">
+
+	<![CDATA[
+     select
+       rn, bno, cunicode, classname, regdate, content, writer, title, cname
+    from
+       (
+		select /*+INDEX_DESC(tb_note pk_tb_note) */
+			rownum rn,A.bno
+			,A.cunicode
+			,A.classname
+			,A.regdate
+			,A.content
+			,A.writer
+			,A.title
+			,B.cname 
+		from tb_note A,tb_child B
+		WHERE A.cunicode=B.cunicode
+		and
+	]]>
+		
+	<include refid="criteria"></include>
+	
+	<![CDATA[
+		rownum <= #{pageNum} * #{amount}
+		)
+		where rn > (#{pageNum} -1) * #{amount}
+	]]>
+		
+
+	</select>
+
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tb_note 
+		where
+		
+	<include refid="criteria"></include>
+	
+	bno > 0
+	</select>
+
+
+	<insert id="insert">
+		insert into tb_note (bno, classname, cunicode, title,
+		content, writer)
+		values (seq_tb_note.nextval, #{classname},
+		#{cunicode}, #{title}, #{content}, #{writer})
 	</insert>
-	
-	
+
+
 	<insert id="insertSelectKey">
 		<selectKey keyProperty="bno" order="BEFORE"
 			resultType="long">
 			select seq_tb_note.nextval from dual
 		</selectKey>
 
-			insert into tb_note (bno, classname, cunicode, title, content, writer)
-			values (#{bno}, #{classname}, #{cunicode}, #{title}, #{content}, #{writer})			
+		insert into tb_note (bno, classname, cunicode, title, content, writer)
+		values (#{bno}, #{classname}, #{cunicode}, #{title}, #{content},
+		#{writer})
 	</insert>
-	
-	
+
+
 	<select id="read" resultType="org.zerock.domain.ClassNoteVO">
-			SELECT   A.bno
-					,A.cunicode
-					,A.classname
-					,A.regdate
-					,A.content
-					,A.writer
-					,A.title
-					,B.cname             
-			FROM tb_note A,tb_child B
-			WHERE A.cunicode = B.cunicode and bno = #{bno}
+		SELECT A.bno
+		,A.cunicode
+		,A.classname
+		,A.regdate
+		,A.content
+		,A.writer
+		,A.title
+		,B.cname
+		FROM tb_note
+		A,tb_child B
+		WHERE A.cunicode = B.cunicode and bno = #{bno}
 	</select>
 
 
 	<delete id="delete">
-			delete from tb_note where bno = #{bno}
+		delete from tb_note where bno = #{bno}
 	</delete>
-	
+
 
 	<update id="update">
-	    update tb_note
-	    set title= #{title},
-	    content = #{content},
-	    writer=#{writer},
-	    regdate=sysdate
-	    where bno = #{bno}
-	 </update>	
+		update tb_note
+		set title= #{title},
+		content =
+		#{content},
+		writer=#{writer},
+		regdate=sysdate
+		where bno = #{bno}
+	</update>
 
 
 </mapper>

@@ -30,7 +30,7 @@
 
           <div class="form-group">
             <label>원아이름</label> 
-            ${board.cunicode }
+            ${board.cname }
           </div>
 
 		<div class="form-group">
@@ -61,8 +61,9 @@
 				</div>
 		  
 				
-		 <input type="hidden" id="bno" name="bno" value="${board.bno}">
-	  
+			    <input type="hidden" id="bno" name="bno" value="${board.bno}">
+				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+				<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>	  
 
 
 	</form>
@@ -88,6 +89,13 @@ $(document).ready(function() {
 	$(".btn_list").click(function() {
 		operForm.find("#bno").remove();
 		operForm.attr("action", "/board/noteList").attr("method","get");
+	    var pageNumTag = $("input[name='pageNum']").clone();
+	    var amountTag = $("input[name='amount']").clone();
+	    
+	    operForm.empty();
+	    operForm.append(pageNumTag);
+	    operForm.append(amountTag);
+	    
 		operForm.submit();
 	});
 	$(".btn_del").click(function() {

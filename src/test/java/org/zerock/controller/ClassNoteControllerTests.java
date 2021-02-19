@@ -76,27 +76,27 @@ public class ClassNoteControllerTests {
 //				.getModelAndView().getModelMap());
 //	}
 	
-	@Test
-	public void testModify() throws Exception {
-		String resultPage = mockMvc
-				.perform(MockMvcRequestBuilders.post("/board/noteModify")
-				.param("bno", "4150")
-				.param("Title", "제목1000")
-				.param("Content", "내용10")
-				.param("Writer", "작성자10"))
-				.andReturn().getModelAndView().getViewName();
-		log.info(resultPage);
-						
-	}
-	
 //	@Test
-//	public void testRemove()throws Exception {
-//		// 삭제전 데이터베이스에 게시물 번호 확인할 것
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/noteRemove")
-//				.param("bno", "18")
-//				).andReturn().getModelAndView().getViewName();
+//	public void testModify() throws Exception {
+//		String resultPage = mockMvc
+//				.perform(MockMvcRequestBuilders.post("/board/noteModify")
+//				.param("bno", "4150")
+//				.param("Title", "제목1000")
+//				.param("Content", "내용10")
+//				.param("Writer", "작성자10"))
+//				.andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
+//						
 //	}
+	
+	@Test
+	public void testRemove()throws Exception {
+		// 삭제전 데이터베이스에 게시물 번호 확인할 것
+		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/noteRemove")
+				.param("bno", "2")
+				).andReturn().getModelAndView().getViewName();
+		log.info(resultPage);
+	}
 
 
 

@@ -6,55 +6,84 @@
     
 <%@ include file="../includes/header.jsp"%>
 
-    <div>
-    	<h2>회원가입</h2>
-    	
-    	<form role="form" action="/member/join" method="post">
-	    	<div>
-	    		<c:if test="${result eq 'T'}">
-			    	<div>
-			    		<h3>교직원 정보 입력</h3>
-			    		<ul>
-			    			<li>아이디<input type="text" name="userId"></li>
-			    			<li>비밀번호<input type=password name="userPw"></li>
-			    			<li>비밀번호 확인<input type="password" name=""></li>
-			    			<li>이름<input type="text" name="userName"></li>
-			    			<li>연락처<input type="text" name="userPhone"></li>
-			    			<li>주소<input type="text" name="userAddr"></li>
-			    			<li>이메일<input type="text" name="userEmail"></li>
-			    		</ul>
-			    		<input type="hidden" name="atGrade" value="Z">
-			    		<input type="hidden" name="userType" value="T">
-			    		<input type="hidden" name="className" value="">
-			    	</div> 
-			    </c:if>
-			    	
-			    <c:if test="${result eq 'P'}">
-			    	
-			    	<div>
-			    		<h3>학부모 정보 입력</h3>
-			    		<input type="text" value="">
-			    	</div>
-			    </c:if>
-	    	</div>
-	    	<div>
-	    		<a href="/member/joinType">뒤로가기</a>
-	    		<input type="reset" value="초기화">
-	    		<input type="submit" value="회원가입">
-	    	</div>
-	    	
-    	</form>
-    	
-    </div>
+<div>
+	<h2>유형 선택</h2>
+	<form role="form" action="/member/jointeacher" method="get">
+		<div>
+			<input type="radio" name="joinPage" value="teacher" id="typeT"> 
+			<label for="typeT">교직원</label> 
+			<input type="radio" name="joinPage"	value="parents" id="typeP"> 
+			<label for="typeP">학부모</label>
+			<button type="submit" class="join_next">다음단계 ></button>
+		</div>
+		
+		<div class="parents_box">
+			원아 고유번호 조회
+			<div class="plus_box"></div>
+			<button type="submit" class="join_next_p">다음단계 ></button>
+		</div>
+	</form>
+</div>
 
 <script>
    	$(document).ready(function(){
    		
-   		// no type
-   		var result = '<c:out value="${result}" />';
-   		if(result == ''){
-   			location.href="/member/joinType";
-   		}
+   		// 유형 선택
+   		var formObj = $("form");
+   		var p_box = $(".parents_box");
+   		p_box.hide();
+   		$(".join_next").click(function(e){
+   			var joinType = $("input[name='joinPage']:checked").val();
+   			e.preventDefault();
+   			if(joinType == undefined){
+   				alert("유형을 선택하세요");
+   				return;
+   			}
+   			if(joinType == "parents"){
+   				p_box.show();
+   				p_box.find(".plus_box").html("<input type='text' name='cunicode'>");
+   			} else {
+	   			formObj.submit();   				
+   			}
+   		});
+   		
+   		$(".join_next_p").click(function(e){
+   			e.preventDefault();
+   			var textbox = $("input[name='cunicode']");
+   			
+   			// 공백
+   			if(textbox.val() == ""){
+   				alert("고유번호를 입력하세요.");
+   				textbox.focus();
+   				return;
+   			}
+   			
+   			<c:forEach items="${type}" var="type">
+   				// 등록 고유번호 조회
+	   			if(textbox.val() == "${type.cunicode}"){
+	   				
+	   				// 등록 회원 조회
+	   				<c:forEach items="${usercode}" var="usercode">
+	   					if(textbox.val() == "${usercode.cunicode}"){
+	   						alert("이미 등록되어있는 회원입니다.");
+	   						textbox.val("");
+	   						textbox.focus();
+	   						return false;
+	   					}
+		   	   		</c:forEach>
+	   					
+		   	   		formObj.attr("action", "/member/joinparents");
+		   	   		formObj.submit();
+		   	   		return true;
+	   	   			
+	   			}
+			</c:forEach>
+			
+			alert(textbox.val() + "는 등록되지 않은 고유번호 입니다.");
+			textbox.val("");
+			textbox.focus();
+			return false;
+   		});
    		
    	});
 </script>

@@ -33,7 +33,7 @@ public class JoinTeacherServiceTests {
 		JoinTeacherVO join = new JoinTeacherVO();
 		join.setUserId("teacher1");
 		join.setAtGrade('B');
-		join.setClassName("하늘반");
+		join.setClassname("하늘반");
 		join.setUserName("최선생");
 		join.setUserPw("4321");
 		join.setUserPhone("010");

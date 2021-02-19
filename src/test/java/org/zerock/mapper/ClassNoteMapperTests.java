@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -83,22 +84,22 @@ public class ClassNoteMapperTests {
 //	}
 	
 	
-	@Test
-	public void testUpdate() {
-		
-		ClassNoteVO board = new ClassNoteVO();
-		// 실행 전 존재하는 번호인지 확인할 것
-		board.setBno(4150L);
-		board.setClassname("하늘반");
-		board.setCunicode("C210210002");
-		board.setTitle("제목1");
-		board.setContent("내용1");
-		board.setWriter("작성자1");
-
-		
-		int count = mapper.update(board);
-		log.info("UPDATE COUNT: " + count);
-	}
+//	@Test
+//	public void testUpdate() {
+//		
+//		ClassNoteVO board = new ClassNoteVO();
+//		// 실행 전 존재하는 번호인지 확인할 것
+//		board.setBno(4150L);
+//		board.setClassname("하늘반");
+//		board.setCunicode("C210210002");
+//		board.setTitle("제목1");
+//		board.setContent("내용1");
+//		board.setWriter("작성자1");
+//
+//		
+//		int count = mapper.update(board);
+//		log.info("UPDATE COUNT: " + count);
+//	}
 	
 //	@Test
 //	public void testPaging() {
@@ -112,4 +113,17 @@ public class ClassNoteMapperTests {
 //		
 //		list.forEach(board -> log.info(board));
 //	}
+	
+	
+	@Test
+	public void testSearch() {
+		
+		Criteria cri = new Criteria();
+		cri.setKeyword("하늘반");
+		cri.setType("N");
+		
+		List<ClassNoteVO> list = mapper.getListWithPaging(cri);
+		
+		list.forEach(board -> log.info(board));
+	}
 }

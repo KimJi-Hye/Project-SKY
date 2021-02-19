@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.ClassNoteMapper;
 
 import lombok.AllArgsConstructor;
@@ -28,14 +29,28 @@ public class ClassNoteServiceImpl implements ClassNoteService {
 		
 	}
 	
+//	@Override
+//	public List<ClassNoteVO> getList() {
+//
+//		log.info("getList.....");
+//		
+//		return mapper.getList();
+//	}
+
 	@Override
-	public List<ClassNoteVO> getList() {
-
-		log.info("getList.....");
+	public List<ClassNoteVO> getList(Criteria cri) {
 		
-		return mapper.getList();
+		log.info("get List with criteria: " + cri);
+		return mapper.getListWithPaging(cri);
 	}
-
+	
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+	
 	@Override
 	public ClassNoteVO get(Long bno) {
 

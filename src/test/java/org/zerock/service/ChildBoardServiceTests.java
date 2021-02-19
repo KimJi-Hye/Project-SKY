@@ -45,18 +45,18 @@ public class ChildBoardServiceTests {
 //	}
 //	
 //	
-	@Test
-	public void testGetList() {
-		
-		service.getList().forEach(board -> log.info(board));
-	}
-//	
-//	
 //	@Test
-//	public void testGet() {
+//	public void testGetList() {
 //		
-//		log.info(service.get("최충성"));
+//		service.getList().forEach(board -> log.info(board));
 //	}
+//	
+//	
+	@Test
+	public void testGet() {
+		
+		log.info(service.get("최하늘"));
+	}
 //	
 //	
 //	

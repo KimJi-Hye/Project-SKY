@@ -23,11 +23,11 @@ public class ChildBoardMapperTests {
 	
 	
 	
-	@Test
-	public void testGetList() {
-		
-		mapper.getList().forEach(board -> log.info(board));
-	}
+//	@Test
+//	public void testGetList() {
+//		
+//		mapper.getList().forEach(board -> log.info(board));
+//	}
 	
 	
 	
@@ -80,7 +80,7 @@ public class ChildBoardMapperTests {
 //		
 //		ChildBoardVO board = new ChildBoardVO();
 //		
-//		board.setCunicode("C210210003");
+//		board.setCunicode("C210210002");
 //		
 //		mapper.delete(board);
 //		log.info("DELETE COUNT: " + board);

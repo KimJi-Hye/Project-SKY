@@ -52,9 +52,9 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 	@Override
 	public boolean update(ApplyBoardVO board) {
 
-		log.info("update......" + board);
+		log.info("pass......" + board);
 		
-		return mapper.cupdate(board) == 1;
+		return mapper.pass(board) == 1;
 	}	
 
 	@Override

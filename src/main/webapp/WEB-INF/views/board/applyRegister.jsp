@@ -22,9 +22,6 @@
 			<div class="panel-body">
 
 				<form role="form" action="/board/applyRegister" method="post">
-					<div class="form-group">
-						<label>접수번호</label> <input class="form-control" name='ano'>
-					</div>
 
 					<div class="form-group">
 						<label>학부모이름</label> <input class="form-control" name='pname'>
@@ -66,23 +63,6 @@
 						<label>비밀번호</label> <input class="form-control" name='pw'>
 					</div>
 
-
-					<h1>관리자 승인용</h1>
-					<div class="form-group">
-						<label>test</label> <input class="form-control" name='11'>
-					</div>
-					
-					<div class="form-group">
-						<label>test</label> <input class="form-control" name='11'>
-					</div>
-					
-					<div class="form-group">
-						<label>test</label> <input class="form-control" name='11'>
-					</div>
-					
-					<div class="form-group">
-						<label>test</label> <input class="form-control" name='11'>
-					</div>
 					<button type="submit" class="btn btn-default">접수 신청</button>
 				</form>
 

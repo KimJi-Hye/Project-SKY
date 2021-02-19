@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.ChildBoardVO;
 import org.zerock.service.ChildBoardService;
+import org.zerock.service.ClassMngService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -21,6 +22,8 @@ import lombok.extern.log4j.Log4j;
 public class ChildBoardController {
 
 	private ChildBoardService service;
+	
+	private ClassMngService mngService;
 
 	@GetMapping("/childList")
 
@@ -31,8 +34,8 @@ public class ChildBoardController {
 	}
 	
 	@GetMapping("/childRegister")
-	public void register() {
-		
+	public void register(Model model) {
+		model.addAttribute("mngList", mngService.getList());
 	}
 	
 	@PostMapping("/childRegister")
@@ -45,7 +48,7 @@ public class ChildBoardController {
 	}
 	
 	@GetMapping({"/childGet","/childModify"})
-	public void get(@RequestParam("ano") String cunicode, Model model) {
+	public void get(@RequestParam("cunicode") String cunicode, Model model) {
 		log.info("/childGet or childModify");
 		model.addAttribute("board", service.get(cunicode));
 	}
@@ -67,13 +70,4 @@ public class ChildBoardController {
 		}
 		return "redirect:/board/childList";
 	}
-	
-	@PostMapping("/childUpdate")
-	public String update(ChildBoardVO board, RedirectAttributes rttr) {
-		log.info("childUpdate:" + board);
-		if (service.update(board)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/board/childList";
-	}	
 }
