@@ -11,8 +11,8 @@
 	
 	<!-- insert -->
 	<insert id="insert">
-		insert into author(atgrade, atname)
-		values (#{atgrade}, #{atname})
+		insert into author(atgrade, atname, classname)
+		values (#{atgrade}, #{atname}, #{classname})
 	</insert>
 	
 	<!-- read -->
@@ -23,7 +23,8 @@
 	<!-- update -->
 	<update id="update">
 		update author
-		set atname = #{atname}
+		set atname = #{atname},
+		classname = #{classname}
 		where atgrade = #{atgrade}
 	</update>
 	

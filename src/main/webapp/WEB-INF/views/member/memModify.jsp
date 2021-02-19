@@ -18,7 +18,10 @@
 	    	<ul>
 	    		<li>아이디 : <input type="text" name="userId" value="${member.userId}" readonly></li>
 	    		<li>이름 : <input type="text" name="userName" value="${member.userName}"></li>
-	    		<li>생년월일 : </li>
+	    		<li>생년월일 : 
+               	<fmt:parseDate var="userBirth" value="${member.userBirth}" pattern="yyyy-MM-dd" />
+               	<input type="date" name="userBirth" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${userBirth}" />'>
+	    		</li>
 	    		<li>연락처 : <input type="text" name="userPhone" value="${member.userPhone}"></li>
 	    		<li>주소 : <input type="text" name="userAddr" value="${member.userAddr}"></li>
 	    		<li>이메일 : <input type="text" name="userEmail" value="${member.userEmail}"></li>
@@ -27,16 +30,31 @@
 	    		
     		
 		    	<c:if test="${param.userType eq 'T'}">
-		    	<li>반이름 : <input type="text" name="classname" value="${member.classname}"></li>
+		    	<li>반이름 : 
+		    		<select name="classname">
+		    			<c:if test='${member.classname eq null}'>
+		   				<option value="" selected>-선택-</option>
+		   				</c:if>
+		   				<c:if test='${member.classname ne null}'>
+		   				<option value="${member.classname}" selected>${member.classname}</option>
+		       			<option value="">반없음</option>
+		   				</c:if>
+		   				<c:forEach items="${mngList}" var="boardMng">
+		   					<c:if test="${member.classname ne boardMng.className}">
+		       				<option value="${boardMng.className}">${boardMng.className}</option>
+		       				</c:if>
+		       			</c:forEach>
+					</select>
 		    	</c:if>
 	    		
 		    	<c:if test="${param.userType eq 'P'}">
+	    		<li>관계 : <input type="text" name="relation" value="${member.relation}"></li>
 	    		<li>아동명 : <input type="text" name="cunicode" value="${member.cunicode}" readonly></li>
 	    		<li>아동 고유번호 : ${member.atGrade}</li>
 	    		<li>반이름 : <input type="text" name="classname" value="${member.classname}" readonly></li>
 	    		<li>생년월일 : ${member.atGrade}</li>
 	    		
-	    		<li>접수유형 : </li>
+	    		<li>접수유형 : <input type="text" name="apptype" value="${member.apptype}" readonly></li>
 		    	</c:if>
 	    	</ul>
 	    	

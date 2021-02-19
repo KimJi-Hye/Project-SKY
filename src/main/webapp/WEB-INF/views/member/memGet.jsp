@@ -13,7 +13,8 @@
     	<ul>
     		<li>아이디 : ${member.userId}</li>
     		<li>이름 : ${member.userName}</li>
-    		<li>생년월일 : </li>
+    		<li>생년월일 : ${member.userBirth}
+    		</li>
     		<li>연락처 : ${member.userPhone}</li>
     		<li>주소 : ${member.userAddr}</li>
     		<li>이메일 : ${member.userEmail}</li>
@@ -24,12 +25,13 @@
 	    	</c:if>
     		
 	    	<c:if test="${param.userType eq 'P'}">
-    		<li>아동명 : ${member.atGrade}</li>
-    		<li>아동 고유번호 : ${member.atGrade}</li>
+	    	<li>관계 : ${member.relation}</li>
+    		<li>아동명 : ${member.cname}</li>
+    		<li>아동 고유번호 : ${member.cunicode}</li>
     		<li>반이름 : ${member.classname}</li>
     		<li>생년월일 : ${member.atGrade}</li>
     		
-    		<li>접수유형 : </li>
+    		<li>접수유형 : ${member.userType}</li>
 	    	</c:if>
     	</ul>
     	

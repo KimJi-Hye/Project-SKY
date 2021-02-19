@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.AuthorVO;
 import org.zerock.service.AuthorService;
+import org.zerock.service.ClassMngService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -21,6 +22,8 @@ public class AuthorController {
 
 	private AuthorService service;
 	
+	private ClassMngService mngService;
+	
 	// http://localhost:8080/author/list
 	@GetMapping("/list")
 	public void list(Model model) {
@@ -30,7 +33,9 @@ public class AuthorController {
 	
 	// http://localhost:8080/author/register
 	@GetMapping("/register")
-	public void register() {}
+	public void register(Model model) {
+		model.addAttribute("mngList", mngService.getList());
+	}
 	@PostMapping("/register")
 	public String register(AuthorVO author, RedirectAttributes rttr) {
 		log.info("register : " + author);
@@ -41,9 +46,10 @@ public class AuthorController {
 	
 	// http://localhost:8080/author/get
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("atgrade") char atgrade, Model model) {
+	public void get(@RequestParam("atgrade") String atgrade, Model model) {
 		log.info("/get or /modify");
 		model.addAttribute("author", service.get(atgrade));
+		model.addAttribute("mngList", mngService.getList());
 	}
 	
 	// http://localhost:8080/author/modify
@@ -58,7 +64,7 @@ public class AuthorController {
 	
 	// http://localhost:8080/author/remove
 	@PostMapping("/remove")
-	public String remove(@RequestParam("atgrade") char atgrade, RedirectAttributes rttr) {
+	public String remove(@RequestParam("atgrade") String atgrade, RedirectAttributes rttr) {
 		log.info("remove: " + atgrade);
 		if (service.remove(atgrade)) {
 			rttr.addFlashAttribute("result", "success");

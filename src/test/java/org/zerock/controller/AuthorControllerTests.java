@@ -48,7 +48,8 @@ public class AuthorControllerTests {
 //	public void testRegister() throws Exception{
 //		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/author/register")
 //				.param("atgrade", "S")
-//				.param("atname", "테스트 이름"))
+//				.param("atname", "테스트 이름")
+//				.param("classname", "반이름"))
 //				.andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
 //	}
@@ -65,8 +66,9 @@ public class AuthorControllerTests {
 //	@Test
 //	public void testModify() throws Exception{
 //		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/author/modify")
-//				.param("atgrade", "s")
-//				.param("atname", "테스트 수정"))
+//				.param("atgrade", "S")
+//				.param("atname", "테스트 수정")
+//				.param("classname", "반이름 수정"))
 //				.andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
 //	}

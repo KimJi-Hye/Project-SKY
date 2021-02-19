@@ -18,6 +18,7 @@
 			   			<li>비밀번호<input type=password name="userPw" id="userPw" required></li>
 			   			<li>비밀번호 확인<input type="password" name="pwCheck" id="pwCheck" required><span id="pwLog"></span></li>
 			   			<li>이름<input type="text" name="userName" id="userName" required></li>
+			   			<li>생년월일<input type="date" name="userBirth" required></li>
 			   			<li>연락처<input type="text" name="userPhone" id="userPhone" required></li>
 			   			<li>주소<input type="text" name="userAddr" id="userAddr" required></li>
 			   			<li>이메일<input type="text" name="userEmail" id="userEmail" required></li>
@@ -26,7 +27,7 @@
 			   		<ul>
 			   			<li>
 			   				담당 반
-			   				 <select name="className">
+			   				<select name="classname">
 		   						<option value="" selected>선택</option>
 		   						<c:forEach items="${mngList}" var="boardMng">
 		       						<option value="${boardMng.className}">${boardMng.className}</option>

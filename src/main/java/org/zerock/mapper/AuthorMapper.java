@@ -10,10 +10,10 @@ public interface AuthorMapper {
 	
 	public void insert(AuthorVO author);
 	
-	public AuthorVO read(char atgrade);
+	public AuthorVO read(String atgrade);
 	
 	public int update(AuthorVO author);
 	
-	public int delete(char atgrade);
+	public int delete(String atgrade);
 	
 }

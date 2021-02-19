@@ -31,8 +31,9 @@ public class AuthorServiceTests {
 //	@Test
 //	public void testRegister() {
 //		AuthorVO author = new AuthorVO();
-//		author.setAtgrade('s');
+//		author.setAtgrade("s");
 //		author.setAtname("테스트 이름");
+//		author.setClassname("반이름");
 //		service.register(author);
 //		log.info(author.getAtgrade() + ">> 등록되었습니다.");
 //	}
@@ -46,11 +47,12 @@ public class AuthorServiceTests {
 	// 수정
 //	@Test
 //	public void testUpdate() {
-//		AuthorVO author = service.get('s');
+//		AuthorVO author = service.get("s");
 //		if(author == null) {
 //			return;
 //		}
 //		author.setAtname("테스트 수정");
+//		author.setClassname("반이름 수정");
 //		log.info("MODIFY RESULT : " + service.modify(author));
 //	}
 	

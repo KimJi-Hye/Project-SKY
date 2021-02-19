@@ -8,11 +8,11 @@ public interface AuthorService {
 	
 	public void register(AuthorVO author);
 	
-	public AuthorVO get(char atgrade);
+	public AuthorVO get(String atgrade);
 	
 	public boolean modify(AuthorVO author);
 	
-	public boolean remove(char atgrade);
+	public boolean remove(String atgrade);
 	
 	public List<AuthorVO> getList();
 

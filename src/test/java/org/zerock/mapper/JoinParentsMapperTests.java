@@ -27,24 +27,24 @@ public class JoinParentsMapperTests {
 	
 	// insert
 //	@Test
-//	public void testGetList() {
-//		mapper.getList().forEach(list -> log.info(list));
 //	public void testInsert() {
 //		JoinParentsVO board = new JoinParentsVO();
 //		board.setUserId("pid4");
-//		board.setAtGrade('c');
-//		board.setCunicode("C210210002");
+//		board.setAtGrade("c");
+//		board.setCunicode("C210210003");
 //		board.setUserName("나부모");
 //		board.setUserPw("1234");
+//		board.setUserBirth("20210219");
 //		board.setUserPhone("010");
 //		board.setUserAddr("우리집");
 //		board.setUserEmail("email@");
-//		board.setUserType('P');
+//		board.setUserType("P");
+//		board.setRelation("부");
+//		board.setApptype("헤헷");
 //		mapper.insert(board);
 //		log.info(board);
 //	}
 	
-	// insert
 	// read
 //	@Test
 //	public void testRead() {
@@ -53,30 +53,9 @@ public class JoinParentsMapperTests {
 //	}
 	
 	// read apply
-	@Test
-	public void testInsert() {
-		JoinParentsVO board = new JoinParentsVO();
-		board.setUserId("pid6");
-		board.setAtGrade('c');
-		board.setCunicode("C210210008");
-		board.setUserName("라부모");
-		board.setUserPw("1234");
-		board.setUserPhone("010");
-		board.setUserAddr("우리집");
-		board.setUserEmail("email@");
-		board.setUserType('P');
-		mapper.insert(board);
-		log.info(board);
-	}
-	public void testReadParents() {
-		ApplyBoardVO read = mapper.readParents("C210210002");
-		log.info(read);
-	}
-	
-	// read
 //	@Test
-//	public void testRead() {
-//		JoinParentsVO read = mapper.read("pid4");
+//	public void testReadParents() {
+//		ApplyBoardVO read = mapper.readParents("C210210003");
 //		log.info(read);
 //	}
 	
@@ -84,14 +63,17 @@ public class JoinParentsMapperTests {
 //	@Test
 //	public void testUpdate() {
 //		JoinParentsVO board = new JoinParentsVO();
-//		board.setUserId("pid1");
-//		board.setAtGrade('c');
-//		board.setCUnicode("C210210001");
+//		board.setUserId("pid4");
+//		board.setAtGrade("c");
+//		board.setCunicode("C210210003");
 //		board.setUserName("나부모");
 //		board.setUserPw("1234");
+//		board.setUserBirth("20210219");
 //		board.setUserPhone("010");
-//		board.setUserAddr("충주시");
-//		board.setUserEmail("email@");
+//		board.setUserAddr("우리집");
+//		board.setUserEmail("email@수정");
+//		board.setRelation("부");
+//		board.setApptype("헤헷");
 //		
 //		int count = mapper.update(board);
 //		log.info("UPDATE COUNT: " + count);
@@ -100,7 +82,7 @@ public class JoinParentsMapperTests {
 	// delete
 //	@Test
 //	public void testDelete() {
-//		log.info("DELETE COUNT: " + mapper.delete("pid1"));
+//		log.info("DELETE COUNT: " + mapper.delete("pid4"));
 //	}
 	
 }

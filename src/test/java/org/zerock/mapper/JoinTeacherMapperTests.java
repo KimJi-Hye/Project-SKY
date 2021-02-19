@@ -28,15 +28,16 @@ public class JoinTeacherMapperTests {
 //	@Test
 //	public void testInsert() {
 //		JoinTeacherVO board = new JoinTeacherVO();
-//		board.setUserId("testid3");
-//		board.setAtGrade('C');
+//		board.setUserId("test01");
+//		board.setAtGrade("C");
 //		board.setClassname("우주반");
 //		board.setUserName("박선생");
 //		board.setUserPw("1234");
+//		board.setUserBirth("2121");
 //		board.setUserPhone("011");
 //		board.setUserAddr("우리집");
 //		board.setUserEmail("email@");
-//		board.setUserType('T');
+//		board.setUserType("T");
 //		
 //		mapper.insert(board);
 //		log.info(board);
@@ -45,7 +46,7 @@ public class JoinTeacherMapperTests {
 	// read
 //	@Test
 //	public void testRead() {
-//		JoinTeacherVO read = mapper.read("testid3");
+//		JoinTeacherVO read = mapper.read("test01");
 //		log.info(read);
 //	}
 	
@@ -53,11 +54,12 @@ public class JoinTeacherMapperTests {
 //	@Test
 //	public void testUpdate() {
 //		JoinTeacherVO board = new JoinTeacherVO();
-//		board.setUserId("testid3");
-//		board.setAtGrade('B');
+//		board.setUserId("test01");
+//		board.setAtGrade("B");
 //		board.setClassname("하늘반");
 //		board.setUserName("박선생");
 //		board.setUserPw("1234");
+//		board.setUserBirth("1234");
 //		board.setUserPhone("011");
 //		board.setUserAddr("청주시 흥덕구");
 //		board.setUserEmail("email@");
@@ -69,7 +71,7 @@ public class JoinTeacherMapperTests {
 	// delete
 //	@Test
 //	public void testDelete() {
-//		log.info("DELETE COUNT: " + mapper.delete("testid3"));
+//		log.info("DELETE COUNT: " + mapper.delete("test01"));
 //	}
 	
 }

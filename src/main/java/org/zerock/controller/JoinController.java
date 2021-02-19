@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/member/*")
 @AllArgsConstructor
-public class JoinTeacherController {
+public class JoinController {
 
 	private JoinTeacherService serviceT;
 	
@@ -80,6 +80,7 @@ public class JoinTeacherController {
 	@GetMapping({"/memGet", "/memModify"})
 	public void get(@RequestParam("userId") String userId, @RequestParam("userType") String userType, Model model) {
 		log.info("/member get or modify");
+		model.addAttribute("mngList", mngService.getList());
 		if(userType.charAt(0) == 'T') {
 			model.addAttribute("member", serviceT.get(userId));			
 		} else {

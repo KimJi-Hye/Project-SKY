@@ -28,8 +28,9 @@ public class AuthorMapperTests {
 //	@Test
 //	public void testInsert() {
 //		AuthorVO author = new AuthorVO();
-//		author.setAtgrade('S');
+//		author.setAtgrade("S");
 //		author.setAtname("테스트 이름");
+//		author.setClassname("반이름");
 //		mapper.insert(author);
 //		log.info(author);
 //	}
@@ -37,7 +38,7 @@ public class AuthorMapperTests {
 	// read
 //	@Test
 //	public void testREad() {
-//		AuthorVO read = mapper.read('S');
+//		AuthorVO read = mapper.read("S");
 //		log.info(read);
 //	}
 	
@@ -45,8 +46,9 @@ public class AuthorMapperTests {
 //	@Test
 //	public void testUpdate() {
 //		AuthorVO author = new AuthorVO();
-//		author.setAtgrade('S');
+//		author.setAtgrade("S");
 //		author.setAtname("테스트 수정");
+//		author.setClassname("반이름 수정");
 //		
 //		int count = mapper.update(author);
 //		log.info("UPDATE COUNT : " + count);
@@ -55,7 +57,7 @@ public class AuthorMapperTests {
 	// delete
 //	@Test
 //	public void testDelete() {
-//		log.info("DELETE COUNT : " + mapper.delete('S'));
+//		log.info("DELETE COUNT : " + mapper.delete("S"));
 //	}
 	
 }
