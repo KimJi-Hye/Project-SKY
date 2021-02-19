@@ -11,6 +11,7 @@ public class JoinTeacherVO {
 	private String classname;
 	private String userName;
 	private String userPw;
+	private String userBirth;
 	private String userPhone;
 	private String userAddr;
 	private String userEmail;

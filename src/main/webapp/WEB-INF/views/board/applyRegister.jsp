@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="form-group">
-						<label>학부모생년월일</label> <input class="form-control" name='pbirth'>
+						<label>학부모생년월일</label> <input class="form-control" name='pbirth' type='date'>
 					</div>
 
 					<div class="form-group">
@@ -41,6 +41,10 @@
 
 					<div class="form-group">
 						<label>연락처</label> <input class="form-control" name='phone'>
+					</div>
+					
+					<div class="form-group">
+						<label>e-mail</label> <input class="form-control" name='useremail'>
 					</div>
 
 					<div class="form-group">
@@ -52,7 +56,7 @@
 					</div>
 
 					<div class="form-group">
-						<label>아동생년월일</label> <input class="form-control" name='cbirth'>
+						<label>아동생년월일</label> <input class="form-control" name='cbirth' type='date'>
 					</div>
 
 					<div class="form-group">

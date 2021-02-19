@@ -36,8 +36,13 @@
 				</div>
 
 				<div class="form-group">
-					<label>학부모생년월일</label> <input class="form-control" name='pbirth'
-						value='<c:out value="${board.pbirth}"/>'>
+					<label>아동 생년 월일</label><input type="hidden">
+					<fmt:parseDate var="cbirth" value="${board.pbirth}"
+						pattern="yyyy-MM-dd" />
+						
+					<input class="form-control" name='pbirth' type='date'
+						value='<fmt:formatDate pattern="yyyy-MM-dd"
+						value="${pbirth}" />'>
 				</div>
 
 				<div class="form-group">
@@ -48,6 +53,11 @@
 				<div class="form-group">
 					<label>연락처</label> <input class="form-control" name='phone'
 						value='<c:out value="${board.phone}"/>'>
+				</div> 
+				
+				<div class="form-group">
+					<label>e-mail</label> <input class="form-control" name='useremail'
+						value='<c:out value="${board.useremail}"/>'>
 				</div> 
 
 				<div class="form-group">
@@ -61,8 +71,12 @@
 				</div>
 
 				<div class="form-group">
-					<label>아동생년월일</label> <input class="form-control" name='cbirth'
-						value='<c:out value="${board.cbirth}"/>'>
+					<label>아동 생년 월일</label><input type="hidden">
+					<fmt:parseDate var="cbirth" value="${board.cbirth}"
+						pattern="yyyy-MM-dd" />
+					<input class="form-control" name='cbirth' type='date'
+						value='<fmt:formatDate pattern="yyyy-MM-dd"
+						value="${cbirth}" />'>
 				</div>
 
 				<div class="form-group">
@@ -72,27 +86,17 @@
 
 				<div class="form-group">
 					<label>접수상태</label> <input class="form-control" name='appstate'
-						value='<c:out value="${board.appstate}"/>' readonly="readonly">
+						value='<c:out value="${board.appstate}"/>'>
 				</div>
 
 				<div class="form-group">
 					<label>아동고유번호</label> <input class="form-control" name='cunicode'
 						value='<c:out value="${board.cunicode}"/>' >
 				</div>
-
+				
 				<div class="form-group">
 					<label>소속반</label> <input class="form-control" name='cclass'
 						value='<c:out value="${board.cclass}"/>' >
-				</div>
-
-				<div class="form-group">
-					<label>입학일</label> <input class="form-control" name='enter'
-						value='<c:out value="${board.enter}"/>' >
-				</div>
-
-				<div class="form-group">
-					<label>졸업일</label> <input class="form-control" name='graduation'
-						value='<c:out value="${board.graduation}"/>'>
 				</div>
 				
 				<div class="form-group">
@@ -135,14 +139,6 @@
        						<option value="${boardMng.className}">${boardMng.className}</option>
        					</c:forEach>
 					</select>
-					
-					<div class="form-group">
-						<label>입학일</label> <input class="form-control" name='enter'>
-					</div>
-					
-					<div class="form-group">
-						<label>졸업일</label> <input class="form-control" name='graduation'>
-					</div>
 					
 					<button data-oper='applyPass' class="btn btn-default">최종 승인</button>
 				</form>

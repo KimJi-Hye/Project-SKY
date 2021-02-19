@@ -7,6 +7,7 @@ public class ChildBoardVO {
 	
 	//원아테이블
 	private String cunicode;
+	private String cgender;
 	private String cname;
 	private String cbirth;
 	private String enter;

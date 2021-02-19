@@ -7,8 +7,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getList" resultType="org.zerock.domain.ChildBoardVO">
 	
 			select a.cunicode
+					,a.cgender
 					,a.cname
 					,a.cbirth
+					,a.enter
+					,a.graduation
 					,b.classname
                     ,c.username
 					
@@ -18,8 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
  	<insert id="insert">
-		insert into tb_child (cunicode, classname, cname, cbirth)
-		values (#{cunicode}, #{classname}, #{cname}, #{cbirth})
+		insert into tb_child (cunicode, classname, cgender, cname, cbirth, enter, graduation)
+		values (#{cunicode}, #{classname}, #{cgender}, #{cname}, #{cbirth}, #{enter}, #{graduation})
 	</insert>
 
  	<select id="read" resultType="org.zerock.domain.ChildBoardVO">
@@ -34,8 +37,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="update">
 	    update tb_child
 	    set 	classname = #{classname}
+	    		,cgender = #{cgender}
 				,cname = #{cname}
 				,cbirth = #{cbirth}
+				,enter = #{enter}
+				,graduation = #{graduation}
 		where cunicode = #{cunicode}
 	 </update>
 	 

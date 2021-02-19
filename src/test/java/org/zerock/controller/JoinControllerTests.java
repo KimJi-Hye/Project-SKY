@@ -53,21 +53,21 @@ public class JoinControllerTests {
 //	}
 	
 	// 회원가입 선생님
-	@Test
-	public void testJoin() throws Exception {
-		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/join")
-				.param("userid", "teacher2")
-				.param("atGrade", "b")
-				.param("className", "하늘반")
-				.param("userName", "홍선생")
-				.param("userPw", "1234")
-				.param("userPhone", "tel")
-				.param("userAddr", "home")
-				.param("userEmail", "email")
-				.param("userType", "T")
-				).andReturn().getModelAndView().getViewName();
-		log.info(resultPage);
-	}
+//	@Test
+//	public void testJoin() throws Exception {
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/join")
+//				.param("userid", "teacher2")
+//				.param("atGrade", "b")
+//				.param("className", "하늘반")
+//				.param("userName", "홍선생")
+//				.param("userPw", "1234")
+//				.param("userPhone", "tel")
+//				.param("userAddr", "home")
+//				.param("userEmail", "email")
+//				.param("userType", "T")
+//				).andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//	}
 	
 	// 회원가입 학부모
 //	@Test

@@ -17,13 +17,23 @@
 			   			<li>비밀번호<input type=password name="userPw" id="userPw" required></li>
 			   			<li>비밀번호 확인<input type="password" name="pwCheck" id="pwCheck" required><span id="pwLog"></span></li>
 			   			<li>이름<input type="text" name="userName" id="userName" value="${apply.pname}" required></li>
+               			<li>생년월일
+               				<fmt:parseDate var="pbirth" value="${apply.pbirth}" pattern="yyyy-MM-dd" />
+               				<input type="date" name="userBirth" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />'>
+               			</li>
 			   			<li>연락처<input type="text" name="userPhone" id="userPhone" value="${apply.phone}" required></li>
 			   			<li>주소<input type="text" name="userAddr" id="userAddr" value="${apply.addr}" required></li>
-			   			<li>이메일<input type="text" name="userEmail" id="userEmail" required></li>
+			   			<li>이메일<input type="text" name="userEmail" id="userEmail" value="${apply.useremail}" required></li>
+			   		</ul>
+			   		<h3>원아 접수 정보</h3>
+			   		<ul>
+			   			<li>접수일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${apply.adddate}" /></li>
+			   			<li>접수 유형 : <input type="text" name="apptype" value="${apply.apptype }" readonly required></li>
 			   		</ul>
 			   		<h3>원아 정보 확인</h3>
 			   		<ul>
-			   			<li>원아 고유번호<input type="text" name="cunicode" id="cunicode" value="${apply.cunicode}" readonly></li>
+			   			<li>관계 : <input type="text" name="relation" value="${apply.relation}" required></li>
+			   			<li>원아 고유번호 : <input type="text" name="cunicode" id="cunicode" value="${apply.cunicode}" readonly></li>
 			   			<li>원아명 : <c:out value="${apply.cname}" /></li>
 			   			<li>성별 : <c:out value="${apply.cgender}" /></li>
 			   			<li>생년월일 : <c:out value="${apply.cbirth}" /></li>
@@ -48,7 +58,6 @@
     	<p class="popup_m"></p>
     	<button type="button" class="popup_close">확인</button>
     </div>
-
 
 <script src="/resources/js/join.js"></script>
 <script>

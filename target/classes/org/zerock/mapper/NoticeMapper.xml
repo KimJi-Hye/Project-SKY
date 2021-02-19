@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.NoticeMapper">
+
+<select id="getList" resultType="org.zerock.domain.NoticeVO">
+	<![CDATA[
+		select * from tb_notice where ano > 0
+	]]>
+</select>
+
+ 	<insert id="insert">
+		insert into tb_notice (ano ,title ,content)
+		values (seq_tb_apply.nextval, #{title}, #{content})
+	</insert>
+
+ 	<select id="read" resultType="org.zerock.domain.NoticeVO">
+		select * from tb_notice where ano = #{ano}
+	</select>
+	
+
+	<delete id="delete">
+		delete from tb_notice
+		where ano = #{ano}
+		<!-- and pw = #{pw} -->
+	</delete>
+	
+	
+	<update id="update">
+	    update tb_notice
+	    set 	,title
+	    		,content
+		where ano = #{ano}
+		<!-- and pw = #{pw} -->
+	 </update>
+	 
+</mapper>

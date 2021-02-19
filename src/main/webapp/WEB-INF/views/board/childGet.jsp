@@ -34,10 +34,37 @@
 					<label>반이름</label> <input class="form-control" name='classname'
 						value='<c:out value="${board.classname}"/>'>
 				</div>
+				
+				<div class="form-group">
+					<label>원아성별</label> <input class="form-control" name='cgender'
+						value='<c:out value="${board.cgender}"/>'>
+				</div>
 
 				<div class="form-group">
-					<label>원아생년월일</label> <input class="form-control" name='cbirth'
-						value='<c:out value="${board.cbirth}"/>'>
+					<label>아동 생년 월일</label><input type="hidden">
+					<fmt:parseDate var="cbirth" value="${board.cbirth}"
+						pattern="yyyy-MM-dd" />
+					<input class="form-control" name='cbirth' type='date'
+						value='<fmt:formatDate pattern="yyyy-MM-dd"
+						value="${cbirth}" />'>
+				</div>
+				
+				<div class="form-group">
+					<label>입학일</label><input type="hidden">
+					<fmt:parseDate var="enter" value="${board.enter}"
+						pattern="yyyy-MM-dd" />
+					<input class="form-control" name='enter' type='date'
+						value='<fmt:formatDate pattern="yyyy-MM-dd"
+						value="${enter}" />'>
+				</div>
+				
+				<div class="form-group">
+					<label>졸업일</label><input type="hidden">
+					<fmt:parseDate var="graduation" value="${board.graduation}"
+						pattern="yyyy-MM-dd" />
+					<input class="form-control" name='graduation' type='date'
+						value='<fmt:formatDate pattern="yyyy-MM-dd"
+						value="${graduation}" />'>
 				</div>
 				
 				<button data-oper='childModify' class="btn btn-default">수정</button>

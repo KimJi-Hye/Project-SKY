@@ -5,22 +5,20 @@
 <mapper namespace="org.zerock.mapper.JoinParentsMapper">
 
 	<select id="getList" resultType="org.zerock.domain.JoinParentsVO">
-		select p.userid, p.atgrade, p.username, p.userpw, p.userphone, p.useraddr, p.useremail, p.usertype, c.cunicode, c.classname, c.cname, c.cbirth
+		select p.userid, p.atgrade, p.username, p.userpw, p.userbirth, p.userphone, p.useraddr, p.useremail, p.usertype, p.relation, p.apptype, c.cunicode, c.classname, c.cname, c.cbirth
 		from tb_parents p, tb_child c
 		where p.cUnicode = c.cUnicode
 	</select>
 	
 	<!-- insert -->
 	<insert id="insert">
-
-		insert into tb_parents(userid, atgrade, cunicode, username, userpw, userphone, useraddr, useremail, usertype)
-
-		values (#{userId}, #{atGrade}, #{cunicode}, #{userName}, #{userPw}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
+		insert into tb_parents(userid, atgrade, cunicode, username, userpw, userbirth, userphone, useraddr, useremail, usertype, relation, apptype)
+		values (#{userId}, #{atGrade}, #{cunicode}, #{userName}, #{userPw}, #{userBirth}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType}, #{relation}, #{apptype})
 	</insert>
 	
 	<!-- read -->
 	<select id="read" resultType="org.zerock.domain.JoinParentsVO">
-		select p.userid, p.atgrade, p.username, p.userpw, p.userphone, p.useraddr, p.useremail, p.usertype, p.cunicode, c.classname, c.cname, c.cbirth
+		select p.userid, p.atgrade, p.username, p.userpw, p.userbirth, p.userphone, p.useraddr, p.useremail, p.usertype, p.relation, p.apptype, p.cunicode, c.classname, c.cname, c.cbirth
 		from tb_parents p, tb_child c
 		where p.userId = #{userId}
 		and p.cUnicode = c.cUnicode
@@ -33,13 +31,16 @@
 	<!-- update -->
 	<update id="update">
 		update tb_parents
-		set atgrade = #{atGrade},
-		cunicode = #{cunicode},
-		username = #{userName},
-		userpw = #{userPw},
-		userphone = #{userPhone},
-		useraddr = #{userAddr},
-		useremail = #{userEmail}
+		set atgrade = #{atGrade}, 
+		cunicode = #{cunicode}, 
+		username = #{userName}, 
+		userpw = #{userPw}, 
+		userbirth = #{userBirth}, 
+		userphone = #{userPhone}, 
+		useraddr = #{userAddr}, 
+		useremail = #{userEmail}, 
+		relation = #{relation}, 
+		apptype = #{apptype}
 		where userid = #{userId}
 	</update>
 	

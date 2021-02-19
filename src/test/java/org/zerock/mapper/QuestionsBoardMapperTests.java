@@ -31,20 +31,20 @@ public class QuestionsBoardMapperTests {
 	
 	
 	
-//	@Test
-//	public void testInsert() {
-//		
-//		QuestionsBoardVO board = new QuestionsBoardVO();
-//		
-//		board.setTitle("test002");
-//		board.setContent("test002");
-//		board.setWriter("test002");
-//		board.setPw("1234");
-//		
-//		mapper.insert(board);
-//		
-//		log.info(board);
-//	}
+	@Test
+	public void testInsert() {
+		
+		QuestionsBoardVO board = new QuestionsBoardVO();
+		
+		board.setTitle("test002");
+		board.setContent("test002");
+		board.setWriter("test002");
+		board.setPw("1234");
+		
+		mapper.insert(board);
+		
+		log.info(board);
+	}
 //	
 //	
 //	

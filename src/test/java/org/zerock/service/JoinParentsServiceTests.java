@@ -27,22 +27,25 @@ public class JoinParentsServiceTests {
 //	}
 	
 	// 회원가입
-	@Test
-	public void testJoin() {
-		JoinParentsVO join = new JoinParentsVO();
-		join.setUserId("parents1");
-		join.setCunicode("C210210002");
-		join.setAtGrade('b');
-		join.setUserName("김부모");
-		join.setUserPw("1234");
-		join.setUserPhone("010");
-		join.setUserAddr("청주시 가경동");
-		join.setUserEmail("email@");
-		join.setUserType('P');
-		
-		service.join(join);
-		log.info(">> 회원가입 된 회원 아이디 : " + join.getUserId());
-	}
+//	@Test
+//	public void testJoin() {
+//		JoinParentsVO join = new JoinParentsVO();
+//		join.setUserId("parents1");
+//		join.setCunicode("C210210003");
+//		join.setAtGrade("b");
+//		join.setUserName("김부모");
+//		join.setUserPw("1234");
+//		join.setUserBirth("20210219");
+//		join.setUserPhone("010");
+//		join.setUserAddr("청주시 가경동");
+//		join.setUserEmail("email@");
+//		join.setUserType("P");
+//		join.setRelation("모");
+//		join.setApptype("후훗");
+//		
+//		service.join(join);
+//		log.info(">> 회원가입 된 회원 아이디 : " + join.getUserId());
+//	}
 	
 	// 회원리스트
 //	@Test
@@ -57,10 +60,10 @@ public class JoinParentsServiceTests {
 //	}
 	
 	// 회원 원아정보 조회
-	@Test
-	public void testGetParents() {
-		log.info(service.getParents("C210210002"));
-	}
+//	@Test
+//	public void testGetParents() {
+//		log.info(service.getParents("C210210003"));
+//	}
 	
 	// 회원 수정
 //	@Test
@@ -70,7 +73,7 @@ public class JoinParentsServiceTests {
 //		if(join == null) {
 //			return;
 //		}
-//		join.setUserEmail("이메일수정@");
+//		join.setUserBirth("20200219");
 //		log.info("MODIFY RESULT: " + service.modify(join));
 //	}
 	

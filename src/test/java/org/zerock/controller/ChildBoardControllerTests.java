@@ -61,8 +61,11 @@ public class ChildBoardControllerTests {
 //		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/childRegister")
 //				.param("cunicode", "C210210005")
 //				.param("classname", "하늘반")
+//				.param("cgender", "남자")
 //				.param("cname", "최하늘")
 //				.param("cbirth", "2020/8/12")
+//				.param("enter", "2021/7/13")
+//				.param("graduation", "2020/08/15")
 //				).andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
 //	}

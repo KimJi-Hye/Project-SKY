@@ -50,6 +50,7 @@ public class ApplyBoardController {
 	public void get(@RequestParam("ano") Long ano, Model model) {
 		log.info("/applyGet or applyModify");
 		model.addAttribute("board", service.get(ano));
+		model.addAttribute("mngList", mngService.getList());
 	}
 	
 	@PostMapping("/applyModify")

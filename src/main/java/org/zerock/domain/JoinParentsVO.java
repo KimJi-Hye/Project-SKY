@@ -7,13 +7,18 @@ public class JoinParentsVO {
 	
 	// 학부모
 	private String userId;
-	private char atGrade;
+	private String atGrade;
 	private String userName;
 	private String userPw;
+	private String userBirth;
 	private String userPhone;
 	private String userAddr;
 	private String userEmail;
-	private char userType;
+	private String userType;
+	private String relation;
+	
+	// 접수유형
+	private String apptype;
 	
 	// 아동
 	private String cunicode;
