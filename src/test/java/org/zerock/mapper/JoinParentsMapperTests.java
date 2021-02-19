@@ -27,6 +27,8 @@ public class JoinParentsMapperTests {
 	
 	// insert
 //	@Test
+//	public void testGetList() {
+//		mapper.getList().forEach(list -> log.info(list));
 //	public void testInsert() {
 //		JoinParentsVO board = new JoinParentsVO();
 //		board.setUserId("pid4");
@@ -42,6 +44,7 @@ public class JoinParentsMapperTests {
 //		log.info(board);
 //	}
 	
+	// insert
 	// read
 //	@Test
 //	public void testRead() {
@@ -51,10 +54,31 @@ public class JoinParentsMapperTests {
 	
 	// read apply
 	@Test
+	public void testInsert() {
+		JoinParentsVO board = new JoinParentsVO();
+		board.setUserId("pid6");
+		board.setAtGrade('c');
+		board.setCunicode("C210210008");
+		board.setUserName("라부모");
+		board.setUserPw("1234");
+		board.setUserPhone("010");
+		board.setUserAddr("우리집");
+		board.setUserEmail("email@");
+		board.setUserType('P');
+		mapper.insert(board);
+		log.info(board);
+	}
 	public void testReadParents() {
 		ApplyBoardVO read = mapper.readParents("C210210002");
 		log.info(read);
 	}
+	
+	// read
+//	@Test
+//	public void testRead() {
+//		JoinParentsVO read = mapper.read("pid4");
+//		log.info(read);
+//	}
 	
 	// update
 //	@Test

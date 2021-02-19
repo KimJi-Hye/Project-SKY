@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.ApplyBoardVO;
 import org.zerock.service.ApplyBoardService;
+import org.zerock.service.ClassMngService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -20,6 +21,8 @@ import lombok.extern.log4j.Log4j;
 public class ApplyBoardController {
 
 	private ApplyBoardService service;
+	
+	private ClassMngService mngService;
 
 	@GetMapping("/applyList")
 
@@ -67,9 +70,9 @@ public class ApplyBoardController {
 		return "redirect:/board/applyList";
 	}
 	
-	@PostMapping("/applyUpdate")
+	@PostMapping("/applyPass")
 	public String update(ApplyBoardVO board, RedirectAttributes rttr) {
-		log.info("applyUpdate:" + board);
+		log.info("applyPass:" + board);
 		if (service.update(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}

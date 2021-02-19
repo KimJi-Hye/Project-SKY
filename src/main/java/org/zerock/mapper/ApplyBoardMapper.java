@@ -20,5 +20,5 @@ public interface ApplyBoardMapper {
 	
 	public int update(ApplyBoardVO board);
 	
-	public int cupdate(ApplyBoardVO board);
+	public int pass(ApplyBoardVO board);
 }

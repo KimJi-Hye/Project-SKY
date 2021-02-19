@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.zerock.domain.ChildBoardVO;
+import org.zerock.domain.QuestionsBoardVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -16,10 +16,10 @@ import lombok.extern.log4j.Log4j;
 //Java Config
 //@ContextConfiguration(classes = {org.zerock.config.RootConfig.class})
 @Log4j
-public class ChildBoardMapperTests {
+public class QuestionsBoardMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
-	private ChildBoardMapper mapper;
+	private QuestionsBoardMapper mapper;
 	
 	
 	
@@ -34,25 +34,25 @@ public class ChildBoardMapperTests {
 //	@Test
 //	public void testInsert() {
 //		
-//		ChildBoardVO board = new ChildBoardVO();
+//		QuestionsBoardVO board = new QuestionsBoardVO();
 //		
-//		board.setCunicode("C210210003");
-//		board.setClassname("하늘반");
-//		board.setCname("박준용");
-//		board.setCbirth("20/10/23");
+//		board.setTitle("test002");
+//		board.setContent("test002");
+//		board.setWriter("test002");
+//		board.setPw("1234");
 //		
 //		mapper.insert(board);
 //		
 //		log.info(board);
 //	}
-	
+//	
 //	
 //	
 //	
 //	@Test
 //	public void testInsertSelectKey() {
 //		
-//		ChildBoardVO board = new ChildBoardVO();
+//		ApplyBoardVO board = new ApplyBoardVO();
 //		board.setPName("우주반");
 //		board.setRelation("");
 //		board.setPBirth("");
@@ -68,7 +68,7 @@ public class ChildBoardMapperTests {
 //	public void testRead() {
 //		
 //		// 존재하는 게시물 번호로 테스트
-//		ChildBoardVO board = mapper.read(1L);
+//		QuestionsBoardVO board = mapper.read(2L);
 //		
 //		log.info(board);
 //	}
@@ -78,26 +78,27 @@ public class ChildBoardMapperTests {
 //	@Test
 //	public void testDelete() {
 //		
-//		ChildBoardVO board = new ChildBoardVO();
+//		QuestionsBoardVO board = new QuestionsBoardVO();
 //		
-//		board.setCunicode("C210210002");
+//		board.setBno(2L);
 //		
 //		mapper.delete(board);
 //		log.info("DELETE COUNT: " + board);
 //	}
 //	
-//	
 //	@Test
-//	public void testcUpdate() {
+//	public void testUpdate() {
 //		
-//		ChildBoardVO board = new ChildBoardVO();
-//		
-//		board.setCunicode("C210210003");
-//		board.setClassname("우주반");
-//		board.setCname("우라차");
-//		board.setCbirth("2021/10/21");
-//		
+//		QuestionsBoardVO board = new QuestionsBoardVO();
+//
+//		board.setBno(3L);
+//		board.setTitle("김충성");
+//		board.setContent("정혜윤");
+//		board.setWriter("박준용");
+//		board.setPw("4321");
+//
 //		int count = mapper.update(board);
 //		log.info("UPDATE COUNT: " + count);
 //	}
+//	
 }

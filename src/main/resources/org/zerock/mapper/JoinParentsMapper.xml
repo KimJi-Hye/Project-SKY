@@ -12,7 +12,9 @@
 	
 	<!-- insert -->
 	<insert id="insert">
-		insert into tb_parents(userid, atgrade, cUnicode, username, userpw, userphone, useraddr, useremail, usertype)
+
+		insert into tb_parents(userid, atgrade, cunicode, username, userpw, userphone, useraddr, useremail, usertype)
+
 		values (#{userId}, #{atGrade}, #{cunicode}, #{userName}, #{userPw}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
 	</insert>
 	
@@ -32,7 +34,7 @@
 	<update id="update">
 		update tb_parents
 		set atgrade = #{atGrade},
-		cUnicode = #{cunicode},
+		cunicode = #{cunicode},
 		username = #{userName},
 		userpw = #{userPw},
 		userphone = #{userPhone},

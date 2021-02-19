@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 								,apptype
 								,appstate
 								,pw)
-		values (#{ano}
+		values (seq_tb_apply.nextval
 				,#{pname}
 				,#{relation}
 				,#{pbirth}
@@ -62,20 +62,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				,cgender = #{cgender}
 				,cbirth = #{cbirth}
 				,apptype = #{apptype}
+				,cunicode = #{cunicode}
 		where ano = #{ano}
 		<!-- and pw = #{pw} -->
 	 </update>
 	 
-	 <update id="cupdate">
-		 	update tb_apply
-		 	set cunicode = #{cunicode}
-		 		,cclass = #{cclass}
-		 		,enter = to_date(#{enter})
-		 		,graduation = to_date(#{graduation})
-	 		where ano = #{ano}
-
+	 <update id="pass">
+	 {call
+	 	declare
+	 	begin
+			insert into tb_child(cunicode, classname, cname, cbirth)
+			values(#{cunicode}, #{cclass}, #{cname}, #{cbirth});
+			
+			update tb_apply
+			set		cunicode = #{cunicode}
+					,cclass = #{cclass}
+					,enter = #{enter}
+					,graduation = #{graduation}
+			where ano = #{ano};
+		end
+	 }
 	 </update>
 	 
-	 
-
 </mapper>

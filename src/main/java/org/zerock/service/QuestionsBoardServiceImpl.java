@@ -3,8 +3,8 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.zerock.domain.ApplyBoardVO;
-import org.zerock.mapper.ApplyBoardMapper;
+import org.zerock.domain.QuestionsBoardVO;
+import org.zerock.mapper.QuestionsBoardMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -12,13 +12,13 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class ApplyBoardServiceImpl implements ApplyBoardService{
+public class QuestionsBoardServiceImpl implements QuestionsBoardService{
 
 	//spring 4.3 이상에서 자동 처리
-	private ApplyBoardMapper mapper;
+	private QuestionsBoardMapper mapper;
 	
 	@Override
-	public void register(ApplyBoardVO board) {
+	public void register(QuestionsBoardVO board) {
 	
 		log.info("register......" + board);
 		
@@ -26,7 +26,7 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 	}
 	
 	@Override
-	public List<ApplyBoardVO> getList() {
+	public List<QuestionsBoardVO> getList() {
 
 		log.info("getList.........");
 		
@@ -34,7 +34,7 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 	}
 
 	@Override
-	public ApplyBoardVO get(Long ano) {
+	public QuestionsBoardVO get(Long ano) {
 
 		log.info("get......" + ano);
 		
@@ -42,20 +42,12 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 	}
 
 	@Override
-	public boolean modify(ApplyBoardVO board) {
+	public boolean modify(QuestionsBoardVO board) {
 
 		log.info("modify......" + board);
 		
 		return mapper.update(board) == 1;
 	}
-	
-	@Override
-	public boolean update(ApplyBoardVO board) {
-
-		log.info("pass......" + board);
-		
-		return mapper.pass(board) == 1;
-	}	
 
 	@Override
 	public boolean remove(Long ano) {
@@ -64,5 +56,6 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		
 		return mapper.delete(ano) == 1;
 	}
+
 
 }
