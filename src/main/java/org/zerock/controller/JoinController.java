@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.JoinParentsVO;
 import org.zerock.domain.JoinTeacherVO;
 import org.zerock.service.ApplyBoardService;
+import org.zerock.service.AuthorService;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.JoinParentsService;
 import org.zerock.service.JoinTeacherService;
@@ -30,6 +31,8 @@ public class JoinController {
 	private ClassMngService mngService;
 	
 	private ApplyBoardService applyService;
+	
+	private AuthorService authorService;
 	
 	// http://localhost:8080/member/list
 	@GetMapping("/memList")
@@ -81,7 +84,8 @@ public class JoinController {
 	public void get(@RequestParam("userId") String userId, @RequestParam("userType") String userType, Model model) {
 		log.info("/member get or modify");
 		model.addAttribute("mngList", mngService.getList());
-		if(userType.charAt(0) == 'T') {
+		model.addAttribute("author", authorService.getList());
+		if(userType == "T") {
 			model.addAttribute("member", serviceT.get(userId));			
 		} else {
 			model.addAttribute("member", serviceP.get(userId));
@@ -91,7 +95,7 @@ public class JoinController {
 	// http://localhost:8080/member/modify
 	@PostMapping("/memModify")
 	public String modify(@RequestParam("userType") String userType, JoinTeacherVO joinT, JoinParentsVO joinP, RedirectAttributes rttr) {
-		if(userType.charAt(0) == 'T') {
+		if(userType == "T") {
 			log.info("member modify:" + joinT);
 			if(serviceT.modify(joinT)) {
 				rttr.addFlashAttribute("result", "success");

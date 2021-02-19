@@ -13,7 +13,9 @@
     	<ul>
     		<li>아이디 : ${member.userId}</li>
     		<li>이름 : ${member.userName}</li>
-    		<li>생년월일 : ${member.userBirth}
+    		<li>생년월일 : 
+    		<fmt:parseDate var="userBirth" value="${member.userBirth}" pattern="yyyy-MM-dd HH:mm:ss" />
+    		<fmt:formatDate pattern="yyyy-MM-dd" value="${userBirth}" />
     		</li>
     		<li>연락처 : ${member.userPhone}</li>
     		<li>주소 : ${member.userAddr}</li>

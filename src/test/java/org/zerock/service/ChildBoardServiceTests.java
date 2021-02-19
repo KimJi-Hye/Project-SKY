@@ -45,16 +45,6 @@ public class ChildBoardServiceTests {
 //	}
 //	
 //	
-<<<<<<< HEAD
-=======
-//	@Test
-//	public void testGetList() {
-//		
-//		service.getList().forEach(board -> log.info(board));
-//	}
-//	
-//	
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 //	@Test
 //	public void testGetList() {
 //		
