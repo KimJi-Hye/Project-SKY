@@ -31,8 +31,7 @@
 		,A.writer
 		,A.title
 		,B.cname
-		FROM tb_note
-		A,tb_child B
+		FROM tb_note A,tb_child B
 		WHERE A.cunicode=B.cunicode
 
 	</select>
@@ -43,17 +42,17 @@
 
 	<![CDATA[
      select
-       rn, bno, cunicode, classname, regdate, content, writer, title, cname
+      rn, bno, cunicode, classname, regdate, content, writer, title, cname
     from
        (
 		select /*+INDEX_DESC(tb_note pk_tb_note) */
 			rownum rn,A.bno
-			,A.cunicode
-			,A.classname
-			,A.regdate
-			,A.content
-			,A.writer
-			,A.title
+			,A.cunicode 
+			,A.classname 
+			,A.regdate 
+			,A.content 
+			,A.writer 
+			,A.title 
 			,B.cname 
 		from tb_note A,tb_child B
 		WHERE A.cunicode=B.cunicode
@@ -73,9 +72,10 @@
 
 
 	<select id="getTotalCount" resultType="int">
-		select count(*) from tb_note 
-		where
-		
+		select count(*) 
+		from tb_note A,tb_child B
+		WHERE A.cunicode=B.cunicode
+		and
 	<include refid="criteria"></include>
 	
 	bno > 0
