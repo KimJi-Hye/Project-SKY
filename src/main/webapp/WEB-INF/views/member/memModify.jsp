@@ -25,7 +25,14 @@
 	    		<li>연락처 : <input type="text" name="userPhone" value="${member.userPhone}"></li>
 	    		<li>주소 : <input type="text" name="userAddr" value="${member.userAddr}"></li>
 	    		<li>이메일 : <input type="text" name="userEmail" value="${member.userEmail}"></li>
-	    		<li>권한 : <input type="text" name="atGrade" value="${member.atGrade}"></li>
+	    		<li>권한 :
+	    		<select name="atGrade">
+	    			<option value="${member.atGrade}" selected>${member.atGrade}</option>
+	    			<c:forEach items="${author}" var="at">
+	    			<option value="${at.atgrade}">${at.atgrade} (${at.atname})</option>
+	    			</c:forEach>
+	    		</select> 
+	    		</li>
 	    		
 	    		
     		
