@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.ApplyBoardVO;
+import org.zerock.domain.ClassNoteVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.ApplyBoardMapper;
 
 import lombok.AllArgsConstructor;
@@ -25,14 +27,29 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		mapper.insert(board);
 	}
 	
+//	@Override
+//	public List<ApplyBoardVO> getList() {
+//
+//		log.info("getList.........");
+//		
+//		return mapper.getList();
+//	}
+
+	
 	@Override
-	public List<ApplyBoardVO> getList() {
-
-		log.info("getList.........");
+	public List<ApplyBoardVO> getList(Criteria cri) {
 		
-		return mapper.getList();
+		log.info("get List with criteria: " + cri);
+		return mapper.getListWithPaging(cri);
 	}
-
+	
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+	
 	@Override
 	public ApplyBoardVO get(Long ano) {
 

@@ -44,9 +44,7 @@ public class ChildBoardServiceTests {
 //		log.info("생성된 게시물의 번호: " + board.getCunicode());
 //	}
 //	
-//	
-<<<<<<< HEAD
-
+//
 //	@Test
 //	public void testGetList() {
 //		
@@ -54,9 +52,6 @@ public class ChildBoardServiceTests {
 //	}
 //	
 //	
-
-=======
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 //	@Test
 //	public void testGetList() {
 //		
@@ -64,11 +59,11 @@ public class ChildBoardServiceTests {
 //	}
 //	
 //	
-	@Test
-	public void testGet() {
-		
-		log.info(service.get("최하늘"));
-	}
+//	@Test
+//	public void testGet() {
+//		
+//		log.info(service.get("최하늘"));
+//	}
 //	
 //	
 //	

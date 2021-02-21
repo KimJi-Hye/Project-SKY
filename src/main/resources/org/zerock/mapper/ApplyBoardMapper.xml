@@ -4,6 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ApplyBoardMapper">
 
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+		<foreach item='type' collection="typeArr">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'N'.toString()">
+						pname like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>		
+</sql>	
+
+
 <select id="getList" resultType="org.zerock.domain.ApplyBoardVO">
 	<![CDATA[
 		select * from tb_apply where ano > 0
@@ -45,6 +60,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tb_apply where ano = #{ano}
 	</select>
 	
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.ApplyBoardVO">
+
+	<![CDATA[
+		select
+			ano, pname, appstate, apptype, adddate
+		from
+       (
+		select /*+INDEX_DESC(tb_apply pk_tb_apply) */
+			rownum rn, ano, pname, appstate, apptype, adddate
+		from tb_apply
+		where
+	]]>
+		
+	<include refid="criteria"></include>
+	
+	<![CDATA[
+		rownum <= #{pageNum} * #{amount}
+		)
+		where rn > (#{pageNum} -1) * #{amount}
+	]]>
+		
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(*) 
+		from tb_apply
+		where
+	<include refid="criteria"></include>
+	
+	ano > 0
+	</select>
 
 	<delete id="delete">
 		delete from tb_apply
@@ -75,8 +122,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 {call
 	 	declare
 	 	begin
-			insert into tb_child(cunicode, classname, cname, cbirth)
-			values(#{cunicode}, #{cclass}, #{cname}, #{cbirth});
+			insert into tb_child(cunicode, classname, cgender, cname, cbirth, enter, graduation)
+			values(#{cunicode}, #{cclass}, #{cgender}, #{cname}, #{cbirth}, null, null);
 			
 			update tb_apply
 			set		cunicode = #{cunicode}

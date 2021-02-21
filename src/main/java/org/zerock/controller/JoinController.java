@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.JoinParentsVO;
 import org.zerock.domain.JoinTeacherVO;
 import org.zerock.service.ApplyBoardService;
@@ -44,8 +45,8 @@ public class JoinController {
 	
 	// http://localhost:8080/member/join
 	@GetMapping("/join")
-	public void join(Model model) {
-		model.addAttribute("type", applyService.getList());
+	public void join(Criteria cri, Model model) {
+		model.addAttribute("type", applyService.getList(cri));
 		model.addAttribute("usercode", serviceP.getList());
 	}
 
