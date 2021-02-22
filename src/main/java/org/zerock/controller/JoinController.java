@@ -31,8 +31,6 @@ public class JoinController {
 	
 	private ClassMngService mngService;
 	
-	private ApplyBoardService applyService;
-	
 	private AuthorService authorService;
 	
 	// http://localhost:8080/member/list
@@ -45,8 +43,8 @@ public class JoinController {
 	
 	// http://localhost:8080/member/join
 	@GetMapping("/join")
-	public void join(Criteria cri, Model model) {
-		model.addAttribute("type", applyService.getList(cri));
+	public void join(Model model) {
+		model.addAttribute("type", serviceP.getApplyList());
 		model.addAttribute("usercode", serviceP.getList());
 	}
 

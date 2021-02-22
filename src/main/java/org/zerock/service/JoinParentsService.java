@@ -13,6 +13,8 @@ public interface JoinParentsService {
 	
 	public ApplyBoardVO getParents(String cunicode);
 	
+	public List<ApplyBoardVO> getApplyList();
+	
 	public boolean modify(JoinParentsVO join);
 	
 	public boolean remove(String userId);

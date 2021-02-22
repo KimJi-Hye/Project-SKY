@@ -52,11 +52,17 @@ public class JoinParentsMapperTests {
 //		log.info(read);
 //	}
 	
-	// read apply
+	// read applyParents
 //	@Test
 //	public void testReadParents() {
 //		ApplyBoardVO read = mapper.readParents("C210210003");
 //		log.info(read);
+//	}
+	
+	// read Apply List
+//	@Test
+//	public void testApplyList() {
+//		mapper.applyList().forEach(list -> log.info(list));
 //	}
 	
 	// update
