@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
  	<select id="read" resultType="org.zerock.domain.QnaReplyVO">
-		select * from tb_qna_reply where bno = #{bno}
+		select * from tb_qna_reply where rno = #{rno}
 	</select>
 	
 	<delete id="delete">
@@ -33,16 +33,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- and pw = #{pw} -->
 	 </update>
 	 
-	 <select id="getListWithPaging" resultType="org.zerock.domain.QnaReplyVO">
+<!-- 	 <select id="getListWithPaging" resultType="org.zerock.domain.QnaReplyVO">
 	 
 	 	select rno, bno, content, writer, regdate, updatedate
 	 	from tb_qna_reply
 	 	where bno = #{bno}
 	 	order by rno asc
 	 
-	 </select>
+	 </select> -->
 	 
-	 
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.QnaReplyVO">
+	
+	 <![CDATA[
+	 select  rno, bno, content, writer, regdate, updatedate
+	 from 
+	   (
+	    select /*+INDEX(tb_reply idx_reply) */ 
+	      rownum rn, rno, bno, content, writer, regdate, updatedate
+	    from tb_qna_reply
+	    where bno =  #{bno}
+	    and rno > 0
+	    and rownum <= #{cri.pageNum} * #{cri.amount}
+	   ) where rn > (#{cri.pageNum} -1) * #{cri.amount}
+	]]>
+	</select>
+	
+	<select id="getCountByBno" resultType="int">
+	<![CDATA[
+		select count(rno) from tb_qna_reply where bno = #{bno}
+	]]>
+	</select>
 	 
 	 
 	 

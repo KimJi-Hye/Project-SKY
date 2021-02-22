@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.ChildBoardVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.ChildBoardMapper;
 
 import lombok.AllArgsConstructor;
@@ -26,11 +27,18 @@ public class ChildBoardServiceImpl implements ChildBoardService{
 	}
 	
 	@Override
-	public List<ChildBoardVO> getList() {
+	public List<ChildBoardVO> getList(Criteria cri) {
 
-		log.info("getList.........");
+		log.info("get List with criteria: " + cri);
 		
-		return mapper.getList();
+		return mapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
 	}
 
 	@Override
@@ -55,12 +63,6 @@ public class ChildBoardServiceImpl implements ChildBoardService{
 		log.info("remove...." + cunicode);
 		
 		return mapper.delete(cunicode) == 1;
-	}
-
-	@Override
-	public boolean update(ChildBoardVO board) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

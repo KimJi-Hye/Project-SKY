@@ -63,7 +63,9 @@
 				<button data-oper='applyList' class="btn btn-info">돌아가기</button>
 				<button data-oper='applyRemove' class="btn btn-default">접수취소</button>
 
-				</form>
+				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+			    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+			</form>
 				
 			</div>
 			<!-- /.panel-body -->
@@ -77,10 +79,6 @@
 			<div class="form-group">
 				<label>작성자</label>
 				<input class="form-control" name='writer' value=''>
-			</div>
-			<div class="form-group">
-				<label>작성시간</label>
-				<input class="form-control" name='regdate' value=''>
 			</div>
 			
 			<button id='modalRegisterBtn' type="button" class="btn btn-primary">등록</button>
@@ -114,6 +112,7 @@
 			</ul>
 		<!-- ./ end ul -->
 		</div>
+		<div class="panel-footer"></div>
 	</div>
 	<!-- /.col-lg-6 -->
 </div>
@@ -151,7 +150,7 @@ $(document).ready(function() {
 
 });
 </script> -->
-<script>
+<script type="text/javascript">
 $(document).ready(function() {
 	
 	console.log("===================");
@@ -166,23 +165,23 @@ $(document).ready(function() {
 
 		console.log("show list " + page);
 	   
-		QnaReplyService.getList({bno:bnoValue, page: page|| 1 }, function(list) {
+		/* QnaReplyService.getList({bno:bnoValue, page: page|| 1 }, function(list) { */
 
-/* 		QnaReplyService.getList({bno:bnoValue, page: page|| 1 }, function(replyCnt, list) {
-		console.log("replyCnt: "+ replyCnt ); */
+ 		QnaReplyService.getList({bno:bnoValue, page: page|| 1 }, function(replyCnt, list) {
+ 			
+		console.log("replyCnt: "+ replyCnt );
 		console.log("list: " + list);
 		console.log(list);
 	   
-/* 		if(page == -1){
+ 		if(page == -1){
 		  pageNum = Math.ceil(replyCnt/10.0);
 		  showList(pageNum);
 		  return;
-		}  */
+		}
 	   
 		var str="";
 		
 		if(list == null || list.length == 0){
-			replyUL.html("");
 			return;
 		}
 	  
@@ -210,7 +209,7 @@ $(document).ready(function() {
 	  
 		replyUL.html(str);
 		
-		/* showReplyPage(replyCnt); */
+		showReplyPage(replyCnt);
 
 
 	});//end function
@@ -239,7 +238,7 @@ $(document).ready(function() {
 		
 		QnaReplyService.add(reply, function(){
 
-			showList(1);
+			showList(-1);
 		})
 	});
 	
@@ -266,17 +265,14 @@ $(document).ready(function() {
 	$(document).on("click", '#hidebutton', function(){
 		
  		var rno = $(this).parent().find(".test").text();
-<<<<<<< HEAD
  		var content = $(this).parent().find("#inputdis").val();
-=======
  		var content = $(this).parent().find('#inputdis').val();
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 		
 		var reply = {rno, content};
 		
 		QnaReplyService.update(reply, function(){
 			
-			showList(1);
+			showList(pageNum);
 		});
 	});
 	
@@ -287,7 +283,7 @@ $(document).ready(function() {
 		
 		QnaReplyService.remove(rno, function(){
 			
-			showList(1);
+			showList(pageNum);
 		});
 	});
 	
@@ -344,20 +340,78 @@ $(document).ready(function() {
 	var operForm = $("#operForm");
 	
 	$("button[data-oper='applyModify']").on("click", function(e) {
-		operForm.attr("action", "/board/applyModify").submit();
+		operForm.attr("action", "/board/questionsModify").submit();
 	});
 	
 	$("button[data-oper='applyList']").on("click", function(e) {
-		operForm.find("#ano").remove();
-		operForm.attr("action", "/board/applyList").attr("method","get").submit();
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/board/questionsList").attr("method","get").submit();
 	});
 	
 	$("button[data-oper='applyRemove']").on("click", function(e){
-		operForm.attr("action", "/board/applyRemove").submit();
+		operForm.attr("action", "/board/questionsRemove").submit();
 	});
 	
-	$("button[data-oper='applyPass']").on("click", function(e){
-		operForm.attr("action", "/board/applyPass").submit();
-	});
+	var pageNum = 1;
+	var replyPageFooter = $(".panel-footer");
+	
+	function showReplyPage(replyCnt){
+	 
+		var endNum = Math.ceil(pageNum / 10.0) * 10;  
+		var startNum = endNum - 9; 
+		
+		var prev = startNum != 1;
+		var next = false;
+		
+		if(endNum * 10 >= replyCnt){
+		  endNum = Math.ceil(replyCnt/10.0);
+		}
+		
+		if(endNum * 10 < replyCnt){
+		  next = true;
+		}
+		
+		var str = "<ul class='pagination pull-right'>";
+		
+		if(prev){
+			str+= "<li class='page-item'><a class='page-link' href='"+(startNum -1)+"'>Previous</a></li>";
+		}
+		
+		for(var i = startNum ; i <= endNum; i++){
+		  
+			var active = pageNum == i? "active":"";
+			
+			str+= "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+		}
+		
+		if(next){
+			str+= "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>Next</a></li>";
+		}
+		
+		str += "</ul></div>";
+		
+		console.log(str);
+		
+		replyPageFooter.html(str);
+	}
+//paging - end-------------------------
+
+	//페이지 번호 클릭 이벤트
+	replyPageFooter.on("click","li a", function(e){
+		
+		e.preventDefault();
+		console.log("page click");
+		
+		var targetPageNum = $(this).attr("href");
+		
+		console.log("targetPageNum: " + targetPageNum);
+		
+		pageNum = targetPageNum;
+		
+		showList(pageNum);
+	}); 
 });
+</script>
+<script type="text/javascript">
+
 </script>

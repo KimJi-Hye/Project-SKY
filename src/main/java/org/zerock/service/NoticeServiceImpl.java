@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.Criteria;
-import org.zerock.domain.QuestionsBoardVO;
-import org.zerock.mapper.QuestionsBoardMapper;
+import org.zerock.domain.NoticeVO;
+import org.zerock.mapper.NoticeMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -14,13 +14,13 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class QuestionsBoardServiceImpl implements QuestionsBoardService{
+public class NoticeServiceImpl implements NoticeService{
 
 	//spring 4.3 이상에서 자동 처리
-	private QuestionsBoardMapper mapper;
+	private NoticeMapper mapper;
 	
 	@Override
-	public void register(QuestionsBoardVO board) {
+	public void register(NoticeVO board) {
 	
 		log.info("register......" + board);
 		
@@ -28,7 +28,7 @@ public class QuestionsBoardServiceImpl implements QuestionsBoardService{
 	}
 	
 //	@Override
-//	public List<QuestionsBoardVO> getList() {
+//	public List<NoticeVO> getList() {
 //
 //		log.info("getList.........");
 //		
@@ -36,7 +36,7 @@ public class QuestionsBoardServiceImpl implements QuestionsBoardService{
 //	}
 
 	@Override
-	public List<QuestionsBoardVO> getList(Criteria cri) {
+	public List<NoticeVO> getList(Criteria cri) {
 		
 		log.info("get List with criteria: " + cri);
 		return mapper.getListWithPaging(cri);
@@ -50,7 +50,7 @@ public class QuestionsBoardServiceImpl implements QuestionsBoardService{
 	}
 	
 	@Override
-	public QuestionsBoardVO get(Long ano) {
+	public NoticeVO get(Long ano) {
 
 		log.info("get......" + ano);
 		
@@ -58,7 +58,7 @@ public class QuestionsBoardServiceImpl implements QuestionsBoardService{
 	}
 
 	@Override
-	public boolean modify(QuestionsBoardVO board) {
+	public boolean modify(NoticeVO board) {
 
 		log.info("modify......" + board);
 		

@@ -54,7 +54,7 @@ public class ClassMngController {
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info("/classGet or classModify");
 		model.addAttribute("board", service.get(bno));
-		model.addAttribute("boardC", serviceC.getList());
+//		model.addAttribute("boardC", serviceC.getList());
 		model.addAttribute("boardT", serviceT.getList());
 	}
 

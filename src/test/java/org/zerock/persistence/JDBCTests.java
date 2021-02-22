@@ -25,7 +25,7 @@ public class JDBCTests {
 		
 		try(Connection con =
 			DriverManager.getConnection(
-					"jdbc:oracle:thin:@localhost:1521:XE",
+					"jdbc:oracle:thin:@192.168.0.80:1521:XE",
 					"sky_erd",
 					"sky_erd")){
 			

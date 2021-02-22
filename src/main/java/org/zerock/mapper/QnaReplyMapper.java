@@ -22,4 +22,6 @@ public interface QnaReplyMapper {
 	public List<QnaReplyVO> getListWithPaging(
 			@Param("cri") Criteria cri,
 			@Param("bno") Long bno);
+	
+	public int getCountByBno(Long bno);
 }

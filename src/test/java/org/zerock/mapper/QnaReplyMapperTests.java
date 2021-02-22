@@ -44,6 +44,18 @@ public class QnaReplyMapperTests {
 //			
 //		});
 //	}
+	
+	@Test
+	public void TestList2() {
+		
+		Criteria cri = new Criteria(2, 10);
+		
+		List<QnaReplyVO> replies = mapper.getListWithPaging(cri, 1L);
+		
+		replies.forEach(reply -> log.info(reply));
+		
+	}
+	
 
 	
 //	@Test

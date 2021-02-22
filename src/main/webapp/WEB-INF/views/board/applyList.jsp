@@ -70,8 +70,7 @@
 						</c:forEach>
 
 						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a
-								href="${pageMaker.endPage +1}">Next</a></li>
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1}">Next</a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -115,6 +114,7 @@ $(document).ready(function() {
 		actionForm.attr("action", "/board/applyGet");
 		actionForm.submit();
 	});
+	
     $("#searchForm button").on("click", function(e) {
 
 		if (!searchForm.find("option:selected").val()) {

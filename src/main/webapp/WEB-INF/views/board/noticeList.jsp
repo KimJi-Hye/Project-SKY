@@ -16,41 +16,30 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>고유번호</th>
-							<th>원아이름</th>
-							<th>성별</th>
-							<th>반이름</th>
-							<th>생년월일</th>
-							<th>학부모이름</th>
-							<th>입학일</th>
-							<th>졸업일</th>
+							<th>게시물 번호</th>
+							<th>제목</th>
+							<th>내용</th>
 						</tr>
 					</thead>
 
-					<c:forEach items="${childList}" var="board">
+					<c:forEach items="${noticeList}" var="board">
 						<tr>
-							<td><c:out value="${board.cunicode}" /></td>
-							<td><a class='move' href=<c:out value="${board.cunicode}"/>'>
-							<c:out value="${board.cname}" /></a></td>
-							<td><c:out value="${board.cgender}" /></td>
-							<td><c:out value="${board.classname}" /></td>
-							<td><c:out value="${board.cbirth}" /></td>
-							<td><c:out value="${board.username}" /></td>
-							<td><c:out value="${board.enter}" /></td>
-							<td><c:out value="${board.graduation}" /></td>
+							<td><c:out value="${board.bno}" /></td>
+							<td><a class='move' href=<c:out value="${board.bno}"/>'>
+							<c:out value="${board.title}" /></a></td>
+							<td><c:out value="${board.content}" /></td>
 							<%-- <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td> --%>
 						</tr>
 					</c:forEach>
 				</table>
-				
 				<!-- <화면에서 검색 조건 처리> -->
 
-				<form id='searchForm' action="/board/childList" method='get'>
+				<form id='searchForm' action="/board/noticeList" method='get'>
 					<select name='type'>								
 						<option value=""
 						<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
 						<option value="N"
-						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모 이름</option>
+						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>제목</option>
 					</select>
 					 
 					<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
@@ -59,7 +48,7 @@
 					
 					<button class='btn btn-default'>Search</button>				   
 				</form>
-				
+
 				<!-- Pagination -->
 				<div class='pull-right'>
 					<ul class="pagination">
@@ -76,19 +65,19 @@
 						</c:forEach>
 
 						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a
-								href="${pageMaker.endPage +1}">Next</a></li>
+							<li class="paginate_button next"><a href="${pageMaker.endPage +1}">Next</a></li>
 						</c:if>
 					</ul>
 				</div>
 				<!-- end Pagination -->
 
-				<form id='actionForm' action="/board/childList" method='get'>
+				<form id='actionForm' action="/board/noticeList" method='get'>
 					<input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
 					<input type='hidden' name='amount' value = '${pageMaker.cri.amount}'>
 					<input type='hidden' name='type' value = '<c:out value="${pageMaker.cri.type}"/>'>
 					<input type='hidden' name='keyword' value = '<c:out value="${pageMaker.cri.keyword}"/>'>
 				</form>
+
 
 			</div>
 <!-- 			/.panel-body -->
@@ -103,7 +92,8 @@ $(document).ready(function() {
 
 	$('#regBtn').click(function() {
 
-		$(location).attr('href','childRegister');
+		$(location).attr('href','noticeRegister');
+
 	});
 	
 	var actionForm = $("#actionForm");
@@ -116,8 +106,8 @@ $(document).ready(function() {
 	
 	$(".move").on("click", function(e) {
 		e.preventDefault();
-		actionForm.append("<input type='hidden' name='cunicode' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/board/childGet");
+		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
+		actionForm.attr("action", "/board/noticeGet");
 		actionForm.submit();
 	});
 	

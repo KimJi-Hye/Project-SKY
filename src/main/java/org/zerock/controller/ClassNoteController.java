@@ -57,7 +57,7 @@ public class ClassNoteController {
 	public void register(Model model) {
 
 		model.addAttribute("mngList", mngService.getList());
-		model.addAttribute("cnameList", childService.getList());		
+//		model.addAttribute("cnameList", childService.getList());		
 		
 	}
 	

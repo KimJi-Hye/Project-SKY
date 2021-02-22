@@ -70,8 +70,10 @@
 				<button data-oper='childModify' class="btn btn-default">수정</button>
 				<button data-oper='childList' class="btn btn-info">돌아가기</button>
 				<button data-oper='childRemove' class="btn btn-default">탈퇴하기</button>
-
-				</form>
+				
+				<input name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+			    <input name='amount' value='<c:out value="${cri.amount}"/>'>
+			</form>
 				
 			</div>
 			<!-- /.panel-body -->
@@ -120,16 +122,33 @@ $(document).ready(function() {
 	var operForm = $("#operForm");
 	
 	$("button[data-oper='childModify']").on("click", function(e) {
+		
 		operForm.attr("action", "/board/childModify").submit();
 	});
 	
 	$("button[data-oper='childList']").on("click", function(e) {
-		operForm.find("#ano").remove();
-		operForm.attr("action", "/board/childList").attr("method","get").submit();
+		
+		operForm.find("#cunicode").remove();
+		operForm.attr("action", "/board/childList").attr("method","get")
+		var pageNumTag = $("input[name='pageNum']").clone();
+		var pageamountTag = $("input[name='amount']").clone();
+		var keywordTag = $("input[name='keyword']").clone();
+		var typeTag = $("input[name='type']").clone();
+		
+		operForm.empty();
+		operForm.append(pageNumTag);
+		operForm.append(pageamountTag);
+		operForm.append(keywordTag);
+		operForm.append(typeTag);
+		
+		operForm.submit();
+		
 	});
 	
 	$("button[data-oper='childRemove']").on("click", function(e){
+		
 		operForm.attr("action", "/board/childRemove").submit();
+		
 	});
 });
 </script>
