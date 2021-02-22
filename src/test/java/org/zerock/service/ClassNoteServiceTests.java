@@ -50,6 +50,11 @@ public class ClassNoteServiceTests {
 //		service.getList(new Criteria(2, 10)).forEach(board -> log.info(board));
 //	}
 	
+//	@Test
+//	public void testGetChildList() {
+//		service.getChildList().forEach(board -> log.info(board));
+//	}
+	
 	
 //	@Test
 //	public void testGet() {
@@ -68,18 +73,18 @@ public class ClassNoteServiceTests {
 //	}
 	
 	
-	@Test
-	public void testUpdate() {
-		
-		ClassNoteVO board = service.get(4150L);
-		
-		if (board == null) {
-			return;
-		}
-		
-		board.setTitle("테스트1111");
-		log.info("MODIFY RESULT: " + service.modify(board));
-	}
+//	@Test
+//	public void testUpdate() {
+//		
+//		ClassNoteVO board = service.get(4150L);
+//		
+//		if (board == null) {
+//			return;
+//		}
+//		
+//		board.setTitle("테스트1111");
+//		log.info("MODIFY RESULT: " + service.modify(board));
+//	}
 	
 
 	

@@ -115,6 +115,11 @@
 		A,tb_child B
 		WHERE A.cunicode = B.cunicode and bno = #{bno}
 	</select>
+	
+	<!-- 원아 조회 -->
+	<select id="getChildList" resultType="org.zerock.domain.ChildBoardVO">
+		select cunicode, cname, classname from tb_child
+	</select>
 
 
 	<delete id="delete">

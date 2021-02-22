@@ -29,11 +29,16 @@ public class ClassNoteMapperTests {
 //		mapper.getList().forEach(board -> log.info(board));
 //	}
 	
+//	@Test
+//	public void testGetChildList() {
+//		mapper.getChildList().forEach(board -> log.info(board));
+//	}
+	
 	
 
 //	@Test
 //	public void testInsert() {
-//		
+//		getChildList
 //		ClassNoteVO board = new ClassNoteVO();
 //		board.setClassName("하늘반");
 //		board.setCUnicode("C210210001");
@@ -115,15 +120,15 @@ public class ClassNoteMapperTests {
 //	}
 	
 	
-	@Test
-	public void testSearch() {
-		
-		Criteria cri = new Criteria();
-		cri.setKeyword("하늘반");
-		cri.setType("N");
-		
-		List<ClassNoteVO> list = mapper.getListWithPaging(cri);
-		
-		list.forEach(board -> log.info(board));
-	}
+//	@Test
+//	public void testSearch() {
+//		
+//		Criteria cri = new Criteria();
+//		cri.setKeyword("하늘반");
+//		cri.setType("N");
+//		
+//		List<ClassNoteVO> list = mapper.getListWithPaging(cri);
+//		
+//		list.forEach(board -> log.info(board));
+//	}
 }
