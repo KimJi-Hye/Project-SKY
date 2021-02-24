@@ -1,6 +1,8 @@
 var draggedEventIsAllDay;
 var activeInactiveWeekends = true;
 
+    var test = '${list}';
+
 var calendar = $('#calendar').fullCalendar({
 
  /** ******************
@@ -22,7 +24,7 @@ var calendar = $('#calendar').fullCalendar({
                               },
   eventLimitClick           : 'week', //popover
   navLinks                  : true,
-  defaultDate               : moment('2019-05'), //실제 사용시 현재 날짜로 수정
+  defaultDate               : moment('2021-02'), //실제 사용시 현재 날짜로 수정
   timeFormat                : 'HH:mm',
   defaultTimedEventDuration : '01:00:00',
   editable                  : true,
@@ -107,20 +109,35 @@ var calendar = $('#calendar').fullCalendar({
   events: function (start, end, timezone, callback) {
     $.ajax({
       type: "get",
-      url: "data.json",
+      url: "/board/eventList",
       data: {
         // 화면이 바뀌면 Date 객체인 start, end 가 들어옴
         //startDate : moment(start).format('YYYY-MM-DD'),
         //endDate   : moment(end).format('YYYY-MM-DD')
       },
       success: function (response) {
-        var fixedDate = response.map(function (array) {
+		console.log("조회완료");
+		console.log(response.length);
+/*		for (var i = 0; i < jsonList.length; i++) {
+			
+			var evt = {
+			_id: jsonList[i].bno,
+			title: jsonList[i].title
+			};
+			events.push(evt);
+		}*/
+		
+		callback(events);
+        /*var fixedDate = response.map(function (array) {
+			alert(array);
           if (array.allDay && array.start !== array.end) {
-            array.end = moment(array.end).add(1, 'days'); // 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
+            array.end = moment(array.end).add(1, 'days'); 
+			// 이틀 이상 AllDay 일정인 경우 달력에 표기시 하루를 더해야 정상출력
           }
           return array;
         });
-        callback(fixedDate);
+		console.log(response.list);
+        callback(fixedDate);*/
       }
     });
   },

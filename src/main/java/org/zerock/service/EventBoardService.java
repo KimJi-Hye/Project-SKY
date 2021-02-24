@@ -6,13 +6,14 @@ import org.zerock.domain.EventBoardVO;
 
 public interface EventBoardService {
 
-	public void register(EventBoardVO board);
+	public int register(EventBoardVO board);
 	
-	public EventBoardVO get(Long ano);
+	public EventBoardVO get(Long bno);
 	
-	public boolean modify(EventBoardVO board);
+	public int modify(EventBoardVO board);
 	
-	public boolean remove(Long ano);
+	public int remove(Long bno);
 	
 	public List<EventBoardVO> getList();
+	
 }

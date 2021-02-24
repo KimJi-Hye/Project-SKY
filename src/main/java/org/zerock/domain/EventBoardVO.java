@@ -11,7 +11,7 @@ public class EventBoardVO {
 	private String title;
 	private String content;
 	private String color;
-	private Date startdate;
-	private Date endate;
+	private String startdate;
+	private String enddate;
 	
 }
