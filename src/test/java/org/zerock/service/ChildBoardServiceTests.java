@@ -45,7 +45,7 @@ public class ChildBoardServiceTests {
 //	}
 //	
 //	
-<<<<<<< HEAD
+
 
 //	@Test
 //	public void testGetList() {
@@ -55,8 +55,6 @@ public class ChildBoardServiceTests {
 //	
 //	
 
-=======
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 //	@Test
 //	public void testGetList() {
 //		
