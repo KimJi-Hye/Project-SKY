@@ -11,13 +11,13 @@ public interface ClassMngMapper {
 //	@Select("select * from tb_class")
 	public List<ClassMngVO> getList();
 	
+	public List<ChildBoardVO> getChildList();
+	
 	public void insert(ClassMngVO board);
 	
 	public void insertSelectKey(ClassMngVO board);
 		
 	public ClassMngVO read(Long bno);
-	
-	public ChildBoardVO readChild (Long bno);
 	
 	public JoinTeacherVO readTeacher (Long bno);
 	

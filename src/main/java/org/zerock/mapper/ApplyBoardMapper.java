@@ -3,14 +3,17 @@ package org.zerock.mapper;
 import java.util.List;
 
 import org.zerock.domain.ApplyBoardVO;
+import org.zerock.domain.Criteria;
 
 public interface ApplyBoardMapper {
 
 	public List<ApplyBoardVO> getList();
 	
-	public void insert(ApplyBoardVO board);
+	public List<ApplyBoardVO> getListWithPaging(Criteria cri);
 	
-	public void insertSelectKey(ApplyBoardVO board);
+	public int getTotalCount(Criteria cri);
+	
+	public void insert(ApplyBoardVO board);
 		
 	public ApplyBoardVO read(Long ano);
 	

@@ -4,44 +4,51 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_list.css">
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h1>ClassNote List Page</h1>
-				<button id='regBtn' type="button" class="btn btn-xs pull-right">알림장
-					등록</button>
-			</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
-				<table class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>#번호</th>
-							<th>반이름</th>
-							<th>원아이름</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-						</tr>
-					</thead>
+<div class="boardTitle">
+	<!-- 게시판 제목 -->
+	<h3>Note List</h3>
+</div>
 
-					<c:forEach items="${noteList}" var="boardNote">
-						<tr>
-							<td><c:out value="${boardNote.bno}" /></td>
-							<td><c:out value="${boardNote.classname}" /></td>
-							<td><c:out value="${boardNote.cname}" /></td>
-							<%-- <td><a href='/board/noteGet?bno=<c:out value="${boardNote.bno}" />'> --%>
-							<td><a class='move' href='<c:out value="${boardNote.bno}"/>'>
-							<c:out value="${boardNote.title}" /></a></td>
-							<td><c:out value="${boardNote.writer}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd"
-									value="${boardNote.regdate}" /></td>
-						</tr>
-					</c:forEach>
-				</table>
-				
+<!-- 게시판 목록  -->
+<div class="boardList">
+	<table>
+		<thead>
+			<tr>
+				<th class="th_bno">No</th>
+				<th class="th_classname">반이름</th>
+				<th class="th_cname">원아이름</th>
+				<th class="th_title">제목</th>
+				<th class="th_writer">작성자</th>
+				<th class="th_regdate">작성일</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<c:forEach items="${noteList}" var="boardNote">
+				<tr>
+					<td><c:out value="${boardNote.bno}" /></td>
+					<td><c:out value="${boardNote.classname}" /></td>
+					<td><c:out value="${boardNote.cname}" /></td>
+					<%-- <td><a href='/board/noteGet?bno=<c:out value="${boardNote.bno}" />'> --%>
+					<td><a class='move' href='<c:out value="${boardNote.bno}"/>'>
+							<c:out value="${boardNote.title}" />
+					</a></td>
+					<td><c:out value="${boardNote.writer}" /></td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${boardNote.regdate}" /></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+	<!-- 글쓰기 -->
+	<div class="bo_register">
+		<a href="noteRegister" class="pg_regi">
+			<span class="material-icons"> create </span>글쓰기</a>
+	</div>
+
 				
 				<!-- <화면에서 검색 조건 처리> -->
 				<div class='row'>
@@ -99,11 +106,6 @@
 				
 			</div>
 
-		</div>
-
-	</div>
-
-</div>
 
 
 

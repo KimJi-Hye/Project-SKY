@@ -9,7 +9,7 @@ public class NoticeVO {
 
 	private Long bno;
 	private String title;
-	private String contet;
+	private String content;
 	private Date regdate;
 	private Date updatedate;
 	

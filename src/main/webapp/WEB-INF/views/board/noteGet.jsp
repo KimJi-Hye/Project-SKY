@@ -5,16 +5,16 @@
 
 <script type="text/javascript" src="/resources/js/notereply.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_register.css">
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h1>ClassNote Get Page</h1>
-			</div>
 
-			<div class="panel-body">
+
+	<div class="boardTitle">
+		<!-- 게시판 제목 -->
+		<h3> G e t </h3>
+	</div>
 
 					<div class="form-group">
 						<label>bno</label> <input class="form-control" name='bno' 
@@ -65,8 +65,7 @@
 				    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
 				</form>
 	
-			</div>
-		</div>
+
 		
 				<div class="modal">
 		
@@ -112,10 +111,7 @@
 			</ul>
 		<!-- ./ end ul -->
 		</div>
-		
-		
-	</div>
-</div>
+
 
 
 

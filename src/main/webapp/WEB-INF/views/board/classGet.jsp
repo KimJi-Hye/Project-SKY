@@ -50,7 +50,7 @@
 					<select id="inputState" class="form-control" >
    					<option selected>선생님명단</option>
 					<c:forEach items="${boardT}" var="testt">
-						<c:if test="${testt.className eq board.className}">
+						<c:if test="${testt.classname eq board.className}">
 	       			<option value="${testt.userName}">${testt.userName}</option>
 						</c:if>
 					</c:forEach>
@@ -62,11 +62,11 @@
 					<label>소속원아</label> 
 					<select id="inputState" class="form-control" >
    					<option selected>원아명단</option>
-					<c:forEach items="${boardC}" var="test">
+					<c:forEach items="${cnameList}" var="test">
 						<c:if test="${test.classname eq board.className}">
-	       			<option value="${test.cname}">${test.cname}</option>
-						</c:if>
-					</c:forEach>
+	       			<option value="${test.cname}">${test.cname}(${test.cunicode})</option>
+						</c:if>					</c:forEach>
+
 					</select>
 					</div>
 					

@@ -36,13 +36,23 @@ public class ApplyBoardControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
+//	@Test
+//	public void testList() throws Exception {
+//
+//		log.info(
+//				mockMvc.perform(MockMvcRequestBuilders.get("/board/applyList"))
+//				.andReturn()
+//				.getModelAndView()
+//				.getModel());
+//	}
+	
 	@Test
-	public void testList() throws Exception {
-
-		log.info(
-				mockMvc.perform(MockMvcRequestBuilders.get("/board/applyList"))
-				.andReturn()
-				.getModelAndView()
-				.getModel());
+	public void testListPaging() throws Exception {
+		
+		log.info(mockMvc.perform(
+				MockMvcRequestBuilders.get("/board/applyList")
+				.param("pageNum", "2")
+				.param("amount", "50"))
+				.andReturn().getModelAndView().getModelMap());
 	}
 }

@@ -27,7 +27,6 @@ public class ClassNoteController {
 	
 	private ClassNoteService service;
 	private ClassMngService mngService;
-	private ChildBoardService childService;	
 	
 //	@GetMapping("/noteList")
 //	public void list(Model model) {
@@ -57,7 +56,7 @@ public class ClassNoteController {
 	public void register(Model model) {
 
 		model.addAttribute("mngList", mngService.getList());
-		model.addAttribute("cnameList", childService.getList());		
+		model.addAttribute("cnameList", service.getChildList());
 		
 	}
 	

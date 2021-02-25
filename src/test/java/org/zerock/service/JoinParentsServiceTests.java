@@ -65,6 +65,12 @@ public class JoinParentsServiceTests {
 //		log.info(service.getParents("C210210003"));
 //	}
 	
+	// 원아접수 리스트
+	@Test
+	public void testApplyList() {
+		service.getApplyList().forEach(list -> log.info(list));
+	}
+	
 	// 회원 수정
 //	@Test
 //	public void testUpdate() {

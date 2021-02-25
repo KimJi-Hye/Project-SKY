@@ -26,7 +26,8 @@
 					</div>
 
 					<div class="form-group">
-						<label>원아 이름</label> <select name="cunicode">
+						<label>원아 이름</label> 
+						<select name="cunicode">
 							<option value="" selected>선택</option>
 
 						</select>

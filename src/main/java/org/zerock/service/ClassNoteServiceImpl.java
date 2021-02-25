@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.zerock.domain.ChildBoardVO;
 import org.zerock.domain.ClassNoteVO;
 import org.zerock.domain.Criteria;
 import org.zerock.mapper.ClassNoteMapper;
@@ -42,6 +43,12 @@ public class ClassNoteServiceImpl implements ClassNoteService {
 		
 		log.info("get List with criteria: " + cri);
 		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public List<ChildBoardVO> getChildList() {
+		log.info("Get Child List");
+		return mapper.getChildList();
 	}
 	
 	@Override

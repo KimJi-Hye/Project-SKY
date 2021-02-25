@@ -3,6 +3,8 @@ package org.zerock.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.zerock.domain.ApplyBoardVO;
+import org.zerock.domain.Criteria;
 import org.zerock.domain.QuestionsBoardVO;
 import org.zerock.mapper.QuestionsBoardMapper;
 
@@ -25,14 +27,28 @@ public class QuestionsBoardServiceImpl implements QuestionsBoardService{
 		mapper.insert(board);
 	}
 	
+//	@Override
+//	public List<QuestionsBoardVO> getList() {
+//
+//		log.info("getList.........");
+//		
+//		return mapper.getList();
+//	}
+
 	@Override
-	public List<QuestionsBoardVO> getList() {
-
-		log.info("getList.........");
+	public List<QuestionsBoardVO> getList(Criteria cri) {
 		
-		return mapper.getList();
+		log.info("get List with criteria: " + cri);
+		return mapper.getListWithPaging(cri);
 	}
-
+	
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}
+	
 	@Override
 	public QuestionsBoardVO get(Long ano) {
 

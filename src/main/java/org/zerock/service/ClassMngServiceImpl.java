@@ -44,10 +44,9 @@ public class ClassMngServiceImpl implements ClassMngService{
 	}
 	
 	@Override
-	public ChildBoardVO getChild(Long bno) {
-		log.info("getchild......" + bno);
-		
-		return mapper.readChild(bno);
+	public List<ChildBoardVO> getChildList() {
+		log.info("Get Child List");
+		return mapper.getChildList();
 	}
 
 	@Override

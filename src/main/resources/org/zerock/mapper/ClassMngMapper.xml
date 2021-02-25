@@ -30,7 +30,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="read" resultType="org.zerock.domain.ClassMngVO">
 		select * from tb_class where bno = #{bno}
 	</select>
-	
+
+	<!-- 원아 조회 -->
+	<select id="getChildList" resultType="org.zerock.domain.ChildBoardVO">
+		select cunicode, cname, classname from tb_child
+	</select>	
 
 	<delete id="delete">
 		delete from tb_class where bno = #{bno}

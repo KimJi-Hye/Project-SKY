@@ -24,8 +24,13 @@
 		and p.cUnicode = c.cUnicode
 	</select>
 	
+	
 	<select id="readParents" resultType="org.zerock.domain.ApplyBoardVO">
 		select * from tb_apply where cunicode = #{cunicode}
+	</select>
+	
+	<select id="applyList" resultType="org.zerock.domain.ApplyBoardVO">
+		select cunicode from tb_apply
 	</select>
 	
 	<!-- update -->

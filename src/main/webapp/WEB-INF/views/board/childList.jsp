@@ -30,7 +30,7 @@
 					<c:forEach items="${childList}" var="board">
 						<tr>
 							<td><c:out value="${board.cunicode}" /></td>
-							<td><a href='/board/childGet?cunicode=<c:out value="${board.cunicode}"/>'>
+							<td><a class='move' href=<c:out value="${board.cunicode}"/>'>
 							<c:out value="${board.cname}" /></a></td>
 							<td><c:out value="${board.cgender}" /></td>
 							<td><c:out value="${board.classname}" /></td>
@@ -42,30 +42,53 @@
 						</tr>
 					</c:forEach>
 				</table>
+				
+				<!-- <화면에서 검색 조건 처리> -->
 
-<!-- 				Modal -->
-<!-- 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;</button>
-								<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-							</div>
-							<div class="modal-body">신규반 등록이 완료되었습니다.</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Close</button>
-								<button type="button" class="btn btn-primary">Save
-									changes</button>
-							</div>
-						</div>
-						/.modal-content
-					</div>
-					/.modal-dialog
-				</div> -->
-<!-- 				/.modal -->
+				<form id='searchForm' action="/board/childList" method='get'>
+					<select name='type'>								
+						<option value=""
+						<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
+						<option value="N"
+						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모 이름</option>
+					</select>
+					 
+					<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
+					<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
+					<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
+					
+					<button class='btn btn-default'>Search</button>				   
+				</form>
+				
+				<!-- Pagination -->
+				<div class='pull-right'>
+					<ul class="pagination">
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button previous"><a
+								href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button next"><a
+								href="${pageMaker.endPage +1}">Next</a></li>
+						</c:if>
+					</ul>
+				</div>
+				<!-- end Pagination -->
+
+				<form id='actionForm' action="/board/childList" method='get'>
+					<input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
+					<input type='hidden' name='amount' value = '${pageMaker.cri.amount}'>
+					<input type='hidden' name='type' value = '<c:out value="${pageMaker.cri.type}"/>'>
+					<input type='hidden' name='keyword' value = '<c:out value="${pageMaker.cri.keyword}"/>'>
+				</form>
 
 			</div>
 <!-- 			/.panel-body -->
@@ -81,7 +104,43 @@ $(document).ready(function() {
 	$('#regBtn').click(function() {
 
 		$(location).attr('href','childRegister');
+	});
+	
+	var actionForm = $("#actionForm");
+	$(".paginate_button a").on("click", function(e) {
+		e.preventDefault();
+		console.log('click');
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit();
+	});
+	
+	$(".move").on("click", function(e) {
+		e.preventDefault();
+		actionForm.append("<input type='hidden' name='cunicode' value='"+$(this).attr("href")+"'>");
+		actionForm.attr("action", "/board/childGet");
+		actionForm.submit();
+	});
+	
+    $("#searchForm button").on("click", function(e) {
 
+		if (!searchForm.find("option:selected").val()) {
+			
+		   alert("검색종류를 선택하세요");
+		   return false;
+		   
+		}
+		
+		if (!searchForm.find("input[name='keyword']").val()) {
+			
+		   alert("키워드를 입력하세요");
+		   return false;
+		   
+		}
+		
+		searchForm.find("input[name='pageNum']").val("1");
+		e.preventDefault();
+		
+		searchForm.submit();
 	});
 });
 </script>

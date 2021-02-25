@@ -4,6 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.ChildBoardMapper">
 
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+		<foreach item='type' collection="typeArr">
+			<trim prefix="OR">
+				<choose>
+					<when test="type == 'N'.toString()">
+						c.username like '%'||#{keyword}||'%'
+					</when>
+				</choose>
+			</trim>
+		</foreach>
+	</trim>		
+</sql>
+
+
 	<select id="getList" resultType="org.zerock.domain.ChildBoardVO">
 	
 			select a.cunicode
@@ -16,8 +31,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                     ,c.username
 					
 			from tb_child a, tb_class b, tb_parents c
-			where a.classname = b.classname and a.cunicode = c.cunicode
-	
+			where a.classname = b.classname and a.cunicode = c.cunicode(+)
+		
 	</select>
 
  	<insert id="insert">
@@ -27,6 +42,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  	<select id="read" resultType="org.zerock.domain.ChildBoardVO">
 		select * from tb_child where cunicode = #{cunicode}
+	</select>
+	
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.ChildBoardVO">
+
+	<![CDATA[
+		select
+			cunicode, cgender, cname, cbirth, enter, graduation, classname, username
+		from
+       (
+		select /*+INDEX_DESC(tb_child pk_tb_child) */
+			rownum rn, a.cunicode, a.cgender, a.cname, a.cbirth, a.enter, a.graduation, b.classname, c.username 
+		from tb_child a, tb_class b, tb_parents c
+		where a.classname = b.classname and a.cunicode = c.cunicode(+) and
+	]]>
+		
+	<include refid="criteria"></include>
+	
+	<![CDATA[
+		rownum <= #{pageNum} * #{amount}
+		)
+		where rn > (#{pageNum} -1) * #{amount}
+	]]>
+		
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		select count(*)
+		from tb_child a, tb_class b, tb_parents c
+		where a.classname = b.classname and a.cunicode = c.cunicode(+) and
+		
+	<include refid="criteria"></include>
+		a.cunicode like 'C%' 
 	</select>
 
 	<delete id="delete">
@@ -45,5 +93,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where cunicode = #{cunicode}
 	 </update>
 	 
-
 </mapper>

@@ -15,6 +15,8 @@ public interface JoinParentsMapper {
 	
 	public ApplyBoardVO readParents(String cunicode);
 	
+	public List<ApplyBoardVO> applyList();
+	
 	public int update(JoinParentsVO borad);
 	
 	public int delete(String userId);

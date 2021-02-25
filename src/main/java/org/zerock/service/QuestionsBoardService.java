@@ -2,6 +2,7 @@ package org.zerock.service;
 
 import java.util.List;
 
+import org.zerock.domain.Criteria;
 import org.zerock.domain.QuestionsBoardVO;
 
 public interface QuestionsBoardService {
@@ -14,5 +15,7 @@ public interface QuestionsBoardService {
 	
 	public boolean remove(Long ano);
 	
-	public List<QuestionsBoardVO> getList();
+	public List<QuestionsBoardVO> getList(Criteria cri);
+	
+	public int getTotal(Criteria cri);
 }

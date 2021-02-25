@@ -23,9 +23,6 @@ import lombok.extern.log4j.Log4j;
 public class ClassMngController {
 
 	private ClassMngService service;
-	
-	private ChildBoardService serviceC;
-	
 	private JoinTeacherService serviceT;
 
 	@GetMapping("/classList")
@@ -54,8 +51,8 @@ public class ClassMngController {
 	public void get(@RequestParam("bno") Long bno, Model model) {
 		log.info("/classGet or classModify");
 		model.addAttribute("board", service.get(bno));
-		model.addAttribute("boardC", serviceC.getList());
 		model.addAttribute("boardT", serviceT.getList());
+		model.addAttribute("cnameList", service.getChildList());
 	}
 
 	@PostMapping("/classModify")

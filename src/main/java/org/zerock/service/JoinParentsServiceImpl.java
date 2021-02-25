@@ -59,4 +59,11 @@ public class JoinParentsServiceImpl implements JoinParentsService {
 		return mapper.getList();
 	}
 
+	// 원아접수 리스트
+	@Override
+	public List<ApplyBoardVO> getApplyList() {
+		log.info("getApplyList...........");
+		return mapper.applyList();
+	}
+
 }

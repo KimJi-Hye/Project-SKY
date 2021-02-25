@@ -12,7 +12,7 @@ public interface ClassMngService {
 	
 	public ClassMngVO get(Long bno);
 	
-	public ChildBoardVO getChild (Long bno);
+	public List<ChildBoardVO> getChildList();
 	
 	public JoinTeacherVO getTeacher (Long bno);
 	
