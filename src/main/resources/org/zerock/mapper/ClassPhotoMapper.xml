@@ -11,6 +11,31 @@ select * from tb_photo where bno > 0
 	</select>
 
 
+	<select id="getListWithPaging"
+		resultType="org.zerock.domain.ClassPhotoVO">
+
+	<![CDATA[
+     select
+       bno, classname, title, content, tag, regdate
+    from
+       (
+		select /*+INDEX_DESC(tb_photo pk_tb_photo) */
+			rownum rn, bno, classname, title, content, tag, regdate
+		from
+			tb_photo
+	       where rownum <= #{pageNum} * #{amount}
+	     )
+	where rn > (#{pageNum} -1) * #{amount}
+	]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) 
+		from tb_photo
+		WHERE bno > 0
+	</select>	
+
+
 	<insert id="insert">
 		insert into tb_photo (bno, className, title, content,tag)
 		values (seq_tb_photo.nextval, #{className},#{title}, #{content}, #{tag})

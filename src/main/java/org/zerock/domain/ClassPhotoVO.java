@@ -13,10 +13,7 @@ public class ClassPhotoVO {
 	private String title;
 	private String content;
 	private String tag;
-	
-	private String file1;
-	private String file2;
-	private String file3;
+
 	
 	private Date regdate;
 

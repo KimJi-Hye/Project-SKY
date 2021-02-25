@@ -58,11 +58,10 @@
 					<button type="button" class="btn_list">목록</button>
 					<button type="button" class="btn_del">삭제</button>
 				</div>
-				
 				<form id="operForm" action="/board/cphotoModify" method="get">
 					<input type="hidden" id="bno" name="bno" value="${board.bno}">
-<%-- 					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-				    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'> --%>
+					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+				    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
 				</form>				
 			
 			

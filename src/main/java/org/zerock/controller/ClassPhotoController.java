@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardAttachVO;
 import org.zerock.domain.ClassPhotoVO;
+import org.zerock.domain.Criteria;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.ClassPhotoService;
 
@@ -33,13 +36,28 @@ public class ClassPhotoController {
 	private ClassPhotoService service;
 	private ClassMngService mngService;
 
+//	@GetMapping("/cphotoList")
+//
+//	public void list(Model model) {
+//		log.info("cphotoList");
+//
+//		model.addAttribute("cphotoList", service.getList());
+//	}
+	
 	@GetMapping("/cphotoList")
 
-	public void list(Model model) {
-		log.info("cphotoList");
+	public void list(Criteria cri, Model model) {
+		log.info("cphotoList" + cri);
 
-		model.addAttribute("cphotoList", service.getList());
-	}
+		model.addAttribute("cphotoList", service.getList(cri));
+		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
+		int total = service.getTotal(cri);
+		
+		log.info("total: " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));		
+	}	
 	
 	@GetMapping("/cphotoRegister")
 	public void register(Model model) {
@@ -67,22 +85,25 @@ public class ClassPhotoController {
 	}
 
 	@GetMapping({"/cphotoGet","/cphotoModify"})
-	public void get(@RequestParam("bno") Long bno, Model model) {
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		log.info("/cphotoGet or cphotoModify");
 		model.addAttribute("board", service.get(bno));
 	}
 
 	@PostMapping("/cphotoModify")
-	public String modify(ClassPhotoVO board, RedirectAttributes rttr) {
+	public String modify(ClassPhotoVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		log.info("cphotoModify:" + board);
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());		
+		
 		return "redirect:/board/cphotoList";
 	}
 
 	@PostMapping("/cphotoRemove")
-	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri,  RedirectAttributes rttr) {
 		log.info("cphotoRemove... " + bno);
 		List<BoardAttachVO> attachList = service.getAttachList(bno);
 		if (service.remove(bno)) {
@@ -90,6 +111,9 @@ public class ClassPhotoController {
 			deleteFiles(attachList);			
 			rttr.addFlashAttribute("result", "success");
 		}
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		
 		return "redirect:/board/cphotoList";
 	}
 

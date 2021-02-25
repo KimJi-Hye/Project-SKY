@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.domain.BoardAttachVO;
 import org.zerock.domain.ClassPhotoVO;
+import org.zerock.domain.Criteria;
 import org.zerock.mapper.BoardAttachMapper;
 import org.zerock.mapper.ClassPhotoMapper;
 
@@ -81,14 +82,28 @@ public class ClassPhotoServiceImpl implements ClassPhotoService{
 		return mapper.delete(bno) == 1;
 	}
 
+//	@Override
+//	public List<ClassPhotoVO> getList() {
+//
+//		log.info("getList.........");
+//		
+//		return mapper.getList();
+//	}
+	
 	@Override
-	public List<ClassPhotoVO> getList() {
-
-		log.info("getList.........");
+	public List<ClassPhotoVO> getList(Criteria cri) {
 		
-		return mapper.getList();
+		log.info("get List with criteria: " + cri);
+		return mapper.getListWithPaging(cri);
 	}
 
+	@Override
+	public int getTotal(Criteria cri) {
+		
+		log.info("get total count");
+		return mapper.getTotalCount(cri);
+	}	
+	
 	public List<BoardAttachVO> getAttachList(Long bno) {
 		
 		log.info("get Attach list by bno" + bno);
@@ -96,5 +111,7 @@ public class ClassPhotoServiceImpl implements ClassPhotoService{
 		return attachMapper.findByBno(bno);
 		
 	}
+
+
 
 }
