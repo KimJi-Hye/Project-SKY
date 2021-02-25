@@ -23,6 +23,7 @@
 
 	<select id="getList" resultType="org.zerock.domain.ClassNoteVO">
 
+	<![CDATA[
 		SELECT A.bno
 		,A.cunicode
 		,A.classname
@@ -33,6 +34,8 @@
 		,B.cname
 		FROM tb_note A,tb_child B
 		WHERE A.cunicode=B.cunicode
+		and A.bno > 0
+	]]>
 
 	</select>
 
@@ -72,13 +75,19 @@
 
 
 	<select id="getTotalCount" resultType="int">
-		select count(*) 
-		from tb_note A,tb_child B
-		WHERE A.cunicode=B.cunicode
-		and
-	<include refid="criteria"></include>
 	
-	bno > 0
+		<![CDATA[
+			select count(*) 
+			from tb_note A,tb_child B
+			WHERE A.cunicode=B.cunicode
+			and
+		]]>
+			
+		<include refid="criteria"></include>
+		
+		<![CDATA[
+			bno > 0
+		]]>
 	</select>
 
 

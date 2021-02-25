@@ -48,7 +48,7 @@ public class NoticeController {
 		log.info("noticeRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
-		return "redirect:/board/NoticeList";
+		return "redirect:/board/noticeList";
 	}
 	
 	@GetMapping({"/noticeGet","/noticeModify"})

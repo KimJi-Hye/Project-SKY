@@ -4,104 +4,87 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_register.css">
 
 
 
-<div class="row">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
+<div id="wrapper">
+	<div class="boardTitle">
+		<!-- 게시판 제목 -->
+		<h3>알림장</h3>
+	</div>
 
-      <div class="panel-heading">Note Modify Page</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-       
-
-     <form id="operForm" action="/board/noteModify" method="post">
- 
- 		 <div class="form-group">
-	         <label>Bno</label>
-	         ${board.bno }
-          </div>
- 
-          <div class="form-group">
-            <label>반이름</label> 
-            ${board.classname }
-          </div>
-
-          <div class="form-group">
-            <label>원아이름</label> 
-            ${board.cname }
-          </div>
-
-		<div class="form-group">
-			<label>제목</label> <input class="form-control" name='title'
-				   value='<c:out value="${board.title }"/>'>
-		</div>  
-          
-		<div class="form-group">
-			<label>내용</label> <textarea class="form-control" rows="5" name='content'>
-			<c:out value="${board.content }"/></textarea>
-		</div>
-						
-		<div class="form-group">
-			<label>작성자</label> <input class="form-control" name='writer'
-			value='<c:out value="${board.writer }"/>'>
-		</div>
-				
-		<div class="form-group">
-			<label>작성일</label> 
-			${board.regdate }
-		</div>
-          
-           
-				<div class="btn_box">
-					<button type="button" class="btn_mod">수정</button>
-					<button type="button" class="btn_list">목록</button>
-					<button type="button" class="btn_del">삭제</button>
-				</div>
-		  
-				
-			    <input type="hidden" id="bno" name="bno" value="${board.bno}">
-				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-				<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>	  
+	<div class="form-group">
 
 
-	</form>
-	
+		<form id="operForm" action="/board/noteModify" method="post">
 
-      </div>
-      <!--  end panel-body -->
+			<ul>
+				<li><label>No</label> <input type="text"
+					class="input_tx input_tx2" name='bno'
+					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+				<li><label>반 이름</label> <input type="text"
+					class="input_tx input_tx2" name='classname'
+					value='<c:out value="${board.classname}"/>' readonly="readonly"></li>
+				<li><label>원아 이름</label> <input type="text"
+					class="input_tx input_tx2" name='cname'
+					value='<c:out value="${board.cname}"/>' readonly="readonly"></li>
+				<li><label>제목</label> <input type="text"
+					class="input_tx input_tx2" name='title'
+					value='<c:out value="${board.title}"/>'></li>
+				<li><label>내용</label> <input type="text"
+					class="input_tx input_tx2 input_tx3" name='content'
+					value='<c:out value="${board.content}"/>'></li>
+				<li><label>작성자</label> <input type="text"
+					class="input_tx input_tx2" name='writer'
+					value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
+			</ul>
 
-    </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
+			<div class="form-button">
+				<button data-oper='noteModify' class="btn_mod">수정</button>
+				<button data-oper='noteList' class="btn_list">목록</button>
+				<button data-oper='noteRemove' class="btn_del">삭제</button>
+			</div>
+
+
+
+			<input type="hidden" id="bno" name="bno" value="${board.bno}">
+			<input type='hidden' name='pageNum'
+				value='<c:out value="${cri.pageNum}"/>'> <input
+				type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+
+
+		</form>
+
+
+	</div>
+	<!--  end panel-body -->
+
 </div>
-<!-- /.row -->
+<!--  end panel-body -->
 <script type="text/javascript">
 
 $(document).ready(function() {
 	
 	var operForm = $("#operForm");
-	$(".btn_mod").click(function() {
-		operForm.submit();
-	});
-	$(".btn_list").click(function() {
+	
+	
+	$("button[data-oper='noteModify']").on("click", function(e) {
 		operForm.find("#bno").remove();
-		operForm.attr("action", "/board/noteList").attr("method","get");
-	    var pageNumTag = $("input[name='pageNum']").clone();
-	    var amountTag = $("input[name='amount']").clone();
-	    
-	    operForm.empty();
-	    operForm.append(pageNumTag);
-	    operForm.append(amountTag);
-	    
-		operForm.submit();
+		operForm.attr("action", "/board/noteModify").attr("result", "success").submit();
 	});
-	$(".btn_del").click(function() {
-		operForm.attr("action", "/board/noteRemove");
-		operForm.submit();
+
+	$("button[data-oper='noteList']").on("click", function(e) {
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/board/noteList").attr("method", "get").submit();
 	});
+
+	$("button[data-oper='noteRemove']").on("click", function(e) {
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/board/noteRemove").attr("result", "success").submit();
+	});	
+	
+
 });
 
 </script>

@@ -44,7 +44,7 @@
 
 	<!-- 글쓰기 -->
 	<div class="bo_register">
-		<a href="noteRegister" class="pg_regi"> <span
+		<a href="cphotoRegister" class="pg_regi"> <span
 			class="material-icons"> create </span>글쓰기
 		</a>
 	</div>
