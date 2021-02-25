@@ -27,7 +27,7 @@ var calendar = $('#calendar').fullCalendar({
   defaultDate               : moment(), //실제 사용시 현재 날짜로 수정
   timeFormat                : 'HH:mm',
   defaultTimedEventDuration : '01:00:00',
-  editable                  : true,
+  editable                  : false, // 드래그 이벤트
   minTime                   : '00:00:00',
   maxTime                   : '24:00:00',
   slotLabelFormat           : 'HH:mm',
@@ -99,7 +99,8 @@ var calendar = $('#calendar').fullCalendar({
       container: 'body'
     });
 
-    return filtering(event);
+    //return filtering(event);
+	return true;
 
   },
 
@@ -176,22 +177,31 @@ var calendar = $('#calendar').fullCalendar({
         return false;
       }
     }
-
     // 드랍시 수정된 날짜반영
     var newDates = calDateWhenDragnDrop(event);
-
     //드롭한 일정 업데이트
-    $.ajax({
-      type: "get",
-      url: "",
+	$.ajax({
+      type: "put",
+      url: "/board/modify/" + event._id,
       data: {
-        //...
+        //id: event._id,
+        //....
       },
       success: function (response) {
         alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
       }
+/*    $.ajax({
+      type: "put",
+      url: "/board/modify/" + event._id,
+      data: JSON.stringify(),
+	  contentType: "application/json; charset=utf-8",
+      success: function (response) {
+		alert("test");
+        alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
+		var eventDrop = event._id;
+		callback(eventDrop);
+      }*/
     });
-
   },
 
   select: function (startDate, endDate, jsEvent, view) {

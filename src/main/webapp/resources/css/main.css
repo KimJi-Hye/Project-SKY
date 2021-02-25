@@ -1,8 +1,24 @@
-body {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  padding: 30px;
+#container{
+	padding: 20px;
 }
-
+.container{
+	padding: 0; margin: 0 auto;
+}
+@media (min-width: 992px){
+	.container {
+	    width: 100%; max-width: 1000px;
+	}
+}
+@media (min-width: 768px){
+	.container {
+	    width: 100%; max-width: 1000px; margin: 80px auto;
+	}
+}
+@media (min-width: 1200px){
+	.container {
+		width: 100%; max-width: 1000px;
+	}
+}
 .dropNewEvent {
   font-size: 13px;
 }
@@ -198,6 +214,7 @@ body {
 .fc-day-grid-event .fc-time {
   font-weight: 700;
   text-transform: uppercase;
+  display: none;
 }
 
 .fc-unthemed .fc-day-grid td:not(.fc-axis).fc-event-container {

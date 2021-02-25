@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  	<insert id="insert">
 		insert into tb_event (bno, title, content, color, startdate, enddate) 
-		values (seq_tb_event.nextval, #{title}, #{content}, #{color}, #{startdate}, #{enddate})
+		values (seq_tb_event.nextval, #{title}, #{content}, #{color}, to_date(#{startdate}, 'YYYY-MM-DD HH24:MI'), to_date(#{enddate}, 'YYYY-MM-DD HH24:MI'))
 	</insert>
 
  	<select id="read" resultType="org.zerock.domain.EventBoardVO">
@@ -35,8 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    set 	title = #{title}
 	    		,content = #{content}
 	    		,color = #{color}
-	    		,startdate = sysdate
-	    		,enddate = sysdate
+	    		,startdate = to_date(#{startdate}, 'YYYY-MM-DD HH24:MI')
+	    		,enddate = to_date(#{enddate}, 'YYYY-MM-DD HH24:MI')
 		where bno = #{bno}
 		<!-- and pw = #{pw} -->
 	 </update>
