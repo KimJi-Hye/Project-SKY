@@ -21,7 +21,7 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
        
-<!-- 추가 -->
+
      <form id="operForm" action="/board/cphotoModify" method="post">
  
 				<div class="form-group">
