@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<%-- <%@include file="../includes/header.jsp"%> --%>
+
+<%@include file="../includes/header.jsp"%>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -146,20 +146,4 @@ $(document).ready(function() {
 </script>
 
 
-<%-- <%@include file="../includes/footer.jsp"%> --%>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%@include file="../includes/footer.jsp"%>

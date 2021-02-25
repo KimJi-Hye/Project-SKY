@@ -49,7 +49,7 @@ public class QuestionsBoardController {
 		log.info("questionsRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
-		return "redirect:/board/QuestionsList";
+		return "redirect:/board/questionsList";
 	}
 	
 	@GetMapping({"/questionsGet","/questionsModify"})

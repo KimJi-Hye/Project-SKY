@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<trim prefix="OR">
 				<choose>
 					<when test="type == 'N'.toString()">
-						pname like '%'||#{keyword}||'%'
+						title like '%'||#{keyword}||'%'
 					</when>
 				</choose>
 			</trim>
