@@ -72,7 +72,7 @@
                         <ul class="sub_nav">
                             <li><a href="#self">반소개</a></li>
                             <li><a href="/board/noteList">알림장</a></li>
-                            <li><a href="#">반 앨범</a></li>
+                            <li><a href="/board/cphotoList">반 앨범</a></li>
                         </ul>
                     </li>
                     <li>
