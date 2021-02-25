@@ -32,7 +32,7 @@ var newEvent = function (start, end, eventType) {
     eventModal.modal('show');
 
     /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
-    var eventId = 1 + Math.floor(Math.random() * 1000);
+    var eventId = "";
     /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
 
     //새로운 일정 저장버튼 클릭
@@ -46,11 +46,26 @@ var newEvent = function (start, end, eventType) {
             end: editEnd.val(),
             description: editDesc.val(),
             type: editType.val(),
-            username: '사나',
+            username: '관리자',
             backgroundColor: editColor.val(),
             textColor: '#ffffff',
             allDay: false
         };
+		var eventDBData = {
+			bno: eventData._id,
+            title: eventData.title,
+            content: eventData.description,
+            startdate: eventData.start,
+            enddate: eventData.end,
+            color: eventData.backgroundColor,
+		}
+/*		alert(eventData._id);
+		alert(eventData.title);
+		alert(eventData.description);
+		alert(eventData.start);
+		alert(eventData.end);
+		alert(eventData.backgroundColor);*/
+
 
         if (eventData.start > eventData.end) {
             alert('끝나는 날짜가 앞설 수 없습니다.');
@@ -81,15 +96,15 @@ var newEvent = function (start, end, eventType) {
 
         //새로운 일정 저장
         $.ajax({
-            type: "get",
-            url: "/event/eventList",
-            data: {
-                //.....
-            },
+            type: "post",
+            url: "/board/create",
+            data: JSON.stringify(eventDBData),
+			contentType : "application/json; charset=utf-8",
             success: function (response) {
                 //DB연동시 중복이벤트 방지를 위한
                 //$('#calendar').fullCalendar('removeEvents');
                 //$('#calendar').fullCalendar('refetchEvents');
+				callback(response);
             }
         });
     });

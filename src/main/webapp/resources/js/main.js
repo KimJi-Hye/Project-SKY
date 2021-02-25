@@ -24,7 +24,7 @@ var calendar = $('#calendar').fullCalendar({
                               },
   eventLimitClick           : 'week', //popover
   navLinks                  : true,
-  defaultDate               : moment('2021-02'), //실제 사용시 현재 날짜로 수정
+  defaultDate               : moment(), //실제 사용시 현재 날짜로 수정
   timeFormat                : 'HH:mm',
   defaultTimedEventDuration : '01:00:00',
   editable                  : true,
@@ -59,7 +59,7 @@ var calendar = $('#calendar').fullCalendar({
                                   columnFormat : ''
                                 }
                               },
-  customButtons             : { //주말 숨기기 & 보이기 버튼
+  customButtons             : false/*{ //주말 숨기기 & 보이기 버튼
                                 viewWeekends : {
                                   text  : '주말',
                                   click : function () {
@@ -69,7 +69,7 @@ var calendar = $('#calendar').fullCalendar({
                                     });
                                   }
                                 }
-                               },
+                               }*/,
 
 
   eventRender: function (event, element, view) {
@@ -117,16 +117,7 @@ var calendar = $('#calendar').fullCalendar({
       },
       success: function (response) {
 		console.log("조회완료");
-		console.log(response.length);
-/*		for (var i = 0; i < jsonList.length; i++) {
-			
-			var evt = {
-			_id: jsonList[i].bno,
-			title: jsonList[i].title
-			};
-			events.push(evt);
-		}*/
-		
+		console.log("이벤트 개수 : " + events.length);
 		callback(events);
         /*var fixedDate = response.map(function (array) {
 			alert(array);
@@ -265,6 +256,8 @@ var calendar = $('#calendar').fullCalendar({
   }
 
 });
+// } var calendar 끝!
+
 
 function getDisplayEventDate(event) {
 

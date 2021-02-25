@@ -22,7 +22,7 @@
             <div class="hd_nav pc">
                 <ul>
                     <li><a href="#">로그인</a></li>
-                    <li><a href="member/join">회원가입</a></li>
+                    <li><a href="/member/join">회원가입</a></li>
                     <li><a href="../admin/admin_index">관리자</a></li>
                 </ul>
             </div>
@@ -43,10 +43,10 @@
                         <p class="main_nav"><a href="#self">유치원 소개<span></span></a></p>
                         <ul class="sub_nav">
                             <li><a href="#self">인사말</a></li>
-                            <li><a href="#self">연혁</a></li>
+                            <!-- <li><a href="#self">연혁</a></li>
                             <li><a href="#self">교육방향</a></li>
                             <li><a href="#self">교육계획</a></li>
-                            <li><a href="#self">현황소개</a></li>
+                            <li><a href="#self">현황소개</a></li> -->
                             <li><a href="#self">시설 및 환경</a></li>
                             <li><a href="#self">오시는 길</a></li>
                         </ul>
@@ -54,8 +54,8 @@
                     <li>
                         <p class="main_nav"><a href="#self">알림마당<span></span></a></p>
                         <ul class="sub_nav">
-                            <li><a href="#self">공지사항</a></li>
-                            <li><a href="#self">이달의 행사</a></li>
+                            <li><a href="/board/noticeList">공지사항</a></li>
+                            <li><a href="/board/eventList">이달의 행사</a></li>
                             <li><a href="#self">급식안내</a></li>
                         </ul>
                     </li>
@@ -71,17 +71,17 @@
                         <p class="main_nav"><a href="#self">우리반이야기<span></span></a></p>
                         <ul class="sub_nav">
                             <li><a href="#self">반소개</a></li>
-                            <li><a href="#self">알림장</a></li>
-                            <li><a href="#self">반 앨범</a></li>
+                            <li><a href="/board/noteList">알림장</a></li>
+                            <li><a href="#">반 앨범</a></li>
                         </ul>
                     </li>
                     <li>
                         <p class="main_nav"><a href="#self">원아모집<span></span></a></p>
                         <ul class="sub_nav">
                             <li><a href="#self">모집안내</a></li>
-                            <li><a href="#self">온라인접수</a></li>
-                            <li><a href="#self">접수조회</a></li>
-                            <li><a href="#self">Q&amp;A</a></li>
+                            <li><a href="/board/applyRegister">온라인접수</a></li>
+                            <li><a href="/board/applyGet">접수조회</a></li>
+                            <li><a href="/board/questionsList">Q&amp;A</a></li>
                         </ul>
                     </li>
                 </ul>

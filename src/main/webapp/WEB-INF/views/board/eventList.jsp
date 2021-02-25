@@ -3,24 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>FullCalendar Example</title>
+<%@ include file="../includes/header.jsp"%>
 
     <link rel="stylesheet" href="/resources/vendor/css/fullcalendar.min.css" />
     <link rel="stylesheet" href="/resources/vendor/css/bootstrap.min.css">
     <link rel="stylesheet" href='/resources/vendor/css/select2.min.css' />
     <link rel="stylesheet" href='/resources/vendor/css/bootstrap-datetimepicker.min.css' />
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
     <link rel="stylesheet" href="/resources/css/main.css">
-
-</head>
-
-<body>
     <div class="container">
 
         <!-- 일자 클릭시 메뉴오픈 -->
@@ -61,7 +50,6 @@
                                 <input class='allDayNewEvent' id="edit-allDay" type="checkbox"></label>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-title">일정명</label>
@@ -128,8 +116,9 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-
-        <div class="panel panel-default">
+		
+		<!-- 필터 박스 -->
+        <div class="panel panel-default" style="display: none;">
 
             <div class="panel-heading">
                 <h3 class="panel-title">필터</h3>
@@ -141,10 +130,7 @@
                     <label for="calendar_view">구분별</label>
                     <div class="input-group">
                         <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="카테고리1">카테고리1</option>
-                            <option value="카테고리2">카테고리2</option>
-                            <option value="카테고리3">카테고리3</option>
-                            <option value="카테고리4">카테고리4</option>
+                            <option value="유치원 행사">유치원행사</option>
                         </select>
                     </div>
                 </div>
@@ -152,16 +138,8 @@
                 <div class="col-lg-6">
                     <label for="calendar_view">등록자별</label>
                     <div class="input-group">
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="정연"
-                                checked>정연</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="다현"
-                                checked>다현</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="사나"
-                                checked>사나</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="나연"
-                                checked>나연</label>
-                        <label class="checkbox-inline"><input class='filter' type="checkbox" value="지효"
-                                checked>지효</label>
+                        <label class="checkbox-inline">
+                        <input class="filter" type="checkbox" value="관리자" checked>관리자</label>
                     </div>
                 </div>
 
@@ -181,22 +159,8 @@
 
     <script type="text/javascript" >
     
-    	//alert(new Date("Sat Feb 22 00:00:00 KST 21").format("yyyy-mm-dd"));
-    	//alert(new Date().format('yyyy-MM-dd'));
-	    //alert(moment(new Date("05 October 2011 14:48 UTC")).format('YYYY MM DD HH:mm:ss'));
-	    //alert(moment(new Date("Sat Feb 22 00:00:00 KST 21")).format('YYYY MM DD HH:mm:ss'));
+    	// 데이터 불러오기
 		var events = [
-			{
-				_id: 1,
-			    title: "거래처 미팅",
-			    description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
-			    start: "2021-02-10T09:30",
-			    end: "2021-02-10T15:00",
-			    username: "다현",
-			    backgroundColor: "#D25565",
-			    textColor: "#ffffff",
-			    allDay: false
-		    },
     		<c:forEach items="${list}" var="li">
 			{
 				_id: "${li.bno}",
@@ -204,22 +168,20 @@
 			    description: "${li.content}",
 			    start: "${li.startdate}",
 			    end: "${li.enddate}",
-			    username: "다현",
+			    type: "유치원행사",
+			    username: "관리자",
 			    backgroundColor: "${li.color}",
 			    textColor: "#ffffff",
 			    allDay: false
 		    },
 			</c:forEach>
 		];
-		
-		
-        
+
     </script>
     
     <script src="/resources/js/main.js"></script>
     <script src="/resources/js/addEvent.js"></script>
     <script src="/resources/js/editEvent.js"></script>
     <script src="/resources/js/etcSetting.js"></script>
-</body>
-
-</html>
+    
+<%@ include file="../includes/footer.jsp"%>
