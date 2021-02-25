@@ -37,12 +37,6 @@ public class EventBoardController {
 	private EventBoardService service;
 
 	// 등록
-//	@PostMapping("/create")
-//	public String create(EventBoardVO board) {
-//		log.info("register: " + board);
-//		service.register(board);
-//		return "redirect:/board/eventList";
-//	}
 	@PostMapping(value = "/create", consumes = "application/json",	produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> create(@RequestBody EventBoardVO vo) {
 
@@ -90,30 +84,19 @@ public class EventBoardController {
 
 		return new ResponseEntity<>(service.get(bno), HttpStatus.OK);
 	}
-	
-	@DeleteMapping(value= "/{bno}", consumes = "application/json",
-			produces = { MediaType.TEXT_PLAIN_VALUE })
+
+	@DeleteMapping(value="/remove/{bno}", produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> remove(@PathVariable("bno") Long bno) {
-		
-		log.info("remove" + bno);
-		
+
+		log.info("remove: " + bno);
+
 		return service.remove(bno) == 1
 				? new ResponseEntity<>("success", HttpStatus.OK)
-				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-//	@DeleteMapping("/{rno}")
-//	public ResponseEntity<String> remove(@RequestBody QnaReplyVO vo, @PathVariable("rno") Long rno) {
-//
-//		log.info("remove: " + rno);
-//
-//		return service.remove(rno) == 1
-//				? new ResponseEntity<>("success", HttpStatus.OK)
-//						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//	}
-
 	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH },
-			value = "/{bno}",
+			value = "/modify/{bno}",
 			consumes = "application/json")
 	public ResponseEntity<String> modify(@RequestBody EventBoardVO vo,
 			@PathVariable("bno") Long rno) {

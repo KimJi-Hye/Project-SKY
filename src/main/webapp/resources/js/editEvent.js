@@ -76,17 +76,26 @@ var editEvent = function (event, element, view) {
         event.backgroundColor = editColor.val();
         event.description = editDesc.val();
 
+		var eventEditData = {
+			bno: event._id,
+			title: editTitle.val(),
+			content: editDesc.val(),
+			startdate: startDate,
+			enddate: displayDate,
+			color: editColor.val()
+		}
+
         $("#calendar").fullCalendar('updateEvent', event);
 
         //일정 업데이트
         $.ajax({
-            type: "get",
-            url: "",
-            data: {
-                //...
-            },
+            type: "put",
+            url: "/board/modify/" + event._id,
+            data: JSON.stringify(eventEditData),
+			contentType: "application/json; charset=utf-8",
             success: function (response) {
-                alert('수정되었습니다.')
+                alert('수정되었습니다.');
+				callback(eventEditData);
             }
         });
 
@@ -99,16 +108,19 @@ $('#deleteEvent').on('click', function () {
     $('#deleteEvent').unbind();
     $("#calendar").fullCalendar('removeEvents', $(this).data('id'));
     eventModal.modal('hide');
+	
+	var bno = $(this).data('id');
 
     //삭제시
     $.ajax({
-        type: "get",
-        url: "",
+        type: "delete",
+        url: "/board/remove/" + bno,
         data: {
             //...
         },
         success: function (response) {
             alert('삭제되었습니다.');
+			callback(bno);
         }
     });
 
