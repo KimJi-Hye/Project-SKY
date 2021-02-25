@@ -1,5 +1,7 @@
 package org.zerock.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,9 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ApplyBoardController {
 
+	@Autowired
+	BCryptPasswordEncoder passEncoder;
+	
 	private ApplyBoardService service;
 	
 	private ClassMngService mngService;
@@ -55,6 +60,10 @@ public class ApplyBoardController {
 	@PostMapping("/applyRegister")
 	public String register(ApplyBoardVO board, RedirectAttributes rttr) {
 
+		String inputPass = board.getPw();
+		String pass = passEncoder.encode(inputPass);
+		board.setPw(pass);
+		
 		log.info("applyRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getAno());
