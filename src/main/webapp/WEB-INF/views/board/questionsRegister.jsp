@@ -4,40 +4,54 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_register.css">
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Apply Register Page</div>
+<div id="wrapper">
+	<div class="boardTitle">
+		<!-- 게시판 제목 -->
+		<h3>Q & A</h3>
+	</div>
 
-			<div class="panel-body">
+	<div class="form-group">
 
-				<form role="form" action="/board/questionsRegister" method="post">
+		<form id='operForm' action="/board/questionsRegister" method="post">
+			<ul>
+				<li><label>제목</label> <input type="text"
+					class="input_tx input_tx2" name='title'
+					value='<c:out value="${board.title}"/>'></li>
+				<li><label>내용</label> <input type="text"
+					class="input_tx input_tx2 input_tx3" name='content'
+					value='<c:out value="${board.content}"/>'></li>
+				<li><label>작성자</label> <input type="text"
+					class="input_tx input_tx2" name='writer'
+					value='<c:out value="${board.writer}"/>'></li>	
+				<li><label>비밀번호</label> <input type="text"
+					class="input_tx input_tx2" name='pw'
+					value='<c:out value="${board.pw}"/>'></li>									
+			</ul>
 
-					<div class="form-group">
-						<label>제목</label> <input class="form-control" name='title'>
-					</div>
-
-					<div class="form-group">
-						<label>내용</label> <input class="form-control" name='content'>
-					</div>
-					
-						<div class="form-group">
-						<label>작성자</label> <input class="form-control" name='writer'>
-					</div>
-					
-					<div class="form-group">
-						<label>비밀번호</label> <input class="form-control" name='pw'>
-					</div>
-
-					<button type="submit" class="btn btn-default">등록</button>
-				</form>
-
+			<div class="form-button">
+				<button type="submit" class="btn_reg">등록</button>
+				<button data-oper='questionsList' class="btn_list">목록</button>
 			</div>
 
-		</div>
+		</form>
 
 	</div>
 
 </div>
+
+<script>
+$(document).ready(function() {
+	
+	var operForm = $("#operForm");
+	
+	$("button[data-oper='questionsList']").on("click", function(e) {
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/board/questionsList").attr("method","get").submit();
+	});	
+
+});
+</script>
+
 <%@include file="../includes/footer.jsp"%>

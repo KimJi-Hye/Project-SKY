@@ -41,7 +41,7 @@
 
 	<!-- 글쓰기 -->
 	<div class="bo_register">
-		<a href="noteRegister" class="pg_regi"> <span
+		<a href="noticeRegister" class="pg_regi"> <span
 			class="material-icons"> create </span>글쓰기
 		</a>
 	</div>
@@ -146,32 +146,25 @@
 											actionForm.submit();
 										});
 
-						$("#searchForm button").on(
-								"click",
-								function(e) {
+						var searchForm = $("#searchForm");
 
-									if (!searchForm.find("option:selected")
-											.val()) {
+					    $("#searchForm button").on(
+					          "click",
+					          function(e) {
 
-										alert("검색종류를 선택하세요");
-										return false;
 
-									}
+					             if (!searchForm.find(
+					                   "input[name='keyword']").val()) {
+					                alert("키워드를 입력하세요");
+					                return false;
+					             }
 
-									if (!searchForm.find(
-											"input[name='keyword']").val()) {
+					             searchForm.find("input[name='pageNum']")
+					                   .val("1");
+					             e.preventDefault();
 
-										alert("키워드를 입력하세요");
-										return false;
-
-									}
-
-									searchForm.find("input[name='pageNum']")
-											.val("1");
-									e.preventDefault();
-
-									searchForm.submit();
-								});
+					             searchForm.submit();
+					          });
 					});
 </script>
 

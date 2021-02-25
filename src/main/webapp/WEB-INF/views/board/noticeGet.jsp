@@ -4,49 +4,43 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_register.css">
 
-<!-- /.row -->
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Class Read Page</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
-				
-			<form id='operForm' action="/board/noticeGet" method="post">	
-				<div class="form-group">
-					<label>게시물 번호</label> <input class="form-control" name='bno'
-						value='<c:out value="${board.bno}"/>' readonly="readonly">
-				</div>
-
-				<div class="form-group">
-					<label>게시물 제목</label> 
-					<input class="form-control" name='title'
-						value='<c:out value="${board.title}"/>' >
-				</div>
-
-				<div class="form-group">
-					<label>내용</label> <input class="form-control" name='content'
-						value='<c:out value="${board.content}"/>'>
-				</div>
-				
-				<button data-oper='noticeModify' class="btn btn-default">수정</button>
-				<button data-oper='noticeList' class="btn btn-info">돌아가기</button>
-				<button data-oper='noticeRemove' class="btn btn-default">탈퇴하기</button>
-
-				<input name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-			    <input name='amount' value='<c:out value="${cri.amount}"/>'>
-				    
-			</form>
-				
-			</div>
-			<!-- /.panel-body -->
-		</div>
-		<!-- /.panel -->
+<div id="wrapper">
+	<div class="boardTitle">
+		<!-- 게시판 제목 -->
+		<h3>공지사항</h3>
 	</div>
-	<!-- /.col-lg-6 -->
+	<div class="form-group">
+
+		<form id='operForm' action="/board/noticeGet" method="post">
+			<ul>
+				<li><label>No</label> <input type="text"
+					class="input_tx input_tx2" name='bno'
+					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+				<li><label>제목</label> <input type="text"
+					class="input_tx input_tx2" name='title'
+					value='<c:out value="${board.title}"/>'></li>
+				<li><label>내용</label> <input type="text"
+					class="input_tx input_tx2 input_tx3" name='content'
+					value='<c:out value="${board.content}"/>'></li>
+			</ul>
+
+			<div class="form-button">
+				<button data-oper='noticeModify' class="btn_mod">수정</button>
+				<button data-oper='noticeList' class="btn_list">목록</button>
+				<button data-oper='noticeRemove' class="btn_del">삭제</button>
+			</div>
+
+			<input type="hidden" name='pageNum'
+				value='<c:out value="${cri.pageNum}"/>'> <input
+				type="hidden" name='amount' value='<c:out value="${cri.amount}"/>'>
+
+		</form>
+
+	</div>
 </div>
-<!-- /.row -->
+<!-- /.panel-body -->
 <!-- <script type="text/javascript">
 
 $(document).ready(function() {
@@ -85,8 +79,11 @@ $(document).ready(function() {
 	
 	var operForm = $("#operForm");
 	
+
 	$("button[data-oper='noticeModify']").on("click", function(e) {
-		operForm.attr("action", "/board/noticeModify").submit();
+		e.preventDefault();		
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/board/noticeModify").attr("result", "success").submit();
 	});
 	
 	$("button[data-oper='noticeList']").on("click", function(e) {

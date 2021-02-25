@@ -69,7 +69,7 @@ public class QuestionsBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/childList";
+		return "redirect:/board/questionsList";
 	}
 
 	@PostMapping("/questionsRemove")

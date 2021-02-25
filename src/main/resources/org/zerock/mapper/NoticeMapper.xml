@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  	<insert id="insert">
 		insert into tb_notice (bno ,title ,content)
-		values (seq_tb_apply.nextval, #{title}, #{content})
+		values (seq_tb_notice.nextval, #{title}, #{content})
 	</insert>
 
  	<select id="read" resultType="org.zerock.domain.NoticeVO">
@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			bno, title, content, regdate
 		from
        (
-		select /*+INDEX_DESC(tb_apply pk_tb_apply) */
+		select /*+INDEX_DESC(tb_notice pk_tb_notice) */
 			rownum rn, bno, title, content, regdate
 		from tb_notice
 		where

@@ -6,56 +6,46 @@
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_register.css">
 
-<!-- /.row -->
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Class Read Page</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
+<div id="wrapper">
+	<div class="boardTitle">
+		<!-- 게시판 제목 -->
+		<h3>Q & A</h3>
+	</div>
+	<div class="form-group">
 				
-			<form id='operForm' action="/board/applyGet" method="post">	
-				<div class="form-group">
-					<label>게시글 번호</label> <input class="form-control" name='bno'
-						value='<c:out value="${board.bno}"/>' readonly="readonly">
-				</div>
-
-				<div class="form-group">
-					<label>제목</label> 
-					<input class="form-control" name='title'
-						value='<c:out value="${board.title}"/>' readonly="readonly">
-				</div>
-
-				<div class="form-group">
-					<label>내용</label> <input class="form-control" name='content'
-						value='<c:out value="${board.content}"/>'>
-				</div>
-
-				<div class="form-group">
-					<label>작성자</label> <input class="form-control" name='writer'
-						value='<c:out value="${board.writer}"/>'>
-				</div>
+			<form id='operForm' action="/board/questionsGet" method="post">
+			<ul>
+				<li><label>No</label> <input type="text"
+					class="input_tx input_tx2" name='bno'
+					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+					
+				<li><label>제목</label> <input type="text"
+					class="input_tx input_tx2" name='title'
+					value='<c:out value="${board.title}"/>' ></li>
+					
+				<li><label>내용</label> <input type="text"
+					class="input_tx input_tx2 input_tx3" name='content'
+					value='<c:out value="${board.content}"/>' ></li>
+					
+				<li><label>작성자</label> <input type="text"
+					class="input_tx input_tx2" name='writer'
+					value='<c:out value="${board.writer}"/>' ></li>
+					
+				<li><label>비밀번호</label> <input type="text"
+					class="input_tx input_tx2" name='pw'
+					value='<c:out value="${board.pw}"/>' ></li>										
+					
+			</ul>			
 				
-				<div class="form-group">
-					<label>작성일</label> <input class="form-control" name='regdate'
-						value='<c:out value="${board.regdate}"/>'>
-				</div>
-				
-				<div class="form-group">
-					<label>수정날짜</label> <input class="form-control" name='updatedate'
-						value='<c:out value="${board.updatedate}"/>'>
-				</div>
-				
-				<div class="form-group">
-					<label>비밀번호</label>
-					<input class="form-control" name='pw'
-						value='<c:out value="${board.pw}"/>'>
-				</div>
 
-				<button data-oper='questionsModify' class="btn btn-default">수정</button>
-				<button data-oper='questionsList' class="btn btn-info">돌아가기</button>
-				<button data-oper='questionsRemove' class="btn btn-default">접수취소</button>
+			<div class="form-button">
+				<button data-oper='questionsModify' class="btn_mod">수정</button>
+				<button data-oper='questionsList' class="btn_list">목록</button>
+				<button data-oper='questionsRemove' class="btn_del">접수취소</button>
+			</div>
+
 
 				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 			    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
@@ -334,8 +324,10 @@ $(document).ready(function() {
 	var operForm = $("#operForm");
 	
 	$("button[data-oper='questionsModify']").on("click", function(e) {
-		operForm.attr("action", "/board/questionsModify").submit();
-	});
+		e.preventDefault();		
+		operForm.find("#bno").remove();
+		operForm.attr("action", "/board/questionsModify").attr("result", "success").submit();
+	});	
 	
 	$("button[data-oper='questionsList']").on("click", function(e) {
 		operForm.find("#bno").remove();
@@ -345,6 +337,7 @@ $(document).ready(function() {
 	$("button[data-oper='questionsRemove']").on("click", function(e){
 		operForm.attr("action", "/board/questionsRemove").submit();
 	});
+	
 	
 	var pageNum = 1;
 	var replyPageFooter = $(".panel-footer");
