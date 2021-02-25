@@ -33,8 +33,10 @@
 				<td><a class='move' href='<c:out value="${board.bno}"/>'> <c:out
 							value="${board.title}" /></a></td>
 				<td><c:out value="${board.writer}" /></td>
-				<td><c:out value="${board.regdate}" /></td>
-				<td><c:out value="${board.updatedate}" /></td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${board.regdate}" /></td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${board.updatedate}" /></td>
 				<%-- <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td> --%>
 			</tr>
 		</c:forEach>
@@ -42,29 +44,26 @@
 
 	<!-- 글쓰기 -->
 	<div class="bo_register">
-		<a href="noteRegister" class="pg_regi">
+		<a href="questionsRegister" class="pg_regi">
 			<span class="material-icons"> create </span>접수</a>
 	</div>
 
 	<!-- Pagination -->
-	<div class='pull-right'>
-		<ul class="pagination">
-			<c:if test="${pageMaker.prev}">
-				<li class="paginate_button previous"><a
-					href="${pageMaker.startPage -1}">Previous</a></li>
-			</c:if>
-
-			<c:forEach var="num" begin="${pageMaker.startPage}"
-				end="${pageMaker.endPage}">
-				<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
-					<a href="${num}">${num}</a>
-				</li>
-			</c:forEach>
-
-			<c:if test="${pageMaker.next}">
-				<li class="paginate_button next"><a
-					href="${pageMaker.endPage +1}">Next</a></li>
-			</c:if>
+	<div class='bo_pages'>
+		<ul class="pg_wrap">
+			<span class="pg"> <c:if test="${pageMaker.prev}">
+					<li class="paginate_button pg_page pg_start"><a
+						href="${pageMaker.startPage -1}">Previous</a></li>
+				</c:if> <c:forEach var="num" begin="${pageMaker.startPage}"
+					end="${pageMaker.endPage}">
+					<li
+						class="paginate_button pg_page ${pageMaker.cri.pageNum == num ? "
+						activepg_current":""} "><a href="${num}">${num}</a></li>
+				</c:forEach> <c:if test="${pageMaker.next}">
+					<li class="paginate_button pg_page pg_end"><a
+						href="${pageMaker.endPage +1}">Next</a></li>
+				</c:if>
+			</span>
 		</ul>
 	</div>
 	<!-- end Pagination -->
@@ -132,27 +131,25 @@ $(document).ready(function() {
 		actionForm.submit();
 	});
 	
-    $("#searchForm button").on("click", function(e) {
+	var searchForm = $("#searchForm");
 
-		if (!searchForm.find("option:selected").val()) {
-			
-		   alert("검색종류를 선택하세요");
-		   return false;
-		   
-		}
-		
-		if (!searchForm.find("input[name='keyword']").val()) {
-			
-		   alert("키워드를 입력하세요");
-		   return false;
-		   
-		}
-		
-		searchForm.find("input[name='pageNum']").val("1");
-		e.preventDefault();
-		
-		searchForm.submit();
-	});
+    $("#searchForm button").on(
+          "click",
+          function(e) {
+
+
+             if (!searchForm.find(
+                   "input[name='keyword']").val()) {
+                alert("키워드를 입력하세요");
+                return false;
+             }
+
+             searchForm.find("input[name='pageNum']")
+                   .val("1");
+             e.preventDefault();
+
+             searchForm.submit();
+          });
 });
 </script>
 
