@@ -8,7 +8,7 @@
 
 <div class="boardTitle">
 	<!-- 게시판 제목 -->
-	<h3>알림장</h3>
+	<h3>Q & A</h3>
 </div>
 
 

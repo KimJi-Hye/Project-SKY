@@ -28,8 +28,12 @@
 						</li>
 						<li>
 							<label for="pwCheck">비밀번호 확인</label>
-							<input type="password" name="pwCheck" id="pwCheck" class="input_tx" required><span id="pwLog"></span>
+							<input type="password" name="pwCheck" id="pwCheck" class="input_tx" required>
 						</li>
+                        <li class="pwLogBox">
+                        	<span class="b_box">
+                        	</span><span id="pwLog"></span>
+                        </li>
 						<li>
 							<label for="userName">이름</label>
 							<input type="text" name="userName" id="userName" class="input_tx" required>
@@ -82,8 +86,12 @@
 </div>
 
 <div id="popup">
-	<p class="popup_m"></p>
-	<button type="button" class="popup_close">확인</button>
+	<div class="popup_bg">
+		<div class="popup_box">
+			<p class="popup_m"></p>
+			<button type="button" class="popup_close">확인</button>
+		</div>
+	</div>
 </div>
 
 

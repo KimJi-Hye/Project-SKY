@@ -33,6 +33,10 @@ public class JoinController {
 	
 	private AuthorService authorService;
 	
+	//임시
+	@GetMapping("/login")
+	public void login() {}
+	
 	// http://localhost:8080/member/list
 	@GetMapping("/memList")
 	public void list(Model model) {

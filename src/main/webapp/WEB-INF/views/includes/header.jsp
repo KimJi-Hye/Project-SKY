@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/resources/img/favicon.ico" type="image/favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="/resources/css/common.css">
     <link rel="stylesheet" href="/resources/css/header.css">
     <script src="/resources/js/jquery-3.5.1.min.js"></script>
@@ -21,7 +22,7 @@
         <div id="header">
             <div class="hd_nav pc">
                 <ul>
-                    <li><a href="#">로그인</a></li>
+                    <li><a href="/member/login">로그인</a></li>
                     <li><a href="/member/join">회원가입</a></li>
                     <li><a href="../admin/admin_index">관리자</a></li>
                 </ul>
@@ -80,7 +81,7 @@
                         <ul class="sub_nav">
                             <li><a href="#self">모집안내</a></li>
                             <li><a href="/board/applyRegister">온라인접수</a></li>
-                            <li><a href="/board/applyGet">접수조회</a></li>
+                            <li><a href="/board/applyList">접수조회</a></li>
                             <li><a href="/board/questionsList">Q&amp;A</a></li>
                         </ul>
                     </li>

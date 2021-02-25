@@ -4,11 +4,13 @@ var popup_m = $(".popup_m");
 
 function popupOn(){
 	popup.show();
-	setTimeout(popupOff, 3000);
+    popup.addClass("on");
+	//setTimeout(popupOff, 5000);
 }
 function popupOff(){
 	popup_m.text("");
-	popup.hide();
+    popup.removeClass("on");
+    popup.hide();
 }
 
 // 회원가입 검사
@@ -25,10 +27,12 @@ pwCheck.keyup(function(){
 	// 비밀번호 일치여부
 	if(pw.val() != pwCheck.val()){
 		$("#pwLog").text("비밀번호가 일치하지 않습니다.");
+        $("#pwLog").addClass("on");
 		$(this).focus();
 		return false;
 	} else {
 		$("#pwLog").text("");
+        $("#pwLog").removeClass("on");
 	}
 	
 });
