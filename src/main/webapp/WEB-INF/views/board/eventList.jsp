@@ -38,7 +38,9 @@
 
         <div id="wrapper">
             <div id="loading"></div>
-            <div id="calendar"></div>
+            <div id="calendar">
+            
+            </div>
         </div>
 
 
@@ -176,6 +178,44 @@
     <script src="/resources/vendor/js/ko.js"></script>
     <script src="/resources/vendor/js/select2.min.js"></script>
     <script src="/resources/vendor/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript" >
+    
+    	//alert(new Date("Sat Feb 22 00:00:00 KST 21").format("yyyy-mm-dd"));
+    	//alert(new Date().format('yyyy-MM-dd'));
+	    //alert(moment(new Date("05 October 2011 14:48 UTC")).format('YYYY MM DD HH:mm:ss'));
+	    //alert(moment(new Date("Sat Feb 22 00:00:00 KST 21")).format('YYYY MM DD HH:mm:ss'));
+		var events = [
+			{
+				_id: 1,
+			    title: "거래처 미팅",
+			    description: "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+			    start: "2021-02-10T09:30",
+			    end: "2021-02-10T15:00",
+			    username: "다현",
+			    backgroundColor: "#D25565",
+			    textColor: "#ffffff",
+			    allDay: false
+		    },
+    		<c:forEach items="${list}" var="li">
+			{
+				_id: "${li.bno}",
+			    title: "${li.title}",
+			    description: "${li.content}",
+			    start: "${li.startdate}",
+			    end: "${li.enddate}",
+			    username: "다현",
+			    backgroundColor: "${li.color}",
+			    textColor: "#ffffff",
+			    allDay: false
+		    },
+			</c:forEach>
+		];
+		
+		
+        
+    </script>
+    
     <script src="/resources/js/main.js"></script>
     <script src="/resources/js/addEvent.js"></script>
     <script src="/resources/js/editEvent.js"></script>

@@ -6,7 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <select id="getList" resultType="org.zerock.domain.EventBoardVO">
 	<![CDATA[
-		select * from tb_event where bno > 0
+		select 
+			bno, title, content, color,
+			to_char(startdate,'YYYY-MM-DD') startdate,
+        	to_char(enddate,'YYYY-MM-DD') enddate
+		from tb_event where bno > 0
 	]]>
 </select>
 

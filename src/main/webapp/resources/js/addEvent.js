@@ -82,7 +82,7 @@ var newEvent = function (start, end, eventType) {
         //새로운 일정 저장
         $.ajax({
             type: "get",
-            url: "",
+            url: "/event/eventList",
             data: {
                 //.....
             },

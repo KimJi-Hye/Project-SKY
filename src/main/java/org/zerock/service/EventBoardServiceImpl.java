@@ -18,11 +18,11 @@ public class EventBoardServiceImpl implements EventBoardService{
 	private EventBoardMapper mapper;
 	
 	@Override
-	public void register(EventBoardVO board) {
+	public int register(EventBoardVO board) {
 	
 		log.info("register......" + board);
 		
-		mapper.insert(board);
+		return mapper.insert(board);
 	}
 	
 	@Override
@@ -43,19 +43,19 @@ public class EventBoardServiceImpl implements EventBoardService{
 	}
 
 	@Override
-	public boolean modify(EventBoardVO board) {
+	public int modify(EventBoardVO board) {
 
 		log.info("modify......" + board);
 		
-		return mapper.update(board) == 1;
+		return mapper.update(board);
 	}
 
 	@Override
-	public boolean remove(Long ano) {
+	public int remove(Long bno) {
 
-		log.info("remove...." + ano);
+		log.info("remove...." + bno);
 		
-		return mapper.delete(ano) == 1;
+		return mapper.delete(bno);
 	}
 
 }
