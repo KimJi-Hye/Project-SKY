@@ -2,8 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<%-- <%@include file="../includes/header.jsp"%> --%>
+
+
+<%@include file="../includes/header.jsp"%>
 
 <div class="row">
 	<div class="col-lg-12">
@@ -48,7 +49,7 @@
 						<option value=""
 						<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
 						<option value="N"
-						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모 이름</option>
+						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>제목</option>
 					</select>
 					 
 					<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
@@ -98,11 +99,11 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-/* 	$('#regBtn').click(function() {
+ 	$('#regBtn').click(function() {
 
 		$(location).attr('href','questionsRegister');
 
-	}); */
+	});
 	
 	var actionForm = $("#actionForm");
 	$(".paginate_button a").on("click", function(e) {
@@ -144,7 +145,7 @@ $(document).ready(function() {
 </script>
 
 
-<%-- <%@include file="../includes/footer.jsp"%> --%>
+<%@include file="../includes/footer.jsp"%>
 
 
 

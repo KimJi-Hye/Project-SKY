@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  	<insert id="insert">
 		insert into tb_event (bno, title, content, color, startdate, enddate) 
-		values (seq_tb_event.nextval, #{title}, #{content}, #{color}, sysdate, sysdate)
+		values (seq_tb_event.nextval, #{title}, #{content}, #{color}, #{startdate}, #{enddate})
 	</insert>
 
  	<select id="read" resultType="org.zerock.domain.EventBoardVO">

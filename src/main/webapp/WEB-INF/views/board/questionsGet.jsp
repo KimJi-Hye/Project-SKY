@@ -3,16 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<head>
 <script type="text/javascript" src="/resources/js/reply.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<div class="row">
-	<div class="col-lg-12">
-		<h1 class="page-header">Class Read Page</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
+
+<%@include file="../includes/header.jsp"%>
+
 <!-- /.row -->
 <div class="row">
 	<div class="col-lg-12">
@@ -59,9 +53,9 @@
 						value='<c:out value="${board.pw}"/>'>
 				</div>
 
-				<button data-oper='applyModify' class="btn btn-default">수정</button>
-				<button data-oper='applyList' class="btn btn-info">돌아가기</button>
-				<button data-oper='applyRemove' class="btn btn-default">접수취소</button>
+				<button data-oper='questionsModify' class="btn btn-default">수정</button>
+				<button data-oper='questionsList' class="btn btn-info">돌아가기</button>
+				<button data-oper='questionsRemove' class="btn btn-default">접수취소</button>
 
 				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 			    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
@@ -339,16 +333,16 @@ $(document).ready(function() {
 	
 	var operForm = $("#operForm");
 	
-	$("button[data-oper='applyModify']").on("click", function(e) {
+	$("button[data-oper='questionsModify']").on("click", function(e) {
 		operForm.attr("action", "/board/questionsModify").submit();
 	});
 	
-	$("button[data-oper='applyList']").on("click", function(e) {
+	$("button[data-oper='questionsList']").on("click", function(e) {
 		operForm.find("#bno").remove();
 		operForm.attr("action", "/board/questionsList").attr("method","get").submit();
 	});
 	
-	$("button[data-oper='applyRemove']").on("click", function(e){
+	$("button[data-oper='questionsRemove']").on("click", function(e){
 		operForm.attr("action", "/board/questionsRemove").submit();
 	});
 	
@@ -412,6 +406,5 @@ $(document).ready(function() {
 	}); 
 });
 </script>
-<script type="text/javascript">
 
-</script>
+<%@include file="../includes/footer.jsp"%>

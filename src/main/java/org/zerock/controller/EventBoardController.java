@@ -36,7 +36,14 @@ public class EventBoardController {
 
 	private EventBoardService service;
 
-	@PostMapping(value = "/new", consumes = "application/json",	produces = { MediaType.TEXT_PLAIN_VALUE })
+	// 등록
+//	@PostMapping("/create")
+//	public String create(EventBoardVO board) {
+//		log.info("register: " + board);
+//		service.register(board);
+//		return "redirect:/board/eventList";
+//	}
+	@PostMapping(value = "/create", consumes = "application/json",	produces = { MediaType.TEXT_PLAIN_VALUE })
 	public ResponseEntity<String> create(@RequestBody EventBoardVO vo) {
 
 		log.info("EventBoardVO: " + vo);
@@ -50,6 +57,14 @@ public class EventBoardController {
 						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	// 이벤트 리스트
+	@GetMapping("/eventList")
+	public String getList(Model model) {
+		log.info("EventList Page");
+		model.addAttribute("list", service.getList());
+	   return "/board/eventList";
+	}
+	
 //	@RequestMapping("/eventList")
 //	public void getList() {
 //		
@@ -57,13 +72,6 @@ public class EventBoardController {
 //		service.getList();
 //		
 //	}
-	
-	@GetMapping("/eventList")
-	public String getList(Model model) {
-		model.addAttribute("list", service.getList());
-	   return "/board/eventList";
-	}
-
 
 //	@RequestMapping(value = "/eventList",
 //			produces = {
