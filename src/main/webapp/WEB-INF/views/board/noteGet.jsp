@@ -4,116 +4,101 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <script type="text/javascript" src="/resources/js/notereply.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
 
 
-
+<div id="wrapper">
 	<div class="boardTitle">
 		<!-- 게시판 제목 -->
-		<h3> G e t </h3>
+		<h3>알림장</h3>
 	</div>
 
-					<div class="form-group">
-						<label>bno</label> <input class="form-control" name='bno' 
-						value='<c:out value="${board.bno }"/>' readonly="readonly">
-					</div>
+	<div class="form-group">
 
+		<form id="operForm" action="/board/noteModify" method="get">
+		<ul>
+			<li><label>No</label> <input type="text"
+				class="input_tx input_tx2" name='bno'
+				value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+			<li><label>반 이름</label> <input type="text"
+				class="input_tx input_tx2" name='classname'
+				value='<c:out value="${board.classname}"/>' readonly="readonly"></li>
+			<li><label>원아 이름</label> <input type="text"
+				class="input_tx input_tx2" name='cname'
+				value='<c:out value="${board.cname}"/>' readonly="readonly"></li>
+			<li><label>제목</label> <input type="text"
+				class="input_tx input_tx2" name='title'
+				value='<c:out value="${board.title}"/>' readonly="readonly"></li>
+			<li><label>내용</label> <input type="text"
+				class="input_tx input_tx2 input_tx3" name='content'
+				value='<c:out value="${board.content}"/>' readonly="readonly"></li>
+			<li><label>작성자</label> <input type="text"
+				class="input_tx input_tx2" name='writer'
+				value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
+		</ul>
 
-					<div class="form-group">
-						<label>반 이름</label> <input class="form-control" name='classname' 
-						value='<c:out value="${board.classname }"/>' readonly="readonly">
-					</div>
-
-					<div class="form-group">
-						<label>원아 이름</label> <input class="form-control" name='cname'
-						value='<c:out value="${board.cname }"/>' readonly="readonly">
-					</div>
-
-					<div class="form-group">
-						<label>제목</label> <input class="form-control" name='title'
-						value='<c:out value="${board.title }"/>' readonly="readonly">
-					</div>
-
-					<div class="form-group">
-						<label>내용</label> <input class="form-control" name='content'
-						value='<c:out value="${board.content }"/>' readonly="readonly">
-					</div>
-
-					<div class="form-group">
-						<label>작성자</label> <input class="form-control" name='writer'
-						value='<c:out value="${board.writer }"/>' readonly="readonly">
-					</div>
-					
-					<div class="form-group">
-						<label>작성일</label> <input class="form-control" name='regdate'
-							value='<c:out value="${board.regdate }"/>' readonly="readonly">
-					</div>
-
-				
-				<div class="btn_box">
-					<button type="button" class="btn_mod">수정</button>
-					<button type="button" class="btn_list">목록</button>
-					<button type="button" class="btn_del">삭제</button>
-				</div>
-				
-				<form id="operForm" action="/board/noteModify" method="get">
-					<input type="hidden" id="bno" name="bno" value="${board.bno}">
-					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-				    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
-				</form>
-	
-
-		
-				<div class="modal">
-		
-			<div class="form-group">
-				<label>댓글</label>
-				<input class="form-control" name='content' value=''>
-			</div>
-			<div class="form-group">
-				<label>작성자</label>
-				<input class="form-control" name='writer' value=''>
-			</div>
-			
-			<button id='modalRegisterBtn' type="button" class="btn btn-primary">등록</button>
-		
+		<div class="form-button">
+			<button data-oper='noteModify' class="btn_mod">수정</button>
+			<button data-oper='noteList' class="btn_list">목록</button>
 		</div>
-		
-		<!-- /.panel -->
-		<div class="panel-heading">
-			<i class="fa fa-comments fa-fw"></i> Reply
+
+
+			<input type="hidden" id="bno" name="bno" value="${board.bno}">
+			<input type='hidden' name='pageNum'
+				value='<c:out value="${cri.pageNum}"/>'> <input
+				type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+		</form>
+
+	</div>
+
+	<div class="modal">
+
+		<div class="form-group">
+			<label>댓글</label> <input class="form-control" name='content' value=''>
+		</div>
+		<div class="form-group">
+			<label>작성자</label> <input class="form-control" name='writer' value=''>
+		</div>
+
+		<button id='modalRegisterBtn' type="button" class="btn btn-primary">등록</button>
+
+	</div>
+
+	<!-- /.panel -->
+	<div class="panel-heading">
+		<i class="fa fa-comments fa-fw"></i> Reply
 		<!-- 718p -->
 		<!-- <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button> -->
-		</div>      
-		
-		
-		<!-- /.panel-heading -->
-		<div class="panel-body modal">        
-		
-			<ul class="chat">
-				<!-- Start reply -->
-				<li class="left clearfix" data-ron='12'>
-					<div>
-						<div class="header">
-							<strong class="primary-font">user00</strong>
-							<small class="pull-right text-muted">2018-01-01 13:13</small>
-							<!-- <button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
+	</div>
+
+
+	<!-- /.panel-heading -->
+	<div class="panel-body modal">
+
+		<ul class="chat">
+			<!-- Start reply -->
+			<li class="left clearfix" data-ron='12'>
+				<div>
+					<div class="header">
+						<strong class="primary-font">user00</strong> <small
+							class="pull-right text-muted">2018-01-01 13:13</small>
+						<!-- <button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
         					<button id='modalRemoveBtn' type="button" class="btn btn-danger">삭제</button> -->
-						</div>
-						<p>Good job!</p>
 					</div>
-				</li>
+					<p>Good job!</p>
+				</div>
+			</li>
 			<!-- End reply -->
-			
-			</ul>
+
+		</ul>
 		<!-- ./ end ul -->
-		</div>
+	</div>
 
-
-
+</div>
 
 <script type="text/javascript">
 
@@ -302,26 +287,27 @@ $(document).ready(function() {
 		console.log(rno);
 	}); */
 	
-	
-	
-	
-	
-	var operForm = $("#operForm");
-	$(".btn_mod").click(function() {
-		operForm.submit();
-	});
-	$(".btn_list").click(function() {
-		operForm.find("#bno").remove();
-		operForm.attr("action", "/board/noteList");
-		operForm.submit();
-	});
-	$(".btn_del").click(function() {
-		operForm.attr("action", "/board/noteRemove").attr("method","post");
-		operForm.submit();
-	});
-});
+	$(document).ready(function() {
+		
+		var operForm = $("#operForm");
 
-</script>
+		$("button[data-oper='noteModify']").on("click", function(e) {
+			operForm.find("#bno").remove();
+			operForm.attr("action", "/board/noteModify").submit();
+		});
+		
+		$("button[data-oper='noteList']").on("click", function(e) {
+			operForm.find("#bno").remove();
+			operForm.attr("action", "/board/noteList").attr("method","get").submit();
+		});
+	});		
+	
+	
+});
+	
+</script>	
+
+
 
 
 

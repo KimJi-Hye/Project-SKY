@@ -21,7 +21,8 @@
                                 <ul>
                                 <li><label for="userId">아이디</label><input type="text" name="userId" id="userId" class="input_tx" required></li>
                                 <li><label for="userPw">비밀번호</label><input type=password name="userPw" id="userPw" class="input_tx" required></li>
-                                <li><label for="pwCheck">비밀번호 확인</label><input type="password" name="pwCheck" id="pwCheck" class="input_tx" required><span id="pwLog"></span></li>
+                                <li><label for="pwCheck">비밀번호 확인</label><input type="password" name="pwCheck" id="pwCheck" class="input_tx" required></li>
+                                <li class="pwLogBox"><span class="b_box"></span><span id="pwLog"></span></li>
                                 <li><label for="userName">이름</label><input type="text" name="userName" id="userName" class="input_tx" value="${apply.pname}" required></li>
                                 <li><label for="userBirth">생년월일</label>
                						<fmt:parseDate var="pbirth" value="${apply.pbirth}" pattern="yyyy-MM-dd" />
@@ -66,10 +67,14 @@
                 </div>
             </div>
     
-    <div id="popup">
-    	<p class="popup_m"></p>
-    	<button type="button" class="popup_close">확인</button>
-    </div>
+    		<div id="popup">
+                <div class="popup_bg">
+                    <div class="popup_box">
+                        <p class="popup_m"></p>
+                        <button type="button" class="popup_close">확인</button>
+                    </div>
+                </div>
+            </div>
 
 <script src="/resources/js/join.js"></script>
 <script>
