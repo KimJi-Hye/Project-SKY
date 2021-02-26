@@ -61,6 +61,7 @@
                             <input type="hidden" name="atGrade" value="z">
                             <input type="hidden" name="userType" value="P">
 
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         </form>
                     </div>
 
