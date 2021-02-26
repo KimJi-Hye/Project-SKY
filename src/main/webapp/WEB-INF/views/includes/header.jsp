@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ page import="org.springframework.security.core.context.SecurityContextHolder" %>
+<%@ page import="org.springframework.security.core.Authentication" %>
+<%
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    Object principal = auth.getPrincipal();
+ 
+    String name = "";
+    if(principal != null) {
+        name = auth.getName();
+    }
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -8,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/resources/img/favicon.ico" type="image/favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="/resources/css/common.css">
     <link rel="stylesheet" href="/resources/css/header.css">
     <script src="/resources/js/jquery-3.5.1.min.js"></script>
@@ -21,7 +34,17 @@
         <div id="header">
             <div class="hd_nav pc">
                 <ul>
-                    <li><a href="#">로그인</a></li>
+                  <sec:authorize access="isAnonymous()">
+		          	<h5><a href="/member/login" class="badge badge-pill badge-info">LOGIN</a> 로그인 해주세요.</h5>
+		          </sec:authorize>
+		          <sec:authorize access="isAuthenticated()">
+		          	<h5><%=name %>님, 반갑습니다.</h5>
+			        <form action="/" method="POST">
+			                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			                <button type="submit" class="btn btn-dark btn-sm">LOGOUT</button>
+			        </form>
+		          </sec:authorize>
+                    <li><a href="/member/login">로그인</a></li>
                     <li><a href="/member/join">회원가입</a></li>
                     <li><a href="../admin/admin_index">관리자</a></li>
                 </ul>
@@ -80,7 +103,7 @@
                         <ul class="sub_nav">
                             <li><a href="#self">모집안내</a></li>
                             <li><a href="/board/applyRegister">온라인접수</a></li>
-                            <li><a href="/board/applyGet">접수조회</a></li>
+                            <li><a href="/board/applyList">접수조회</a></li>
                             <li><a href="/board/questionsList">Q&amp;A</a></li>
                         </ul>
                     </li>
