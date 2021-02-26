@@ -4,68 +4,80 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_register.css">
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Apply Register Page</div>
+<div id="wrapper">
+	<div class="boardTitle">
+		<!-- 게시판 제목 -->
+		<h3>온라인접수</h3>
+	</div>
 
-			<div class="panel-body">
+	<div class="form-group">
 
 				<form role="form" action="/board/applyRegister" method="post">
 
-					<div class="form-group">
-						<label>학부모이름</label> <input class="form-control" name='pname'>
-					</div>
-
-					<div class="form-group">
-						<label>관계</label> <input class="form-control" name='relation'>
-					</div>
-
-					<div class="form-group">
-						<label>학부모생년월일</label> <input class="form-control" name='pbirth' type='date'>
-					</div>
-
-					<div class="form-group">
-						<label>주소</label> <input class="form-control" name='addr'>
-					</div>
-
-					<div class="form-group">
-						<label>연락처</label> <input class="form-control" name='phone'>
-					</div>
+			<ul>
+				<li><label>학부모이름</label> <input type="text"
+					class="input_tx input_tx2" name='pname'></li>
 					
-					<div class="form-group">
-						<label>e-mail</label> <input class="form-control" name='useremail'>
-					</div>
-
-					<div class="form-group">
-						<label>아동이름</label> <input class="form-control" name='cname'>
-					</div>
-
-					<div class="form-group">
-						<label>아동성별</label> <input class="form-control" name='cgender'>
-					</div>
-
-					<div class="form-group">
-						<label>아동생년월일</label> <input class="form-control" name='cbirth' type='date'>
-					</div>
-
-					<div class="form-group">
-						<label>접수유형</label> <input class="form-control" name='apptype'>
-					</div>
+				<li><label>관계</label> <input type="text"
+					class="input_tx input_tx2" name='relation'></li>
 					
-					<div class="form-group">
-						<label>비밀번호</label> <input class="form-control" name='pw'>
-					</div>
+				<li><label>학부모생년월일</label> <input type="date"
+					class="input_tx input_tx2" name='pbirth'></li>
+					
+				<li><label>주소</label> <input type="text"
+					class="input_tx input_tx2" name='addr'></li>	
+									
+				<li><label>연락처</label> <input type="text"
+					class="input_tx input_tx2" name='phone'></li>
+					
+				<li><label>e-mail</label> <input type="text"
+					class="input_tx input_tx2" name='useremail'></li>
+					
+				<li><label>아동이름</label> <input type="text"
+					class="input_tx input_tx2" name='cname'></li>
+					
+				<li><label>아동성별</label> <input type="text"
+					class="input_tx input_tx2" name='cgender'></li>	
+														
+				<li><label>아동생년월일</label> <input type="date"
+					class="input_tx input_tx2" name='cbirth'></li>	
+					
+				<li><label>접수유형</label> <input type="text"
+					class="input_tx input_tx2" name='apptype'></li>	
+						
+				<li><label>비밀번호</label> <input type="text"
+					class="input_tx input_tx2" name='pw'></li>															
+			</ul>
 
-					<button type="submit" class="btn btn-default">접수 신청</button>
+			<div class="form-button">
+				<button type="submit" class="btn_mod">등록</button>
+				<button type="reset" class="btn_reset">리셋</button>
+				<button data-oper='applyList' class="btn_list">목록</button>
+			</div>
+
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			
 				</form>
 
 			</div>
 
 		</div>
+		
+<script type="text/javascript">
+	$(document).ready(function (e){
+		
+		var form = $("form");
+		$("button[data-oper='applyList']").on(
+				"click",
+				function(e) {
+					e.preventDefault();
+					form.attr("action", "/board/applyList").attr(
+							"method", "get").submit();
+				});
+	});
+</script>		
+		
 
-	</div>
-
-</div>
 <%@include file="../includes/footer.jsp"%>

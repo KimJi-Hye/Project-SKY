@@ -30,7 +30,8 @@
 				<button type="reset" class="btn_reset">리셋</button>
 				<button data-oper='noticeList' class="btn_list">목록</button>
 			</div>
-
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 		</form>
 
 	</div>
@@ -38,17 +39,18 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function (e){
-		
-		var form = $("form");
-		$("button[data-oper='noticeList']").on(
-				"click",
-				function(e) {
-					e.preventDefault();
-					form.attr("action", "/board/noticeList").attr(
-							"method", "get").submit();
-				});
-	});
+	$(document).ready(
+			function(e) {
+
+				var form = $("form");
+				$("button[data-oper='noticeList']").on(
+						"click",
+						function(e) {
+							e.preventDefault();
+							form.attr("action", "/board/noticeList").attr(
+									"method", "get").submit();
+						});
+			});
 </script>
 
 <%@include file="../includes/footer.jsp"%>

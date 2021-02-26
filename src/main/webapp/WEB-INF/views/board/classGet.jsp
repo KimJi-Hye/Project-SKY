@@ -75,7 +75,7 @@
 					<button data-oper='classModify' class="btn btn-default">수정</button>
 					<button data-oper='classList' class="btn btn-info">목록</button>
 
-
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 				</form>
 

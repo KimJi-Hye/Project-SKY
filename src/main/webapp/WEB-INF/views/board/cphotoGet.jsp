@@ -62,6 +62,9 @@
 					<input type="hidden" id="bno" name="bno" value="${board.bno}">
 					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 				    <input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+	
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
+	
 				</form>				
 			
 			

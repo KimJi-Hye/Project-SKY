@@ -23,7 +23,6 @@
 
 	<select id="getList" resultType="org.zerock.domain.ClassNoteVO">
 
-	<![CDATA[
 		SELECT A.bno
 		,A.cunicode
 		,A.classname
@@ -32,11 +31,9 @@
 		,A.writer
 		,A.title
 		,B.cname
-		FROM tb_note A,tb_child B
-		WHERE A.cunicode=B.cunicode
-		and A.bno > 0
-	]]>
-
+		FROM tb_note A,tb_child B	
+		WHERE A.cunicode=B.cunicode 
+		order by bno desc
 	</select>
 
 
@@ -45,7 +42,7 @@
 
 	<![CDATA[
      select
-      rn, bno, cunicode, classname, regdate, content, writer, title, cname
+      bno, cunicode, classname, regdate, content, writer, title, cname
     from
        (
 		select /*+INDEX_DESC(tb_note pk_tb_note) */
@@ -68,6 +65,7 @@
 		rownum <= #{pageNum} * #{amount}
 		)
 		where rn > (#{pageNum} -1) * #{amount}
+		order by bno desc
 	]]>
 		
 
@@ -75,19 +73,13 @@
 
 
 	<select id="getTotalCount" resultType="int">
+		select count(*) 
+		from tb_note A,tb_child B
+		WHERE A.cunicode=B.cunicode
+		and
+	<include refid="criteria"></include>
 	
-		<![CDATA[
-			select count(*) 
-			from tb_note A,tb_child B
-			WHERE A.cunicode=B.cunicode
-			and
-		]]>
-			
-		<include refid="criteria"></include>
-		
-		<![CDATA[
-			bno > 0
-		]]>
+	bno > 0
 	</select>
 
 

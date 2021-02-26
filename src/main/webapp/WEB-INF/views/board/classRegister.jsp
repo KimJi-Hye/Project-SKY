@@ -46,6 +46,8 @@
 				<button type="submit">등록</button>
 				<button data-oper='classList' class="btn btn-info">목록</button>
 
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
 			</form>
 			
 			

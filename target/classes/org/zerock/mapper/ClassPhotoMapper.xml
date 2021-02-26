@@ -16,7 +16,7 @@ select * from tb_photo where bno > 0
 
 	<![CDATA[
      select
-       bno, classname, title, content, tag, regdate
+        bno, classname, title, content, tag, regdate
     from
        (
 		select /*+INDEX_DESC(tb_photo pk_tb_photo) */

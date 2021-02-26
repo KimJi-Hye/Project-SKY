@@ -23,7 +23,7 @@
 				<a href="../" class="lb_home"><img src="/resources/img/sky_logo2.png" alt=""></a>
 			</div>
 			<div class="lb_con">
-				<form action="">
+				<form action="/login" method="post">
 					<div class="radioBox">
 						<input type="radio" name="usertype" id="ut1" class="radioBtn" checked> 
 						<label for="ut1"><span></span> 학부모</label> 
@@ -33,6 +33,7 @@
 					<input type="text" name="userId" placeholder="ID" required>
 					<input type="password" name="userPw" placeholder="PASSWORD" required> 
 					<input type="submit" value="LOGIN">
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" />
 				</form>
 			</div>
 			<div class="lb_bottom">

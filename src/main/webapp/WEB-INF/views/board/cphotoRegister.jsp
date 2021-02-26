@@ -104,6 +104,9 @@
 
 					<button type="submit" class="btn btn-default">등록</button>
 					<a href="/board/cphotoList">목록</a>
+
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />				
+				
 				</form>
 
 

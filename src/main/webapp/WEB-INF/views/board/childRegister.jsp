@@ -48,6 +48,9 @@
 					</div>
 					
 					<button type="submit" class="btn btn-default">접수 신청</button>
+
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />		
+		
 				</form>
 
 			</div>

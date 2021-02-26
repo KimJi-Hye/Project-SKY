@@ -89,7 +89,7 @@
 				    <c:out value="${pageMaker.cri.type eq 'C'?' selected':''}"/>>원아이름</option>
 				   </select>
 				   
-				  <input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
+				  <input type='text' name='keyword' placeholder="검색어를 입력해주세요" value='<c:out value="${pageMaker.cri.keyword}"/>' />
 				  <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
 				  <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
 				 

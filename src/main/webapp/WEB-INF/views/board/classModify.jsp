@@ -54,6 +54,7 @@
 		  <button data-oper='classList' class="btn btn-info">목록</button>
 		  <button data-oper='classRemove' class="btn btn-danger">삭제</button>
 
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		  
 	</form>
 	

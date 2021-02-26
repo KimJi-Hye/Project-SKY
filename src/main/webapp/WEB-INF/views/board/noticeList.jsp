@@ -76,15 +76,13 @@
 					<select name="type">
 						<option value="N"
 							<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>제목</option>
-					</select> <input type='text' name='keyword'
-						value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
-						type='hidden' name='pageNum'
-						value='<c:out value="${pageMaker.cri.pageNum}"/>' /> <input
-						type='hidden' name='amount'
-						value='<c:out value="${pageMaker.cri.amount}"/>' />
+					</select> 
+					<input type='text' name='keyword' placeholder="검색어를 입력해주세요" value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
+						<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 
+						<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
 
 					<button type="button">
-						<span class="material-icons"> search </span>
+						<span class="material-icons" > search </span>
 					</button>
 				</div>
 			</form>
@@ -158,6 +156,7 @@
 					                alert("키워드를 입력하세요");
 					                return false;
 					             }
+					             
 
 					             searchForm.find("input[name='pageNum']")
 					                   .val("1");
