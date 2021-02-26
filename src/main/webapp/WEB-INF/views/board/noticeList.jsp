@@ -2,141 +2,181 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<%-- <%@include file="../includes/header.jsp"%> --%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Class List Page
-			<button id='regBtn' type="button" class="btn btn-xs pull-right">접수</button>
-			</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
-				<table class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>게시물 번호</th>
-							<th>제목</th>
-							<th>내용</th>
-						</tr>
-					</thead>
+<%@include file="../includes/header.jsp"%>
+<link rel="stylesheet" href="/resources/css/board_list.css">
 
-					<c:forEach items="${noticeList}" var="board">
-						<tr>
-							<td><c:out value="${board.bno}" /></td>
-							<td><a class='move' href=<c:out value="${board.bno}"/>'>
-							<c:out value="${board.title}" /></a></td>
-							<td><c:out value="${board.content}" /></td>
-							<%-- <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td> --%>
-						</tr>
-					</c:forEach>
-				</table>
-				<!-- <화면에서 검색 조건 처리> -->
-
-				<form id='searchForm' action="/board/noticeList" method='get'>
-					<select name='type'>								
-						<option value=""
-						<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-						<option value="N"
-						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>제목</option>
-					</select>
-					 
-					<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
-					<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
-					<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
-					
-					<button class='btn btn-default'>Search</button>				   
-				</form>
-
-				<!-- Pagination -->
-				<div class='pull-right'>
-					<ul class="pagination">
-						<c:if test="${pageMaker.prev}">
-							<li class="paginate_button previous"><a
-								href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
-
-						<c:forEach var="num" begin="${pageMaker.startPage}"
-							end="${pageMaker.endPage}">
-							<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
-								<a href="${num}">${num}</a>
-							</li>
-						</c:forEach>
-
-						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a href="${pageMaker.endPage +1}">Next</a></li>
-						</c:if>
-					</ul>
-				</div>
-				<!-- end Pagination -->
-
-				<form id='actionForm' action="/board/noticeList" method='get'>
-					<input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
-					<input type='hidden' name='amount' value = '${pageMaker.cri.amount}'>
-					<input type='hidden' name='type' value = '<c:out value="${pageMaker.cri.type}"/>'>
-					<input type='hidden' name='keyword' value = '<c:out value="${pageMaker.cri.keyword}"/>'>
-				</form>
-
-
-			</div>
-<!-- 			/.panel-body -->
-		</div>
-<!-- 		/.panel -->
-	</div>
-<!-- 	/.col-lg-6 -->
+<div class="boardTitle">
+	<!-- 게시판 제목 -->
+	<h3>공지사항</h3>
 </div>
 
+<!-- 게시판 목록  -->
+<div class="boardList">
+	<table>
+		<thead>
+			<tr>
+				<th class="th_bno">No</th>
+				<th class="th_title">제목</th>
+				<th class="th_regdate">작성일</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<c:forEach items="${noticeList}" var="board">
+				<tr>
+					<td><c:out value="${board.bno}" /></td>
+					<td><a class='move' href='<c:out value="${board.bno}"/>'>
+							<c:out value="${board.title}" />
+					</a></td>
+					<td><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${board.regdate}" /></td>
+					<%-- <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td> --%>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+
+	<!-- 글쓰기 -->
+	<div class="bo_register">
+		<a href="noteRegister" class="pg_regi"> <span
+			class="material-icons"> create </span>글쓰기
+		</a>
+	</div>
+
+	<!-- Pagination -->
+	<div class='bo_pages'>
+		<ul class="pg_wrap">
+			<span class="pg"> <c:if test="${pageMaker.prev}">
+					<li class="paginate_button pg_page pg_start"><a
+						href="${pageMaker.startPage -1}">Previous</a></li>
+				</c:if> <c:forEach var="num" begin="${pageMaker.startPage}"
+					end="${pageMaker.endPage}">
+					<li
+						class="paginate_button pg_page ${pageMaker.cri.pageNum == num ? "
+						activepg_current":""} "><a href="${num}">${num}</a></li>
+				</c:forEach> <c:if test="${pageMaker.next}">
+					<li class="paginate_button pg_page pg_end"><a
+						href="${pageMaker.endPage +1}">Next</a></li>
+				</c:if>
+			</span>
+		</ul>
+	</div>
+	<!-- end Pagination -->
+
+
+	<!-- <검색창> -->
+	<div class='bo_search'>
+		<div class="col-lg-12">
+
+			<form id='searchForm' action="/board/noticeList" method='get'>
+				<div class="bo_searchBox">
+					<select name="type">
+						<option value="N"
+							<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>제목</option>
+					</select> <input type='text' name='keyword'
+						value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
+						type='hidden' name='pageNum'
+						value='<c:out value="${pageMaker.cri.pageNum}"/>' /> <input
+						type='hidden' name='amount'
+						value='<c:out value="${pageMaker.cri.amount}"/>' />
+
+					<button type="button">
+						<span class="material-icons"> search </span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- <검색창 END> -->
+
+
+
+
+	<form id='actionForm' action="/board/noticeList" method='get'>
+		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+		<input type='hidden' name='type'
+			value='<c:out value="${pageMaker.cri.type}"/>'> <input
+			type='hidden' name='keyword'
+			value='<c:out value="${pageMaker.cri.keyword}"/>'>
+	</form>
+
+
+</div>
+<!-- 			/.panel-body -->
+
+
 <script type="text/javascript">
-$(document).ready(function() {
+	$(document)
+			.ready(
+					function() {
 
-	$('#regBtn').click(function() {
+						$('#regBtn').click(function() {
 
-		$(location).attr('href','noticeRegister');
+							$(location).attr('href', 'noticeRegister');
 
-	});
-	
-	var actionForm = $("#actionForm");
-	$(".paginate_button a").on("click", function(e) {
-		e.preventDefault();
-		console.log('click');
-		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
-		actionForm.submit();
-	});
-	
-	$(".move").on("click", function(e) {
-		e.preventDefault();
-		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/board/noticeGet");
-		actionForm.submit();
-	});
-	
-    $("#searchForm button").on("click", function(e) {
+						});
 
-		if (!searchForm.find("option:selected").val()) {
-			
-		   alert("검색종류를 선택하세요");
-		   return false;
-		   
-		}
-		
-		if (!searchForm.find("input[name='keyword']").val()) {
-			
-		   alert("키워드를 입력하세요");
-		   return false;
-		   
-		}
-		
-		searchForm.find("input[name='pageNum']").val("1");
-		e.preventDefault();
-		
-		searchForm.submit();
-	});
-});
+						var actionForm = $("#actionForm");
+						$(".paginate_button a").on(
+								"click",
+								function(e) {
+									e.preventDefault();
+									console.log('click');
+									actionForm.find("input[name='pageNum']")
+											.val($(this).attr("href"));
+									actionForm.submit();
+								});
+
+						$(".move")
+								.on(
+										"click",
+										function(e) {
+											e.preventDefault();
+											actionForm
+													.append("<input type='hidden' name='bno' value='"
+															+ $(this).attr(
+																	"href")
+															+ "'>");
+											actionForm.attr("action",
+													"/board/noticeGet");
+											actionForm.submit();
+										});
+
+						$("#searchForm button").on(
+								"click",
+								function(e) {
+
+									if (!searchForm.find("option:selected")
+											.val()) {
+
+										alert("검색종류를 선택하세요");
+										return false;
+
+									}
+
+									if (!searchForm.find(
+											"input[name='keyword']").val()) {
+
+										alert("키워드를 입력하세요");
+										return false;
+
+									}
+
+									searchForm.find("input[name='pageNum']")
+											.val("1");
+									e.preventDefault();
+
+									searchForm.submit();
+								});
+					});
 </script>
 
 
-<%-- <%@include file="../includes/footer.jsp"%> --%>
+<%@include file="../includes/footer.jsp"%>
 
 
 

@@ -57,7 +57,7 @@ var newEvent = function (start, end, eventType) {
             content: eventData.description,
             startdate: eventData.start,
             enddate: eventData.end,
-            color: eventData.backgroundColor,
+            color: eventData.backgroundColor
 		}
 /*		alert(eventData._id);
 		alert(eventData.title);
@@ -104,7 +104,7 @@ var newEvent = function (start, end, eventType) {
                 //DB연동시 중복이벤트 방지를 위한
                 //$('#calendar').fullCalendar('removeEvents');
                 //$('#calendar').fullCalendar('refetchEvents');
-				callback(response);
+				callback(eventDBData);
             }
         });
     });

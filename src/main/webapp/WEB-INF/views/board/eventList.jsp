@@ -6,7 +6,7 @@
 <%@ include file="../includes/header.jsp"%>
 
     <link rel="stylesheet" href="/resources/vendor/css/fullcalendar.min.css" />
-    <link rel="stylesheet" href="/resources/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/vendor/css/bootstrap.css">
     <link rel="stylesheet" href='/resources/vendor/css/select2.min.css' />
     <link rel="stylesheet" href='/resources/vendor/css/bootstrap-datetimepicker.min.css' />
     <link rel="stylesheet" href="/resources/css/main.css">
@@ -16,10 +16,10 @@
         <div id="contextMenu" class="dropdown clearfix">
             <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
                 style="display:block;position:static;margin-bottom:5px;">
-                <li><a tabindex="-1" href="#">카테고리1</a></li>
-                <li><a tabindex="-1" href="#">카테고리2</a></li>
+                <li><a tabindex="-1" href="#">일정등록</a></li>
+<!--                 <li><a tabindex="-1" href="#">카테고리2</a></li>
                 <li><a tabindex="-1" href="#">카테고리3</a></li>
-                <li><a tabindex="-1" href="#">카테고리4</a></li>
+                <li><a tabindex="-1" href="#">카테고리4</a></li> -->
                 <li class="divider"></li>
                 <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
             </ul>
@@ -44,10 +44,10 @@
                     </div>
                     <div class="modal-body">
 
-                        <div class="row">
+                        <div class="row" style="display: none;">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-allDay">하루종일</label>
-                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox"></label>
+                                <input class='allDayNewEvent' id="edit-allDay" type="checkbox" checked></label>
                             </div>
                         </div>
                         <div class="row">
@@ -72,12 +72,13 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-type">구분</label>
-                                <select class="inputModal" type="text" name="edit-type" id="edit-type">
+                               	<input class="inputModal" type="text" name="edit-type" id="edit-type" value="유치원행사" readonly>
+                                <!-- <select class="inputModal" type="text" name="edit-type" id="edit-type">
                                     <option value="카테고리1">카테고리1</option>
                                     <option value="카테고리2">카테고리2</option>
                                     <option value="카테고리3">카테고리3</option>
                                     <option value="카테고리4">카테고리4</option>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
                         <div class="row">
@@ -100,7 +101,7 @@
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="edit-desc">설명</label>
                                 <textarea rows="4" cols="50" class="inputModal" name="edit-desc"
-                                    id="edit-desc"></textarea>
+                                    id="edit-desc" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -130,7 +131,7 @@
                     <label for="calendar_view">구분별</label>
                     <div class="input-group">
                         <select class="filter" id="type_filter" multiple="multiple">
-                            <option value="유치원 행사">유치원행사</option>
+                            <option value="유치원행사">유치원행사</option>
                         </select>
                     </div>
                 </div>
@@ -183,5 +184,10 @@
     <script src="/resources/js/addEvent.js"></script>
     <script src="/resources/js/editEvent.js"></script>
     <script src="/resources/js/etcSetting.js"></script>
+    
+    <script>
+    	$(document).ready(function(){
+    	});
+    </script>
     
 <%@ include file="../includes/footer.jsp"%>

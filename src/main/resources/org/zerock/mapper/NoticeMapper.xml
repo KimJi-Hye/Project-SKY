@@ -39,11 +39,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<![CDATA[
 		select
-			bno, title, content
+			bno, title, content, regdate
 		from
        (
 		select /*+INDEX_DESC(tb_apply pk_tb_apply) */
-			rownum rn, bno, title, content
+			rownum rn, bno, title, content, regdate
 		from tb_notice
 		where
 	]]>

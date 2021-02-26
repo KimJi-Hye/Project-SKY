@@ -25,8 +25,8 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ApplyBoardController {
 
-	@Autowired
-	BCryptPasswordEncoder passEncoder;
+//	@Autowired
+//	BCryptPasswordEncoder passEncoder;
 	
 	private ApplyBoardService service;
 	
@@ -60,9 +60,9 @@ public class ApplyBoardController {
 	@PostMapping("/applyRegister")
 	public String register(ApplyBoardVO board, RedirectAttributes rttr) {
 
-		String inputPass = board.getPw();
-		String pass = passEncoder.encode(inputPass);
-		board.setPw(pass);
+//		String inputPass = board.getPw();
+//		String pass = passEncoder.encode(inputPass);
+//		board.setPw(pass);
 		
 		log.info("applyRegister: " + board);
 		service.register(board);

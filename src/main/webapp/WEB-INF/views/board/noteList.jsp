@@ -8,7 +8,7 @@
 
 <div class="boardTitle">
 	<!-- 게시판 제목 -->
-	<h3>Note List</h3>
+	<h3>알림장</h3>
 </div>
 
 <!-- 게시판 목록  -->
@@ -49,15 +49,40 @@
 			<span class="material-icons"> create </span>글쓰기</a>
 	</div>
 
+				<!-- Pagination -->
+				<div class='bo_pages'>
+					<ul class="pg_wrap">
+                	    <span class="pg">					
+						<c:if test="${pageMaker.prev}">
+							<li class="paginate_button pg_page pg_start"><a
+								href="${pageMaker.startPage -1}">Previous</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li class="paginate_button pg_page ${pageMaker.cri.pageNum == num ? "active pg_current":""} ">
+								<a href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="paginate_button pg_page pg_end"><a
+								href="${pageMaker.endPage +1}">Next</a></li>
+						</c:if>
+                	    </span>						
+					</ul>
+				</div>
+				<!-- end Pagination -->
+
+
 				
-				<!-- <화면에서 검색 조건 처리> -->
-				<div class='row'>
+				<!-- <검색창> -->
+				<div class='bo_search'>
 				 <div class="col-lg-12">
 				 
 				 <form id='searchForm' action="/board/noteList" method='get'>
-				  <select name='type'>								
-				   <option value=""
-				    <c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
+                    <div class="bo_searchBox">
+				  <select name="type">								
 				    <option value="N"
 				    <c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>반이름</option>
 				    <option value="C"
@@ -68,34 +93,17 @@
 				  <input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' />
 				  <input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
 				 
-				  <button class='btn btn-default'>Search</button>				   
-				 </form>
+                 <button type="button"><span class="material-icons">
+                            search
+                 </span></button> 			   
 				 </div>
+				 </form>
 				</div>
+				</div>
+				<!-- <검색창 END> -->				
 				   
 				   
-				<!-- Pagination -->
-				<div class='pull-right'>
-					<ul class="pagination">
-						<c:if test="${pageMaker.prev}">
-							<li class="paginate_button previous"><a
-								href="${pageMaker.startPage -1}">Previous</a></li>
-						</c:if>
 
-						<c:forEach var="num" begin="${pageMaker.startPage}"
-							end="${pageMaker.endPage}">
-							<li class="paginate_button ${pageMaker.cri.pageNum == num ? "active":""} ">
-								<a href="${num}">${num}</a>
-							</li>
-						</c:forEach>
-
-						<c:if test="${pageMaker.next}">
-							<li class="paginate_button next"><a
-								href="${pageMaker.endPage +1}">Next</a></li>
-						</c:if>
-					</ul>
-				</div>
-				<!-- end Pagination -->
 				
 				<form id='actionForm' action="/board/noteList" method='get'>
 				 <input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
@@ -139,11 +147,6 @@
 	          "click",
 	          function(e) {
 
-	             if (!searchForm.find("option:selected")
-	                   .val()) {
-	                alert("검색종류를 선택하세요");
-	                return false;
-	             }
 
 	             if (!searchForm.find(
 	                   "input[name='keyword']").val()) {

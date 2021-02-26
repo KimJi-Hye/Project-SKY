@@ -78,9 +78,6 @@
     margin: 20px;
 }
 
-.pg a {
-    color: #828282;
-}
 
 .pg_page,
 .pg_current {
@@ -96,18 +93,21 @@
 .pg a:focus,
 .pg a:hover {}
 
-.pg_page {
+.pg_page{
     color: #828282;
     background: #fff;
     border: 1px solid #e1e1e1;
 }
 
-.pg_start,
-.pg_end {
+.pg_start a,
+.pg_end a{
     text-indent: -99999px;
     font-size: 0;
     line-height: 0;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .pg_start {
@@ -126,7 +126,9 @@
     font-weight: 400;
 }
 
-
+.pg_current a{
+	color: #fff;
+}
 
 /* 검색창 */
 .bo_search {
@@ -150,7 +152,7 @@
     padding: 10px;
     color: #333;
     border: 1px solid #e1e1e1;
-    background: url(../img/bottom.png) no-repeat center right 10px #fff;
+    background: url(/resources/img/bottom.png) no-repeat center right 10px #fff;
     font-size: 15px;
     line-height: 18px;
     display: block;
