@@ -105,6 +105,8 @@
 
 					<input name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 				    <input name='amount' value='<c:out value="${cri.amount}"/>'>
+	
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 				    
 				</form>
 				
@@ -148,6 +150,9 @@
 					</select>
 					
 					<button data-oper='applyPass' class="btn btn-default">최종 승인</button>
+	
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
+	
 				</form>
 
 			</div>
@@ -159,11 +164,8 @@
 </div>
 <!-- /.row -->
 <!-- <script type="text/javascript">
-
 $(document).ready(function() {
-
  	  var formObj = $("form");
-
 	  $('button').on("click", function(e){
 	    
 		e.preventDefault();
@@ -188,7 +190,6 @@ $(document).ready(function() {
 	    
 	    formObj.submit();
 	  });
-
 });
 </script> -->
 
@@ -210,7 +211,6 @@ $(document).ready(function(){
 			formObj.attr("action", "/board/applyRemove");
 			
 		} else if(operation === 'applyModify') {
-
 			formObj.attr("action", "/board/applyModify");
 			
 		} else if(operation === 'applyList') {

@@ -56,6 +56,8 @@
 				<button type="reset" class="btn_reset">리셋</button>
 				<button data-oper='applyList' class="btn_list">목록</button>
 			</div>
+
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			
 				</form>
 

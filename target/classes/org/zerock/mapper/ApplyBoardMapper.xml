@@ -102,23 +102,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	
-	<update id="update">
-	    update tb_apply
-	    set 	pname = #{pname}
-				,relation = #{relation}
-				,pbirth = #{pbirth}
-				,addr = #{addr}
-				,phone = #{phone}
-				,useremail = #{useremail}
-				,cname = #{cname}
-				,cgender = #{cgender}
-				,cbirth = #{cbirth}
-				,apptype = #{apptype}
-				,appstate = #{appstate}
-				,pw = #{pw}
-		where ano = #{ano}
-		<!-- and pw = #{pw} -->
-	 </update>
+   <update id="update">
+       update tb_apply
+       set    pname = #{pname}
+            ,relation = #{relation}
+            ,pbirth = #{pbirth}
+            ,addr = #{addr}
+            ,phone = #{phone}
+            ,useremail = #{useremail}
+            ,cname = #{cname}
+            ,cgender = #{cgender}
+            ,cbirth = #{cbirth}
+            ,apptype = #{apptype}
+            ,appstate = #{appstate}
+            ,pw = #{pw}
+      where ano = #{ano}
+      <!-- and pw = #{pw} -->
+    </update>
 	 
 	 <update id="pass">
 	 {call
