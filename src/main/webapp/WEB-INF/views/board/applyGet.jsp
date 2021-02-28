@@ -2,167 +2,138 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    
+<%@ include file="../includes/admin_header.jsp"%>
 
-<%@include file="../includes/header.jsp"%>
-
-<!-- /.row -->
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Class Read Page</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
+    <section id="adminPage" class="admin_register">
+    	<div class="admin_title">
+    		<h2>원아 관리</h2>
+	    </div>
+    	<div class="admin_contents">
+    	
+			<form id='operForm' action="/board/applyGet" method="post">	
+	    		<div class="reg_box_con">
+                	<div class="reg_box">
+                		<h3>원아 관리 정보</h3>
+				    	<ul>
+				    		<li>
+								<p>접수번호</p>
+				    			<input type="text" name='ano' value='<c:out value="${board.ano}"/>' readonly>
+							</li>
+				    		<li>
+								<p>학부모이름</p>
+				    			<input type="text" name='pname' value='<c:out value="${board.pname}"/>' readonly>
+							</li>
+				    		<li>
+								<p>관계</p>
+				    			<input type="text" name='relation' value='<c:out value="${board.relation}"/>'>
+							</li>
+				    		<li>
+								<p>학부모 생년월일</p>
+								<fmt:parseDate var="pbirth" value="${board.pbirth}" pattern="yyyy-MM-dd" />
+								<input name='pbirth' type='date' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />'>
+							</li>
+				    		<li>
+								<p>주소</p>
+				    			<input type="text" name='addr' value='<c:out value="${board.addr}"/>'>
+							</li>
+				    		<li>
+								<p>연락처</p>
+				    			<input type="text" name='phone' value='<c:out value="${board.phone}"/>'>
+							</li>
+				    		<li>
+								<p>e-mail</p>
+				    			<input type="text" name='useremail' value='<c:out value="${board.useremail}"/>'>
+							</li>
+				    		<li>
+								<p>아동이름</p>
+				    			<input type="text" name='cname' value='<c:out value="${board.cname}"/>'>
+							</li>
+				    		<li>
+								<p>아동성별</p>
+				    			<input type="text" name='cgender' value='<c:out value="${board.cgender}"/>'>
+							</li>
+				    		<li>
+								<p>아동 생년월일</p>
+								<fmt:parseDate var="cbirth" value="${board.cbirth}" pattern="yyyy-MM-dd" />
+								<input name='cbirth' type='date' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${cbirth}" />'>
+							</li>
+				    		<li>
+								<p>접수유형</p>
+				    			<input type="text" name='apptype' value='<c:out value="${board.apptype}"/>'>
+							</li>
+				    		<li>
+								<p>접수상태</p>
+				    			<input type="text" name='appstate' value='<c:out value="${board.appstate}"/>'>
+							</li>
+				    		<li>
+								<p>아동고유번호</p>
+				    			<input type="text" name='cunicode' value='<c:out value="${board.cunicode}"/>' >
+							</li>
+				    		<li>
+								<p>소속반</p>
+				    			<input type="text" name='cclass' value='<c:out value="${board.cclass}"/>' >
+							</li>
+				    		<li>
+								<p>비밀번호</p>
+				    			<input type="text" name='pw'>
+							</li>
+				    	</ul>
+			    	</div>
+			    </div>
+		    	
+		    	<div class="btn_box">
+					<button data-oper='applyModify' class="btn btn-default btn_mod">수정</button>
+					<button data-oper='applyList' class="btn btn-info btn_list">돌아가기</button>
+					<button data-oper='applyRemove' class="btn btn-default btn_del">접수취소</button>
+				</div>
 				
-				<form id='operForm' action="/board/applyGet" method="post">	
-					<div class="form-group">
-						<label>접수번호</label> <input class="form-control" name='ano'
-							value='<c:out value="${board.ano}"/>' readonly="readonly">
-					</div>
-	
-					<div class="form-group">
-						<label>학부모이름</label> 
-						<input class="form-control" name='pname'
-							value='<c:out value="${board.pname}"/>' readonly="readonly">
-					</div>
-	
-					<div class="form-group">
-						<label>관계</label> <input class="form-control" name='relation'
-							value='<c:out value="${board.relation}"/>'>
-					</div>
-	
-					<div class="form-group">
-						<label>학부모 생년 월일</label><input type="hidden">
-						<fmt:parseDate var="pbirth" value="${board.pbirth}"
-							pattern="yyyy-MM-dd" />
-							
-						<input class="form-control" name='pbirth' type='date'
-							value='<fmt:formatDate pattern="yyyy-MM-dd"
-							value="${pbirth}" />'>
-					</div>
-	
-					<div class="form-group">
-						<label>주소</label> <input class="form-control" name='addr'
-							value='<c:out value="${board.addr}"/>'>
-					</div>
-	
-					<div class="form-group">
-						<label>연락처</label> <input class="form-control" name='phone'
-							value='<c:out value="${board.phone}"/>'>
-					</div> 
-					
-					<div class="form-group">
-						<label>e-mail</label> <input class="form-control" name='useremail'
-							value='<c:out value="${board.useremail}"/>'>
-					</div> 
-	
-					<div class="form-group">
-						<label>아동이름</label> <input class="form-control" name='cname'
-							value='<c:out value="${board.cname}"/>'>
-					</div>
-	
-					<div class="form-group">
-						<label>아동성별</label> <input class="form-control" name='cgender'
-							value='<c:out value="${board.cgender}"/>'>
-					</div>
-	
-					<div class="form-group">
-						<label>아동 생년 월일</label><input type="hidden">
-						<fmt:parseDate var="cbirth" value="${board.cbirth}"
-							pattern="yyyy-MM-dd" />
-						<input class="form-control" name='cbirth' type='date'
-							value='<fmt:formatDate pattern="yyyy-MM-dd"
-							value="${cbirth}" />'>
-					</div>
-	
-					<div class="form-group">
-						<label>접수유형</label> <input class="form-control" name='apptype'
-							value='<c:out value="${board.apptype}"/>'>
-					</div>
-	
-					<div class="form-group">
-						<label>접수상태</label> <input class="form-control" name='appstate'
-							value='<c:out value="${board.appstate}"/>'>
-					</div>
-	
-					<div class="form-group">
-						<label>아동고유번호</label> <input class="form-control" name='cunicode'
-							value='<c:out value="${board.cunicode}"/>' >
-					</div>
-					
-					<div class="form-group">
-						<label>소속반</label> <input class="form-control" name='cclass'
-							value='<c:out value="${board.cclass}"/>' >
-					</div>
-					
-					<div class="form-group">
-						<label>비밀번호</label>
-						<input class="form-control" name='pw'>
-					</div>
-	
-					<button data-oper='applyModify' class="btn btn-default">수정</button>
-					<button data-oper='applyList' class="btn btn-info">돌아가기</button>
-					<button data-oper='applyRemove' class="btn btn-default">접수취소</button>
-
-					<input name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-				    <input name='amount' value='<c:out value="${cri.amount}"/>'>
-	
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
+				<input type="hidden" name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+				<input type="hidden" name='amount' value='<c:out value="${cri.amount}"/>'>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
 				    
-				</form>
-				
-				<form id='operForm2' action="/board/applyPass" method="post">
-				
-					<div class="form-group">
-						<input class="form-control" name='ano'
-							value='<c:out value="${board.ano}"/>' type='hidden'>
-					</div>
-					
-					<div class="form-group">
-						<input class="form-control" name='cname'
-							value='<c:out value="${board.cname}"/>' type='hidden'>
-					</div>
-				
-					<div class="form-group">
-						<input type="hidden">
-						<fmt:parseDate var="cbirth" value="${board.cbirth}"
-							pattern="yyyy-MM-dd" />
-						<input class="form-control" name='cbirth' type='hidden'
-							value='<fmt:formatDate pattern="yyyy-MM-dd"
-							value="${cbirth}" />'>
-					</div>
-					
-					<div class="form-group">
-						<input class="form-control" name='cgender'
-							value='<c:out value="${board.cgender}"/>' type='hidden'>
-					</div>
-					
-					<h1>관리자 승인용</h1>
-					<div class="form-group">
-						<label>아동고유번호</label> <input class="form-control" name='cunicode'>
-					</div>
-					
-	   				담당 반
-   				 	<select name="cclass">
-   						<option value="" selected>선택</option>
-   						<c:forEach items="${mngList}" var="boardMng">
-       						<option value="${boardMng.className}">${boardMng.className}</option>
-       					</c:forEach>
-					</select>
-					
-					<button data-oper='applyPass' class="btn btn-default">최종 승인</button>
-	
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
-	
-				</form>
+			</form>
 
-			</div>
-			<!-- /.panel-body -->
-		</div>
-		<!-- /.panel -->
-	</div>
-	<!-- /.col-lg-6 -->
-</div>
-<!-- /.row -->
+			<form id='operForm2' action="/board/applyPass" method="post">
+				
+				<input type='hidden' name='ano' value='<c:out value="${board.ano}"/>'>
+				<input type='hidden' name='cname' value='<c:out value="${board.cname}"/>'>
+				<fmt:parseDate var="cbirth" value="${board.cbirth}" pattern="yyyy-MM-dd" />
+				<input type='hidden' name='cbirth' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${cbirth}" />'>
+				<input type='hidden' name='cgender' value='<c:out value="${board.cgender}"/>'>
+	    		
+	    		<div class="reg_box_con">
+                	<div class="reg_box">
+                		<h3>관리자 승인</h3>
+				    	<ul>
+				    		<li>
+								<p>아동고유번호</p>
+				    			<input type="text" name='cunicode'>
+							</li>
+				    		<li>
+				   				<p>담당 반</p>
+			   				 	<select name="cclass">
+			   						<option value="" selected>선택</option>
+			   						<c:forEach items="${mngList}" var="boardMng">
+			       						<option value="${boardMng.className}">${boardMng.className}</option>
+			       					</c:forEach>
+								</select>
+							</li>
+				    	</ul>
+			    	</div>
+			    </div>
+		    	
+		    	<div class="btn_box">
+					<button data-oper='applyPass' class="btn btn-default btn_reg">최종 승인</button>
+				</div>
+				
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
+	
+			</form>
+	    	
+	    </div>
+    </section>
+    
 <!-- <script type="text/javascript">
 $(document).ready(function() {
  	  var formObj = $("form");
@@ -272,4 +243,4 @@ $(document).ready(function() {
 });
 </script>
 
-<%@include file="../includes/footer.jsp"%>
+<%@ include file="../includes/admin_footer.jsp"%>

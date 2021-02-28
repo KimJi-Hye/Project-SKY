@@ -2,62 +2,76 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    
+<%@ include file="../includes/admin_header.jsp"%>
 
-<%@include file="../includes/header.jsp"%>
+    <section id="adminPage" class="admin_register">
+    	<div class="admin_title">
+    		<h2>원아 관리</h2>
+	    </div>
+    	<div class="admin_contents">
 
+			<form role="form" action="/board/childRegister" method="post">
 
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Apply Register Page</div>
-
-			<div class="panel-body">
-
-				<form role="form" action="/board/childRegister" method="post">
+				<div class="reg_box_con">
 				
-					<div class="form-group">
-						<label>고유번호</label> <input class="form-control" name='cunicode'>
-					</div>
-
-	   				담당 반
-   				 	<select name="classname">
-   						<option value="" selected>선택</option>
-   						<c:forEach items="${mngList}" var="boardMng">
-       						<option value="${boardMng.className}">${boardMng.className}</option>
-       					</c:forEach>
-					</select>
-
-					<div class="form-group">
-						<label>이름</label> <input class="form-control" name='cname'>
-					</div>
-					
-					<div class="form-group">
-						<label>성별</label> <input class="form-control" name='cgender'>
-					</div>
-
-					<div class="form-group">
-						<label>원아생년월일</label> <input class="form-control" name='cbirth' type='date'>
-					</div>
-					
-					<div class="form-group">
-						<label>입학일</label> <input class="form-control" name='enter' type='date'>
-					</div>
-					
-					<div class="form-group">
-						<label>졸업일</label> <input class="form-control" name='graduation' type='date'>
-					</div>
-					
-					<button type="submit" class="btn btn-default">접수 신청</button>
-
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />		
+					<div class="reg_box">
+				    	<ul>
+				
+							<li>
+								<p>고유번호</p>
+				    			<input type="text" name='cunicode' required>
+							</li>
+								
+							<li>
+				   				<p>반 이름</p>
+			   				 	<select name="classname" required>
+			   						<option value="" selected>선택</option>
+			   						<c:forEach items="${mngList}" var="boardMng">
+			       						<option value="${boardMng.className}">${boardMng.className}</option>
+			       					</c:forEach>
+								</select>
+							</li>
 		
-				</form>
+							<li>
+								<p>이름</p>
+				    			<input type="text" name='cname' required>
+							</li>
+							
+							<li>
+								<p>성별</p>
+				    			<input type="text" name='cgender' required>
+							</li>
+		
+							<li>
+								<p>원아생년월일</p>
+				    			<input type="date" name='cbirth' required>
+							</li>
+							
+							
+							<li>
+								<p>입학일</p>
+				    			<input type="date" name='enter'>
+							</li>
+							
+							<li>
+								<p>졸업일</p>
+				    			<input type="date" name='graduation'>
+							</li>
+						</ul>
+			    	</div>
+					
+	    		</div>
+		    	
+		    	<div class="btn_box">
+					<button type="submit" class="btn btn-default btn_reg">접수 신청</button>
+				</div>
 
-			</div>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />		
+		
+			</form>
+	    	
+	    </div>
+    </section>
 
-		</div>
-
-	</div>
-
-</div>
-<%@include file="../includes/footer.jsp"%>
+<%@ include file="../includes/admin_footer.jsp"%>

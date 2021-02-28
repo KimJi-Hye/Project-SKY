@@ -2,63 +2,47 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+    
+<%@ include file="../includes/admin_header.jsp"%>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<%@include file="../includes/header.jsp"%>
-
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<h1>Class Register Page</h1>
-</body>
-</html>
-
-
-
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Class Register Page</div>
-			
-			<div class="panel-body">
+    <section id="adminPage" class="admin_register">
+    	<div class="admin_title">
+    		<h2>반 관리</h2>
+	    </div>
+    	<div class="admin_contents">
 			
 			<form id="operForm" action="/board/classRegister" method="post">
-				<div class="form-group">
-				 <label>반 이름</label> 
-				 <input class="form-control" name='className' required>
+	    		<div class="reg_box_con">
+                	<div class="reg_box">
+				    	<ul>
+				    		<li>
+				    			<p>반 이름</p>
+				    			<input type="text" class="form-control" name='className' required>
+				    		</li>
+				    		<li>
+				    			<p>연령</p>
+				    			<input type="text" class="form-control" name='classAge' required>
+				    		</li>
+				    		<li>
+				    			<p>정원</p>
+				    			<input type="text" class="form-control" name='classTotal' required>
+				    		</li>
+				    	</ul>
+			    	</div>
+					
+	    		</div>
+		    	
+		    	<div class="btn_box">
+					<button type="submit" class="btn_reg">등록</button>
+					<button data-oper='classList' class="btn btn-info btn_list">목록</button>
 				</div>
-				
-				<div class="form-group">
-				<label>연령</label>
-				<input class="form-control" name='classAge' required>
-				</div>
-				
-				
-				<div class="form-group">
-				<label>정원</label> 
-				<input class="form-control" name='classTotal' required>
-				</div>
-				
-				<button type="submit">등록</button>
-				<button data-oper='classList' class="btn btn-info">목록</button>
 
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 			</form>
-			
-			
-			
-			</div>
-
-		</div>
-
-	</div>
-
-</div>
+	    	
+	    </div>
+    </section>
 		
 <script type="text/javascript">
 	$(document).ready(function (e){
@@ -74,6 +58,4 @@
 	});
 </script>
 
-
-<%@include file="../includes/footer.jsp"%>
-
+<%@ include file="../includes/admin_footer.jsp"%>

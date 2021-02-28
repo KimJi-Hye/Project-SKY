@@ -25,9 +25,9 @@ public class AuthorServiceImpl implements AuthorService {
 
 	// 조회
 	@Override
-	public AuthorVO get(String atgrade) {
-		log.info("get......." + atgrade);
-		return mapper.read(atgrade);
+	public AuthorVO get(String auth) {
+		log.info("get......." + auth);
+		return mapper.read(auth);
 	}
 
 	// 수정
@@ -39,9 +39,9 @@ public class AuthorServiceImpl implements AuthorService {
 
 	// 삭제
 	@Override
-	public boolean remove(String atgrade) {
-		log.info("remove......." + atgrade);
-		return mapper.delete(atgrade) == 1;
+	public boolean remove(String auth) {
+		log.info("remove......." + auth);
+		return mapper.delete(auth) == 1;
 	}
 
 	// 리스트

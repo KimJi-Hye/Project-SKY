@@ -8,6 +8,7 @@ ul { list-style: none; }
 a { color: #333; text-decoration: none; }
 button,input[type="button"], input[type="submit"], input[type="reset"] { cursor: pointer; cursor: pointer;}
 button:focus, input:focus, select:focus { outline: none; }
+table{width: 100%; border-collapse: collapse;}
 .blind{position: absolute; text-indent: -99999px; font-size: 0; line-height: 0;}
 
 /* radioBox */
@@ -45,6 +46,7 @@ button:focus, input:focus, select:focus { outline: none; }
 input[type="text"], input[type="password"], input[type="date"]{
     padding: 5px 10px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 16px;
 }
 .input_tx{
@@ -121,10 +123,26 @@ button{
     display: block;
 }
 
+/* width */
+.w_100 { width: 100%; }
+.w_90 { width: 90%; }
+.w_80 { width: 80%; }
+.w_70 { width: 70%; }
+.w_60 { width: 60%; }
+.w_50 { width: 50%; }
+.w_40 { width: 40%; }
+.w_30 { width: 30%; }
+.w_20 { width: 20%; }
+.w_10 { width: 10%; }
+
+.pc{display: none;}
 
 
 /* 768px */
 @media screen and (min-width:768px){
+
+    .mobile{display: none;}
+    .pc{display: block;}
 
     /* radioBox */
     .radioBox input[type="radio"] + label{

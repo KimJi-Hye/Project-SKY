@@ -11,8 +11,8 @@
 	
 	<!-- insert -->
 	<insert id="insert">
-		insert into tb_teacher(userId, atGrade, className, userName, userPw, userbirth, userPhone, userAddr, userEmail, userType)
-		values (#{userId}, #{atGrade}, #{classname}, #{userName}, #{userPw}, #{userBirth}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
+		insert into tb_teacher(userId, auth, className, userName, userPw, userbirth, userPhone, userAddr, userEmail, userType)
+		values (#{userId}, #{auth}, #{classname}, #{userName}, #{userPw}, #{userBirth}, #{userPhone}, #{userAddr}, #{userEmail}, #{userType})
 	</insert>
 	
 	<!-- read -->
@@ -23,7 +23,7 @@
 	<!-- update -->
 	<update id="update">
 		update tb_teacher
-		set atGrade = #{atGrade},
+		set auth = #{auth},
 		className = #{classname},
 		userName = #{userName},
 		userPw = #{userPw},

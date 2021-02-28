@@ -6,7 +6,7 @@ import lombok.Data;
 public class AuthorVO {
 
 	// 권한 테이블
-	private String atgrade;
+	private String auth;
 	private String atname;
 	private String classname;
 	

@@ -1,5 +1,7 @@
 package org.zerock.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,10 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.zerock.domain.Criteria;
 import org.zerock.domain.JoinParentsVO;
 import org.zerock.domain.JoinTeacherVO;
-import org.zerock.service.ApplyBoardService;
 import org.zerock.service.AuthorService;
 import org.zerock.service.ClassMngService;
 import org.zerock.service.JoinParentsService;
@@ -25,6 +25,9 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class JoinController {
 
+	@Autowired
+	BCryptPasswordEncoder passEncoder;	
+	
 	private JoinTeacherService serviceT;
 	
 	private JoinParentsService serviceP;
@@ -60,6 +63,11 @@ public class JoinController {
 	@PostMapping("/jointeacher")
 	public String jointeacher(JoinTeacherVO join, RedirectAttributes rttr) {
 		log.info("teacher join: " + join);
+		
+		String inputPass = join.getUserPw();
+		String pass = passEncoder.encode(inputPass);
+		join.setUserPw(pass);	
+		
 		serviceT.join(join);
 		rttr.addFlashAttribute("result", join.getUserId());
 		return "redirect:/member/joinSuccess";
@@ -73,6 +81,11 @@ public class JoinController {
 	@PostMapping("/joinparents")
 	public String joinparents(JoinParentsVO join, RedirectAttributes rttr) {
 		log.info("parents join: " + join);
+		
+		String inputPass = join.getUserPw();
+		String pass = passEncoder.encode(inputPass);
+		join.setUserPw(pass);
+		
 		serviceP.join(join);
 		rttr.addFlashAttribute("result", join.getUserId());
 		return "redirect:/member/joinSuccess";
@@ -88,9 +101,12 @@ public class JoinController {
 		log.info("/member get or modify");
 		model.addAttribute("mngList", mngService.getList());
 		model.addAttribute("author", authorService.getList());
-		if(userType == "T") {
-			model.addAttribute("member", serviceT.get(userId));			
+		log.info("UserType = " + userType);
+		if(userType.charAt(0) == 'T') {
+			log.info("teacher get");
+			model.addAttribute("member", serviceT.get(userId));
 		} else {
+			log.info("paretns get");
 			model.addAttribute("member", serviceP.get(userId));
 		}
 	}
@@ -98,7 +114,7 @@ public class JoinController {
 	// http://localhost:8080/member/modify
 	@PostMapping("/memModify")
 	public String modify(@RequestParam("userType") String userType, JoinTeacherVO joinT, JoinParentsVO joinP, RedirectAttributes rttr) {
-		if(userType == "T") {
+		if(userType.charAt(0) == 'T') {
 			log.info("member modify:" + joinT);
 			if(serviceT.modify(joinT)) {
 				rttr.addFlashAttribute("result", "success");

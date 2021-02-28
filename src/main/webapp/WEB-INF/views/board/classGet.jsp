@@ -2,107 +2,89 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+<%@ include file="../includes/admin_header.jsp"%>
 
-<%@include file="../includes/header.jsp"%>
+    <section id="adminPage" class="admin_get2">
+    	<div class="admin_title">
+    		<h2>반 관리</h2>
+	    </div>
+    	<div class="admin_contents">
 
-<div class="row">
-	<div class="col-lg-12">
-		<h1 class="page-header">Class Read Page</h1>
-	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">Class Read Page</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
+			<form id='operForm' action="/board/classGet" method="post">
 
-				<form id='operForm' action="/board/classGet" method="post">
-				
-				  <div class="form-group">
-	         		 <label>Bno</label>
-	         		 <input class="form-control" name='bno'
-	                 value='<c:out value="${board.bno }"/>' readonly="readonly">
-        		  </div>
-				
-				
-					<div class="form-group">
-						<label>반이름</label> <input class="form-control" name='className'
-							value='<c:out value="${board.className }"/>' readonly="readonly">
+				<div class="get_box_con">
+
+                	<div class="get_box">
+						<ul>
+							<li>
+								<p>Bno</p>
+								<input type="text" name='bno' value='<c:out value="${board.bno }"/>' readonly="readonly">
+							</li>
+                              
+							<li>
+								<p>반이름</p>
+								<input type="text" name='className' value='<c:out value="${board.className }"/>' readonly="readonly">
+							</li>
+                                    
+							<li>
+								<p>연령</p>
+								<input type="text" name='classAge' value='<c:out value="${board.classAge }"/>' readonly="readonly">
+							</li>
+                                        
+							<li>
+								<p>정원</p>
+								<input type="text" name='classTotal' value='<c:out value="${board.classTotal }"/>' readonly="readonly">
+							</li>
+						</ul>
 					</div>
-
-					<div class="form-group">
-						<label>연령</label> <input class="form-control" name='classAge'
-							value='<c:out value="${board.classAge }"/>' readonly="readonly">
+					<div class="get_list">
+						<div class="get_t">
+                        	<c:forEach items="${boardT}" var="testt">
+	                        	<c:if test="${testt.classname eq board.className}">
+		                        	<p class="get_dt">담임 선생님</p>
+		                        	<p>${testt.userName}</p>
+	                        	</c:if>
+                        	</c:forEach>
+						</div>
+						<div class="get_c">
+							<p class="get_dt">원아 명단</p> 
+							<ul id="inputState" >
+								<c:forEach items="${cnameList}" var="test">
+									<c:if test="${test.classname eq board.className}">
+										<li>${test.cname}(${test.cunicode})</li>
+									</c:if>			
+								</c:forEach>
+							</ul>
+						</div>
 					</div>
+						
+				</div>
 
-					<div class="form-group">
-						<label>정원</label> <input class="form-control" name='classTotal'
-							value='<c:out value="${board.classTotal }"/>' readonly="readonly">
-					</div>
-					
-					
-					<div class="form-group">
-					<label>담임선생님</label> 
-					<select id="inputState" class="form-control" >
-   					<option selected>선생님명단</option>
-					<c:forEach items="${boardT}" var="testt">
-						<c:if test="${testt.classname eq board.className}">
-	       			<option value="${testt.userName}">${testt.userName}</option>
-						</c:if>
-					</c:forEach>
-					</select>
-					</div>	
-					
-					
-					<div class="form-group">
-					<label>소속원아</label> 
-					<select id="inputState" class="form-control" >
-   					<option selected>원아명단</option>
-					<c:forEach items="${cnameList}" var="test">
-						<c:if test="${test.classname eq board.className}">
-	       			<option value="${test.cname}">${test.cname}(${test.cunicode})</option>
-						</c:if>					</c:forEach>
+		    	<div class="btn_box">
+					<button data-oper='classModify' class="btn btn-default btn_mod">수정</button>
+					<button data-oper='classList' class="btn btn-info btn_list">목록</button>
+				</div>
 
-					</select>
-					</div>
-					
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-
-					<button data-oper='classModify' class="btn btn-default">수정</button>
-					<button data-oper='classList' class="btn btn-info">목록</button>
-
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-
-				</form>
-
-
-
-			</div>
-			<!-- /.panel-body -->
-		</div>
-		<!-- /.panel -->
-	</div>
-	<!-- /.col-lg-6 -->
-</div>
-<!-- /.row -->
-<script>
-	$(document).ready(
-			function() {
-				var operForm = $("#operForm");
-				$("button[data-oper='classModify']").on("click", function(e) {
-					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classModify").attr("method", "get").submit();
-				});
-				$("button[data-oper='classList']").on("click",function(e) {
-					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classList").attr("method", "get").submit();
-				});
+			</form>
+	    	
+	    </div>
+    </section>
+    
+	<script>
+		$(document).ready(function() {
+			var operForm = $("#operForm");
+			$("button[data-oper='classModify']").on("click", function(e) {
+				operForm.find("#bno").remove();
+				operForm.attr("action", "/board/classModify").attr("method", "get").submit();
 			});
-</script>
+			$("button[data-oper='classList']").on("click",function(e) {
+				operForm.find("#bno").remove();
+				operForm.attr("action", "/board/classList").attr("method", "get").submit();
+			});
+		});
+	</script>
 
-
-<%@include file="../includes/footer.jsp"%>
+<%@ include file="../includes/admin_footer.jsp"%>
