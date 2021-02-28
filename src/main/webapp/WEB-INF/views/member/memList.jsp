@@ -3,57 +3,61 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
-<%@ include file="../includes/header.jsp"%>
+<%@ include file="../includes/admin_header.jsp"%>
 
-    <div>
-    	<h2>회원관리</h2>
-    	<div>
-    		<button type="button" class="go_t">교직원</button>
-    		<button type="button" class="go_p">학부모</button>
+    <section id="adminPage" class="admin_list">
+    	<div class="admin_title">
+	    	<h2>회원 관리</h2>
     	</div>
-    	<table>
-    		<thead>
-    			<tr>
-    				<th>아이디</th>
-    				<th>권한</th>
-    				<th>이름</th>
-    				<th>연락처</th>
-    				<th class="p_box">고유번호</th>
-    				<th class="p_box">원아명</th>
-    				<th>반이름</th>
-    				<th>회원타입</th>
-    			</tr>
-    		</thead>
-    		
-    		<tbody class="t_box">
-    			<c:forEach items="${Tlist}" var="board">
+    	<div class="admin_contents">
+        	<div class="admin_btnBox">
+	    		<button type="button" class="go_t">교직원</button>
+	    		<button type="button" class="go_p">학부모</button>
+	    	</div>
+	    	<table>
+	    		<thead>
 	    			<tr>
-	    				<td><c:out value="${board.userId}" /></td>
-	    				<td><c:out value="${board.atGrade}" /></td>
-	    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userName}" /></a></td>
-	    				<td><c:out value="${board.userPhone}" /></td>
-	    				<td><c:out value="${board.classname}" /></td>
-	    				<td class="uType"><c:out value="${board.userType}" /></td>
+	    				<th>아이디</th>
+	    				<th>권한</th>
+	    				<th>이름</th>
+	    				<th>연락처</th>
+	    				<th class="p_box">고유번호</th>
+	    				<th class="p_box">원아명</th>
+	    				<th>반이름</th>
+	    				<th>회원타입</th>
 	    			</tr>
-    			</c:forEach>
-    		</tbody>
-    			
-    		<tbody class="p_box">
-    			<c:forEach items="${Plist}" var="board">
-    				<tr>
-	    				<td><c:out value="${board.userId}" /></td>
-	    				<td><c:out value="${board.atGrade}" /></td>
-	    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userName}" /></a></td>
-	    				<td><c:out value="${board.userPhone}" /></td>
-	    				<td><c:out value="${board.cunicode}" /></td>
-	    				<td><c:out value="${board.cname}" /></td>
-	    				<td><c:out value="${board.classname}" /></td>
-	    				<td class="uType"><c:out value="${board.userType}" /></td>
-	    			</tr>
-    			</c:forEach>
-    		</tbody>
-    	</table>
-    </div>
+	    		</thead>
+	    		
+	    		<tbody class="t_box">
+	    			<c:forEach items="${Tlist}" var="board">
+		    			<tr>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userId}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.atGrade}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userName}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userPhone}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.classname}" /></a></td>
+		    				<td class="uType"><a href="${board.userId}" class="go_id"><c:out value="${board.userType}" /></a></td>
+		    			</tr>
+	    			</c:forEach>
+	    		</tbody>
+	    			
+	    		<tbody class="p_box">
+	    			<c:forEach items="${Plist}" var="board">
+	    				<tr>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userId}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.atGrade}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userName}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userPhone}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.cunicode}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.cname}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.classname}" /></a></td>
+		    				<td class="uType"><a href="${board.userId}" class="go_id"><c:out value="${board.userType}" /></a></td>
+		    			</tr>
+	    			</c:forEach>
+	    		</tbody>
+	    	</table>
+	    </div>
+    </section>
     
     <form id="memList" action="/member/memList" method="get">
     	
@@ -65,15 +69,20 @@ $(document).ready(function(){
 	var tBox = $(".t_box");
 	var pBox = $(".p_box");
 	pBox.hide();
+    $(".go_t").addClass("on");
 	
 	// 교직원 버튼 클릭
 	$(".go_t").click(function(){
+        $(".go_t").addClass("on");
+        $(".go_p").removeClass("on");
 		pBox.hide();
 		tBox.show();
 	});
 	
 	// 학부모 버튼 클릭
 	$(".go_p").click(function(){
+        $(".go_p").addClass("on");
+        $(".go_t").removeClass("on");
 		tBox.hide();
 		pBox.show();
 	});
@@ -91,4 +100,4 @@ $(document).ready(function(){
 });
 </script>
 
-<%@ include file="../includes/footer.jsp"%>
+<%@ include file="../includes/admin_footer.jsp"%>

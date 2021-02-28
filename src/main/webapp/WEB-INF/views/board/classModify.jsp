@@ -2,75 +2,58 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    
+<%@ include file="../includes/admin_header.jsp"%>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<%@include file="../includes/header.jsp"%>
-
-<div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">Class Modify Page</h1>
-  </div>
-  <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-
-<div class="row">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
-
-      <div class="panel-heading">Class Modify Page</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-       
-<!-- 추가 -->
-     <form id="operForm" action="/board/classUpdate" method="post">
+    <section id="adminPage" class="admin_register">
+    	<div class="admin_title">
+    		<h2>반 관리</h2>
+	    </div>
+    	<div class="admin_contents">
+    	
+    		<form id="operForm" action="/board/classUpdate" method="post">
+	    		<div class="reg_box_con">
+                	<div class="reg_box">
+				    	<ul>
+				    		<li>
+				    			<p>Bno</p>
+				    			<input type="text" class="form-control" name='bno' value='<c:out value="${board.bno }"/>' readonly="readonly">
+				    		</li>
  
- 		 <div class="form-group">
-	          <label>Bno</label>
-	          <input class="form-control" name='bno'
-	                 value='<c:out value="${board.bno }"/>' readonly="readonly">
-          </div>
- 
-          <div class="form-group">
-            <label>반이름</label> 
-            <input class="form-control" name='className'
-                   value='<c:out value="${board.className }"/>'>
-          </div>
+				    		<li>
+				    			<p>반이름</p>
+				    			<input type="text" class="form-control" name='className' value='<c:out value="${board.className }"/>'>
+				    		</li>
 
-          <div class="form-group">
-            <label>연령</label> 
-            <input class="form-control" name='classAge'
-                   value='<c:out value="${board.classAge }"/>'>
-          </div>
+				    		<li>
+				    			<p>연령</p>
+				    			<input type="text" class="form-control" name='classAge' value='<c:out value="${board.classAge }"/>'>
+				    		</li>
 
-          <div class="form-group">
-            <label>정원</label> 
-            <input class="form-control" name='classTotal'
-                   value='<c:out value="${board.classTotal }"/>'>
-          </div>
-          
-          <button data-oper='classModify' class="btn btn-default">수정</button>
-		  <button data-oper='classList' class="btn btn-info">목록</button>
-		  <button data-oper='classRemove' class="btn btn-danger">삭제</button>
+				    		<li>
+				    			<p>정원</p>
+				    			<input type="text" class="form-control" name='classTotal' value='<c:out value="${board.classTotal }"/>'>
+				    		</li>
+				    	</ul>
+			    	</div>
+					
+	    		</div>
+		    	
+		    	<div class="btn_box">
+		        	<button data-oper='classModify' class="btn btn-default btn_reg">수정</button>
+					<button data-oper='classList' class="btn btn-info btn_list">목록</button>
+					<button data-oper='classRemove' class="btn btn-danger btn_del">삭제</button>
+				</div>
 
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		  
-	</form>
-	
+			</form>
+	    	
+	    </div>
+    </section>
 
-      </div>
-      <!--  end panel-body -->
-
-    </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
-</div>
-<!-- /.row -->
-
-<script>
-	$(document).ready(
+	<script>
+		$(document).ready(
 			function() {
 
 				var operForm = $("#operForm");
@@ -91,6 +74,6 @@
 				});
 
 			});
-</script>
+	</script>
 
-<%@include file="../includes/footer.jsp"%>
+<%@ include file="../includes/admin_footer.jsp"%>

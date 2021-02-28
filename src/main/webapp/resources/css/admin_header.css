@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+/* admin header */
+#hd{
+    width: 100%;
+    background: #3f51b5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999999;
+}
+#hd::after{content: ""; display: block; clear: both;}
+#hd .hd_btn{
+    width: 50px; height: 50px; 
+    transition: .2s;
+}
+#hd button{
+    background: #223390;
+    border: none;
+    color: #fff; 
+    float: left;
+    position: relative;
+}
+#hd h1 {
+    width: 185px; height: 50px;
+    background: #2f409f;
+    float: left;
+}
+#hd h1 a{
+    padding: 0 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+}
+#hd .hd_right{
+    padding: 0 20px;
+    float: right;
+    text-align: center;
+}
+#hd .hd_right a{
+    margin-left: 10px;
+    color: #fff;
+    display: inline-block;
+}
+#hd .hd_right span{
+    line-height: 50px;
+}
+#nav{
+    width: 235px; height: 100%; padding-top: 50px;
+    background: #eee;
+    border-right: 1px solid #dbdbdb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: .2s;
+}
+#nav.on{
+    left: -235px;
+}
+#nav li{
+    background: #fff; 
+    border-bottom: 1px solid #dbdbdb;
+    transition: .2s;
+}
+#nav li:hover{
+    background: #efefef;
+}
+#nav li a{
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    display: flex;
+}
+#nav li a span{
+    width: 50px;
+    color: #ccc;
+    border-right: 1px solid #dbdbdb;
+    text-align: center;
+    line-height: 50px;
+}
+#nav li a p{
+    padding: 0 10px;
+}
+#container{
+    padding: 50px 0 24px 235px;
+    transition: .2s;
+}
+#container.on{
+    padding-left: 0px;
+}
+#ft{
+    width: 100%;
+    padding: 10px 20px 10px 255px;
+    background: #eee;
+    border-top: 1px solid #dbdbdb;
+    transition: .2s;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+#ft.on{
+    padding-left: 20px;
+}
+
+
+
+/* 768px */
+@media screen and (min-width:768px){
+
+}
+
+
+/* 1200px */
+@media screen and (min-width:1200px){
+    
+}

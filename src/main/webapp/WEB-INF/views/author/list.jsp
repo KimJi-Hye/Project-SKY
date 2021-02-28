@@ -3,33 +3,39 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
-<%@ include file="../includes/header.jsp"%>
+<%@ include file="../includes/admin_header.jsp"%>
 
-    <div>
-    	<h2>권한 관리</h2>
-    	<button type="button" class="btn_reg">권한 등록</button>
-    	<table>
-    		<thead>
-	    		<tr>
-	    			<th>권한등급</th>
-	    			<th>권한명</th>
-	    			<th>반이름</th>
-	    		</tr>
-	    	</thead>
-	    	<tbody>
-    			<c:forEach items="${list}" var="board">
-    			<tr>
-    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.atgrade}" /></a></td>
-    				<td><c:out value="${board.atname}" /></td>
-    				<td><c:out value="${board.classname}"></c:out></td>
-    			</tr>
-	    		</c:forEach>
-	    	</tbody>
-    	</table>
-    	<form id="actionForm" action="/author/list" method="get">
-    		
-    	</form>
-    </div>
+    <section id="adminPage" class="admin_list">
+    	<div class="admin_title">
+	    	<h2>권한 관리</h2>
+    	</div>
+    	<div class="admin_contents">
+        	<div class="admin_btnBox">
+	    		<button type="button" class="btn_reg on">권한 등록</button>
+	    	</div>
+	    	<table>
+	    		<thead>
+		    		<tr>
+		    			<th>권한등급</th>
+		    			<th>권한명</th>
+		    			<th>반이름</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+	    			<c:forEach items="${list}" var="board">
+	    			<tr>
+	    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.atgrade}" /></a></td>
+	    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.atname}" /></a></td>
+	    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.classname}" /></a></td>
+	    			</tr>
+		    		</c:forEach>
+		    	</tbody>
+	    	</table>
+	    	<form id="actionForm" action="/author/list" method="get">
+	    		
+	    	</form>
+	    </div>
+    </section>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -46,4 +52,4 @@
 	});
 </script>
 
-<%@ include file="../includes/footer.jsp"%>
+<%@ include file="../includes/admin_footer.jsp"%>

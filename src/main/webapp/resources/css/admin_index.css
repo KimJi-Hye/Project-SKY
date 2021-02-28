@@ -1,0 +1,350 @@
+@charset "utf-8";
+
+/* admin_index */
+#adminPage{
+    padding: 20px;
+}
+#adminPage .admin_title{
+    padding: 20px;
+    border-bottom: 1px solid #dbdbdb;
+}
+#adminPage .admin_title h2{
+    font-size: 21px;
+    font-weight: 700;
+}
+#adminPage .admin_contents h2{
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+#adminPage .admin_contents h2 span{
+    line-height: 18px; 
+    vertical-align: sub;
+}
+/* admin_main */
+.admin_main .admin_contents{
+    padding: 20px;
+}
+.admin_main .ulBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.admin_main .ulBox li{
+    margin: 10px;
+}
+.admin_main .ulBox li a{
+    width: 150px; padding: 20px;
+    background: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    transition: .2s;
+}
+.admin_main .ulBox li a span{
+    height: 50px;
+    display: block;
+    transition: .2s;
+    font-size: 40px;
+}
+.admin_main .ulBox li a:hover{
+    background: #333;
+    color: #eee;
+}
+.admin_main .ulBox li a:hover span{
+    font-size: 45px;
+}
+.admin_main .ulBox li a p{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* admin_list */
+.admin_list .admin_contents{
+    padding: 20px;
+}
+.admin_list .admin_btnBox{
+    margin: 20px 0 25px;
+    display: flex;
+}
+.admin_list .admin_btnBox button{
+    padding: 7px 20px; margin-right: 20px;
+    background: #fff;
+    border: 2px solid #2f409f;
+    border-radius: 5px;
+    color: #aaa;
+    font-size: 21px;
+    display: block;
+    transition: .2s;
+}
+.admin_list .admin_btnBox button:hover, .admin_list .admin_btnBox button.on:hover{
+    background: #3f51b5;
+    color: #fff;
+}
+.admin_list .admin_btnBox button.on{
+    background: #2f409f; 
+    color: #fff; 
+    font-weight: 500;
+}
+.admin_list table th, .admin_list table td{
+    border: 1px solid #dbdbdb;
+}
+.admin_list table th{
+    padding: 7px;
+    background: #eee;
+    border-bottom: 2px solid #dbdbdb;
+}
+.admin_list table td a{
+    padding: 7px;
+    text-align: center;
+    display: block;
+}
+.admin_list table tr:nth-of-type(2n) td{
+    background: #f8f8f8;
+}
+/* 페이징 */
+.pg {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.pg li{
+    margin: 0 5px;
+}
+.pg a {
+    color: #828282;
+}
+.pg_page,
+.pg_current {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    display: block;
+}
+.pg_page {
+    color: #828282;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+}
+.pg_start,
+.pg_end {
+    text-indent: -99999px;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.pg_start {
+    margin-right: 0;
+    background: url(../img/left.png) no-repeat center center #fff;
+}
+.pg_end {
+    margin-left: 0;
+    background: url(../img/right.png) no-repeat center center #fff;
+}
+.pg_current {
+    color: #fff;
+    background: #0A69CC;
+    font-weight: 400;
+}
+
+
+
+/* 검색창 */
+.bo_search {
+    margin-top: 60px;
+}
+.bo_searchBox {
+    width: 504px;
+    margin: 0 auto;
+}
+.bo_searchBox:after {content: ''; display: block; clear: both;
+}
+.bo_searchBox select {
+    width: 115px;
+    height: 40px;
+    padding: 10px;
+    color: #333;
+    border: 1px solid #e1e1e1;
+    border-radius: 0;
+    background: url(../img/bottom.png) no-repeat center right 10px #fff;
+    font-size: 15px;
+    line-height: 18px;
+    display: block;
+    float: left;
+    appearance: none;
+    -webkit-appearance: none;
+}
+.bo_searchBox input[type="text"] {
+    width: 339px;
+    height: 40px;
+    padding: 10px 18px;
+    color: #333;
+    background: #fff;
+    border: none;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+    border-radius: 0;
+    font-size: 15px;
+    line-height: 18px;
+    display: block;
+    float: left;
+}
+.bo_searchBox button{
+    width: 50px;
+    height: 40px;
+    border: 1px solid #e1e1e1;
+    display: block;
+    float: left;
+    background: #fff;
+}
+.bo_searchBox button span{
+    line-height: 40px;
+}
+
+/* admin get */
+.admin_get .get_box_con{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.admin_get .get_box{
+    margin: 10px 10px 30px;
+    border: 2px solid #dbdbdb;
+    border-radius: 10px; 
+    overflow: hidden;
+}
+.admin_get .get_box h3{
+    padding: 15px;
+    background: #eee;
+    border-bottom: 2px solid #dbdbdb;
+}
+.admin_get .get_box li{
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+}
+.admin_get .get_box li:last-child{
+    margin-bottom: 20px;
+}
+.admin_get .get_box li::after{content: ""; display: block; clear: both;}
+.admin_get .get_box li p{
+    padding: 10px 20px;
+    float: left;
+}
+.admin_get .get_box li p:nth-of-type(1){
+    width: 140px;
+    background: #f8f8f8;
+    border-right: 1px solid #dbdbdb;
+    font-weight: 500;
+    text-align: right;
+}
+.admin_get .get_box li p:nth-of-type(2){
+    background: #fff;
+}
+.admin_get .btn_box{
+    width: 100%; padding: 20px;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+}
+/* admin get2 */
+.admin_get2 .get_box_con{
+    padding: 20px;
+}
+.admin_get2 .get_box ul{
+    width: 100%;
+    display: flex;
+}
+.admin_get2 .get_box li{
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+.admin_get2 .get_box li p{
+    margin-right: 10px;
+    font-weight: bold;
+}
+.admin_get2 .get_list{
+    margin-top: 30px;
+}
+.admin_get2 .get_list .get_t{
+    margin-bottom: 10px;
+}
+.admin_get2 .get_list > div{
+    display: flex;
+}
+.admin_get2 .get_list .get_dt{
+    width: 20%; padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-right: none;
+    background: #eee;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.admin_get2 .get_list .get_dt + *{
+    width: 80%; padding: 10px 20px;
+    border: 1px solid #dbdbdb;
+}
+.admin_get2 .get_list .get_c li{
+    margin-bottom: 10px;
+}
+.admin_get2 .btn_box{
+    width: 100%; padding: 20px;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+}
+
+/* admin register */
+.admin_register .reg_box_con{
+    padding: 30px 20px;
+}
+.admin_register .reg_box_con .reg_box{
+    margin-bottom: 30px;
+}
+.admin_register .reg_box_con .reg_box:last-child{
+    margin-bottom: 0;
+}
+.admin_register .reg_box_con .reg_box h3{
+    padding: 10px 20px;
+    background: #eee;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+}
+.admin_register .reg_box_con .reg_box ul{
+    padding: 20px;
+}
+.admin_register .reg_box_con .reg_box li::after{content: ""; display: block; clear: both;}
+.admin_register .reg_box_con .reg_box li{
+    margin-bottom: 15px;
+}
+.admin_register .reg_box_con .reg_box li *{
+    float: left;
+}
+.admin_register .reg_box_con .reg_box li p:nth-of-type(1){
+    width: 20%; max-width: 130px; height: 100%; padding: 0 15px;
+    text-align: right;
+    line-height: 36px;
+}
+.admin_register .reg_box_con .reg_box li p:nth-of-type(2){
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.admin_register .reg_box_con .reg_box li p:nth-of-type(2), .admin_register .reg_box_con .reg_box li input[readonly]{
+    background: #eee;
+}
+.admin_register .reg_box_con .reg_box li *:last-child{
+    width: 80%; max-width: 500px;
+}
+
+.admin_register .btn_box{
+    width: 100%; padding: 20px;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+}
+

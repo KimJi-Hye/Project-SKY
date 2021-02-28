@@ -88,9 +88,12 @@ public class JoinController {
 		log.info("/member get or modify");
 		model.addAttribute("mngList", mngService.getList());
 		model.addAttribute("author", authorService.getList());
-		if(userType == "T") {
-			model.addAttribute("member", serviceT.get(userId));			
+		log.info("UserType = " + userType);
+		if(userType.charAt(0) == 'T') {
+			log.info("teacher get");
+			model.addAttribute("member", serviceT.get(userId));
 		} else {
+			log.info("paretns get");
 			model.addAttribute("member", serviceP.get(userId));
 		}
 	}
@@ -98,7 +101,7 @@ public class JoinController {
 	// http://localhost:8080/member/modify
 	@PostMapping("/memModify")
 	public String modify(@RequestParam("userType") String userType, JoinTeacherVO joinT, JoinParentsVO joinP, RedirectAttributes rttr) {
-		if(userType == "T") {
+		if(userType.charAt(0) == 'T') {
 			log.info("member modify:" + joinT);
 			if(serviceT.modify(joinT)) {
 				rttr.addFlashAttribute("result", "success");
