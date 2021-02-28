@@ -70,7 +70,7 @@
                             <li><a href="#self">교육방향</a></li>
                             <li><a href="#self">교육계획</a></li>
                             <li><a href="#self">현황소개</a></li> -->
-                            <li><a href="#self">시설 및 환경</a></li>
+                            <li><a href="/board/kinderSpace">시설 및 환경</a></li>
                             <li><a href="#self">오시는 길</a></li>
                         </ul>
                     </li>

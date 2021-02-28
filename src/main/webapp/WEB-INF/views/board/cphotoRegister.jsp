@@ -60,7 +60,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Board Register</h1>
+		<h1 class="page-header">반 앨범</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -102,6 +102,36 @@
 						<textarea class="form-control" rows="3" name='content'></textarea>
 					</div>
 
+				<div class="form-group">
+					<label>작품사진</label> <input class="form-control" id="image" name="image" >				
+				</div>
+
+<!-- 등록을 위한 화면 처리 p.554  -->
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+
+			<div class="panel-heading">File Attach</div>
+			<!--  /.panel-heading -->
+			<div class="panel-body">
+				<div class="form-group uploadDiv">
+					<input type="file" name='uploadFile' 
+					onchange="javascript:document.getElementById('image').value=this.value.replace(/c:\\fakepath\\/i,'')" >
+				</div>
+
+				<div class='uploadResult'>
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<!-- end panel-body -->
+		</div>
+		<!--  end panel-body -->
+	</div>
+	<!-- end panel -->
+</div>
+<!-- /.row -->
+
 					<button type="submit" class="btn btn-default">등록</button>
 					<a href="/board/cphotoList">목록</a>
 
@@ -120,30 +150,7 @@
 </div>
 <!-- /.row -->
 
-<!-- 등록을 위한 화면 처리 p.554  -->
-<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
 
-			<div class="panel-heading">File Attach</div>
-			<!--  /.panel-heading -->
-			<div class="panel-body">
-				<div class="form-group uploadDiv">
-					<input type="file" name='uploadFile' multiple>
-				</div>
-
-				<div class='uploadResult'>
-					<ul>
-					</ul>
-				</div>
-			</div>
-			<!-- end panel-body -->
-		</div>
-		<!--  end panel-body -->
-	</div>
-	<!-- end panel -->
-</div>
-<!-- /.row -->
 
 <script>
 
@@ -189,6 +196,9 @@
 			}
 			return true;
 		}
+		
+		var csrfHeaderName = "${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";
 		
 		$("input[type='file']").change(function(e){
 			
@@ -248,8 +258,12 @@
 			$.ajax({
 				url: '/uploadAjaxAction',
 				processData: false,
-				contentType: false, data:
-			    formData, type: 'POST',
+				contentType: false,
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+				},
+				data: formData, 
+				type: 'POST',
 			    dataType: 'json',
 			    	success: function(result){
 			    		console.log(result);
@@ -270,6 +284,9 @@
 			$.ajax({
 				url: '/deleteFile',
 				data: {fileName: targetFile, type:type},
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+				},
 				dataType:'text',
 				type: 'POST',
 					success: function(result){

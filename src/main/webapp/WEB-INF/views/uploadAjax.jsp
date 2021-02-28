@@ -163,6 +163,9 @@ $(document).ready(function() {
             contentType: false,
             data: formData,
             type: 'POST',
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}"); 
+			},
             dataType: 'json',
             success: function(result) {
                
@@ -212,7 +215,7 @@ $(document).ready(function() {
                var filelink = fileCallPath.replace(new RegExp(/\\/g), "/");
                
                str += "<li><div><a href='download?fileName="+fileCallPath+"'>"
-                     +"<img src='/resources/img/moon.jpg'>"+ obj.fileName +"</a>"+"<span data-file=\'"+fileCallPath+"\' data-type='file'> x </span>" + "<div></li>";
+                     +"<img src='/resources/img/sky_logo.png'>"+ obj.fileName +"</a>"+"<span data-file=\'"+fileCallPath+"\' data-type='file'> x </span>" + "<div></li>";
             } else {
                //str += "<li>" + obj.fileName + "</li>";
                var fileCallPath = encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);

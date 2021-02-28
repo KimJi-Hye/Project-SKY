@@ -11,7 +11,7 @@
 <form action="uploadFormAction" method="post" enctype="multipart/form-data">
 <input type='file' name='uploadFile' multiple>
 <button>Submit</button>
-
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
 
 </body>

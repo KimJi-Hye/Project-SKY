@@ -41,6 +41,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	
 
 	<!-- 글쓰기 -->
 	<div class="bo_register">

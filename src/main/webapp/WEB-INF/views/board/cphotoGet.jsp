@@ -48,10 +48,6 @@
 				</textarea>
 				</div>
 				
-				<div class="form-group">
-				<label>작성일</label> <input class="form-control" name='regdate'
-				value='<c:out value="${board.regdate }"/>' readonly="readonly">
-				</div>
 				
 				<div class="btn_box">
 					<button type="button" class="btn_mod">수정</button>
@@ -125,11 +121,9 @@
   justify-content: center;
   align-items: center;
 }
-
 .bigPicture img {
   width:600px;
 }
-
 </style>
 <div class="row">
   <div class="col-lg-12">
@@ -156,7 +150,6 @@
 	$(document).ready(
 			function() {
 				var operForm = $("#operForm");
-
 				var operForm = $("#operForm");
 				$(".btn_mod").click(function() {
 					operForm.submit();
@@ -172,7 +165,6 @@
 				});
 				
 				(function(){
-
 				    var bno = '<c:out value="${board.bno}"/>';
 				    
 				    $.getJSON("/board/getAttachList", {bno: bno}, function(arr){

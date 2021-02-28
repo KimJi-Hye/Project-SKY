@@ -1,163 +1,164 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@include file="../includes/header.jsp"%>
 
 <div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">Board Modify</h1>
-  </div>
-  <!-- /.col-lg-12 -->
+	<div class="col-lg-12">
+		<h1 class="page-header">Board Modify</h1>
+	</div>
+	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
 <div class="row">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
 
-      <div class="panel-heading">Board Modify</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-       
+			<div class="panel-heading">Board Modify</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
 
-     <form id="operForm" action="/board/cphotoModify" method="post">
- 
-				<div class="form-group">
-				<label>Bno</label>${board.bno }
-				</div>
-			
-				<div class="form-group">
-				 <label>반이름</label> 
-				 ${board.className }
-				</div>
-				
-				<div class="form-group">
-				 <label>태그</label> 
-				 ${board.tag }
-				</div>
-				
-				<div class="form-group">
-				<label>제목</label> <input class="form-control" name='title'
-				value='<c:out value="${board.title }"/>' >
-				</div>
-				
-				<div class="form-group">
-				<label>내용</label>
-				<textarea class="form-control" rows="3" name='content' >
+
+				<form id="operForm" action="/board/cphotoModify" method="post">
+
+					<div class="form-group">
+						<label>Bno</label>${board.bno }
+					</div>
+
+					<div class="form-group">
+						<label>반이름</label> ${board.className }
+					</div>
+
+					<div class="form-group">
+						<label>태그</label> ${board.tag }
+					</div>
+
+					<div class="form-group">
+						<label>제목</label> <input class="form-control" name='title'
+							value='<c:out value="${board.title }"/>'>
+					</div>
+
+					<div class="form-group">
+						<label>내용</label>
+						<textarea class="form-control" rows="3" name='content'>
 				<c:out value="${board.content}" />
 				</textarea>
-				</div>
-				
-				<div class="form-group">
-				<label>작성일</label> 
-				${board.regdate }
-				</div>
-          
+					</div>
 
-				<div class="btn_box">
-					<button type="button" class="btn_mod">수정</button>
-					<button type="button" class="btn_list">목록</button>
-					<button type="button" class="btn_del">삭제</button>
-				</div>
-				
-			    <input type="hidden" id="bno" name="bno" value="${board.bno}">				
-				<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
-				<input type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>	  
 
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-	</form>
-      </div>
-      <!--  end panel-body -->
+					<div class="btn_box">
+						<button type="button" class="btn_mod">수정</button>
+						<button type="button" class="btn_list">목록</button>
+						<button type="button" class="btn_del">삭제</button>
+					</div>
 
-    </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
+					<input type="hidden" id="bno" name="bno" value="${board.bno}">
+					<input type='hidden' name='pageNum'
+						value='<c:out value="${cri.pageNum}"/>'> <input
+						type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
+
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+
+				</form>
+			</div>
+			<!--  end panel-body -->
+
+		</div>
+		<!--  end panel-body -->
+	</div>
+	<!-- end panel -->
 </div>
 <!-- /.row -->
 
 <!-- 584p 첨부파일 -->
 <div class='bigPictureWrapper'>
-  <div class='bigPicture'>
-  </div>
+	<div class='bigPicture'></div>
 </div>
 
 <style>
 .uploadResult {
-  width:100%;
-  background-color: gray;
+	width: 100%;
+	background-color: gray;
 }
-.uploadResult ul{
-  display:flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
+
+.uploadResult ul {
+	display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
 }
+
 .uploadResult ul li {
-  list-style: none;
-  padding: 10px;
-  align-content: center;
-  text-align: center;
+	list-style: none;
+	padding: 10px;
+	align-content: center;
+	text-align: center;
 }
-.uploadResult ul li img{
-  width: 100px;
+
+.uploadResult ul li img {
+	width: 100px;
 }
+
 .uploadResult ul li span {
-  color:white;
+	color: white;
 }
+
 .bigPictureWrapper {
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  top:0%;
-  width:100%;
-  height:100%;
-  background-color: gray; 
-  z-index: 100;
-  background:rgba(255,255,255,0.5);
+	position: absolute;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	top: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	z-index: 100;
+	background: rgba(255, 255, 255, 0.5);
 }
+
 .bigPicture {
-  position: relative;
-  display:flex;
-  justify-content: center;
-  align-items: center;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .bigPicture img {
-  width:600px;
+	width: 600px;
 }
 </style>
 
 <div class="row">
-  <div class="col-lg-12">
-    <div class="panel panel-default">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
 
-      <div class="panel-heading">Files</div>
-      <!-- /.panel-heading -->
-      <div class="panel-body">
-      
-        <!-- 586p  -->
-	        <div class="form-group uploadDiv">
-	            <input type="file" name='uploadFile' multiple="multiple">
-	        </div>
-        <!-- 586p  end -->
-        
-        <div class='uploadResult'> 
-          <ul>
-          
-          </ul>
-        </div>
-      </div>
-      <!--  end panel-body -->
-  
-    </div>
-    <!--  end panel-body -->
-  </div>
-  <!-- end panel -->
+			<div class="panel-heading">Files</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+
+				<!-- 586p  -->
+				<div class="form-group uploadDiv">
+					<input type="file" name='uploadFile' multiple="multiple">
+				</div>
+				<!-- 586p  end -->
+
+				<div class='uploadResult'>
+					<ul>
+
+					</ul>
+				</div>
+			</div>
+			<!--  end panel-body -->
+
+		</div>
+		<!--  end panel-body -->
+	</div>
+	<!-- end panel -->
 </div>
 <!-- /.row -->
 <!-- 584p 첨부파일 end -->
@@ -285,6 +286,9 @@ $(document).ready(function() {
     }
     return true;
   }
+
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";  
   
   $("input[type='file']").change(function(e){
 
@@ -308,6 +312,9 @@ $(document).ready(function() {
       processData: false, 
       contentType: false,data: 
       formData,type: 'POST',
+	  beforeSend: function(xhr) {
+			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+		},      
       dataType:'json',
         success: function(result){
           console.log(result); 
