@@ -11,13 +11,13 @@
 	
 	<!-- insert -->
 	<insert id="insert">
-		insert into author(atgrade, atname, classname)
-		values (#{atgrade}, #{atname}, #{classname})
+		insert into author(auth, atname, classname)
+		values (#{auth}, #{atname}, #{classname})
 	</insert>
 	
 	<!-- read -->
 	<select id="read" resultType="org.zerock.domain.AuthorVO">
-		select * from author where atgrade = #{atgrade}
+		select * from author where auth = #{auth}
 	</select>
 	
 	<!-- update -->
@@ -25,12 +25,12 @@
 		update author
 		set atname = #{atname},
 		classname = #{classname}
-		where atgrade = #{atgrade}
+		where auth = #{auth}
 	</update>
 	
 	<!-- delete -->
 	<delete id="delete">
-		delete author where atgrade = #{atgrade}
+		delete author where auth = #{auth}
 	</delete>
 
 </mapper>
