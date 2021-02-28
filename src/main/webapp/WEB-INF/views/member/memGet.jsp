@@ -46,7 +46,7 @@
 			    		</li>
 			    		<li>
 			    			<p>권한</p>
-			    			<p>${member.atGrade}</p>
+			    			<p>${member.auth}</p>
 			    		</li>
 			    	</ul>
 			    </div>

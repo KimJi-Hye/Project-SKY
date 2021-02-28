@@ -76,7 +76,7 @@
 					<input type="reset" class="btn_reset" value="초기화">
 				</div>
 
-				<input type="hidden" name="atGrade" value="Z"> 
+				<input type="hidden" name="auth" value="ROLE_Z"> 
 				<input type="hidden" name="userType" value="T">
 				
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

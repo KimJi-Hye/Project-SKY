@@ -32,7 +32,7 @@
 	    			<c:forEach items="${Tlist}" var="board">
 		    			<tr>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userId}" /></a></td>
-		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.atGrade}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.auth}" /></a></td>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userName}" /></a></td>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userPhone}" /></a></td>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.classname}" /></a></td>
@@ -45,7 +45,7 @@
 	    			<c:forEach items="${Plist}" var="board">
 	    				<tr>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userId}" /></a></td>
-		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.atGrade}" /></a></td>
+		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.auth}" /></a></td>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userName}" /></a></td>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.userPhone}" /></a></td>
 		    				<td><a href="${board.userId}" class="go_id"><c:out value="${board.cunicode}" /></a></td>

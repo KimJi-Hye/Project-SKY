@@ -37,18 +37,18 @@ public class AuthorController {
 		model.addAttribute("mngList", mngService.getList());
 	}
 	@PostMapping("/register")
-	public String register(AuthorVO author, RedirectAttributes rttr) {
-		log.info("register : " + author);
-		service.register(author);
-		rttr.addFlashAttribute("result", author.getAtgrade());
+	public String register(AuthorVO auth, RedirectAttributes rttr) {
+		log.info("register : " + auth);
+		service.register(auth);
+		rttr.addFlashAttribute("result", auth.getAuth());
 		return "redirect:/author/list";
 	}
 	
 	// http://localhost:8080/author/get
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("atgrade") String atgrade, Model model) {
+	public void get(@RequestParam("auth") String auth, Model model) {
 		log.info("/get or /modify");
-		model.addAttribute("author", service.get(atgrade));
+		model.addAttribute("auth", service.get(auth));
 		model.addAttribute("mngList", mngService.getList());
 	}
 	
@@ -64,9 +64,9 @@ public class AuthorController {
 	
 	// http://localhost:8080/author/remove
 	@PostMapping("/remove")
-	public String remove(@RequestParam("atgrade") String atgrade, RedirectAttributes rttr) {
-		log.info("remove: " + atgrade);
-		if (service.remove(atgrade)) {
+	public String remove(@RequestParam("auth") String auth, RedirectAttributes rttr) {
+		log.info("remove: " + auth);
+		if (service.remove(auth)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/author/list";

@@ -24,9 +24,9 @@
 		    	<tbody>
 	    			<c:forEach items="${list}" var="board">
 	    			<tr>
-	    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.atgrade}" /></a></td>
-	    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.atname}" /></a></td>
-	    				<td><a href="<c:out value="${board.atgrade}" />" class="move"><c:out value="${board.classname}" /></a></td>
+	    				<td><a href="<c:out value="${board.auth}" />" class="move"><c:out value="${board.auth}" /></a></td>
+	    				<td><a href="<c:out value="${board.auth}" />" class="move"><c:out value="${board.atname}" /></a></td>
+	    				<td><a href="<c:out value="${board.auth}" />" class="move"><c:out value="${board.classname}" /></a></td>
 	    			</tr>
 		    		</c:forEach>
 		    	</tbody>
@@ -45,7 +45,7 @@
 		var actionForm = $("#actionForm");
 		$(".move").click(function(e){
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='atgrade' value='" + $(this).attr("href") + "'>")
+			actionForm.append("<input type='hidden' name='auth' value='" + $(this).attr("href") + "'>")
 			actionForm.attr("action", "/author/modify");
 			actionForm.submit();
 		});

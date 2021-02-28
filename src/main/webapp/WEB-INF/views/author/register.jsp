@@ -17,7 +17,7 @@
 			    		<ul>
 			    			<li>
 			    				<p>권한등급 </p>
-			    				<input type="text" name="atgrade" required>
+			    				<input type="text" name="auth" required>
 			    			</li>
 			    			<li>
 			    				<p>권한명 </p>

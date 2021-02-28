@@ -50,9 +50,9 @@
 				    		<li>
 			    				<p>권한</p>
 					    		<select name="atGrade">
-					    			<option value="${member.atGrade}" selected>${member.atGrade}</option>
+					    			<option value="${member.auth}" selected>${member.auth}</option>
 					    			<c:forEach items="${author}" var="at">
-					    			<option value="${at.atgrade}">${at.atgrade} (${at.atname})</option>
+					    			<option value="${at.auth}">${at.auth} (${at.auth})</option>
 					    			</c:forEach>
 					    		</select> 
 				    		</li>
