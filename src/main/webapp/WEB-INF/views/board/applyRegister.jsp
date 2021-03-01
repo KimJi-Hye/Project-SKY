@@ -5,6 +5,11 @@
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
+<style>
+	.form-group ul li .radioBox label{
+		width: auto; margin-right: 20px;
+	}
+</style>
 
 <div id="wrapper">
 	<div class="boardTitle">
@@ -44,8 +49,17 @@
 				<li><label>아동생년월일</label> <input type="date"
 					class="input_tx input_tx2" name='cbirth' required></li>	
 					
-				<li><label>접수유형</label> <input type="text"
-					class="input_tx input_tx2" name='apptype' required></li>	
+				<li><label>접수유형</label> 
+					<!-- <input type="text" class="input_tx input_tx2" name='apptype' required> -->
+					<div class="radioBox">
+						<input type="radio" name="apptype" id="type1" value="우선모집">
+						<label for="type1"><span></span> 우선모집(재원생 동생)</label>
+						<input type="radio" name="apptype" id="type2" value="일반모집">
+						<label for="type2"><span></span> 일반모집</label>
+						<input type="radio" name="apptype" id="type3" value="방과후 과정">
+						<label for="type3"><span></span> 방과후 과정</label>
+					</div>
+				</li>	
 						
 				<li><label>비밀번호</label> <input type="text"
 					class="input_tx input_tx2" name='pw' required></li>															

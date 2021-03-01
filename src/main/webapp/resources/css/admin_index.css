@@ -338,7 +338,7 @@
 .admin_register .reg_box_con .reg_box li p:nth-of-type(2), .admin_register .reg_box_con .reg_box li input[readonly]{
     background: #eee;
 }
-.admin_register .reg_box_con .reg_box li *:last-child{
+.admin_register .reg_box_con .reg_box li > *:last-child{
     width: 80%; max-width: 500px;
 }
 

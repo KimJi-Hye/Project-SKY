@@ -223,15 +223,15 @@
 .join_contents2 .join_form li.li_id button{
     width: 120px; padding: 9px 20px; margin-left: 10px;
 }
-.join_contents2 .join_form li.pwLogBox{
+.join_contents2 .join_form li.logBox{
     margin-bottom: 0;
 }
-.join_contents2 .join_form li.pwLogBox .b_box{
+.join_contents2 .join_form li.logBox .b_box{
     display: block;
     width: 130px;
 }
-#pwLog.on{
-    width: 100%; margin-bottom: 10px;
+.join_contents2 .join_form li.logBox span:last-child.on{
+    width: 430px; margin-bottom: 10px;
     color: rgb(219, 67, 67);
     display: block;
 }

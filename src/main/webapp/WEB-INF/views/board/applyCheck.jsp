@@ -58,9 +58,14 @@
 <script>
 $(document).ready(function() {
 	
+<<<<<<< HEAD
 	var formObj = $("form");
+=======
+	var form = $("form");
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	
 	$("button[type='submit']").click(function(e) {
+<<<<<<< HEAD
 		
 		e.preventDefault();
 		
@@ -93,6 +98,10 @@ $(document).ready(function() {
 		
 	/* alert("등록 되지 않은 접수번호 입니다."); */
 		//operForm.submit();
+=======
+		//e.preventDefault();
+		//form.submit();
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	});
 });
 </script>
