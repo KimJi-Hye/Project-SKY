@@ -124,6 +124,12 @@ $(document).ready(function() {
 	
 	$("button[data-oper='applyRemove']").on("click", function(e){
 		
+		if (input[name='ano'].val() == "") {
+			
+			alert("최종 승인후는 접수취소가 불가능합니다.");
+			return;
+		}
+		
 		operForm.attr("action", "/board/applyRemoveMember").submit();
 		
 	});

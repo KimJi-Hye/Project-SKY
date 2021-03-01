@@ -39,8 +39,7 @@
 		<form id='searchForm' action="/board/applyList" method='get'>
 			<div class="bo_searchBox">
 				<select name="type">
-					<option value="N"
-						<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모이름</option>
+					<option value="N" <c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모이름</option>
 				</select> 
 				<input type='text' name='keyword' placeholder="검색어를 입력해주세요" value='<c:out value="${pageMaker.cri.keyword}"/>' /> 
 				<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.cri.pageNum}"/>' /> 

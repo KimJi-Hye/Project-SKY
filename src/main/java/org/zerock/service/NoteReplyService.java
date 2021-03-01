@@ -21,5 +21,6 @@ public interface NoteReplyService {
 	
 	public List<NoteReplyVO> getList(Criteria cri,Long bno);
 	
+	
 	//public ReplyPageDTO getListPage(Criteria cri, Long bno);
 }

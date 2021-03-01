@@ -36,7 +36,7 @@
     	<h3>온라인 접수 조회</h3>
 	</div>
 	<div class="form-group">
-		<form action="/board/applyGetMember" method="get">
+		<form role="form" action="/board/applyGetMember" method="get">
 			<ul>
 				<li>
 					<label for="ano">접수번호</label>
@@ -50,7 +50,6 @@
 			<div class="btn_box">
 				<button type="submit" class="btn_reg">조회</button>
 			</div>
-			
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		</form>		
 	</div>
@@ -59,10 +58,40 @@
 <script>
 $(document).ready(function() {
 	
-	var operForm = $("#operForm");
+	var formObj = $("form");
 	
 	$("button[type='submit']").click(function(e) {
-		//e.preventDefault();
+		
+		e.preventDefault();
+		
+		var ano = $("input[name='ano']").val();
+        var pw = $("input[name='pw']").val();
+		
+		<c:forEach items="${applyCheck}" var="app">
+		// ano 조회
+
+		
+		if (ano == "${app.ano}") {
+			
+			formObj.attr("action", "/member/applyGetMember");
+			formObj.submit();
+   	   		return true;
+			/* operForm.submit(); */
+			/* operForm.attr("action", "/board/applyGetMember").submit(); */
+/* 			<c:forEach items="${applyCheck}" var="app">
+				if ($("#pw").val() == "${app.pw}") {
+					
+					
+					operForm.submit();
+				}
+			</c:forEach> */
+		}
+			   
+			   
+
+		</c:forEach>
+		
+	/* alert("등록 되지 않은 접수번호 입니다."); */
 		//operForm.submit();
 	});
 });
