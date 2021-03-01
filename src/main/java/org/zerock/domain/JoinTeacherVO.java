@@ -7,7 +7,7 @@ public class JoinTeacherVO {
 	
 	// 선생님 테이블
 	private String userId;
-	private char atGrade;
+	private String auth;
 	private String classname;
 	private String userName;
 	private String userPw;
@@ -15,6 +15,6 @@ public class JoinTeacherVO {
 	private String userPhone;
 	private String userAddr;
 	private String userEmail;
-	private char userType;
+	private String userType;
 	
 }

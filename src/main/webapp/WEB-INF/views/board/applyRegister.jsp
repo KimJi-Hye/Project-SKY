@@ -18,37 +18,37 @@
 
 			<ul>
 				<li><label>학부모이름</label> <input type="text"
-					class="input_tx input_tx2" name='pname'></li>
+					class="input_tx input_tx2" name='pname' required></li>
 					
 				<li><label>관계</label> <input type="text"
-					class="input_tx input_tx2" name='relation'></li>
+					class="input_tx input_tx2" name='relation' required></li>
 					
 				<li><label>학부모생년월일</label> <input type="date"
-					class="input_tx input_tx2" name='pbirth'></li>
+					class="input_tx input_tx2" name='pbirth' required></li>
 					
 				<li><label>주소</label> <input type="text"
-					class="input_tx input_tx2" name='addr'></li>	
+					class="input_tx input_tx2" name='addr' required></li>	
 									
 				<li><label>연락처</label> <input type="text"
-					class="input_tx input_tx2" name='phone'></li>
+					class="input_tx input_tx2" name='phone' required></li>
 					
 				<li><label>e-mail</label> <input type="text"
-					class="input_tx input_tx2" name='useremail'></li>
+					class="input_tx input_tx2" name='useremail' required></li>
 					
 				<li><label>아동이름</label> <input type="text"
-					class="input_tx input_tx2" name='cname'></li>
+					class="input_tx input_tx2" name='cname' required></li>
 					
 				<li><label>아동성별</label> <input type="text"
-					class="input_tx input_tx2" name='cgender'></li>	
+					class="input_tx input_tx2" name='cgender' required></li>	
 														
 				<li><label>아동생년월일</label> <input type="date"
-					class="input_tx input_tx2" name='cbirth'></li>	
+					class="input_tx input_tx2" name='cbirth' required></li>	
 					
 				<li><label>접수유형</label> <input type="text"
-					class="input_tx input_tx2" name='apptype'></li>	
+					class="input_tx input_tx2" name='apptype' required></li>	
 						
 				<li><label>비밀번호</label> <input type="text"
-					class="input_tx input_tx2" name='pw'></li>															
+					class="input_tx input_tx2" name='pw' required></li>															
 			</ul>
 
 			<div class="form-button">

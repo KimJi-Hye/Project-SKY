@@ -30,7 +30,7 @@ public class JoinParentsMapperTests {
 	public void testInsert() {
 		JoinParentsVO board = new JoinParentsVO();
 		board.setUserId("pid4");
-		board.setAtGrade("c");
+		board.setAuth("c");
 		board.setCunicode("C210210003");
 		board.setUserName("나부모");
 		board.setUserPw("1234");

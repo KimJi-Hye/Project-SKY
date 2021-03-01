@@ -103,7 +103,7 @@
                         <ul class="sub_nav">
                             <li><a href="#self">모집안내</a></li>
                             <li><a href="/board/applyRegister">온라인접수</a></li>
-                            <li><a href="/board/applyList">접수조회</a></li>
+                            <li><a href="/board/applyCheck">접수조회</a></li>
                             <li><a href="/board/questionsList">Q&amp;A</a></li>
                         </ul>
                     </li>

@@ -7,7 +7,7 @@ public class JoinParentsVO {
 	
 	// 학부모
 	private String userId;
-	private String atGrade;
+	private String auth;
 	private String userName;
 	private String userPw;
 	private String userBirth;

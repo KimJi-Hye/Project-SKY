@@ -114,4 +114,27 @@ public class ApplyBoardController {
 		
 		return "redirect:/board/applyList";
 	}	
+	
+//	추가  ===========================================================================
+	@GetMapping("/applyCheck")
+	public void check(Criteria cri, Model model) {
+		log.info("/applyCheck");
+		model.addAttribute("applyCheck", service.getList(cri));
+	}
+	
+	@GetMapping({"/applyGetMember","/applyModifyMember"})
+	public void getMember(@RequestParam("ano") Long ano, Model model) {
+		log.info("/applyGetMember or applyModifyMember");
+		model.addAttribute("board", service.get(ano));
+	}
+	
+	@PostMapping("/applyModifyMember")
+	public String modifyMember(ApplyBoardVO board, RedirectAttributes rttr) {
+		log.info("applyModify:" + board);
+		if (service.modify(board)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		
+		return "redirect:/board/applyGetMember";
+	}	
 }

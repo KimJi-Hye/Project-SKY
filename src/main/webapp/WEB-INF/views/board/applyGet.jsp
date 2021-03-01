@@ -7,7 +7,7 @@
 
     <section id="adminPage" class="admin_register">
     	<div class="admin_title">
-    		<h2>원아 관리</h2>
+    		<h2>온라인 접수 관리</h2>
 	    </div>
     	<div class="admin_contents">
     	
