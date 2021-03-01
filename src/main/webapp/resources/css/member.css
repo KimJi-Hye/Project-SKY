@@ -210,16 +210,25 @@
     align-items: center;
 }
 .join_contents2 .join_form li label{
-    width: 150px;
+    width: 130px;
     font-size: 16px;
     display: block;
+}
+.join_contents2 .join_form li label + input{
+    width: 430px;
+}
+.join_contents2 .join_form li.li_id input{
+    width: 300px;
+}
+.join_contents2 .join_form li.li_id button{
+    width: 120px; padding: 9px 20px; margin-left: 10px;
 }
 .join_contents2 .join_form li.pwLogBox{
     margin-bottom: 0;
 }
 .join_contents2 .join_form li.pwLogBox .b_box{
     display: block;
-    width: 150px;
+    width: 130px;
 }
 #pwLog.on{
     width: 100%; margin-bottom: 10px;

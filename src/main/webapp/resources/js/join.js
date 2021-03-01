@@ -13,6 +13,7 @@ function popupOff(){
     popup.hide();
 }
 
+
 // 회원가입 검사
 var id = $("#userId");
 var pw = $("#userPw");
@@ -21,6 +22,38 @@ var uname = $("#userName");
 var uphone = $("#userPhone");
 var uaddr = $("#userAddr");
 var uemail = $("#userEmail");
+
+var idPass;
+// 아이디 중복 체크
+$("#idCheck").click(function(){
+   	var idCheck = id.val();
+   	if(idCheck == ""){
+		popupOn();
+		popup_m.text("아이디를 입력하세요.");
+   		id.focus();
+   		return;
+   	}
+   	$.ajax({
+   		url:'/member/idCheck?userid=' + idCheck,
+   		type:'get',
+   		contentType: "text/html; charset=utf-8", 
+   		dataType: 'text',
+   		success:function(data){
+   			var data_index = data.charAt(9);
+   			//alert(data_index);
+   			if(data_index > 0 || idCheck == "admin"){
+				popupOn();
+				popup_m.text(idCheck + "는 사용할 수 없는 아이디 입니다.");
+   				id.focus();
+   				idPass = false;
+   			} else {
+				popupOn();
+				popup_m.text("사용 가능한 아이디 입니다.");
+   				idPass = true;
+   			}
+   		}
+   	})
+});
 
 pwCheck.keyup(function(){
 	
@@ -39,13 +72,25 @@ pwCheck.keyup(function(){
 
 // 전송
 $("input[type=submit]").click(function(e){
-	
+
 	e.preventDefault();
 	
 	// 아이디 미입력
 	if(id.val() == ""){
 		popupOn();
 		popup_m.text("아이디를 입력하세요.");
+		id.focus();
+		return false;
+	}
+	
+	// 아이디 중복확인
+	if(idPass == null){
+		popupOn();
+		popup_m.text("아이디 중복확인을 해주세요.");
+		return false;
+	} else if (idPass == false){
+		popupOn();
+		popup_m.text("사용할 수 없는 아이디입니다.");
 		id.focus();
 		return false;
 	}

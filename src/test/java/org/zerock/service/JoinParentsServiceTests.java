@@ -66,10 +66,10 @@ public class JoinParentsServiceTests {
 //	}
 	
 	// 원아접수 리스트
-	@Test
-	public void testApplyList() {
-		service.getApplyList().forEach(list -> log.info(list));
-	}
+//	@Test
+//	public void testApplyList() {
+//		service.getApplyList().forEach(list -> log.info(list));
+//	}
 	
 	// 회원 수정
 //	@Test
@@ -88,5 +88,11 @@ public class JoinParentsServiceTests {
 //	public void testDelete() {
 //		log.info("REMOVE RESULT : " + service.remove("parents1"));
 //	}
+	
+	// idCheck
+	@Test
+	public void testIdCheck() {
+		log.info("IdCheck Result : " + service.idCheck("pp"));
+	}
 
 }

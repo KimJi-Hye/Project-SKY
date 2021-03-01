@@ -66,4 +66,10 @@ public class JoinParentsServiceImpl implements JoinParentsService {
 		return mapper.applyList();
 	}
 
+	@Override
+	public int idCheck(String userId) {
+		int cnt = mapper.idCheck(userId);
+		return cnt;
+	}
+
 }

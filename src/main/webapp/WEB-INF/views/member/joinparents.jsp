@@ -19,7 +19,7 @@
                             <div class="join_form">
                                 <h3>학부모 정보 입력</h3>
                                 <ul>
-                                <li><label for="userId">아이디</label><input type="text" name="userId" id="userId" class="input_tx" required></li>
+                                <li class="li_id"><label for="userId">아이디</label><input type="text" name="userId" id="userId" class="input_tx" required><button type="button" id="idCheck">중복확인</button></li>
                                 <li><label for="userPw">비밀번호</label><input type=password name="userPw" id="userPw" class="input_tx" required></li>
                                 <li><label for="pwCheck">비밀번호 확인</label><input type="password" name="pwCheck" id="pwCheck" class="input_tx" required></li>
                                 <li class="pwLogBox"><span class="b_box"></span><span id="pwLog"></span></li>
@@ -93,7 +93,6 @@
    			popup_m.text("");
    			popupOff();
    		});
-   		
    	});
 </script>
 
