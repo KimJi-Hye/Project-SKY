@@ -96,7 +96,7 @@
 				    	<ul>
 				    		<li>
 				    			<p>접수유형</p>
-				    			<p>${member.userType}</p>
+				    			<p>${member.apptype}</p>
 				    		</li>
 				    	</ul>
 					</div>

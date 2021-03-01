@@ -15,6 +15,11 @@ function popupOff(){
 
 
 // 회원가입 검사
+var jid = RegExp(/^[a-zA-Z0-9]{4,12}$/);
+var jpass = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/);
+var jemail = RegExp(/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i);
+var jnamed = RegExp(/^[가-힣]+$/);
+
 var id = $("#userId");
 var pw = $("#userPw");
 var pwCheck = $("#pwCheck");
@@ -55,19 +60,94 @@ $("#idCheck").click(function(){
    	})
 });
 
+// 유효성 검사
+// #id
+id.keyup(function(){
+
+    // 아이디를 정규식을 테스트
+    if(!jid.test(id.val())){
+        $("#idLog").text("형식에 맞게 입력해주세요");
+        $("#idLog").addClass("on");
+        id.focus();
+        return false;
+    } else { // 할당한 경우
+        $("#idLog").text("");
+        $("#idLog").removeClass("on");
+    }
+
+});
+// pw
+pw.keyup(function(){
+
+    // 아이디와 비밀번호가 동일하게 쓴 경우
+    if(id.val() == pw.val()){
+        $("#pwLog").text("아이디와 비밀번호가 같습니다");
+        $("#pwLog").addClass("on");
+        pw.focus();
+        return false;
+    } else {
+        $("#pwLog").text("");
+        $("#pwLog").removeClass("on");
+	}
+
+    // 비밀번호 정규식으로 테스트
+    if(!pass.test(pw.val())){
+        $("#pwLog").text("형식에 맞게 입력해주세요");
+        $("#pwLog").addClass("on");
+        pw.focus();
+        return false;
+    } else { // 합당한 경우
+        $("#pwLog").text("");
+        $("#pwLog").removeClass("on");
+    }
+
+});
+
 pwCheck.keyup(function(){
 	
 	// 비밀번호 일치여부
 	if(pw.val() != pwCheck.val()){
-		$("#pwLog").text("비밀번호가 일치하지 않습니다.");
-        $("#pwLog").addClass("on");
+		$("#pwChekLog").text("비밀번호가 일치하지 않습니다.");
+        $("#pwChekLog").addClass("on");
 		$(this).focus();
 		return false;
 	} else {
-		$("#pwLog").text("");
-        $("#pwLog").removeClass("on");
+		$("#pwChekLog").text("");
+        $("#pwChekLog").removeClass("on");
 	}
 	
+});
+// #name
+uname.keyup(function(){
+
+    // 이름 유효성 검사
+    if(!jnamed.test(uname.val())){
+        $("#nameLog").text("이름 형식에 맞게 입력해주세요.");
+        $("#nameLog").addClass("on");
+        // uname.val("");
+        uname.focus();
+        return false;
+    } else {
+        $("#nameLog").text("");
+        $("#nameLog").removeClass("on");
+    }
+
+});
+// #email
+uemail.keyup(function(){
+
+    // 이메일 유효성 검사
+    if(!jemail.test(uemail.val())){
+        $("#emailLog").text("이메일형식에 맞게 입력해주세요.");
+        $("#emailLog").addClass("on");
+        // uemail.val("");
+        uemail.focus();
+        return false;
+    } else {
+        $("#emailLog").text("");
+        $("#emailLog").removeClass("on");
+    }
+
 });
 
 // 전송

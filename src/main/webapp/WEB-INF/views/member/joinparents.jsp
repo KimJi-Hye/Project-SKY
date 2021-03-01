@@ -19,18 +19,44 @@
                             <div class="join_form">
                                 <h3>학부모 정보 입력</h3>
                                 <ul>
-                                <li class="li_id"><label for="userId">아이디</label><input type="text" name="userId" id="userId" class="input_tx" required><button type="button" id="idCheck">중복확인</button></li>
-                                <li><label for="userPw">비밀번호</label><input type=password name="userPw" id="userPw" class="input_tx" required></li>
-                                <li><label for="pwCheck">비밀번호 확인</label><input type="password" name="pwCheck" id="pwCheck" class="input_tx" required></li>
-                                <li class="pwLogBox"><span class="b_box"></span><span id="pwLog"></span></li>
-                                <li><label for="userName">이름</label><input type="text" name="userName" id="userName" class="input_tx" value="${apply.pname}" required></li>
-                                <li><label for="userBirth">생년월일</label>
-               						<fmt:parseDate var="pbirth" value="${apply.pbirth}" pattern="yyyy-MM-dd" />
-                                	<input type="date" name="userBirth" class="input_tx" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />'>
-                                </li>
-                                <li><label for="userPhone">연락처</label><input type="text" name="userPhone" id="userPhone" class="input_tx" value="${apply.phone}" required></li>
-                                <li><label for="userAddr">주소</label><input type="text" name="userAddr" id="userAddr" class="input_tx" value="${apply.addr}" required></li>
-                                <li><label for="userEmail">이메일</label><input type="text" name="userEmail" id="userEmail" class="input_tx" value="${apply.useremail}" required></li>
+	                                <li class="li_id">
+	                                	<label for="userId">아이디</label>
+	                                	<input type="text" name="userId" id="userId" class="input_tx" required><button type="button" id="idCheck">중복확인</button>
+	                                </li>
+                                	<li class="logBox"><span class="b_box"></span><span id="idLog"></span></li>
+	                                <li>
+	                                	<label for="userPw">비밀번호</label>
+	                                	<input type=password name="userPw" id="userPw" class="input_tx" required>
+	                                </li>
+                                	<li class="logBox"><span class="b_box"></span><span id="pwLog"></span></li>
+	                                <li>
+	                                	<label for="pwCheck">비밀번호 확인</label>
+	                                	<input type="password" name="pwCheck" id="pwCheck" class="input_tx" required>
+	                                </li>
+                                	<li class="logBox"><span class="b_box"></span><span id="pwChekLog"></span></li>
+	                                <li>
+	                                	<label for="userName">이름</label>
+	                                	<input type="text" name="userName" id="userName" class="input_tx" value="${apply.pname}" required>
+	                                </li>
+                                	<li class="logBox"><span class="b_box"></span><span id="nameLog"></span></li>
+	                                <li>
+	                                	<label for="userBirth">생년월일</label>
+	               						<fmt:parseDate var="pbirth" value="${apply.pbirth}" pattern="yyyy-MM-dd" />
+	                                	<input type="date" name="userBirth" class="input_tx" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />'>
+	                                </li>
+	                                <li>
+	                                	<label for="userPhone">연락처</label>
+	                                	<input type="text" name="userPhone" id="userPhone" class="input_tx" value="${apply.phone}" required>
+	                                </li>
+	                                <li>
+	                                	<label for="userAddr">주소</label>
+	                                	<input type="text" name="userAddr" id="userAddr" class="input_tx" value="${apply.addr}" required>
+	                                </li>
+	                                <li>
+	                                	<label for="userEmail">이메일</label>
+	                                	<input type="text" name="userEmail" id="userEmail" class="input_tx" value="${apply.useremail}" required>
+	                                </li>
+                                	<li class="logBox"><span class="b_box"></span><span id="emailLog"></span></li>
                                 </ul>
                             </div>
                             <div class="join_form join_apply">

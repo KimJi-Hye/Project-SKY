@@ -59,11 +59,11 @@
 <script>
 $(document).ready(function() {
 	
-	var operForm = $("#operForm");
+	var form = $("form");
 	
 	$("button[type='submit']").click(function(e) {
 		//e.preventDefault();
-		//operForm.submit();
+		//form.submit();
 	});
 });
 </script>

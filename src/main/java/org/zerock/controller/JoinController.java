@@ -41,6 +41,36 @@ public class JoinController {
 	@GetMapping("/login")
 	public void login() {}
 	
+	// 마이페이지
+	@GetMapping("/myPage")
+	public void myPage(@RequestParam("userId") String userId, @RequestParam("userType") String userType, Model model) {
+		log.info("/myPage Get");
+		log.info("UserType = " + userType);
+		if(userType.charAt(0) == 'T') {
+			log.info("teacher get");
+			model.addAttribute("member", serviceT.get(userId));
+		} else {
+			log.info("paretns get");
+			model.addAttribute("member", serviceP.get(userId));
+		}
+	}
+	// 마이페이지 수정
+	@PostMapping("/myPage")
+	public String myPageModify(@RequestParam("userType") String userType, JoinTeacherVO joinT, JoinParentsVO joinP, RedirectAttributes rttr) {
+		if(userType.charAt(0) == 'T') {
+			log.info("member modify:" + joinT);
+			if(serviceT.modify(joinT)) {
+				rttr.addFlashAttribute("result", "success");
+			}		
+		} else {
+			log.info("member modify:" + joinP);
+			if(serviceP.modify(joinP)) {
+				rttr.addFlashAttribute("result", "success");
+			}		
+		}
+		return "redirect:/member/memList";
+	}
+	
 	// http://localhost:8080/member/list
 	@GetMapping("/memList")
 	public void list(Model model) {

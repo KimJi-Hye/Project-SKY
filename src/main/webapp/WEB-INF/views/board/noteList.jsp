@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_list.css">
@@ -26,6 +27,12 @@
 		</thead>
 
 		<tbody>
+		
+			<c:if test="${empty noteList}">
+				<tr>
+					<td colspan="6">검색 결과가 없습니다.</td>
+				</tr>
+			</c:if>
 			<c:forEach items="${noteList}" var="boardNote">
 				<tr>
 					<td><c:out value="${boardNote.bno}" /></td>
@@ -51,6 +58,7 @@
 
 				<!-- Pagination -->
 				<div class='bo_pages'>
+
 					<ul class="pg_wrap">
                 	    <span class="pg">					
 						<c:if test="${pageMaker.prev}">
@@ -70,6 +78,9 @@
 								href="${pageMaker.endPage +1}">Next</a></li>
 						</c:if>
                 	    </span>						
+					</ul>
+					<ul class="no_wrap">
+						
 					</ul>
 				</div>
 				<!-- end Pagination -->

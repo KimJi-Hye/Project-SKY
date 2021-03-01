@@ -105,7 +105,6 @@ $(document).ready(function() {
 	
 	$("button[data-oper='applyList']").on("click", function(e) {
 		
-		operForm.find("#ano").remove();
 		operForm.attr("action", "/board/applyList").attr("method","get");
 		var pageNumTag = $("input[name='pageNum']").clone();
 		var pageamountTag = $("input[name='amount']").clone();
@@ -134,4 +133,4 @@ $(document).ready(function() {
 });
 </script>
 
-<%@ include file="../includes/admin_footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>
