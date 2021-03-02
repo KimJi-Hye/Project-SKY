@@ -7,6 +7,13 @@
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_list.css">
+<style>
+	@media screen and (min-width: 768px){
+		.navBox .main_nav a{
+			margin-top: 27px;
+		}
+	}
+</style>
 
 <div class="boardTitle">
 	<!-- 게시판 제목 -->

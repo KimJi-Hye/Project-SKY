@@ -80,7 +80,7 @@
                         <ul class="sub_nav">
                             <li><a href="/board/noticeList">공지사항</a></li>
                             <li><a href="/board/eventList">이달의 행사</a></li>
-                            <li><a href="#self">급식안내</a></li>
+                            <!-- <li><a href="#self">급식안내</a></li> -->
                         </ul>
                     </li>
                     <li class="li_hd pc">
@@ -94,7 +94,7 @@
                     <li>
                         <p class="main_nav"><a href="#self">우리반이야기<span></span></a></p>
                         <ul class="sub_nav">
-                            <li><a href="#self">반소개</a></li>
+                            <!-- <li><a href="#self">반소개</a></li> -->
                             <li><a href="/board/noteList">알림장</a></li>
                             <li><a href="/board/cphotoList">반 앨범</a></li>
                         </ul>
@@ -102,7 +102,7 @@
                     <li>
                         <p class="main_nav"><a href="#self">원아모집<span></span></a></p>
                         <ul class="sub_nav">
-                            <li><a href="#self">모집안내</a></li>
+                            <!-- <li><a href="#self">모집안내</a></li> -->
                             <li><a href="/board/applyRegister">온라인접수</a></li>
                             <li><a href="/board/applyCheck">접수조회</a></li>
                             <li><a href="/board/questionsList">Q&amp;A</a></li>
