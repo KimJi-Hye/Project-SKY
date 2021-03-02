@@ -1,13 +1,17 @@
 package org.zerock.controller;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,10 +30,41 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ApplyBoardController {
 
+	@Autowired
+	private JavaMailSender mailSender;
+	
 	private ApplyBoardService service;
 	
 	private ClassMngService mngService;
 
+	@RequestMapping(value = "/sendMail", method = RequestMethod.GET)
+    public void sendMailTest(String email,@RequestParam("cunicode") String cunicode) throws Exception{
+        
+		log.info("이메일 데이터 전송 확인");
+		log.info("이메일주소 : " + email);
+		
+        String subject = "test 메일";
+        String content = "메일 테스트 내용" + cunicode;
+        String from = "erdskykindergarten@gmail.com";
+        String to = email;
+        
+        try {
+            MimeMessage mail = mailSender.createMimeMessage();
+            MimeMessageHelper mailHelper = new MimeMessageHelper(mail, "UTF-8");
+            
+            mailHelper.setFrom(from);
+            mailHelper.setTo(to);
+            mailHelper.setSubject(subject);
+            mailHelper.setText(content, true);
+            
+            mailSender.send(mail);
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+	
 	@GetMapping("/applyList")
 
 //	public void list(Model model) {

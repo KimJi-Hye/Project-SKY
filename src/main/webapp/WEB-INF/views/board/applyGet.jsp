@@ -52,7 +52,7 @@
 							</li>
 				    		<li>
 								<p>e-mail</p>
-				    			<input type="text" name='useremail' value='<c:out value="${board.useremail}"/>'>
+				    			<input type="text" name='useremail' id='useremail' value='<c:out value="${board.useremail}"/>'>
 							</li>
 				    		<li>
 								<p>아동이름</p>
@@ -125,7 +125,7 @@
 				    	<ul>
 				    		<li>
 								<p>아동고유번호</p>
-				    			<input type="text" name='cunicode'>
+				    			<input type="text" id='cunicode' name='cunicode'>
 							</li>
 				    		<li>
 				   				<p>담당 반</p>
@@ -141,7 +141,7 @@
 			    </div>
 		    	
 		    	<div class="btn_box">
-					<button data-oper='applyPass' class="btn btn-default btn_reg">최종 승인</button>
+					<button data-oper='applyPass' id="mail_check_button" class="btn btn-default btn_reg">최종 승인</button>
 				</div>
 				
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />	
@@ -257,6 +257,25 @@ $(document).ready(function() {
 	$("button[data-oper='applyPass']").on("click", function(e){
 		operForm.attr("action", "/board/applyPass").submit();
 	});
+	
+	/* 인증번호 이메일 전송 */
+	$("#mail_check_button").click(function(e) {
+		var email = $("#useremail").val(); //입력한 이메일
+		var cunicode = $("#cunicode").val(); // 인증번호 입력란
+
+		$.ajax({
+
+			type : "GET",
+			url : "sendMail?email=" + email + "&cunicode=" + cunicode,
+			success : function(data) {
+
+				console.log("data : " + data);
+
+			}
+
+		});
+	});
+	
 });
 </script>
 
