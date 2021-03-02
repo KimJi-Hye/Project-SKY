@@ -17,6 +17,11 @@
     padding: 0 0 60px 0px;
 }
 
+#container .dae {
+	width: 960px;
+    margin: 0 auto;
+}
+
 #container .daemoon {
   display: flex;
   justify-content: center;
@@ -53,3 +58,6 @@
   word-break: break-all;
 }
 
+.pp {
+	text-align: right;
+}

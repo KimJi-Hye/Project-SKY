@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.root_daum_roughmap.root_daum_roughmap_landing {
+	margin: 0 auto;
+}
+
 #container {
     height: 900px;
 }

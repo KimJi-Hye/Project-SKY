@@ -13,9 +13,12 @@
                 <h3> 인사말 </h3>
             </div>
 
+
             <div class="daemoon">
                 <img src="/resources/img/skyhome.png" alt="SKY Home">
             </div>
+            
+            <div class="dae">            
             <div class="tit">
                 <strong class="tit_intro">
                     "꿈이 있는 아이들이 자라나는 곳 '스카이 유치원'입니다."
@@ -49,13 +52,14 @@
             <p>
                 학부모님들의 변함없는 사랑과 관심을 기대하며 서로 신뢰하고 행복과 기쁨이 넘치는
                 스카이 유치원으로 만들어 가길 소망합니다.
-                <br><br>
+                </p><br><br>
+       <p class="pp">         
                 스카이 유치원
                 <br><br>
                 원장
             </p>
             
-
+</div>
 
 
 <%@include file="../includes/footer.jsp"%>
