@@ -20,7 +20,5 @@ public interface ApplyBoardService {
 	public List<ApplyBoardVO> getList(Criteria cri);
 	
 	public int getTotal(Criteria cri);
-	
-	public String anoCheck(Long ano);
 
 }

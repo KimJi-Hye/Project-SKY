@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.ApplyBoardVO;
 import org.zerock.domain.Criteria;
@@ -96,27 +95,7 @@ public class ApplyBoardController {
 		log.info("applyRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getAno());
-		return "redirect:../";
-	}
-	
-	// 접수번호 조회
-	@GetMapping("/anoCheck")
-	public @ResponseBody String anoCheck(@RequestParam("ano") Long ano, Model model) throws Exception {
-		log.info("ano 조회");
-		
-		model.addAttribute("anoCheck", service.get(ano));
-		
-//		if(service.get(ano).getAno() == null) {
-//			return "";
-//		} else {
-//			return ""+service.get(ano).getAno()+"";			
-//		}
-		return service.anoCheck(ano);
-	}
-	@GetMapping("/anoPwCheck")
-	public @ResponseBody String anoPwCheck(@RequestParam("ano") Long ano) {
-		log.info("ano의 비밀번호 조회");
-		return service.get(ano).getPw();
+		return "redirect:/board/applyList";
 	}
 	
 	@GetMapping({"/applyGet","/applyModify"})
@@ -191,16 +170,6 @@ public class ApplyBoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		return "redirect:/board/applyGetMember?ano=" + board.getAno();
+		return "redirect:/board/applyGetMember";
 	}	
-
-	@PostMapping("/applyRemoveMember")
-	public String removeMember(@RequestParam("ano") Long ano, RedirectAttributes rttr) {
-		log.info("applyRemove... " + ano);
-		if (service.remove(ano)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		
-		return "redirect:../";
-	}
 }

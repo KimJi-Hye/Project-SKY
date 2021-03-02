@@ -105,17 +105,29 @@ $(document).ready(function() {
 	
 	$("button[data-oper='applyList']").on("click", function(e) {
 		
-		location.href="/board/applyCheck";
+		operForm.attr("action", "/board/applyList").attr("method","get");
+		var pageNumTag = $("input[name='pageNum']").clone();
+		var pageamountTag = $("input[name='amount']").clone();
+		var keywordTag = $("input[name='keyword']").clone();
+		var typeTag = $("input[name='type']").clone();
+		
+		operForm.empty();
+		operForm.append(pageNumTag);
+		operForm.append(pageamountTag);
+		operForm.append(keywordTag);
+		operForm.append(typeTag);
+		
+		operForm.submit();
 		
 	});
 	
 	$("button[data-oper='applyRemove']").on("click", function(e){
 		
-		/* if (input[name='ano'].val() == "") {
+		if (input[name='ano'].val() == "") {
 			
 			alert("최종 승인후는 접수취소가 불가능합니다.");
 			return;
-		} */
+		}
 		
 		operForm.attr("action", "/board/applyRemoveMember").submit();
 		

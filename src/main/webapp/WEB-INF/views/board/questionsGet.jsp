@@ -73,10 +73,9 @@
 			<li class="left clearfix" data-ron='12'>
 				<div>
 					<div class="header">
-						<strong class="primary-font">user00</strong> <small
-							class="pull-right text-muted">2018-01-01 13:13</small>
+						<strong class="primary-font"></strong> <small
+							class="pull-right text-muted"></small>
 					</div>
-					<p>Good job!</p>
 				</div>
 			</li>
 			<!-- End reply -->
@@ -85,7 +84,6 @@
 		<!-- ./ end ul -->
 	</div>
 	
-	<div class="panel-footer"></div>
 
 	<div class="modal">
 
@@ -221,10 +219,11 @@ $(document).ready(function() {
 		 	   +list[i].rno+"</span>] "+list[i].writer+"</strong>"; 
 		    str +="    <small class='pull-right text-muted'>"
 		        +QnaReplyService.displayTime(list[i].regdate)+"</small>";
-		    str +="    <p id='con'>"+list[i].content+"</p><input id='inputdis' style='display:none' type='text' value='"+list[i].content+"'></div>";
 		    str += "<button id='hidebutton' type='button' class='testMod' style='display: none;'>저장</button>";
-		    str +="<button id='modalModBtn' type='button' class='btn_mod bt'>" + '수정' + "</button>";
-		    str +="<button id='modalRemoveBtn' type='button' class='btn_del bt'>" + '삭제' + "</button>" + "</div></li>";
+		    str +="<button id='modalModBtn' type='button' class='bt_mod'>" + '수정' + "</button>";
+		    str +="<button id='modalRemoveBtn' type='button' class='bt_del'>" + '삭제' + "</button>"
+		    str +="    <p id='con'>"+list[i].content+"</p><input id='inputdis' style='display:none' type='text' value='"+list[i].content+"'></div>";
+		    str += "</div></li>";
 		    
 		} 
 	  

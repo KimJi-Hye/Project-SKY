@@ -81,10 +81,4 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		return mapper.delete(ano) == 1;
 	}
 
-	@Override
-	public String anoCheck(Long ano) {
-		String cnt = mapper.anoCheck(ano);
-		return cnt;
-	}
-
 }

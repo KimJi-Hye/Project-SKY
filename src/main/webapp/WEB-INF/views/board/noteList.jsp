@@ -27,10 +27,7 @@
 		</thead>
 
 		<tbody>
-<<<<<<< HEAD
-=======
-		
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
+
 			<c:if test="${empty noteList}">
 				<tr>
 					<td colspan="6">검색 결과가 없습니다.</td>

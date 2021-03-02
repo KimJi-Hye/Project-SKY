@@ -22,6 +22,4 @@ public interface ApplyBoardMapper {
 	public int update(ApplyBoardVO board);
 	
 	public int pass(ApplyBoardVO board);
-	
-	public String anoCheck(Long ano);
 }

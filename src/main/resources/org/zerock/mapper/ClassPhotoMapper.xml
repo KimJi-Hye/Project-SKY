@@ -5,14 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="org.zerock.mapper.ClassPhotoMapper">
 
 	<select id="getList" resultType="org.zerock.domain.ClassPhotoVO">
-<![CDATA[
-select * from tb_photo where bno > 0
-]]>
+	<![CDATA[
+		select * from tb_photo where bno > 0
+	]]>
 	</select>
 
+	<select id="getAttachList" resultType="org.zerock.domain.BoardAttachVO">
+	<![CDATA[
+		select * from photo_attach where bno > 0
+	]]>
+	</select>
+	
+	<select id="read2" resultType="org.zerock.domain.BoardAttachVO">
+	<![CDATA[
+			select * from photo_attach where bno >0 
+	]]>
+	 </select>
 
-	<select id="getListWithPaging"
-		resultType="org.zerock.domain.ClassPhotoVO">
+	<select id="getListWithPaging" resultType="org.zerock.domain.ClassPhotoVO">
 
 	<![CDATA[
      select
@@ -28,17 +38,19 @@ select * from tb_photo where bno > 0
 	where rn > (#{pageNum} -1) * #{amount}
 	]]>
 	</select>
-	
+
 	<select id="getTotalCount" resultType="int">
-		select count(*) 
+		select count(*)
 		from tb_photo
 		WHERE bno > 0
-	</select>	
+	</select>
 
 
 	<insert id="insert">
-		insert into tb_photo (bno, className, title, content,tag)
-		values (seq_tb_photo.nextval, #{className},#{title}, #{content}, #{tag})
+		insert into tb_photo (bno, className, title,
+		content,tag)
+		values (seq_tb_photo.nextval, #{className},#{title},
+		#{content}, #{tag})
 	</insert>
 
 	<insert id="insertSelectKey">
@@ -49,10 +61,12 @@ select * from tb_photo where bno > 0
 		</selectKey>
 
 		insert into tb_photo (bno, className, title, content, tag)
-		values (#{bno}, #{className}, #{title}, #{content},#{tag})
+		values
+		(#{bno}, #{className}, #{title}, #{content},#{tag})
 	</insert>
 	<select id="read" resultType="org.zerock.domain.ClassPhotoVO">
-		select * from tb_photo where bno = #{bno}
+		select * from tb_photo where bno =
+		#{bno}
 	</select>
 
 	<delete id="delete">
@@ -62,7 +76,8 @@ select * from tb_photo where bno > 0
 	<update id="update">
 		update tb_photo
 		set title = #{title},
-		content = #{content},
+		content =
+		#{content},
 		regdate = sysdate
 		where bno = #{bno}
 	</update>

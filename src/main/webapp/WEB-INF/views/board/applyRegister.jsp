@@ -82,10 +82,6 @@
 <script type="text/javascript">
 	$(document).ready(function (e){
 		
-		$("button[type='submit']").click(function(){
-			alert("접수 신청이 완료되었습니다.");
-		});
-		
 		var form = $("form");
 		$("button[data-oper='applyList']").on(
 				"click",

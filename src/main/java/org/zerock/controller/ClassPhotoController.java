@@ -59,6 +59,7 @@ public class ClassPhotoController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));		
 	}	
 	
+	
 	@GetMapping("/cphotoRegister")
 	public void register(Model model) {
 		model.addAttribute("mngList", mngService.getList());		
@@ -138,13 +139,13 @@ public class ClassPhotoController {
 		
 		attachList.forEach(attach -> {
 			try {
-				Path file = Paths.get("C:\\upload\\"+attach.getUploadPath()+"\\" + attach.getUuid()+"_"+ attach.getFileName());
+				Path file = Paths.get("Y:\\스마트_개발과정\\ERD\\upload\\"+attach.getUploadPath()+"\\" + attach.getUuid()+"_"+ attach.getFileName());
 				
 				Files.deleteIfExists(file);
 				
 				if(Files.probeContentType(file).startsWith("image")) {
 					
-					Path thumbNail = Paths.get("C:\\upload\\"+attach.getUploadPath()+"\\s_" + attach.getUuid()+"_"+ attach.getFileName());
+					Path thumbNail = Paths.get("Y:\\스마트_개발과정\\ERD\\upload\\"+attach.getUploadPath()+"\\s_" + attach.getUuid()+"_"+ attach.getFileName());
 					
 					Files.delete(thumbNail);
 				}

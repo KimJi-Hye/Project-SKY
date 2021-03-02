@@ -102,10 +102,6 @@
 						<textarea class="form-control" rows="3" name='content'></textarea>
 					</div>
 
-				<div class="form-group">
-					<label>작품사진</label> <input class="form-control" id="image" name="image" >				
-				</div>
-
 <!-- 등록을 위한 화면 처리 p.554  -->
 <div class="row">
 	<div class="col-lg-12">

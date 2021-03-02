@@ -17,6 +17,10 @@
     margin-bottom: 10px;
 }
 
+#wrapper .panel-body.modal {
+	margin: 15px auto 0;
+}
+
 .form-group {
     font-size: 18px;
     font-weight: 400;
@@ -55,7 +59,22 @@
     justify-content: center;
 }
 
+.panel-body.modal .chat .left.clearfix .header {border-top: 1px solid #ddd;}
 
+.panel-body.modal .chat .left.clearfix .bt_mod,
+.panel-body.modal .chat .left.clearfix .bt_del,
+.panel-body.modal .chat .left.clearfix .testMod{
+    font-size: 15px;
+    background-color: #fff;
+    border: 0;
+    /* display: -webkit-inline-box; */
+    float: right;
+    margin: 3px;  
+}
+
+.panel-body.modal .chat .left.clearfix #inputdis {
+	width: 100%;
+}
 
 .btn_reg{
     padding: 7px 15px;
@@ -69,13 +88,14 @@
 
 #wrapper .modal {
     width: 700px;
-    margin: 20px auto;
-    border-top: 1px solid #ccc;
+    margin: 10px auto;
+    /* border-top: 1px solid #ccc; */
 }
 
 .modal .form-reply {
     /* width: 75%; */
     margin: 0 auto;
+    border-top: 1px solid #ddd;
 }
 
 .form-reply label {
@@ -111,33 +131,4 @@
     /* margin: 60px; */
     display: flex;
     justify-content: flex-end;
-}
-
-.panel-body.modal {
-	    width: 100%;
-}
-. chat{
-	    width: 100%;
-}
-.left.clearfix{
-		border-bottom: 1px solid #ddd;
-}
-.panel-footer{
-	    width: 100%;
-}
-.page-item.active {
-	    width: 100%;
-}
-
-.page-link {
-	    width: 100%;
-}
-
-.btn_del.bt,
-.btn_mod.bt {
-	/* width: 30px; */
-	height: 30px;
-	font-size: 13px;
-	display: flex;
-	float: right;
 }
