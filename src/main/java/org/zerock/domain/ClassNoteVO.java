@@ -8,7 +8,6 @@ import lombok.Data;
 public class ClassNoteVO {
 
 	private Long bno;
-	private Long rn;
 	private String classname;
 	private String cunicode;
 	private String cname;

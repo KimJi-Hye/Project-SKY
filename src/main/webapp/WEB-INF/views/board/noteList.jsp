@@ -26,18 +26,31 @@
 		</thead>
 
 		<tbody>
+			<c:if test="${empty noteList}">
+				<tr>
+					<td colspan="6">검색 결과가 없습니다.</td>
+				</tr>
+			</c:if>
 			<c:forEach items="${noteList}" var="boardNote">
 				<tr>
-					<td><c:out value="${boardNote.bno}" /></td>
-					<td><c:out value="${boardNote.classname}" /></td>
-					<td><c:out value="${boardNote.cname}" /></td>
+					<td><a class='move' href='<c:out value="${boardNote.bno}" />'>
+							<c:out value="${boardNote.bno}" />
+					</a></td>
+					<td><a class='move' href='<c:out value="${boardNote.bno}" />'>
+							<c:out value="${boardNote.classname}" />
+					</a></td>
+					<td><a class='move' href='<c:out value="${boardNote.bno}" />'>
+							<c:out value="${boardNote.cname}" />
+					</a></td>
 					<%-- <td><a href='/board/noteGet?bno=<c:out value="${boardNote.bno}" />'> --%>
 					<td><a class='move' href='<c:out value="${boardNote.bno}"/>'>
 							<c:out value="${boardNote.title}" />
 					</a></td>
-					<td><c:out value="${boardNote.writer}" /></td>
-					<td><fmt:formatDate pattern="yyyy-MM-dd"
-							value="${boardNote.regdate}" /></td>
+					<td><a class='move' href='<c:out value="${boardNote.bno}" />'>
+							<c:out value="${boardNote.writer}" />					
+					</a></td>
+					<td><a class='move' href='<c:out value="${boardNote.bno}" />'><fmt:formatDate pattern="yyyy-MM-dd"
+							value="${boardNote.regdate}" /></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

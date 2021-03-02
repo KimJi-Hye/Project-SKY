@@ -25,6 +25,11 @@
 		</thead>
 
 		<tbody>
+			<c:if test="${empty noticeList}">
+				<tr>
+					<td colspan="6">검색 결과가 없습니다.</td>
+				</tr>
+			</c:if>		
 			<c:forEach items="${noticeList}" var="board">
 				<tr>
 					<td><c:out value="${board.bno}" /></td>

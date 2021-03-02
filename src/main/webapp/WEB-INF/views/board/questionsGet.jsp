@@ -56,54 +56,45 @@
 				
 			</div>
 			<!-- /.panel-body -->
-		</div>
-		<div class="modal">
-		
-			<div class="form-group">
-				<label>댓글</label>
-				<input class="form-control" name='content' value=''>
-			</div>
-			<div class="form-group">
-				<label>작성자</label>
-				<input class="form-control" name='writer' value=''>
-			</div>
-			
-			<button id='modalRegisterBtn' type="button" class="btn btn-primary">등록</button>
-		
-		</div>
-		
-		<!-- /.panel -->
-		<div class="panel-heading">
-			<i class="fa fa-comments fa-fw"></i> Reply
-		<!-- 718p -->
-		<!-- <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button> -->
-		</div>      
-		
-		
-		<!-- /.panel-heading -->
-		<div class="panel-body modal">        
-		
-			<ul class="chat">
-				<!-- Start reply -->
-				<li class="left clearfix" data-ron='12'>
-					<div>
-						<div class="header">
-							<strong class="primary-font">user00</strong>
-							<small class="pull-right text-muted">2018-01-01 13:13</small>
-						</div>
-						<p>Good job!</p>
+	<!-- /.panel-heading -->
+	<div class="panel-body modal">
+
+		<ul class="chat">
+			<!-- Start reply -->
+			<li class="left clearfix" data-ron='12'>
+				<div>
+					<div class="header">
+						<strong class="primary-font">user00</strong> <small
+							class="pull-right text-muted">2018-01-01 13:13</small>
 					</div>
-				</li>
+					<p>Good job!</p>
+				</div>
+			</li>
 			<!-- End reply -->
-			
-			</ul>
+
+		</ul>
 		<!-- ./ end ul -->
-		</div>
-		<div class="panel-footer"></div>
 	</div>
-	<!-- /.col-lg-6 -->
+	
+	<div class="panel-footer"></div>
+
+	<div class="modal">
+
+		<div class="form-reply">
+			<label>댓글내용</label> <input type="text" class="input_1 form-control"
+				name='content' value=''>
+		</div>
+		<div class="form-reply">
+			<label>작성자</label> <input type="text" class="input_1 form-control2"
+				name='writer' value=''>
+		</div>
+
+		<div class="form-button2">
+			<button id='modalRegisterBtn' type="button" class="btn_reg">등록</button>
+		</div>
+	</div>
 </div>
-<!-- /.row -->
+
 <!-- <script type="text/javascript">
 
 $(document).ready(function() {
@@ -189,8 +180,8 @@ $(document).ready(function() {
 		        +QnaReplyService.displayTime(list[i].regdate)+"</small>";
 		    str +="    <p id='con'>"+list[i].content+"</p><input id='inputdis' style='display:none' type='text' value='"+list[i].content+"'></div>";
 		    str += "<button id='hidebutton' type='button' class='testMod' style='display: none;'>저장</button>";
-		    str +="<button id='modalModBtn' type='button' class='btn btn-default'>" + '수정' + "</button>";
-		    str +="<button id='modalRemoveBtn' type='button' class='btn btn-default'>" + '삭제' + "</button>" + "</div></li>";
+		    str +="<button id='modalModBtn' type='button' class='btn_mod bt'>" + '수정' + "</button>";
+		    str +="<button id='modalRemoveBtn' type='button' class='btn_del bt'>" + '삭제' + "</button>" + "</div></li>";
 		    
 		} 
 	  
@@ -214,6 +205,16 @@ $(document).ready(function() {
 	var modalModBtn = $("#modalModBtn");
 	var modalRemoveBtn = $("#modalRemoveBtn");
 	var modalRegisterBtn = $("#modalRegisterBtn");
+	
+	// 시큐리티 처리
+	
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";
+	
+    // Ajax spring security header ..
+    $(document).ajaxSend(function(e, xhr, options) {
+    	xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+    });
 	
 	modalRegisterBtn.on("click", function(){
 

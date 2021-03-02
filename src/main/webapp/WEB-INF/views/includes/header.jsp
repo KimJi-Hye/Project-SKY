@@ -65,13 +65,13 @@
                     <li>
                         <p class="main_nav"><a href="#self">유치원 소개<span></span></a></p>
                         <ul class="sub_nav">
-                            <li><a href="#self">인사말</a></li>
+                            <li><a href="/info/greetings">인사말</a></li>
                             <!-- <li><a href="#self">연혁</a></li>
                             <li><a href="#self">교육방향</a></li>
                             <li><a href="#self">교육계획</a></li>
                             <li><a href="#self">현황소개</a></li> -->
-                            <li><a href="/board/kinderSpace">시설 및 환경</a></li>
-                            <li><a href="#self">오시는 길</a></li>
+                            <li><a href="/info/kinderSpace">시설 및 환경</a></li>
+                            <li><a href="/info/Map">오시는 길</a></li>
                         </ul>
                     </li>
                     <li>

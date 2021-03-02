@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%-- <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%> --%>
 
 <script type="text/javascript" src="/resources/js/notereply.js"></script>
 <script
@@ -20,31 +21,31 @@
 	<div class="form-group">
 
 		<form id="operForm" action="/board/noteModify" method="get">
-		<ul>
-			<li><label>No</label> <input type="text"
-				class="input_tx input_tx2" name='bno'
-				value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
-			<li><label>반 이름</label> <input type="text"
-				class="input_tx input_tx2" name='classname'
-				value='<c:out value="${board.classname}"/>' readonly="readonly"></li>
-			<li><label>원아 이름</label> <input type="text"
-				class="input_tx input_tx2" name='cname'
-				value='<c:out value="${board.cname}"/>' readonly="readonly"></li>
-			<li><label>제목</label> <input type="text"
-				class="input_tx input_tx2" name='title'
-				value='<c:out value="${board.title}"/>' readonly="readonly"></li>
-			<li><label>내용</label> <input type="text"
-				class="input_tx input_tx2 input_tx3" name='content'
-				value='<c:out value="${board.content}"/>' readonly="readonly"></li>
-			<li><label>작성자</label> <input type="text"
-				class="input_tx input_tx2" name='writer'
-				value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
-		</ul>
+			<ul>
+				<li><label>No</label> <input type="text"
+					class="input_tx input_tx2" name='bno'
+					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+				<li><label>반 이름</label> <input type="text"
+					class="input_tx input_tx2" name='classname'
+					value='<c:out value="${board.classname}"/>' readonly="readonly"></li>
+				<li><label>원아 이름</label> <input type="text"
+					class="input_tx input_tx2" name='cname'
+					value='<c:out value="${board.cname}"/>' readonly="readonly"></li>
+				<li><label>제목</label> <input type="text"
+					class="input_tx input_tx2" name='title'
+					value='<c:out value="${board.title}"/>' readonly="readonly"></li>
+				<li><label>내용</label> <input type="text"
+					class="input_tx input_tx2 input_tx3" name='content'
+					value='<c:out value="${board.content}"/>' readonly="readonly"></li>
+				<li><label>작성자</label> <input type="text"
+					class="input_tx input_tx2" name='writer'
+					value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
+			</ul>
 
-		<div class="form-button">
-			<button data-oper='noteModify' class="btn_mod">수정</button>
-			<button data-oper='noteList' class="btn_list">목록</button>
-		</div>
+			<div class="form-button">
+				<button data-oper='noteModify' class="btn_mod">수정</button>
+				<button data-oper='noteList' class="btn_list">목록</button>
+			</div>
 
 
 			<input type="hidden" id="bno" name="bno" value="${board.bno}">
@@ -52,31 +53,13 @@
 				value='<c:out value="${cri.pageNum}"/>'> <input
 				type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
 
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
 
 		</form>
 
 	</div>
 
-	<div class="modal">
-
-		<div class="form-group">
-			<label>댓글</label> <input class="form-control" name='content' value=''>
-		</div>
-		<div class="form-group">
-			<label>작성자</label> <input class="form-control" name='writer' value=''>
-		</div>
-
-		<button id='modalRegisterBtn' type="button" class="btn btn-primary">등록</button>
-
-	</div>
-
-	<!-- /.panel -->
-	<div class="panel-heading">
-		<i class="fa fa-comments fa-fw"></i> Reply
-		<!-- 718p -->
-		<!-- <button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New Reply</button> -->
-	</div>
 
 
 	<!-- /.panel-heading -->
@@ -89,8 +72,6 @@
 					<div class="header">
 						<strong class="primary-font">user00</strong> <small
 							class="pull-right text-muted">2018-01-01 13:13</small>
-						<!-- <button id='modalModBtn' type="button" class="btn btn-warning">수정</button>
-        					<button id='modalRemoveBtn' type="button" class="btn btn-danger">삭제</button> -->
 					</div>
 					<p>Good job!</p>
 				</div>
@@ -100,13 +81,33 @@
 		</ul>
 		<!-- ./ end ul -->
 	</div>
+	
+	<div class="panel-footer"></div>
 
+	<div class="modal">
+
+		<div class="form-reply">
+			<label>댓글내용</label> <input type="text" class="input_1 form-control"
+				name='content' value=''>
+		</div>
+		<div class="form-reply">
+			<label>작성자</label> <input type="text" class="input_1 form-control2"
+				name='writer' value=''>
+		</div>
+
+		<div class="form-button2">
+			<button id='modalRegisterBtn' type="button" class="btn_reg">등록</button>
+		</div>
+	</div>
 </div>
+
+
+
+
 
 <script type="text/javascript">
 
 $(document).ready(function() {
-	
 	
 	console.log("===================");
 	console.log("JS TEST");
@@ -120,23 +121,23 @@ $(document).ready(function() {
 
 		console.log("show list " + page);
 	   
-		NoteReplyService.getList({bno:bnoValue, page: page|| 1 }, function(list) {
+		/* NoteReplyService.getList({bno:bnoValue, page: page|| 1 }, function(list) { */
 
-/* 		NoteReplyService.getList({bno:bnoValue, page: page|| 1 }, function(replyCnt, list) {
-		console.log("replyCnt: "+ replyCnt ); */
+ 		NoteReplyService.getList({bno:bnoValue, page: page|| 1 }, function(replyCnt, list) {
+ 			
+		console.log("replyCnt: "+ replyCnt );
 		console.log("list: " + list);
 		console.log(list);
 	   
-/* 		if(page == -1){
+ 		if(page == -1){
 		  pageNum = Math.ceil(replyCnt/10.0);
 		  showList(pageNum);
 		  return;
-		}  */
+		}
 	   
 		var str="";
 		
 		if(list == null || list.length == 0){
-			replyUL.html("");
 			return;
 		}
 	  
@@ -157,14 +158,14 @@ $(document).ready(function() {
 		        +NoteReplyService.displayTime(list[i].regdate)+"</small>";
 		    str +="    <p id='con'>"+list[i].content+"</p><input id='inputdis' style='display:none' type='text' value='"+list[i].content+"'></div>";
 		    str += "<button id='hidebutton' type='button' class='testMod' style='display: none;'>저장</button>";
-		    str +="<button id='modalModBtn' type='button' class='btn btn-default'>" + '수정' + "</button>";
-		    str +="<button id='modalRemoveBtn' type='button' class='btn btn-default'>" + '삭제' + "</button>" + "</div></li>";
+		    str +="<button id='modalModBtn' type='button' class='btn_mod bt'>" + '수정' + "</button>";
+		    str +="<button id='modalRemoveBtn' type='button' class='btn_del bt'>" + '삭제' + "</button>" + "</div></li>";
 		    
 		} 
 	  
 		replyUL.html(str);
 		
-		/* showReplyPage(replyCnt); */
+		showReplyPage(replyCnt);
 
 
 	});//end function
@@ -183,6 +184,16 @@ $(document).ready(function() {
 	var modalRemoveBtn = $("#modalRemoveBtn");
 	var modalRegisterBtn = $("#modalRegisterBtn");
 	
+	// 시큐리티 처리
+	
+	var csrfHeaderName = "${_csrf.headerName}";
+	var csrfTokenValue = "${_csrf.token}";
+	
+    // Ajax spring security header ..
+    $(document).ajaxSend(function(e, xhr, options) {
+    	xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+    });
+	
 	modalRegisterBtn.on("click", function(){
 
 		var reply = {
@@ -193,7 +204,7 @@ $(document).ready(function() {
 		
 		NoteReplyService.add(reply, function(){
 
-			showList(1);
+			showList(-1);
 		})
 	});
 	
@@ -221,12 +232,13 @@ $(document).ready(function() {
 		
  		var rno = $(this).parent().find(".test").text();
  		var content = $(this).parent().find("#inputdis").val();
+ 		var content = $(this).parent().find('#inputdis').val();
 		
 		var reply = {rno, content};
 		
 		NoteReplyService.update(reply, function(){
 			
-			showList(1);
+			showList(pageNum);
 		});
 	});
 	
@@ -237,7 +249,7 @@ $(document).ready(function() {
 		
 		NoteReplyService.remove(rno, function(){
 			
-			showList(1);
+			showList(pageNum);
 		});
 	});
 	
@@ -257,7 +269,7 @@ $(document).ready(function() {
 		
 	}); */
 	
-/* 	ReplyService.remove(3, function(count) {
+/* 	NoteReplyService.remove(3, function(count) {
 		
 		console.log(count);
 		
@@ -290,6 +302,70 @@ $(document).ready(function() {
 		console.log(rno);
 	}); */
 	
+	
+	
+	var pageNum = 1;
+	var replyPageFooter = $(".panel-footer");
+	
+	function showReplyPage(replyCnt){
+	 
+		var endNum = Math.ceil(pageNum / 10.0) * 10;  
+		var startNum = endNum - 9; 
+		
+		var prev = startNum != 1;
+		var next = false;
+		
+		if(endNum * 10 >= replyCnt){
+		  endNum = Math.ceil(replyCnt/10.0);
+		}
+		
+		if(endNum * 10 < replyCnt){
+		  next = true;
+		}
+		
+		var str = "<ul class='pagination pull-right'>";
+		
+		if(prev){
+			str+= "<li class='page-item'><a class='page-link' href='"+(startNum -1)+"'>Previous</a></li>";
+		}
+		
+		for(var i = startNum ; i <= endNum; i++){
+		  
+			var active = pageNum == i? "active":"";
+			
+			str+= "<li class='page-item "+active+" '><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+		}
+		
+		if(next){
+			str+= "<li class='page-item'><a class='page-link' href='"+(endNum + 1)+"'>Next</a></li>";
+		}
+		
+		str += "</ul></div>";
+		
+		console.log(str);
+		
+		replyPageFooter.html(str);
+	}
+//paging - end-------------------------
+
+	//페이지 번호 클릭 이벤트
+	replyPageFooter.on("click","li a", function(e){
+		
+		e.preventDefault();
+		console.log("page click");
+		
+		var targetPageNum = $(this).attr("href");
+		
+		console.log("targetPageNum: " + targetPageNum);
+		
+		pageNum = targetPageNum;
+		
+		showList(pageNum);
+	}); 
+	
+	
+	
+	
 	$(document).ready(function() {
 		
 		var operForm = $("#operForm");
@@ -308,7 +384,7 @@ $(document).ready(function() {
 	
 });
 	
-</script>	
+</script>
 
 
 

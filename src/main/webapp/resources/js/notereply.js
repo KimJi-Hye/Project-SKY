@@ -7,7 +7,7 @@ var NoteReplyService = (function() {
 
 		$.ajax({
 			type : 'post',
-			url : '/replies/new',
+			url : '/noteReplies/new',
 			data : JSON.stringify(reply),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr) {
@@ -28,7 +28,7 @@ var NoteReplyService = (function() {
 //		var bno = param.bno;
 //		var page = param.page || 1;
 //
-//		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+//		$.getJSON("/noteReplies/pages/" + bno + "/" + page + ".json",
 //				function(data) {
 //					if (callback) {
 //						callback(data);
@@ -47,12 +47,12 @@ var NoteReplyService = (function() {
 	    var bno = param.bno;
 	    var page = param.page || 1;
 	    
-	    $.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+	    $.getJSON("/noteReplies/pages/" + bno + "/" + page + ".json",
 	        function(data) {
 	    	
 	          if (callback) {
-	            callback(data); // 댓글 목록만 가져오는 경우 
-	            //callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
+	            //callback(data); // 댓글 목록만 가져오는 경우 
+	            callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
 	          }
 	        }).fail(function(xhr, status, err) {
 	      if (error) {
@@ -65,7 +65,7 @@ var NoteReplyService = (function() {
 	function remove(rno, callback, error) {
 		$.ajax({
 			type : 'delete',
-			url : '/replies/' + rno,
+			url : '/noteReplies/' + rno,
 			success : function(deleteResult, status, xhr) {
 				if (callback) {
 					callback(deleteResult);
@@ -85,7 +85,7 @@ var NoteReplyService = (function() {
 
 		$.ajax({
 			type : 'put',
-			url : '/replies/' + content.rno,
+			url : '/noteReplies/' + content.rno,
 			data : JSON.stringify(content),
 			contentType : "application/json; charset=utf-8",
 			success : function(result, status, xhr) {
@@ -103,7 +103,7 @@ var NoteReplyService = (function() {
 
 	function get(rno, callback, error) {
 
-		$.get("/replies/" + rno + ".json", function(result) {
+		$.get("/noteReplies/" + rno + ".json", function(result) {
 
 			if (callback) {
 				callback(result);

@@ -5,8 +5,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.NoteReplyVO;
-import org.zerock.domain.QnaReplyVO;
-
 
 
 public interface NoteReplyMapper {
@@ -17,7 +15,7 @@ public interface NoteReplyMapper {
 		
 	public NoteReplyVO read(Long bno);
 	
-	public int delete(Long rno);
+	public int delete(Long ano);
 	
 	public int update(NoteReplyVO reply);
 	
@@ -26,6 +24,4 @@ public interface NoteReplyMapper {
 			@Param("bno") Long bno);
 	
 	public int getCountByBno(Long bno);
-	
-
 }
