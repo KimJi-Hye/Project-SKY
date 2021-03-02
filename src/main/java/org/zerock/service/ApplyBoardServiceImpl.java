@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.zerock.domain.ApplyBoardVO;
-import org.zerock.domain.ClassNoteVO;
 import org.zerock.domain.Criteria;
 import org.zerock.mapper.ApplyBoardMapper;
 

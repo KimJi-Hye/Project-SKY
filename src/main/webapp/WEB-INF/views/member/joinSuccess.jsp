@@ -17,7 +17,7 @@
 			</div>
 			<div class="join3_btnBox">
 				<a href="../" class="a_btn">메인으로</a> 
-				<a href="#" class="a_btn2">로그인하기</a>
+				<a href="/member/login" class="a_btn2">로그인하기</a>
 			</div>
 		</div>
 

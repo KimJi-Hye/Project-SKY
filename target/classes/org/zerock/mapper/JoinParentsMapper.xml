@@ -33,6 +33,14 @@
 		select cunicode from tb_apply
 	</select>
 	
+	<select id="idCheck" resultType="int" parameterType="String">
+		select count(*)
+		from (select userid from tb_teacher
+		union
+		select userid from tb_parents)
+		where userid = #{userid}
+	</select>
+	
 	<!-- update -->
 	<update id="update">
 		update tb_parents

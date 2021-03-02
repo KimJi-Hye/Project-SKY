@@ -42,6 +42,7 @@
 			        <form action="/" method="POST">
 			                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			                <button type="submit" class="btn btn-dark btn-sm">LOGOUT</button>
+			                <li><a href="/member/myPage?userId=tea&userType=T">마이페이지</a></li>
 			        </form>
 		          </sec:authorize>
                     <li><a href="/member/login">로그인</a></li>
@@ -103,7 +104,7 @@
                         <ul class="sub_nav">
                             <li><a href="#self">모집안내</a></li>
                             <li><a href="/board/applyRegister">온라인접수</a></li>
-                            <li><a href="/board/applyList">접수조회</a></li>
+                            <li><a href="/board/applyCheck">접수조회</a></li>
                             <li><a href="/board/questionsList">Q&amp;A</a></li>
                         </ul>
                     </li>

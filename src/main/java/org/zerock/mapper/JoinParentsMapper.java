@@ -21,4 +21,6 @@ public interface JoinParentsMapper {
 	
 	public int delete(String userId);
 	
+	public int idCheck(String userId);
+	
 }

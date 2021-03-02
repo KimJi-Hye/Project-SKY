@@ -121,4 +121,12 @@ public class JoinControllerTests {
 //		log.info(resultPage);
 //	}
 	
+//	@Test
+//	public void testIdCheck() throws Exception{
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/member/idCheck")
+//				.param("userid", "pp"))
+//				.andReturn().getModelAndView().getViewName();
+//		log.info(resultPage);
+//	}
+	
 }

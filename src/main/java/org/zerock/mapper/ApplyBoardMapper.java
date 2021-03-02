@@ -17,8 +17,6 @@ public interface ApplyBoardMapper {
 		
 	public ApplyBoardVO read(Long ano);
 	
-	public int delete(ApplyBoardVO board);
-	
 	public int delete(Long ano);
 	
 	public int update(ApplyBoardVO board);

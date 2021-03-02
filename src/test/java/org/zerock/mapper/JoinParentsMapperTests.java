@@ -25,25 +25,31 @@ public class JoinParentsMapperTests {
 //		mapper.getList().forEach(list -> log.info(list));
 //	}
 	
-	// insert
+	// idCheck
 	@Test
-	public void testInsert() {
-		JoinParentsVO board = new JoinParentsVO();
-		board.setUserId("pid4");
-		board.setAtGrade("c");
-		board.setCunicode("C210210003");
-		board.setUserName("나부모");
-		board.setUserPw("1234");
-		board.setUserBirth("20210219");
-		board.setUserPhone("010");
-		board.setUserAddr("우리집");
-		board.setUserEmail("email@");
-		board.setUserType("P");
-		board.setRelation("부");
-		board.setApptype("헤헷");
-		mapper.insert(board);
-		log.info(board);
+	public void testIdCheck() {
+		mapper.idCheck("pp");
 	}
+	
+	// insert
+//	@Test
+//	public void testInsert() {
+//		JoinParentsVO board = new JoinParentsVO();
+//		board.setUserId("pid4");
+//		board.setAuth("c");
+//		board.setCunicode("C210210003");
+//		board.setUserName("나부모");
+//		board.setUserPw("1234");
+//		board.setUserBirth("20210219");
+//		board.setUserPhone("010");
+//		board.setUserAddr("우리집");
+//		board.setUserEmail("email@");
+//		board.setUserType("P");
+//		board.setRelation("부");
+//		board.setApptype("헤헷");
+//		mapper.insert(board);
+//		log.info(board);
+//	}
 	
 	// read
 //	@Test

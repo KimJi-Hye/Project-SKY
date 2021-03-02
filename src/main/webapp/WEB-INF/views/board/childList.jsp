@@ -34,16 +34,18 @@
 							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.cname}" /></a></td>
 							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.cgender}" /></a></td>
 							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.classname}" /></a></td>
-							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.cbirth}" /></a></td>
+							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><fmt:parseDate var="cbirth" value="${board.cbirth}" pattern="yyyy-MM-dd" />
+							<fmt:formatDate pattern="yyyy-MM-dd" value="${cbirth}" /></a></td>
 							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.username}" /></a></td>
-							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.enter}" /></a></td>
-							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><c:out value="${board.graduation}" /></a></td>
-							<%-- <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.adddate}" /></td> --%>
+							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><fmt:parseDate var="enter" value="${board.enter}" pattern="yyyy-MM-dd" />
+							<fmt:formatDate pattern="yyyy-MM-dd" value="${enter}" /></a></td>
+							<td><a class='move' href='<c:out value="${board.cunicode}"/>'><fmt:parseDate var="graduation" value="${board.graduation}" pattern="yyyy-MM-dd" />
+							<fmt:formatDate pattern="yyyy-MM-dd" value="${graduation}" /></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-
+			
 			<!-- <검색창> -->
 			<div class='bo_search'>
 				<form id='searchForm' action="/board/childList" method='get'>
@@ -51,8 +53,9 @@
 						<select name='type'>								
 							<option value=""
 							<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-							<option value="N"
-							<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모 이름</option>
+							<option value="N" <c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모 이름</option>
+							<option value="C" <c:out value="${pageMaker.cri.type eq 'C'?' selected':''}"/>>원아이름</option>
+							<option value="F" <c:out value="${pageMaker.cri.type eq 'F'?' selected':''}"/>>고유번호</option>
 						</select>
 					 
 						<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>'  placeholder="검색어를 입력해주세요">
@@ -121,12 +124,12 @@ $(document).ready(function() {
 	
     $("#searchForm button").on("click", function(e) {
 
-		if (!searchForm.find("option:selected").val()) {
+/* 		if (!searchForm.find("option:selected").val()) {
 			
 		   alert("검색종류를 선택하세요");
 		   return false;
 		   
-		}
+		} */
 		
 		if (!searchForm.find("input[name='keyword']").val()) {
 			

@@ -12,6 +12,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					<when test="type == 'N'.toString()">
 						c.username like '%'||#{keyword}||'%'
 					</when>
+					<when test="type == 'C'.toString()">
+						a.cname like '%'||#{keyword}||'%'
+					</when>
+					<when test="type == 'F'.toString()">
+						a.cunicode like '%'||#{keyword}||'%'
+					</when>
 				</choose>
 			</trim>
 		</foreach>
@@ -71,10 +77,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalCount" resultType="int">
 		select count(*)
 		from tb_child a, tb_class b, tb_parents c
-		where a.classname = b.classname and a.cunicode = c.cunicode(+) and
+		where a.classname = b.classname and a.cunicode = c.cunicode and
 		
 	<include refid="criteria"></include>
-		a.cunicode like 'C%' 
+		bno > 0
 	</select>
 
 	<delete id="delete">

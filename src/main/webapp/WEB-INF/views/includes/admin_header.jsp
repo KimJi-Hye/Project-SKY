@@ -24,6 +24,10 @@
             </button>
             <h1><a href="/admin/admin_index">ADMINISTRATOR</a></h1>
             <div class="hd_right">
+				<%-- <form action="/" method="POST">
+			    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			    	<button type="submit" class="btn btn-dark btn-sm">LOGOUT</button>
+				</form> --%>
                 <a href=""><span class="material-icons">logout</span></a>
                 <a href="../"><span class="material-icons">home</span></a>
             </div>

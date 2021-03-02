@@ -4,10 +4,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
 <%@ include file="../includes/admin_header.jsp"%>
+<style>
+	.radioBox{
+		height: 36px;
+		align-items: center;
+	}
+	.radioBox label{
+		margin-right: 20px;
+	}
+</style>
 
     <section id="adminPage" class="admin_register">
     	<div class="admin_title">
-    		<h2>원아 관리</h2>
+    		<h2>온라인 접수 관리</h2>
 	    </div>
     	<div class="admin_contents">
     	
@@ -60,7 +69,15 @@
 							</li>
 				    		<li>
 								<p>접수유형</p>
-				    			<input type="text" name='apptype' value='<c:out value="${board.apptype}"/>'>
+				    			<input type="text" name='apptype' value='<c:out value="${board.apptype}"/>' readonly>
+								<!-- <div class="radioBox">
+									<input type="radio" name="apptype" id="type1" value="우선모집">
+									<label for="type1"><span></span> 우선모집(재원생 동생)</label>
+									<input type="radio" name="apptype" id="type2" value="일반모집">
+									<label for="type2"><span></span> 일반모집</label>
+									<input type="radio" name="apptype" id="type3" value="방과후 과정">
+									<label for="type3"><span></span> 방과후 과정</label>
+								</div> -->
 							</li>
 				    		<li>
 								<p>접수상태</p>
@@ -68,11 +85,11 @@
 							</li>
 				    		<li>
 								<p>아동고유번호</p>
-				    			<input type="text" name='cunicode' value='<c:out value="${board.cunicode}"/>' >
+				    			<input type="text" name='cunicode' value='<c:out value="${board.cunicode}"/>' readonly>
 							</li>
 				    		<li>
 								<p>소속반</p>
-				    			<input type="text" name='cclass' value='<c:out value="${board.cclass}"/>' >
+				    			<input type="text" name='cclass' value='<c:out value="${board.cclass}"/>' readonly>
 							</li>
 				    		<li>
 								<p>비밀번호</p>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_list.css">
@@ -26,6 +27,10 @@
 		</thead>
 
 		<tbody>
+<<<<<<< HEAD
+=======
+		
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 			<c:if test="${empty noteList}">
 				<tr>
 					<td colspan="6">검색 결과가 없습니다.</td>
@@ -64,6 +69,7 @@
 
 				<!-- Pagination -->
 				<div class='bo_pages'>
+
 					<ul class="pg_wrap">
                 	    <span class="pg">					
 						<c:if test="${pageMaker.prev}">
@@ -83,6 +89,9 @@
 								href="${pageMaker.endPage +1}">Next</a></li>
 						</c:if>
                 	    </span>						
+					</ul>
+					<ul class="no_wrap">
+						
 					</ul>
 				</div>
 				<!-- end Pagination -->

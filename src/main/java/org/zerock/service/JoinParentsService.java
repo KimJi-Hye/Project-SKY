@@ -21,5 +21,6 @@ public interface JoinParentsService {
 	
 	public List<JoinParentsVO> getList();
 	
-
+	public int idCheck(String userId);
+	
 }
