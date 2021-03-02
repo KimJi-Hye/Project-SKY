@@ -46,7 +46,7 @@ public class UploadController {
 	@PostMapping("/uploadFormAction")
 	public void uploadFormPost(MultipartFile[] uploadFile, Model model) {
 		
-		String uploadFolder = "C:\\upload";
+		String uploadFolder = "Y:\\스마트_개발과정\\ERD\\upload";
 		
 		for (MultipartFile multipartFile : uploadFile) {
 			
@@ -102,7 +102,7 @@ public class UploadController {
 		List<AttachFileDTO> list = new ArrayList<>();
 		
 		
-		String uploadFolder = "C:\\upload";
+		String uploadFolder = "Y:\\스마트_개발과정\\ERD\\upload";
 		
 		String uploadFolderPath = getFolder();
 		
@@ -148,7 +148,7 @@ public class UploadController {
 					
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + uploadFileName));
 					
-					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100, 100);
+					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 200, 200);
 					
 					thumbnail.close();
 				}
@@ -169,7 +169,7 @@ public class UploadController {
 		 
 		 log.info("fileName: " + fileName);
 		 
-		 File file = new File("c:\\upload\\" + fileName);
+		 File file = new File("Y:\\스마트_개발과정\\ERD\\upload\\" + fileName);
 		 
 		 log.info("file: " + file);
 		 
@@ -191,7 +191,7 @@ public class UploadController {
 	 public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent") String userAgent, String fileName) {
 		 
 		 
-		 Resource resource = new FileSystemResource("c:\\upload\\" + fileName);
+		 Resource resource = new FileSystemResource("Y:\\스마트_개발과정\\ERD\\upload\\" + fileName);
 		 
 		 
 		 if ( resource.exists() == false) {
@@ -248,7 +248,7 @@ public class UploadController {
 		 File file;
 		 
 		 try {
-			 file = new File("c:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			 file = new File("Y:\\스마트_개발과정\\ERD\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
 			 
 			 file.delete();
 			 

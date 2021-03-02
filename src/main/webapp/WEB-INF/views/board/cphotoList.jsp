@@ -6,6 +6,8 @@
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_list.css">
 
+
+
 <div class="boardTitle">
 	<!-- 게시판 제목 -->
 	<h3>반앨범</h3>
@@ -23,6 +25,7 @@
 				<th class="th_title">제목</th>
 				<th class="th_regdate">작성일</th>
 			</tr>
+			
 		</thead>
 
 		<tbody>
@@ -41,7 +44,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	
 	
 
 	<!-- 글쓰기 -->
@@ -78,6 +80,33 @@
 
 </div>
 <!-- /.panel-body -->
+
+ <script type="text/javascript">
+  function fnImgPop(url){
+	  var img=new Image();
+	  img.src=url;
+	  var img_width=img.width;
+	  var win_width=img.width+25;
+	  var img_height=img.height;
+	  var win=img.height+30;
+	  var OpenWindow=window.open('','_blank', 'width='+img_width+', height='+img_height+', menubars=no, scrollbars=auto');
+	  OpenWindow.document.write("<style>body{margin:0px;}</style><img src='"+url+"' width='"+win_width+"'>");
+	 }
+  
+  function zoomIn(event) {
+	  event.target.style.transform ="scale(1.5)";
+	  event.target.style.zIndex = 1;
+	  event.target.style.transition = "all 0.5s";
+  }
+  function zoomOut(event) {
+	  event.target.style.transform ="scale(1)";
+	  event.target.style.zIndex = 0;
+	  event.target.style.transition = "all 0.5s";
+  }
+  
+  
+  </script>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -101,6 +130,8 @@
 			actionForm.attr("action", "/board/cphotoGet");
 			actionForm.submit();
 		});		
+		
+		
 		
 	});
 </script>
