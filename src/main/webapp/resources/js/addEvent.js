@@ -98,6 +98,10 @@ var newEvent = function (start, end, eventType) {
         $.ajax({
             type: "post",
             url: "/board/create",
+			headers: {
+			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+			        'Content-Type':'application/json'
+			    },
             data: JSON.stringify(eventDBData),
 			contentType : "application/json; charset=utf-8",
             success: function (response) {

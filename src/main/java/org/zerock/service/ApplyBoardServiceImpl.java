@@ -81,4 +81,14 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		return mapper.delete(ano) == 1;
 	}
 
+	@Override
+	public ApplyBoardVO success(String useremail) {
+
+		
+		log.info("success...." + useremail);
+		
+		return mapper.success(useremail);
+	}
+
+
 }

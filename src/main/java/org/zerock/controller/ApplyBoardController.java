@@ -64,6 +64,43 @@ public class ApplyBoardController {
         
     }
 	
+	@RequestMapping(value = "/sendMail2", method = RequestMethod.GET)
+    public void sendMailTest2(String email,@RequestParam("ano") String ano) throws Exception{
+        
+		log.info("이메일 데이터 전송 확인");
+		log.info("이메일주소 : " + email);
+		
+        String subject = "test 메일";
+        String content = "메일 테스트 내용" + ano;
+        String from = "erdskykindergarten@gmail.com";
+        String to = email;
+        
+        try {
+            MimeMessage mail = mailSender.createMimeMessage();
+            MimeMessageHelper mailHelper = new MimeMessageHelper(mail, "UTF-8");
+            
+            mailHelper.setFrom(from);
+            mailHelper.setTo(to);
+            mailHelper.setSubject(subject);
+            mailHelper.setText(content, true);
+            
+            mailSender.send(mail);
+            
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+	
+	@GetMapping("/applysuccess")
+	public void successlist(@RequestParam("useremail") String useremail, Model model) {
+		
+		log.info("applysuccess");
+		
+		model.addAttribute("as", service.success(useremail));
+	}
+	
+	
 	@GetMapping("/applyList")
 
 //	public void list(Model model) {
@@ -95,7 +132,7 @@ public class ApplyBoardController {
 		log.info("applyRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getAno());
-		return "redirect:/board/applyList";
+		return "redirect:/board/applysuccess?useremail=" + board.getUseremail();
 	}
 	
 	@GetMapping({"/applyGet","/applyModify"})

@@ -134,4 +134,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		end
 	 }
 	 </update>
+	 
+	 <select id="success" resultType="org.zerock.domain.ApplyBoardVO">
+	 	select ano, useremail
+	 	from tb_apply
+	 	where useremail = #{useremail}
+	 </select>
 </mapper>
