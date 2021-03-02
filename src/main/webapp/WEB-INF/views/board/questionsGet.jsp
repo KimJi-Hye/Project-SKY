@@ -8,6 +8,15 @@
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
 
+<div id="QApwCheck">
+		<h3>비밀번호를 입력하세요.</h3>
+		<div>
+			<label for="QNApw">비밀번호</label>
+			<input type="password" id="pw_qna" name="pw_qna">
+			<button type="button" class="pw_btn">확인</button>
+		</div>
+</div>
+
 <div id="wrapper">
 	<div class="boardTitle">
 		<!-- 게시판 제목 -->
@@ -128,6 +137,40 @@ $(document).ready(function() {
 
 });
 </script> -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var wrap = $("#wrapper");
+		var windex = wrap.html();
+		
+		var bno = '<c:out value="${board.bno}"/>';
+        var pwQna = $("#pw_qna").val();
+		wrap.html("");
+		
+		$(".pw_btn").click(function(){
+	        var pwQna = $("#pw_qna").val();
+			if(pwQna == ""){
+				alert("비밀번호를 입력하세요.");
+				return false;
+			}
+			$.ajax({
+	        	url:'/board/qnaPwCheck?bno=' + bno,
+	       		type:'get',
+	       		success:function(data){
+	    			if(pwQna == data){
+	    				wrap.append(windex);
+	    				$("#QApwCheck").html("");
+	    			} else {
+	    				alert("비밀번호가 일치하지 않습니다.");
+	    				$("#pw_qna").focus();
+	    				return false;
+	    			}
+	       		}
+	        })
+		});
+	});
+</script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	

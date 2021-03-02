@@ -58,29 +58,89 @@
 <script>
 $(document).ready(function() {
 	
-<<<<<<< HEAD
 	var formObj = $("form");
-=======
-	var form = $("form");
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	
 	$("button[type='submit']").click(function(e) {
-<<<<<<< HEAD
 		
 		e.preventDefault();
-		
-		var ano = $("input[name='ano']").val();
+        
+        ///////////////////// test3
+        var ano = $("#ano").val();
+        var pw = $("#pw").val();
+        var anoPass;
+        
+        $.ajax({
+        	url:'/board/anoCheck?ano=' + ano,
+       		type:'get',
+       		success:function(data){
+       			//alert(data);
+       			if(data > 0){
+   					anoPass = true;
+       			} else {
+       				alert("접수되지 않은 번호입니다.");
+       				$("input[name='ano']").focus();
+       				anoPass = false;
+       				return false;
+       			}
+       		}
+        }) 
+        
+        $.ajax({
+        	url:'/board/anoPwCheck?ano=' + ano,
+       		type:'get',
+       		success:function(data){
+       			//alert(data);
+       			if(anoPass == true){
+       		        if(pw == ""){
+       					alert("비밀번호를 입력하세요.");
+       					$("input[name='pw']").focus();
+       					return false;
+       				}
+       				if(pw != data){
+	   					alert("비밀번호가 일치하지 않습니다.");
+	   					$("input[name='pw']").focus();
+	   					return false;
+	   				} else {
+	   					formObj.submit();
+	   				}
+       				return true;
+       			} else if(anoPass == false) {
+       				alert("접수되지 않은 번호입니다.");
+       				$("input[name='ano']").focus();
+       				return false;
+       			}
+       		}
+        }) 
+        
+        
+        ///////////////////// test2
+		/* var ano = $("input[name='ano']").val();
         var pw = $("input[name='pw']").val();
-		
 		<c:forEach items="${applyCheck}" var="app">
+			// ano 조회
+			if(ano == "${app.ano}"){
+				// 비밀번호 조회
+				if(pw != "${app.pw}"){
+					alert("비밀번호가 일치하지 않습니다.");
+					return false;
+				}
+				formObj.submit();
+			}
+		</c:forEach>
+		alert("접수되지 않은 번호입니다.");
+		$("input[name='ano']").focus(); */
+        
+		
+        ///////////////////// test1
+		/* <c:forEach items="${applyCheck}" var="app"> */
 		// ano 조회
 
 		
-		if (ano == "${app.ano}") {
+		/* if (ano == "${app.ano}") {
 			
 			formObj.attr("action", "/member/applyGetMember");
 			formObj.submit();
-   	   		return true;
+   	   		return true; */
 			/* operForm.submit(); */
 			/* operForm.attr("action", "/board/applyGetMember").submit(); */
 /* 			<c:forEach items="${applyCheck}" var="app">
@@ -90,18 +150,12 @@ $(document).ready(function() {
 					operForm.submit();
 				}
 			</c:forEach> */
-		}
-			   
-			   
-
-		</c:forEach>
+		/*}
+		
+		</c:forEach>*/
 		
 	/* alert("등록 되지 않은 접수번호 입니다."); */
 		//operForm.submit();
-=======
-		//e.preventDefault();
-		//form.submit();
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	});
 });
 </script>

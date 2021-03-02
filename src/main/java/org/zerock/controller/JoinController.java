@@ -104,6 +104,7 @@ public class JoinController {
 		return "redirect:/member/joinSuccess";
 	}
 	
+	// 아이디 중복 체크
 	@GetMapping("/idCheck")
 	public @ResponseBody int idCheck(@RequestParam("userid") String userId) {
 		int cnt = serviceP.idCheck(userId);

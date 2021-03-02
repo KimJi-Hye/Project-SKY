@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.Criteria;
 import org.zerock.domain.PageDTO;
@@ -50,6 +51,13 @@ public class QuestionsBoardController {
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
 		return "redirect:/board/questionsList";
+	}
+	
+	// 비밀번호 조회
+	@GetMapping("/qnaPwCheck")
+	public @ResponseBody String qnaPwCheck(@RequestParam("bno") Long bno) {
+		log.info("QNA 비밀번호 조회");
+		return service.get(bno).getPw();
 	}
 	
 	@GetMapping({"/questionsGet","/questionsModify"})
