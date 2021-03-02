@@ -22,10 +22,6 @@ public interface NoteReplyService {
 	
 	public List<NoteReplyVO> getList(Criteria cri, Long bno);
 	
-<<<<<<< HEAD
 	public NoteReplyPageDTO getListPage(Criteria cri, Long bno);
-=======
 	
-	//public ReplyPageDTO getListPage(Criteria cri, Long bno);
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 }

@@ -8,10 +8,6 @@ public class JoinTeacherVO {
 	// 선생님 테이블
 	private String userId;
 	private String auth;
-<<<<<<< HEAD
-	private char atGrade;
-=======
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 	private String classname;
 	private String userName;
 	private String userPw;
