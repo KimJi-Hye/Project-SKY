@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
+@RequestMapping("/admin/*")
 @AllArgsConstructor
 public class ChildBoardController {
 
@@ -53,7 +53,7 @@ public class ChildBoardController {
 		log.info("childRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getCunicode());
-		return "redirect:/board/childList";
+		return "redirect:/admin/childList";
 	}
 	
 	@GetMapping({"/childGet","/childModify"})
@@ -74,7 +74,7 @@ public class ChildBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/childList";
+		return "redirect:/admin/childList";
 	}
 
 	@PostMapping("/childRemove")
@@ -89,6 +89,6 @@ public class ChildBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 
-		return "redirect:/board/childList";
+		return "redirect:/admin/childList";
 	}
 }

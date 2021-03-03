@@ -36,7 +36,7 @@
 
 	<!-- <검색창> -->
 	<div class='bo_search'>
-		<form id='searchForm' action="/board/applyList" method='get'>
+		<form id='searchForm' action="/apply/applyList" method='get'>
 			<div class="bo_searchBox">
 				<select name="type">
 					<option value="N" <c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>학부모이름</option>
@@ -76,7 +76,7 @@
 	</div>
 	<!-- } 페이징 end -->
 
-	<form id='actionForm' action="/board/applyList" method='get'>
+	<form id='actionForm' action="/apply/applyList" method='get'>
 		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 		<input type='hidden' name='type'
@@ -108,7 +108,7 @@ $(document).ready(function() {
 	$(".move").on("click", function(e) {
 		e.preventDefault();
 		actionForm.append("<input type='hidden' name='ano' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/board/applyGet");
+		actionForm.attr("action", "/apply/applyGet");
 		actionForm.submit();
 	});
 	

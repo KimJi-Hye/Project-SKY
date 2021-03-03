@@ -24,7 +24,7 @@
 	</div>
 	<div class="form-group">
 				
-			<form id='operForm' action="/board/questionsGet" method="post">
+			<form id='operForm' action="/info/questionsGet" method="post">
 			<ul>
 				<li><label>No</label> <input type="text"
 					class="input_tx input_tx2" name='bno'
@@ -117,15 +117,15 @@ $(document).ready(function() {
 	    console.log(operation);
 	    
 	    if(operation === 'remove'){
-	      formObj.attr("action", "/board/applyRemove");
+	      formObj.attr("action", "/info/applyRemove");
 	      
 	    } else if(operation === 'list'){
 	      //move to list
-	      formObj.attr("action", "/board/applyList").attr("method","get");
+	      formObj.attr("action", "/info/applyList").attr("method","get");
 	      formObj.empty();
 	      
 		} else if(operation === 'applyModify'){
-		  formObj.attr("action", "/board/applyModify").attr("method","post");
+		  formObj.attr("action", "/info/applyModify").attr("method","post");
 		  formObj.empty();
 		
 		}
@@ -152,7 +152,7 @@ $(document).ready(function() {
 				return false;
 			}
 			$.ajax({
-	        	url:'/board/qnaPwCheck?bno=' + bno,
+	        	url:'/info/qnaPwCheck?bno=' + bno,
 	       		type:'get',
 	       		success:function(data){
 	    			if(pwQna == data){
@@ -372,16 +372,16 @@ $(document).ready(function() {
 	$("button[data-oper='questionsModify']").on("click", function(e) {
 		e.preventDefault();		
 		operForm.find("#bno").remove();
-		operForm.attr("action", "/board/questionsModify").attr("result", "success").submit();
+		operForm.attr("action", "/info/questionsModify").attr("result", "success").submit();
 	});	
 	
 	$("button[data-oper='questionsList']").on("click", function(e) {
 		operForm.find("#bno").remove();
-		operForm.attr("action", "/board/questionsList").attr("method","get").submit();
+		operForm.attr("action", "/info/questionsList").attr("method","get").submit();
 	});
 	
 	$("button[data-oper='questionsRemove']").on("click", function(e){
-		operForm.attr("action", "/board/questionsRemove").submit();
+		operForm.attr("action", "/info/questionsRemove").submit();
 	});
 	
 	

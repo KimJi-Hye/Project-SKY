@@ -11,7 +11,7 @@
 	    </div>
     	<div class="admin_contents">
 			
-			<form id="operForm" action="/board/classRegister" method="post">
+			<form id="operForm" action="/admin/classRegister" method="post">
 	    		<div class="reg_box_con">
                 	<div class="reg_box">
 				    	<ul>
@@ -52,7 +52,7 @@
 				"click",
 				function(e) {
 					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classList").attr(
+					operForm.attr("action", "/admin/classList").attr(
 							"method", "get").submit();
 				});
 	});

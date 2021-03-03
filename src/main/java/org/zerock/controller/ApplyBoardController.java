@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
+@RequestMapping("/apply/*")
 @AllArgsConstructor
 public class ApplyBoardController {
 
@@ -140,7 +140,7 @@ public class ApplyBoardController {
 		log.info("applyRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getAno());
-		return "redirect:/board/applysuccess?useremail=" + board.getUseremail();
+		return "redirect:/apply/applysuccess?useremail=" + board.getUseremail();
 	}
 	// 접수번호 조회
 	@GetMapping("/anoCheck")
@@ -174,7 +174,7 @@ public class ApplyBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/applyList";
+		return "redirect:/apply/applyList";
 	}
 
 	@PostMapping("/applyRemove")
@@ -189,7 +189,7 @@ public class ApplyBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/applyList";
+		return "redirect:/apply/applyList";
 	}
 	
 	@PostMapping("/applyPass")
@@ -204,7 +204,7 @@ public class ApplyBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/applyList";
+		return "redirect:/apply/applyList";
 	}	
 	
 //	추가  ===========================================================================
@@ -227,7 +227,7 @@ public class ApplyBoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
-		return "redirect:/board/applyGetMember?ano=" + board.getAno();
+		return "redirect:/apply/applyGetMember?ano=" + board.getAno();
 	}	
 	
 	@PostMapping("/applyRemoveMember")

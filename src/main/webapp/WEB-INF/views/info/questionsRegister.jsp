@@ -14,7 +14,7 @@
 
 	<div class="form-group">
 
-		<form id='operForm' action="/board/questionsRegister" method="post">
+		<form id='operForm' action="/info/questionsRegister" method="post">
 			<ul>
 				<li><label>제목</label> <input type="text"
 					class="input_tx input_tx2" name='title'
@@ -50,7 +50,7 @@ $(document).ready(function() {
 	
 	$("button[data-oper='questionsList']").on("click", function(e) {
 		operForm.find("#bno").remove();
-		operForm.attr("action", "/board/questionsList").attr("method","get").submit();
+		operForm.attr("action", "/info/questionsList").attr("method","get").submit();
 	});	
 
 });

@@ -77,7 +77,7 @@
 	<div class='bo_search'>
 		<div class="col-lg-12">
 
-			<form id='searchForm' action="/board/questionsList" method='get'>
+			<form id='searchForm' action="/info/questionsList" method='get'>
 				<div class="bo_searchBox">
 					<select name="type">
 						<option value="N"
@@ -99,7 +99,7 @@
 	<!-- <검색창 END> -->
 
 
-	<form id='actionForm' action="/board/questionsList" method='get'>
+	<form id='actionForm' action="/info/questionsList" method='get'>
 		<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 		<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 		<input type='hidden' name='type'
@@ -131,7 +131,7 @@ $(document).ready(function() {
 	$(".move").on("click", function(e) {
 		e.preventDefault();
 		actionForm.append("<input type='hidden' name='bno' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/board/questionsGet");
+		actionForm.attr("action", "/info/questionsGet");
 		actionForm.submit();
 	});
 	

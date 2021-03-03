@@ -80,7 +80,7 @@ $(document).ready(function() {
 	
 	$("#read").on("click", function() {
 
-		self.location = "board/";
+		self.location = "/apply/applyCheck";
 
 	});
 });

@@ -12,7 +12,7 @@
 	</div>
 	<div class="form-group">
     	
-			<form id='operForm' action="/board/applyGet" method="post">	
+			<form id='operForm' action="/apply/applyGet" method="post">	
 				    	<ul>
 				    		<li>
 								<label>접수번호</label>
@@ -100,12 +100,12 @@ $(document).ready(function() {
 	
 	$("button[data-oper='applyModify']").on("click", function(e) {
 		
-		operForm.attr("action", "/board/applyModifyMember").submit();
+		operForm.attr("action", "/apply/applyModifyMember").submit();
 	});
 	
 	$("button[data-oper='applyList']").on("click", function(e) {
 		
-		location.href="/board/applyCheck";
+		location.href="/apply/applyCheck";
 		
 	});
 	
@@ -117,12 +117,12 @@ $(document).ready(function() {
 			return;
 		} */
 		
-		operForm.attr("action", "/board/applyRemoveMember").submit();
+		operForm.attr("action", "/apply/applyRemoveMember").submit();
 		
 	});
 	
 	$("button[data-oper='applyPass']").on("click", function(e){
-		operForm.attr("action", "/board/applyPassMember").submit();
+		operForm.attr("action", "/apply/applyPassMember").submit();
 	});
 });
 </script>

@@ -20,7 +20,7 @@
 	    </div>
     	<div class="admin_contents">
     	
-			<form id='operForm' action="/board/applyGet" method="post">	
+			<form id='operForm' action="/apply/applyGet" method="post">	
 	    		<div class="reg_box_con">
                 	<div class="reg_box">
                 		<h3>원아 관리 정보</h3>
@@ -111,7 +111,7 @@
 				    
 			</form>
 
-			<form id='operForm2' action="/board/applyPass" method="post">
+			<form id='operForm2' action="/apply/applyPass" method="post">
 				
 				<input type='hidden' name='ano' value='<c:out value="${board.ano}"/>'>
 				<input type='hidden' name='cname' value='<c:out value="${board.cname}"/>'>
@@ -163,15 +163,15 @@ $(document).ready(function() {
 	    console.log(operation);
 	    
 	    if(operation === 'remove'){
-	      formObj.attr("action", "/board/applyRemove");
+	      formObj.attr("action", "/apply/applyRemove");
 	      
 	    } else if(operation === 'list'){
 	      //move to list
-	      formObj.attr("action", "/board/applyList").attr("method","get");
+	      formObj.attr("action", "/apply/applyList").attr("method","get");
 	      formObj.empty();
 	      
 		} else if(operation === 'applyModify'){
-		  formObj.attr("action", "/board/applyModify").attr("method","post");
+		  formObj.attr("action", "/apply/applyModify").attr("method","post");
 		  formObj.empty();
 		
 		}
@@ -196,14 +196,14 @@ $(document).ready(function(){
 		
 		if(operation === 'applyRemove') {
 			
-			formObj.attr("action", "/board/applyRemove");
+			formObj.attr("action", "/apply/applyRemove");
 			
 		} else if(operation === 'applyModify') {
-			formObj.attr("action", "/board/applyModify");
+			formObj.attr("action", "/apply/applyModify");
 			
 		} else if(operation === 'applyList') {
 			
-			formObj.attr("action", "/board/applyList").attr("method", "get");
+			formObj.attr("action", "/apply/applyList").attr("method", "get");
 			var pageNumTag = $("input[name='pageNum']").clone();
 			var pageamountTag = $("input[name='amount']").clone();
 			
@@ -226,13 +226,13 @@ $(document).ready(function() {
 	
 	$("button[data-oper='applyModify']").on("click", function(e) {
 		
-		operForm.attr("action", "/board/applyModify").submit();
+		operForm.attr("action", "/apply/applyModify").submit();
 	});
 	
 	$("button[data-oper='applyList']").on("click", function(e) {
 		
 		operForm.find("#ano").remove();
-		operForm.attr("action", "/board/applyList").attr("method","get")
+		operForm.attr("action", "/apply/applyList").attr("method","get")
 		var pageNumTag = $("input[name='pageNum']").clone();
 		var pageamountTag = $("input[name='amount']").clone();
 		var keywordTag = $("input[name='keyword']").clone();
@@ -250,12 +250,12 @@ $(document).ready(function() {
 	
 	$("button[data-oper='applyRemove']").on("click", function(e){
 		
-		operForm.attr("action", "/board/applyRemove").submit();
+		operForm.attr("action", "/apply/applyRemove").submit();
 		
 	});
 	
 	$("button[data-oper='applyPass']").on("click", function(e){
-		operForm.attr("action", "/board/applyPass").submit();
+		operForm.attr("action", "/apply/applyPass").submit();
 	});
 	
 	/* 인증번호 이메일 전송 */

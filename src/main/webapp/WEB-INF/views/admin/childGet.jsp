@@ -11,7 +11,7 @@
 	    </div>
     	<div class="admin_contents">
 				
-			<form id='operForm' action="/board/childGet" method="post">	
+			<form id='operForm' action="/admin/childGet" method="post">	
 
 				<div class="reg_box_con">
 				
@@ -85,15 +85,15 @@ $(document).ready(function() {
 	    console.log(operation);
 	    
 	    if(operation === 'remove'){
-	      formObj.attr("action", "/board/applyRemove");
+	      formObj.attr("action", "/admin/applyRemove");
 	      
 	    } else if(operation === 'list'){
 	      //move to list
-	      formObj.attr("action", "/board/applyList").attr("method","get");
+	      formObj.attr("action", "/admin/applyList").attr("method","get");
 	      formObj.empty();
 	      
 		} else if(operation === 'applyModify'){
-		  formObj.attr("action", "/board/applyModify").attr("method","post");
+		  formObj.attr("action", "/admin/applyModify").attr("method","post");
 		  formObj.empty();
 		
 		}
@@ -110,13 +110,13 @@ $(document).ready(function() {
 	
 	$("button[data-oper='childModify']").on("click", function(e) {
 		
-		operForm.attr("action", "/board/childModify").submit();
+		operForm.attr("action", "/admin/childModify").submit();
 	});
 	
 	$("button[data-oper='childList']").on("click", function(e) {
 		
 		operForm.find("#cunicode").remove();
-		operForm.attr("action", "/board/childList").attr("method","get")
+		operForm.attr("action", "/admin/childList").attr("method","get")
 		var pageNumTag = $("input[name='pageNum']").clone();
 		var pageamountTag = $("input[name='amount']").clone();
 		var keywordTag = $("input[name='keyword']").clone();
@@ -134,7 +134,7 @@ $(document).ready(function() {
 	
 	$("button[data-oper='childRemove']").on("click", function(e){
 		
-		operForm.attr("action", "/board/childRemove").submit();
+		operForm.attr("action", "/admin/childRemove").submit();
 		
 	});
 });

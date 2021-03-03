@@ -23,19 +23,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../board/classList">
+                            <a href="../admin/classList">
                                 <span class="material-icons">location_city</span>
                                 <p>반 관리</p>
                             </a>
                         </li>
                         <li>
-                            <a href="../board/childList">
+                            <a href="../admin/childList">
                                 <span class="material-icons">face</span>
                                 <p>원아 관리</p>
                             </a>
                         </li>
                         <li>
-                            <a href="../board/applyList">
+                            <a href="../apply/applyList">
                                 <span class="material-icons">note_alt</span>
                                 <p>온라인접수 관리</p>
                             </a>

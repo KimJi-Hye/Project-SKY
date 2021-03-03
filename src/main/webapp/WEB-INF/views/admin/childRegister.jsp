@@ -11,7 +11,7 @@
 	    </div>
     	<div class="admin_contents">
 
-			<form role="form" action="/board/childRegister" method="post">
+			<form role="form" action="/admin/childRegister" method="post">
 
 				<div class="reg_box_con">
 				

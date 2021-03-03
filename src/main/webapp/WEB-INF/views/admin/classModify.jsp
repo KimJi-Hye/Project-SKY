@@ -11,7 +11,7 @@
 	    </div>
     	<div class="admin_contents">
     	
-    		<form id="operForm" action="/board/classUpdate" method="post">
+    		<form id="operForm" action="/admin/classUpdate" method="post">
 	    		<div class="reg_box_con">
                 	<div class="reg_box">
 				    	<ul>
@@ -60,17 +60,17 @@
 
 				$("button[data-oper='classModify']").on("click", function(e) {
 					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classModify").attr("result", "success").submit();
+					operForm.attr("action", "/admin/classModify").attr("result", "success").submit();
 				});
 
 				$("button[data-oper='classList']").on("click", function(e) {
 					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classList").attr("method", "get").submit();
+					operForm.attr("action", "/admin/classList").attr("method", "get").submit();
 				});
 
 				$("button[data-oper='classRemove']").on("click", function(e) {
 					operForm.find("#bno").remove();
-					operForm.attr("action", "/board/classRemove").attr("result", "success").submit();
+					operForm.attr("action", "/admin/classRemove").attr("result", "success").submit();
 				});
 
 			});

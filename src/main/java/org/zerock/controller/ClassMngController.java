@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
+@RequestMapping("/admin/*")
 @AllArgsConstructor
 public class ClassMngController {
 
@@ -44,7 +44,7 @@ public class ClassMngController {
 		log.info("classRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
-		return "redirect:/board/classList";
+		return "redirect:/admin/classList";
 	}
 
 	@GetMapping({"/classGet","/classModify"})
@@ -61,7 +61,7 @@ public class ClassMngController {
 		if (service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/board/classList";
+		return "redirect:/admin/classList";
 	}
 
 	@PostMapping("/classRemove")
@@ -70,7 +70,7 @@ public class ClassMngController {
 		if (service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		return "redirect:/board/classList";
+		return "redirect:/admin/classList";
 	}
 
 

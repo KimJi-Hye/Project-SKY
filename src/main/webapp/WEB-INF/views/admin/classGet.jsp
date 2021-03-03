@@ -11,7 +11,7 @@
 	    </div>
     	<div class="admin_contents">
 
-			<form id='operForm' action="/board/classGet" method="post">
+			<form id='operForm' action="/admin/classGet" method="post">
 
 				<div class="get_box_con">
 
@@ -78,11 +78,11 @@
 			var operForm = $("#operForm");
 			$("button[data-oper='classModify']").on("click", function(e) {
 				operForm.find("#bno").remove();
-				operForm.attr("action", "/board/classModify").attr("method", "get").submit();
+				operForm.attr("action", "/admin/classModify").attr("method", "get").submit();
 			});
 			$("button[data-oper='classList']").on("click",function(e) {
 				operForm.find("#bno").remove();
-				operForm.attr("action", "/board/classList").attr("method", "get").submit();
+				operForm.attr("action", "/admin/classList").attr("method", "get").submit();
 			});
 		});
 	</script>

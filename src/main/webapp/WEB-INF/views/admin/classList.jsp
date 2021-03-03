@@ -26,10 +26,10 @@
 				<tbody>
 				<c:forEach items="${classList}" var="board">
 					<tr>
-						<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'><c:out value="${board.bno}" /></a></td>
-						<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'> <c:out value="${board.className}" /></a></td>
-						<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'><c:out value="${board.classAge}" /></a></td>
-						<td><a href='/board/classGet?bno=<c:out value="${board.bno}"/>'><c:out value="${board.classTotal}" /></a></td>
+						<td><a href='/admin/classGet?bno=<c:out value="${board.bno}"/>'><c:out value="${board.bno}" /></a></td>
+						<td><a href='/admin/classGet?bno=<c:out value="${board.bno}"/>'> <c:out value="${board.className}" /></a></td>
+						<td><a href='/admin/classGet?bno=<c:out value="${board.bno}"/>'><c:out value="${board.classAge}" /></a></td>
+						<td><a href='/admin/classGet?bno=<c:out value="${board.bno}"/>'><c:out value="${board.classTotal}" /></a></td>
 					</tr>
 				</c:forEach>
 				</tbody>

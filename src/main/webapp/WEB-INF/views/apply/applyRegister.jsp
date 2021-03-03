@@ -31,7 +31,7 @@
 
 	<div class="form-group">
 
-				<form role="form" action="/board/applyRegister" method="post">
+				<form role="form" action="/apply/applyRegister" method="post">
 
 			<ul>
 				<li><label>학부모이름</label> <input type="text"
@@ -98,7 +98,7 @@
 		var form = $("form");
 		$("button[data-oper='applyList']").on("click",function(e) {
 			e.preventDefault();
-			form.attr("action", "/board/applyList").attr("method", "get").submit();
+			form.attr("action", "/apply/applyList").attr("method", "get").submit();
 		});
 		
 		var mail = $("#useremail");
@@ -112,7 +112,7 @@
 		   		return;
 		   	}
 		   	$.ajax({
-		   		url:'/board/emailCheck?useremail=' + emailCheck,
+		   		url:'/apply/emailCheck?useremail=' + emailCheck,
 		   		type:'get',
 		   		contentType: "text/html; charset=utf-8", 
 		   		dataType: 'text',

@@ -36,7 +36,7 @@
     	<h3>온라인 접수 조회</h3>
 	</div>
 	<div class="form-group">
-		<form role="form" action="/board/applyGetMember" method="get">
+		<form role="form" action="/apply/applyGetMember" method="get">
 			<ul>
 				<li>
 					<label for="ano">접수번호</label>
@@ -68,7 +68,7 @@ $(document).ready(function() {
         var anoPass;
         
         $.ajax({
-        	url:'/board/anoCheck?ano=' + ano,
+        	url:'/apply/anoCheck?ano=' + ano,
        		type:'get',
        		success:function(data){
        			//alert(data);
@@ -85,7 +85,7 @@ $(document).ready(function() {
         }) 
         
         $.ajax({
-        	url:'/board/anoPwCheck?ano=' + ano,
+        	url:'/apply/anoPwCheck?ano=' + ano,
        		type:'get',
        		success:function(data){
        			//alert(data);

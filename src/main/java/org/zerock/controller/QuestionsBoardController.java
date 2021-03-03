@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
+@RequestMapping("/info/*")
 @AllArgsConstructor
 public class QuestionsBoardController {
 
@@ -50,7 +50,7 @@ public class QuestionsBoardController {
 		log.info("questionsRegister: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
-		return "redirect:/board/questionsList";
+		return "redirect:/info/questionsList";
 	}
 	// 비밀번호 조회
 	@GetMapping("/qnaPwCheck")
@@ -76,7 +76,7 @@ public class QuestionsBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/questionsList";
+		return "redirect:/info/questionsList";
 	}
 
 	@PostMapping("/questionsRemove")
@@ -90,6 +90,6 @@ public class QuestionsBoardController {
 		rttr.addAttribute("type", cri.getType());
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
-		return "redirect:/board/questionsList";
+		return "redirect:/info/questionsList";
 	}
 }

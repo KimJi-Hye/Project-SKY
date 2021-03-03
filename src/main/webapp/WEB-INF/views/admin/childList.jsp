@@ -48,7 +48,7 @@
 			
 			<!-- <검색창> -->
 			<div class='bo_search'>
-				<form id='searchForm' action="/board/childList" method='get'>
+				<form id='searchForm' action="/admin/childList" method='get'>
 					<div class="bo_searchBox">
 						<select name='type'>								
 							<option value=""
@@ -90,7 +90,7 @@
 			</div>
 			<!-- end Pagination -->
 
-			<form id='actionForm' action="/board/childList" method='get'>
+			<form id='actionForm' action="/admin/childList" method='get'>
 				<input type='hidden' name='pageNum' value = '${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value = '${pageMaker.cri.amount}'>
 				<input type='hidden' name='type' value = '<c:out value="${pageMaker.cri.type}"/>'>
@@ -118,7 +118,7 @@ $(document).ready(function() {
 	$(".move").on("click", function(e) {
 		e.preventDefault();
 		actionForm.append("<input type='hidden' name='cunicode' value='"+$(this).attr("href")+"'>");
-		actionForm.attr("action", "/board/childGet");
+		actionForm.attr("action", "/admin/childGet");
 		actionForm.submit();
 	});
 	
