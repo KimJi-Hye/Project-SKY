@@ -105,6 +105,7 @@ $(document).ready(function() {
 	   					$("input[name='pw']").focus();
 	   					return false;
 	   				} else {
+	   					$("#pw").remove();
 	   					formObj.submit();
 	   				}
        			}

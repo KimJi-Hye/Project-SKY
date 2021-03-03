@@ -17,6 +17,7 @@
 <!--    	  <security:intercept-url pattern="/sample/all" access="permitAll" />
    	  <security:intercept-url pattern="/board/applyList" access="hasRole('ROLE_MEMBER')" />	
    	  <security:intercept-url pattern="/board/noticeList" access="hasRole('ROLE_ADMIN')"/> -->
+   	  <!-- <security:intercept-url pattern="/board/noticeList" access="hasRole('ROLE_A')"/> -->
    	  
    	  <security:form-login username-parameter="userId"
 		    	password-parameter="userPw"
@@ -33,7 +34,8 @@
    			users-by-username-query="select userid, userpw, enabled, auth
 									from (select userid, userpw, enabled, auth from tb_teacher
 									    union
-									    select userid, userpw, enabled, auth from tb_parents)
+									    select userid, userpw, enabled, auth from tb_parents
+									    )
 									where userid = ?"
    			authorities-by-username-query="select userid, auth
 											from (select userid, auth from tb_teacher

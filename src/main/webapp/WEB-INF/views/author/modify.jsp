@@ -17,16 +17,16 @@
 			    		<ul>
 			    			<li>
 			    				<p>권한등급</p>
-			    				<input type="text" name="auth" value='<c:out value="${author.auth}" />' >
+			    				<input type="text" name="auth" value='<c:out value="${auth.auth}" />' >
 			    			</li>
 			    			<li>
 			    				<p>권한명 </p>
-			    				<input type="text" name="atname" value='<c:out value="${author.atname}" />' >
+			    				<input type="text" name="atname" value='<c:out value="${auth.atname}" />' >
 			    			</li>
 			    			<li>
 			    				<p>반이름</p>
 			    				<select name="classname">
-					   				<option value="<c:out value="${author.classname}" />" selected><c:out value="${author.classname}" /></option>
+					   				<option value="<c:out value="${auth.classname}" />" selected><c:out value="${auth.classname}" /></option>
 					   				<c:forEach items="${mngList}" var="boardMng">
 					       				<option value="${boardMng.className}">${boardMng.className}</option>
 					       			</c:forEach>

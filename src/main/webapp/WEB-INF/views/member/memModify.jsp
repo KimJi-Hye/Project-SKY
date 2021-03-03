@@ -49,10 +49,10 @@
 				    		</li>
 				    		<li>
 			    				<p>권한</p>
-					    		<select name="atGrade">
+					    		<select name="auth">
 					    			<option value="${member.auth}" selected>${member.auth}</option>
 					    			<c:forEach items="${author}" var="at">
-					    			<option value="${at.auth}">${at.auth} (${at.auth})</option>
+					    			<option value="${at.auth}">${at.auth} (${at.classname})</option>
 					    			</c:forEach>
 					    		</select> 
 				    		</li>
@@ -139,7 +139,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var operForm = $("#operForm");
-	$(".btn_save").click(function(){
+	$(".btn_reg").click(function(){
 		console.log("submit clicked");
 		operForm.submit();
 	});

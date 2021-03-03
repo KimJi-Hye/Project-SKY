@@ -10,7 +10,7 @@
 		text-align: center;
 	}
 	.successBox .imgBox{
-		width: 800px; margin: 0 auto;
+		width: 800px; margin: 0 auto 20px;
 	}
 	.successBox .imgBox img{
 		width: 100%;
@@ -40,7 +40,7 @@
 		
 		<div class="successBox">
 			<div class="imgBox">
-				<img src="/resources/img/welcome.jpg" alt="접수완료">
+				<img src="/resources/img/apply.jpg" alt="접수완료">
 			</div>
 			<h4>접수번호 <span id="ano"><c:out value="${as.ano}"/></span> 번으로 접수가 완료되었습니다!</h4>
 			<p>입력하신 이메일 ( <span id="useremail"><c:out value="${as.useremail}"/></span> )로 접수번호가 발송되었습니다.</p>

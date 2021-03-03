@@ -54,9 +54,9 @@ public class AuthorController {
 	
 	// http://localhost:8080/author/modify
 	@PostMapping("/modify")
-	public String modify(AuthorVO author, RedirectAttributes rttr) {
-		log.info("modify:" + author);
-		if(service.modify(author)) {
+	public String modify(AuthorVO auth, RedirectAttributes rttr) {
+		log.info("modify:" + auth);
+		if(service.modify(auth)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/author/list";
