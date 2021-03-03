@@ -27,6 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	       and A.bno = P.bno
 	     )
 	where rn > (#{pageNum} -1) * #{amount}
+	order by bno desc
 	]]>
 	</select>
 

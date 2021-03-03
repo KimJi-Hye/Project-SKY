@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -51,12 +53,14 @@
 		</tbody>
 	</table>
 
-	<!-- 글쓰기 -->
-	<div class="bo_register">
-		<a href="noticeRegister" class="pg_regi"> <span
-			class="material-icons"> create </span>글쓰기
-		</a>
-	</div>
+	<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+		<!-- 글쓰기 -->
+		<div class="bo_register">
+			<a href="noticeRegister" class="pg_regi"> <span
+				class="material-icons"> create </span>글쓰기
+			</a>
+		</div>
+	</sec:authorize>
 
 	<!-- Pagination -->
 	<div class='bo_pages'>

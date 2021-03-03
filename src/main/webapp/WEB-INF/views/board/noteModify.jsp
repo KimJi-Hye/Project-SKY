@@ -41,9 +41,15 @@
 			</ul>
 
 			<div class="form-button">
-				<button data-oper='noteModify' class="btn_mod">수정</button>
-				<button data-oper='noteList' class="btn_list">목록</button>
-				<button data-oper='noteRemove' class="btn_del">삭제</button>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+        			<button data-oper='noteModify' class="btn_mod" onclick="location.href='/board/noteModify?bno=<c:out value="${board.bno}"/>'">수정</button>
+				</sec:authorize>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+        			<button data-oper='noteList' class="btn_list" onclick="location.href='/board/noteList?bno=<c:out value="${board.bno}"/>'">목록</button>
+				</sec:authorize>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+        			<button data-oper='noteRemove' class="btn_del" onclick="location.href='/board/noteRemove?bno=<c:out value="${board.bno}"/>'">삭제</button>
+				</sec:authorize>
 			</div>
 
 

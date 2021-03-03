@@ -54,7 +54,7 @@
 					<button type="button" class="btn_list">목록</button>
 					 <sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
 						<button type="button" class="btn_mod">수정</button>
-						<button type="button" class="btn_del">삭제</button>
+						<!-- <button type="button" class="btn_del">삭제</button> -->
 		            </sec:authorize>
 				</div>
 				<form id="operForm" action="/board/cphotoModify" method="get">
@@ -160,10 +160,6 @@
 				$(".btn_list").click(function() {
 					operForm.find("#bno").remove();
 					operForm.attr("action", "/board/cphotoList");
-					operForm.submit();
-				});
-				$(".btn_del").click(function() {
-					operForm.attr("action", "/board/cphotoRemove").attr("method","post");
 					operForm.submit();
 				});
 				

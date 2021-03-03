@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
@@ -27,9 +28,12 @@
 			</ul>
 
 			<div class="form-button">
-				<button data-oper='noticeModify' class="btn_mod">수정</button>
 				<button data-oper='noticeList' class="btn_list">목록</button>
-				<button data-oper='noticeRemove' class="btn_del">삭제</button>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+					<button data-oper='noticeModify' class="btn_mod">수정</button>
+					<button data-oper='noticeRemove' class="btn_del">삭제</button>
+				</sec:authorize>
+				
 			</div>
 
 			<input type="hidden" name='pageNum'
@@ -37,7 +41,8 @@
 				type="hidden" name='amount' value='<c:out value="${cri.amount}"/>'>
 
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-
+			
+		
 		</form>
 
 	</div>

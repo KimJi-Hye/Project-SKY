@@ -43,8 +43,12 @@
 			</ul>
 
 			<div class="form-button">
-				<button type="submit" class="btn_reg">등록</button>
-				<button data-oper='noteList' class="btn_list">목록</button>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+        			<button type="submit" class="btn_reg">등록</button>
+				</sec:authorize>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+        			<button data-oper='noteList' class="btn_list" onclick="location.href='/board/noteList?bno=<c:out value="${board.bno}"/>'">목록</button>
+				</sec:authorize>
 			</div>
 
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
