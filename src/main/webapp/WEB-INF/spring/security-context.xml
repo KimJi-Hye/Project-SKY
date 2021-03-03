@@ -17,7 +17,26 @@
 <!--    	  <security:intercept-url pattern="/sample/all" access="permitAll" />
    	  <security:intercept-url pattern="/board/applyList" access="hasRole('ROLE_MEMBER')" />	
    	  <security:intercept-url pattern="/board/noticeList" access="hasRole('ROLE_ADMIN')"/> -->
-   	  <!-- <security:intercept-url pattern="/board/noticeList" access="hasRole('ROLE_A')"/> -->
+   	  <!-- all -->
+   	  <security:intercept-url pattern="/info/**" access="permitAll"/>
+   	  <security:intercept-url pattern="/member/join" access="permitAll"/>
+   	  <security:intercept-url pattern="/member/joinparents" access="permitAll"/>
+   	  <security:intercept-url pattern="/member/jointeacher" access="permitAll"/>
+   	  <security:intercept-url pattern="/member/login" access="permitAll"/>
+   	  <security:intercept-url pattern="/member/joinSuccess" access="permitAll"/>
+   	  <security:intercept-url pattern="/apply/applyCheck" access="permitAll"/>
+   	  <security:intercept-url pattern="/apply/applyGetMember" access="permitAll"/>
+   	  <security:intercept-url pattern="/apply/applyRegister" access="permitAll"/>
+   	  
+   	  <!-- member -->
+   	  <security:intercept-url pattern="/board/**" access="hasAnyRole('B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, ROLE_A')"/>
+   	  
+   	  <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_A')"/>
+   	  <security:intercept-url pattern="/apply/applyGet" access="hasRole('ROLE_A')"/>
+   	  <security:intercept-url pattern="/apply/applyList" access="hasRole('ROLE_A')"/>
+   	  <security:intercept-url pattern="/member/memGet" access="hasRole('ROLE_A')"/>
+   	  <security:intercept-url pattern="/member/memList" access="hasRole('ROLE_A')"/>
+   	  <security:intercept-url pattern="/member/memModify" access="hasRole('ROLE_A')"/>
    	  
    	  <security:form-login username-parameter="userId"
 		    	password-parameter="userPw"
@@ -47,5 +66,4 @@
    			
    		</security:authentication-provider>
    </security:authentication-manager>
-   
 </beans>
