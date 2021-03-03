@@ -2,14 +2,4 @@
     pageEncoding="UTF-8"%>
     
     
-        </div>
-    </main>
-    <!-- } main end -->
-
-    <!-- footer { -->
-    <footer>
-    	<small>Copyright &copy; SKY Kindergarten. All rights reserved</small>
-    </footer>
-    <!-- } footer end -->
-</body>
-</html>
+<%@include file="../includes/footer.jsp"%>
