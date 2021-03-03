@@ -46,9 +46,11 @@
 
 <!-- 글쓰기 -->
 <div class="bo_register">
+<sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
 	<a href="cphotoRegister" class="pg_regi"> <span
 		class="material-icons"> create </span>글쓰기
 	</a>
+</sec:authorize>
 </div>
 
 <!-- Pagination -->

@@ -29,8 +29,9 @@
    	  <security:intercept-url pattern="/apply/applyRegister" access="permitAll"/>
    	  
    	  <!-- member -->
-   	  <security:intercept-url pattern="/board/**" access="hasAnyRole('B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, ROLE_A')"/>
+   	  <security:intercept-url pattern="/board/**" access="hasAnyRole('B, C, D, E, F, G, b, c, d, e, f, g, ROLE_A')"/>
    	  
+   	  <!-- admin -->
    	  <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_A')"/>
    	  <security:intercept-url pattern="/apply/applyGet" access="hasRole('ROLE_A')"/>
    	  <security:intercept-url pattern="/apply/applyList" access="hasRole('ROLE_A')"/>

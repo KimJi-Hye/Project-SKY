@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@include file="../includes/header.jsp"%>
 
 
@@ -50,9 +51,11 @@
 
 				
 				<div class="btn_box">
-					<button type="button" class="btn_mod">수정</button>
 					<button type="button" class="btn_list">목록</button>
-					<button type="button" class="btn_del">삭제</button>
+					 <sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
+						<button type="button" class="btn_mod">수정</button>
+						<button type="button" class="btn_del">삭제</button>
+		            </sec:authorize>
 				</div>
 				<form id="operForm" action="/board/cphotoModify" method="get">
 					<input type="hidden" id="bno" name="bno" value="${board.bno}">

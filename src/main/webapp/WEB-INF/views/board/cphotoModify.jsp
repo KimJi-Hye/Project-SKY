@@ -51,9 +51,11 @@
 
 
 					<div class="btn_box">
-						<button type="button" class="btn_mod">수정</button>
 						<button type="button" class="btn_list">목록</button>
+					 	<sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
+						<button type="button" class="btn_mod">수정</button>
 						<button type="button" class="btn_del">삭제</button>
+		            	</sec:authorize>
 					</div>
 
 					<input type="hidden" id="bno" name="bno" value="${board.bno}">

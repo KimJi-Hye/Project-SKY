@@ -125,8 +125,10 @@ select {
 			<!-- /.row -->
 
 			<div class="form-button">
+				<sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
 				<button type="submit" class="btn btn_mod">등록</button>
 				<button data-oper='cphotoList' class="btn_list">목록</button>
+		        </sec:authorize>
 			</div>
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
