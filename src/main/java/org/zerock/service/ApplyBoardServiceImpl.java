@@ -89,6 +89,12 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		
 		return mapper.success(useremail);
 	}
+	
+	@Override
+	public String anoCheck(Long ano) {
+		String cnt = mapper.anoCheck(ano);
+		return cnt;
+	}
 
 
 }

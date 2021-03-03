@@ -62,6 +62,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tb_apply where ano = #{ano}
 	</select>
 	
+	<select id="anoCheck" resultType="String">
+		select count(ano) from tb_apply where ano = #{ano}
+	</select>
+	
 	<select id="getListWithPaging"
 		resultType="org.zerock.domain.ApplyBoardVO">
 

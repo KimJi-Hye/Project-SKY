@@ -24,4 +24,7 @@ public interface ApplyBoardMapper {
 	public int pass(ApplyBoardVO board);
 	
 	public ApplyBoardVO success(String useremail);
+	
+	public String anoCheck(Long ano);
+	
 }

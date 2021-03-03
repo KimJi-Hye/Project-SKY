@@ -22,5 +22,7 @@ public interface ApplyBoardService {
 	public int getTotal(Criteria cri);
 	
 	public ApplyBoardVO success(String useremail); 
+	
+	public String anoCheck(Long ano);
 
 }
