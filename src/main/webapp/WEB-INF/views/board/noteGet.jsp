@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%-- <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%> --%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <script type="text/javascript" src="/resources/js/notereply.js"></script>
 <script
@@ -49,8 +49,14 @@
 					value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
 			</ul>
 
+
+
+
 			<div class="form-button">
-				<button data-oper='noteModify' class="btn_mod">수정</button>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+        			<button data-oper='noteModify' class="btn_mod" onclick="location.href='/board/noteModify?bno=<c:out value="${board.bno}"/>'">수정</button>
+				</sec:authorize>
+				<!-- <button data-oper='noteModify' class="btn_mod">수정</button> -->
 				<button data-oper='noteList' class="btn_list">목록</button>
 			</div>
 

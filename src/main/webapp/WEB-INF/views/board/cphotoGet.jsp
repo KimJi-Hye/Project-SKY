@@ -52,7 +52,6 @@
 				<div class="btn_box">
 					<button type="button" class="btn_mod">수정</button>
 					<button type="button" class="btn_list">목록</button>
-					<button type="button" class="btn_del">삭제</button>
 				</div>
 				<form id="operForm" action="/board/cphotoModify" method="get">
 					<input type="hidden" id="bno" name="bno" value="${board.bno}">
@@ -157,10 +156,6 @@
 				$(".btn_list").click(function() {
 					operForm.find("#bno").remove();
 					operForm.attr("action", "/board/cphotoList");
-					operForm.submit();
-				});
-				$(".btn_del").click(function() {
-					operForm.attr("action", "/board/cphotoRemove").attr("method","post");
 					operForm.submit();
 				});
 				
