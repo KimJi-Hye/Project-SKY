@@ -177,6 +177,15 @@
 		    },
 			</c:forEach>
 		];
+    	
+    	// 시큐리티 처리
+		var csrfHeaderName = "${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";
+		
+	    // Ajax spring security header ..
+	    $(document).ajaxSend(function(e, xhr, options) {
+	    	xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+	    });
 
     </script>
     

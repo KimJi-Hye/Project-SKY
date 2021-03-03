@@ -6,9 +6,21 @@
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
 <style>
+	.form-group ul li label{
+		width: 135px;
+	}
 	.form-group ul li .radioBox label{
 		width: auto; margin-right: 20px;
 	}
+	.form-group ul li .radioBox label + *, .input_tx{
+		width: 560px; 
+	}
+	.form-group ul li.li_email input{
+		width: 395px;
+	}
+	.form-group ul li.li_email button{
+	    width: 160px; padding: 5px 15px; margin: 0 0 0 5px;
+	}	
 </style>
 
 <div id="wrapper">
@@ -37,9 +49,9 @@
 				<li><label>연락처</label> <input type="text"
 					class="input_tx input_tx2" name='phone' required></li>
 					
-				<li><label>e-mail</label> <input type="text"
+				<li class="li_email"><label>e-mail</label> <input type="text"
 					class="input_tx input_tx2" name='useremail' id="useremail" required>
-					<button type="button" id="emailCheck">이메일 중복 체크</button></li>
+					<button type="button" id="emailCheck" class="btn_reg">이메일 중복 체크</button></li>
 					
 				<li><label>아동이름</label> <input type="text"
 					class="input_tx input_tx2" name='cname' required></li>
@@ -69,7 +81,7 @@
 			<div class="form-button">
 				<button type="submit" class="btn_mod">등록</button>
 				<button type="reset" class="btn_reset">리셋</button>
-				<button data-oper='applyList' class="btn_list">목록</button>
+				<!-- <button data-oper='applyList' class="btn_list">목록</button> -->
 			</div>
 
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -84,15 +96,13 @@
 	$(document).ready(function (e){
 		
 		var form = $("form");
-		$("button[data-oper='applyList']").on(
-				"click",
-				function(e) {
-					e.preventDefault();
-					form.attr("action", "/board/applyList").attr(
-							"method", "get").submit();
-				});
+		$("button[data-oper='applyList']").on("click",function(e) {
+			e.preventDefault();
+			form.attr("action", "/board/applyList").attr("method", "get").submit();
+		});
 		
 		var mail = $("#useremail");
+		var mailPass;
 		$("#emailCheck").click(function(){
 		   	var emailCheck = mail.val();
 		   	//alert(emailCheck);
@@ -108,18 +118,27 @@
 		   		dataType: 'text',
 		   		success:function(data){
 		   			if(data > 0){
-		   				//emailPass = false;
 		   				alert("사용할 수 없는 이메일 입니다.")
 		   				mail.val("");
 		   				mail.focus();
+		   				mailPass = false;
 		   				return false;
 		   			} else {
-		   				//emailPass = true;
 		   				alert("사용할 수 있는 이메일 입니다.");
+		   				mailPass = true;
 		   				return true;
 		   			}
 		   		}
 		   	})
+		});
+		$("button[type='submit']").click(function(e){
+			e.preventDefault();
+			if(mailPass == true){
+				form.submit();
+			} else {
+				alert("이메일 중복체크를 해주세요.");
+				return false;
+			}
 		});
 	});
 </script>		
