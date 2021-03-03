@@ -37,6 +37,13 @@ public class ApplyBoardController {
 	
 	private ClassMngService mngService;
 
+	// email 중복체크
+	@GetMapping("/emailCheck")
+	public @ResponseBody String idCheck(@RequestParam("useremail") String userEmail) {
+		String cnt = service.emailCheck(userEmail);
+		return cnt;
+	}	
+	
 	@RequestMapping(value = "/sendMail", method = RequestMethod.GET)
     public void sendMailTest(String email,@RequestParam("cunicode") String cunicode) throws Exception{
         

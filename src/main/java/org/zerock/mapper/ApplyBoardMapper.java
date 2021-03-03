@@ -27,4 +27,6 @@ public interface ApplyBoardMapper {
 	
 	public String anoCheck(Long ano);
 	
+	public String emailCheck(String userEmail);
+	
 }

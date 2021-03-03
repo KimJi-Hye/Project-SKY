@@ -96,5 +96,12 @@ public class ApplyBoardServiceImpl implements ApplyBoardService{
 		return cnt;
 	}
 
+	@Override
+	public String emailCheck(String userEmail) {
+
+		String cnt = mapper.emailCheck(userEmail);
+		return cnt;
+	}
+
 
 }

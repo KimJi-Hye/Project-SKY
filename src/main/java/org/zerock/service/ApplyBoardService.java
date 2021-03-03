@@ -24,5 +24,7 @@ public interface ApplyBoardService {
 	public ApplyBoardVO success(String useremail); 
 	
 	public String anoCheck(Long ano);
+	
+	public String emailCheck(String userEmail);
 
 }

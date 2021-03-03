@@ -38,7 +38,8 @@
 					class="input_tx input_tx2" name='phone' required></li>
 					
 				<li><label>e-mail</label> <input type="text"
-					class="input_tx input_tx2" name='useremail' required></li>
+					class="input_tx input_tx2" name='useremail' id="useremail" required>
+					<button type="button" id="emailCheck">이메일 중복 체크</button></li>
 					
 				<li><label>아동이름</label> <input type="text"
 					class="input_tx input_tx2" name='cname' required></li>
@@ -90,6 +91,36 @@
 					form.attr("action", "/board/applyList").attr(
 							"method", "get").submit();
 				});
+		
+		var mail = $("#useremail");
+		$("#emailCheck").click(function(){
+		   	var emailCheck = mail.val();
+		   	//alert(emailCheck);
+		   	if(emailCheck == ""){
+				alert("email을 입력하세요");
+		   		email.focus();
+		   		return;
+		   	}
+		   	$.ajax({
+		   		url:'/board/emailCheck?useremail=' + emailCheck,
+		   		type:'get',
+		   		contentType: "text/html; charset=utf-8", 
+		   		dataType: 'text',
+		   		success:function(data){
+		   			if(data > 0){
+		   				//emailPass = false;
+		   				alert("사용할 수 없는 이메일 입니다.")
+		   				mail.val("");
+		   				mail.focus();
+		   				return false;
+		   			} else {
+		   				//emailPass = true;
+		   				alert("사용할 수 있는 이메일 입니다.");
+		   				return true;
+		   			}
+		   		}
+		   	})
+		});
 	});
 </script>		
 		

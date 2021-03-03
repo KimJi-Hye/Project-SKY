@@ -144,4 +144,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 	from tb_apply
 	 	where useremail = #{useremail}
 	 </select>
+	 
+	<select id="emailCheck" resultType="String" parameterType="String">
+		select count(*)
+		from (select useremail from tb_apply
+		union
+		select useremail from tb_parents)
+		where useremail = #{useremail}
+	</select>
+	 
 </mapper>
