@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
@@ -26,9 +27,11 @@
 			</ul>
 
 			<div class="form-button">
-				<button type="submit" class="btn_mod">등록</button>
-				<button type="reset" class="btn_reset">리셋</button>
 				<button data-oper='noticeList' class="btn_list">목록</button>
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+					<button type="submit" class="btn_mod">등록</button>
+					<button type="reset" class="btn_reset">리셋</button>
+				</sec:authorize>
 			</div>
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />

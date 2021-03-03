@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <%@ include file="../includes/header.jsp"%>
 
@@ -12,18 +13,20 @@
     <link rel="stylesheet" href="/resources/css/main.css">
     <div class="container">
 
-        <!-- 일자 클릭시 메뉴오픈 -->
-        <div id="contextMenu" class="dropdown clearfix">
-            <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
-                style="display:block;position:static;margin-bottom:5px;">
-                <li><a tabindex="-1" href="#">일정등록</a></li>
-<!--                 <li><a tabindex="-1" href="#">카테고리2</a></li>
-                <li><a tabindex="-1" href="#">카테고리3</a></li>
-                <li><a tabindex="-1" href="#">카테고리4</a></li> -->
-                <li class="divider"></li>
-                <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
-            </ul>
-        </div>
+		<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+	        <!-- 일자 클릭시 메뉴오픈 -->
+	        <div id="contextMenu" class="dropdown clearfix">
+	            <ul class="dropdown-menu dropNewEvent" role="menu" aria-labelledby="dropdownMenu"
+	                style="display:block;position:static;margin-bottom:5px;">
+	                <li><a tabindex="-1" href="#">일정등록</a></li>
+	<!--                 <li><a tabindex="-1" href="#">카테고리2</a></li>
+	                <li><a tabindex="-1" href="#">카테고리3</a></li>
+	                <li><a tabindex="-1" href="#">카테고리4</a></li> -->
+	                <li class="divider"></li>
+	                <li><a tabindex="-1" href="#" data-role="close">Close</a></li>
+	            </ul>
+	        </div>
+        </sec:authorize>
 
         <div id="wrapper">
             <div id="loading"></div>
@@ -111,8 +114,11 @@
                     </div>
                     <div class="modal-footer modalBtnContainer-modifyEvent">
                         <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                        <button type="button" class="btn btn-danger" id="deleteEvent">삭제</button>
-                        <button type="button" class="btn btn-primary" id="updateEvent">저장</button>
+                        
+                        <sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+	                        <button type="button" class="btn btn-danger" id="deleteEvent">삭제</button>
+	                        <button type="button" class="btn btn-primary" id="updateEvent">저장</button>
+                        </sec:authorize>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
