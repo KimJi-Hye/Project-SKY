@@ -74,6 +74,7 @@ $(document).ready(function() {
        			//alert(data);
        			if(data > 0){
    					anoPass = true;
+   					return true;
        			} else {
        				alert("접수되지 않은 번호입니다.");
        				$("input[name='ano']").focus();
@@ -88,7 +89,12 @@ $(document).ready(function() {
        		type:'get',
        		success:function(data){
        			//alert(data);
-       			if(anoPass == true){
+       			//alert(pw);
+       			if(anoPass == false){
+       				alert("접수되지 않은 번호입니다.");
+       				$("input[name='ano']").focus();
+       				return false;
+       			} else {
        		        if(pw == ""){
        					alert("비밀번호를 입력하세요.");
        					$("input[name='pw']").focus();
@@ -101,11 +107,6 @@ $(document).ready(function() {
 	   				} else {
 	   					formObj.submit();
 	   				}
-       				return true;
-       			} else if(anoPass == false) {
-       				alert("접수되지 않은 번호입니다.");
-       				$("input[name='ano']").focus();
-       				return false;
        			}
        		}
         })
@@ -115,4 +116,4 @@ $(document).ready(function() {
 });
 </script>
 
-<%@ include file="../includes/admin_footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>

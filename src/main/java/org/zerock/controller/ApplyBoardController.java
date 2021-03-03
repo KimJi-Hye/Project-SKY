@@ -140,11 +140,6 @@ public class ApplyBoardController {
 	public @ResponseBody String anoCheck(@RequestParam("ano") Long ano, Model model) throws Exception {
 		log.info("ano 조회");
 		model.addAttribute("anoCheck", service.get(ano));
-//		if(service.get(ano).getAno() == null) {
-//			return "";
-//		} else {
-//			return ""+service.get(ano).getAno()+"";			
-//		}
 		return service.anoCheck(ano);
 	}
 	@GetMapping("/anoPwCheck")
