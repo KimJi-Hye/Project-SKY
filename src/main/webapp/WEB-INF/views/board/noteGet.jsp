@@ -53,7 +53,7 @@
 
 
 			<div class="form-button">
-				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
         			<button data-oper='noteModify' class="btn_mod" onclick="location.href='/board/noteModify?bno=<c:out value="${board.bno}"/>'">수정</button>
 				</sec:authorize>
 				<!-- <button data-oper='noteModify' class="btn_mod">수정</button> -->

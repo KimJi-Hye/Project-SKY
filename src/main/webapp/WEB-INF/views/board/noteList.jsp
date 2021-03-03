@@ -57,11 +57,14 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
 
 	<!-- 글쓰기 -->
 	<div class="bo_register">
-		<a href="noteRegister" class="pg_regi">
-			<span class="material-icons"> create </span>글쓰기</a>
+		<sec:authorize access="hasAnyRole('ROLE_A,B,C,D,E,F,G')">
+			<a href="noteRegister" class="pg_regi">
+				<span class="material-icons"> create </span>글쓰기</a>
+		</sec:authorize>
 	</div>
 
 				<!-- Pagination -->
