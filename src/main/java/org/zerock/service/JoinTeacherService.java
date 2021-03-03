@@ -16,4 +16,6 @@ public interface JoinTeacherService {
 	
 	public List<JoinTeacherVO> getList();
 	
+	public String emailCheck(String userEmail);
+	
 }

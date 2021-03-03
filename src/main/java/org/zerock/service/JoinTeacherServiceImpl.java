@@ -51,4 +51,10 @@ public class JoinTeacherServiceImpl implements JoinTeacherService {
 		return mapper.getList();
 	}
 
+	@Override
+	public String emailCheck(String userEmail) {
+		String cnt = mapper.emailCheck(userEmail);
+		return cnt;
+	}
+
 }

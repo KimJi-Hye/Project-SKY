@@ -39,4 +39,10 @@
 		delete tb_teacher where userId = #{userId}
 	</delete>
 	
+	<select id="emailCheck" resultType="String" parameterType="String">
+		select count(*)
+		from tb_parents
+		where useremail = #{useremail}
+	</select>
+	
 </mapper>

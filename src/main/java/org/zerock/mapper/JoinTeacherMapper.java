@@ -16,4 +16,6 @@ public interface JoinTeacherMapper {
 	
 	public int delete(String userId);
 	
+	public String emailCheck(String userEmail);
+	
 }
