@@ -126,7 +126,7 @@
 		   		return;
 		   	}
 		   	$.ajax({
-		   		url:'/board/emailCheck?useremail=' + emailCheck,
+		   		url:'/member/emailCheck?useremail=' + emailCheck,
 		   		type:'get',
 		   		contentType: "text/html; charset=utf-8", 
 		   		dataType: 'text',
