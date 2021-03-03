@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+/* 게시판 */
+#container {
+    width: 1200px;
+    margin: 200px auto
+}
+
+#container .boardTitle {
+    margin: 0 0 30px 0;
+    border-bottom: 3px solid #0A69CC;    
+}
+
+#container .boardTitle>h3 {
+    font-size: 35px;
+    height: 50px;
+    margin-bottom: 10px;
+
+}
+
+#container .boardList {
+    padding: 0;
+    margin: 0;
+}
+
+/* #container .boardList li {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(3, 300px);
+    row-gap: 30px;
+    column-gap: 100px;
+    justify-content: center;
+} */
+
+#container .boardList ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#container .boardList li {
+    width: 300px;
+    margin: 30px;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+
+#container .boardList li .li_img{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#container .boardList li .li_img img{
+    width: 100%;
+}
+
+#container .boardList li .li_title{
+    margin: 10px;
+}
+#container .boardList li .li_date{
+    margin: 10px;
+}
+
+
+
+/* 글쓰기 */
+
+.bo_register {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.pg_regi {
+    color: #333;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    text-align: right;
+}
+
+.pg_regi{
+    height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+/* 페이징 */
+.pg {
+    font-size: 0;
+    text-align: center;
+    display: block;
+    margin: 20px;
+}
+
+.pg a {
+    color: #828282;
+}
+
+.pg_page,
+.pg_current {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    font-size: 15px;
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+
+.pg_page {
+    color: #828282;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+}
+
+.pg_start,
+.pg_end {
+    text-indent: -99999px;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.pg_start {
+    margin-right: 0;
+    background: url(../img/left.png) no-repeat center center #fff;
+}
+
+.pg_end {
+    margin-left: 0;
+    background: url(../img/right.png) no-repeat center center #fff;
+}
+
+.pg_current {
+    color: #fff;
+    background: #0A69CC;
+    font-weight: 400;
+}
+
+
+

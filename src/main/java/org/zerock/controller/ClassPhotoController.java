@@ -139,13 +139,13 @@ public class ClassPhotoController {
 		
 		attachList.forEach(attach -> {
 			try {
-				Path file = Paths.get("Y:\\스마트_개발과정\\ERD\\upload\\"+attach.getUploadPath()+"\\" + attach.getUuid()+"_"+ attach.getFileName());
+				Path file = Paths.get("C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto\\"+attach.getUploadPath()+"\\" + attach.getUuid()+"_"+ attach.getFileName());
 				
 				Files.deleteIfExists(file);
 				
 				if(Files.probeContentType(file).startsWith("image")) {
 					
-					Path thumbNail = Paths.get("Y:\\스마트_개발과정\\ERD\\upload\\"+attach.getUploadPath()+"\\s_" + attach.getUuid()+"_"+ attach.getFileName());
+					Path thumbNail = Paths.get("C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto\\"+attach.getUploadPath()+"\\s_" + attach.getUuid()+"_"+ attach.getFileName());
 					
 					Files.delete(thumbNail);
 				}

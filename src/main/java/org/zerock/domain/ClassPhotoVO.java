@@ -13,6 +13,9 @@ public class ClassPhotoVO {
 	private String title;
 	private String content;
 	private String tag;
+	private String uuid;
+	private String filename;
+	
 
 	
 	private Date regdate;

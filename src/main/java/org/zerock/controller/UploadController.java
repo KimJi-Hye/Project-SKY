@@ -46,7 +46,7 @@ public class UploadController {
 	@PostMapping("/uploadFormAction")
 	public void uploadFormPost(MultipartFile[] uploadFile, Model model) {
 		
-		String uploadFolder = "Y:\\스마트_개발과정\\ERD\\upload";
+		String uploadFolder = "C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto";
 		
 		for (MultipartFile multipartFile : uploadFile) {
 			
@@ -102,7 +102,7 @@ public class UploadController {
 		List<AttachFileDTO> list = new ArrayList<>();
 		
 		
-		String uploadFolder = "Y:\\스마트_개발과정\\ERD\\upload";
+		String uploadFolder = "C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto";
 		
 		String uploadFolderPath = getFolder();
 		
@@ -169,7 +169,7 @@ public class UploadController {
 		 
 		 log.info("fileName: " + fileName);
 		 
-		 File file = new File("Y:\\스마트_개발과정\\ERD\\upload\\" + fileName);
+		 File file = new File("C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto\\" + fileName);
 		 
 		 log.info("file: " + file);
 		 
@@ -191,7 +191,7 @@ public class UploadController {
 	 public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent") String userAgent, String fileName) {
 		 
 		 
-		 Resource resource = new FileSystemResource("Y:\\스마트_개발과정\\ERD\\upload\\" + fileName);
+		 Resource resource = new FileSystemResource("C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto\\" + fileName);
 		 
 		 
 		 if ( resource.exists() == false) {
@@ -248,7 +248,7 @@ public class UploadController {
 		 File file;
 		 
 		 try {
-			 file = new File("Y:\\스마트_개발과정\\ERD\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			 file = new File("C:\\Users\\EZDESIGN\\git\\Project-SKY\\src\\main\\webapp\\resources\\cphoto\\" + URLDecoder.decode(fileName, "UTF-8"));
 			 
 			 file.delete();
 			 
