@@ -111,6 +111,13 @@ public class JoinController {
 		return cnt;
 	}
 	
+	// 아이디 중복체크
+	@GetMapping("/emailCheck")
+	public @ResponseBody String emailCheck(@RequestParam("userEmail") String userEmail) {
+		String cnt = serviceT.emailCheck(userEmail);
+		return cnt;
+	}
+	
 	// http://localhost:8080/member/joinparents
 	@GetMapping("/joinparents")
 	public void joinparents(@RequestParam("cunicode") String cunicode, Model model) {

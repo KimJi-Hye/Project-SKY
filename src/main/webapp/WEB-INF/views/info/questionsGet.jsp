@@ -137,39 +137,6 @@ $(document).ready(function() {
 </script> -->
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		var wrap = $("#wrapper");
-		var windex = wrap.html();
-		
-		var bno = '<c:out value="${board.bno}"/>';
-        var pwQna = $("#pw_qna").val();
-		wrap.html("");
-		
-		$(".pw_btn").click(function(){
-	        var pwQna = $("#pw_qna").val();
-			if(pwQna == ""){
-				alert("비밀번호를 입력하세요.");
-				return false;
-			}
-			$.ajax({
-	        	url:'/info/qnaPwCheck?bno=' + bno,
-	       		type:'get',
-	       		success:function(data){
-	    			if(pwQna == data){
-	    				wrap.append(windex);
-	    				$("#QApwCheck").html("");
-	    			} else {
-	    				alert("비밀번호가 일치하지 않습니다.");
-	    				$("#pw_qna").focus();
-	    				return false;
-	    			}
-	       		}
-	        })
-		});
-	});
-</script>
-
-<script type="text/javascript">
 $(document).ready(function() {
 	
 	console.log("===================");
@@ -446,4 +413,40 @@ $(document).ready(function() {
 });
 </script>
 
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var wrap = $("#wrapper");
+		var windex = wrap.html();
+		
+		var bno = '<c:out value="${board.bno}"/>';
+        var pwQna = $("#pw_qna").val();
+		//wrap.html("");
+		wrap.hide();
+		
+		$(".pw_btn").click(function(){
+	        var pwQna = $("#pw_qna").val();
+			if(pwQna == ""){
+				alert("비밀번호를 입력하세요.");
+				return false;
+			}
+			$.ajax({
+	        	url:'/info/qnaPwCheck?bno=' + bno,
+	       		type:'get',
+	       		success:function(data){
+	    			if(pwQna == data){
+	    				//wrap.append(windex);
+	    				wrap.show();
+	    				$("#QApwCheck").hide();
+	    				//$("#QApwCheck").html("");
+	    			} else {
+	    				alert("비밀번호가 일치하지 않습니다.");
+	    				$("#pw_qna").focus();
+	    				return false;
+	    			}
+	       		}
+	        })
+		});
+	});
+</script>
 <%@include file="../includes/footer.jsp"%>

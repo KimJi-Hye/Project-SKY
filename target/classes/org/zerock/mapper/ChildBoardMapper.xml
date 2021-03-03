@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTotalCount" resultType="int">
 		select count(*)
 		from tb_child a, tb_class b, tb_parents c
-		where a.classname = b.classname and a.cunicode = c.cunicode and
+		where a.classname = b.classname and a.cunicode = c.cunicode(+) and
 		
 	<include refid="criteria"></include>
 		bno > 0
