@@ -40,11 +40,7 @@
 					
 				<li><label>작성자</label> <input type="text"
 					class="input_tx input_tx2" name='writer'
-					value='<c:out value="${board.writer}"/>' ></li>
-					
-				<li><label>비밀번호</label> <input type="text"
-					class="input_tx input_tx2" name='pw'
-					value='<c:out value="${board.pw}"/>' ></li>										
+					value='<c:out value="${board.writer}"/>' ></li>									
 					
 			</ul>			
 				
@@ -88,12 +84,27 @@
 	<div class="modal">
 
 		<div class="form-reply">
-			<label>댓글내용</label> <input type="text" class="input_1 form-control"
+			<label>댓글내용</label> <input type="text" id="replycon" class="input_1 form-control"
 				name='content' value=''>
 		</div>
 		<div class="form-reply">
-			<label>작성자</label> <input type="text" class="input_1 form-control2"
-				name='writer' value=''>
+			<label>작성자</label> 
+			<input type="text" class="input_1 form-control2" name='writer' id='reply_w' value='<c:out value="${board.writer}"/>'>
+			<%-- <sec:authentication property="principal" var="pinfo" />
+			
+			<sec:authorize access="isAnonymous()">
+			
+			<c:choose>
+
+				<c:when test="${pinfo.username eq 'admin'}">
+					<input type="text" class="input_1 form-control2" name='writer' value='관리자'>
+				</c:when>
+				<c:otherwise>
+					<input type="text" class="input_1 form-control2" name='writer' value='<c:out value="${board.writer}"/>'>
+				</c:otherwise>
+			
+			</c:choose>
+			</sec:authorize> --%>
 		</div>
 
 		<div class="form-button2">
@@ -226,7 +237,12 @@ $(document).ready(function() {
     });
 	
 	modalRegisterBtn.on("click", function(){
-
+		
+		if ($("#replycon").val() == "") {
+			alert("내용을 입력하세요");
+			return;
+		}
+	
 		var reply = {
 			content: modalInputReply.val(),
 			writer: modalInputReplyer.val(),
@@ -236,7 +252,8 @@ $(document).ready(function() {
 		QnaReplyService.add(reply, function(){
 
 			showList(-1);
-		})
+		});
+		$("#replycon").val("");
 	});
 	
 	
@@ -423,7 +440,15 @@ $(document).ready(function() {
         var pwQna = $("#pw_qna").val();
 		//wrap.html("");
 		wrap.hide();
-		
+<sec:authentication property="principal" var="pinfo" />
+			
+			<sec:authorize access="isAuthenticated()">
+				<c:if test="${pinfo.username eq 'admin'}">
+						$("#reply_w").val("관리자");
+						wrap.show();
+	    				$("#QApwCheck").hide();
+				</c:if>
+			</sec:authorize>
 		$(".pw_btn").click(function(){
 	        var pwQna = $("#pw_qna").val();
 			if(pwQna == ""){
@@ -449,4 +474,5 @@ $(document).ready(function() {
 		});
 	});
 </script>
+			
 <%@include file="../includes/footer.jsp"%>

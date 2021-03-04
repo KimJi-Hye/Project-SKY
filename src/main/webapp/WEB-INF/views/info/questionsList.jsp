@@ -82,6 +82,8 @@
 					<select name="type">
 						<option value="N"
 							<c:out value="${pageMaker.cri.type eq 'N'?' selected':''}"/>>제목</option>
+						<option value="C"
+						<c:out value="${pageMaker.cri.type eq 'C'?' selected':''}"/>>작성자</option>
 					</select> <input type='text' name='keyword' placeholder="검색어를 입력해주세요"
 						value='<c:out value="${pageMaker.cri.keyword}"/>' /> <input
 						type='hidden' name='pageNum'
