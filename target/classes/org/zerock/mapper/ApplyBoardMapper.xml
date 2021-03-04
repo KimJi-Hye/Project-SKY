@@ -118,7 +118,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             ,cbirth = #{cbirth}
             ,apptype = #{apptype}
             ,appstate = #{appstate}
-            ,pw = #{pw}
       where ano = #{ano}
       <!-- and pw = #{pw} -->
     </update>

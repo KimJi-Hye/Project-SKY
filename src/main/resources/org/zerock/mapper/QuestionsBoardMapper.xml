@@ -12,6 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 					<when test="type == 'N'.toString()">
 						title like '%'||#{keyword}||'%'
 					</when>
+					<when test="type == 'C'.toString()">
+						writer like '%'||#{keyword}||'%'
+					</when>
 				</choose>
 			</trim>
 		</foreach>
@@ -78,7 +81,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    		,content = #{content}
 	    		,writer = #{writer}
 	    		,updatedate = sysdate
-	   			,pw = #{pw}
 		where bno = #{bno}
 		<!-- and pw = #{pw} -->
 	 </update>

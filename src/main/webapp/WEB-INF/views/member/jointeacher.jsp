@@ -151,12 +151,44 @@ $("#emailCheck").click(function(){
    			popup_m.text("");
    			popupOff();
    		});
+<<<<<<< HEAD
 		
 		// 전송
 		/* $("input[type=submit]").click(function(e){
 
 			
 			
+=======
+   		
+		var mail = $("#userEmail");
+		$("#emailCheck").click(function(){
+		   	var emailCheck = mail.val();
+		   	//alert(emailCheck);
+		   	if(emailCheck == ""){
+				alert("email을 입력하세요");
+		   		email.focus();
+		   		return;
+		   	}
+		   	$.ajax({
+		   		url:'/member/emailCheck?userEmail=' + emailCheck,
+		   		type:'get',
+		   		contentType: "text/html; charset=utf-8", 
+		   		dataType: 'text',
+		   		success:function(data){
+		   			if(data > 0){
+		   				//emailPass = false;
+		   				alert("사용할 수 없는 이메일 입니다.")
+		   				mail.val("");
+		   				mail.focus();
+		   				return false;
+		   			} else {
+		   				//emailPass = true;
+		   				alert("사용할 수 있는 이메일 입니다.");
+		   				return true;
+		   			}
+		   		}
+		   	})
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 		});
    		 */
    	});
