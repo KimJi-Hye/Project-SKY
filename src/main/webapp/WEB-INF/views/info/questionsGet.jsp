@@ -440,15 +440,7 @@ $(document).ready(function() {
         var pwQna = $("#pw_qna").val();
 		//wrap.html("");
 		wrap.hide();
-<sec:authentication property="principal" var="pinfo" />
-			
-			<sec:authorize access="isAuthenticated()">
-				<c:if test="${pinfo.username eq 'admin'}">
-						$("#reply_w").val("관리자");
-						wrap.show();
-	    				$("#QApwCheck").hide();
-				</c:if>
-			</sec:authorize>
+		
 		$(".pw_btn").click(function(){
 	        var pwQna = $("#pw_qna").val();
 			if(pwQna == ""){
@@ -474,5 +466,15 @@ $(document).ready(function() {
 		});
 	});
 </script>
+			<sec:authentication property="principal" var="pinfo" />
 			
+			<sec:authorize access="isAuthenticated()">
+				<c:if test="${pinfo.username eq 'admin'}">
+					<script>
+						$("#reply_w").val("관리자");
+						wrap.show();
+	    				$("#QApwCheck").hide();
+					</script>
+				</c:if>
+			</sec:authorize>
 <%@include file="../includes/footer.jsp"%>
