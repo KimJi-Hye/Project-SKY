@@ -12,9 +12,6 @@
 	<div class="cardBox login_contents">
 
 		<div class="lb_left">
-			<p>
-				welcome!<br>Sky Kindergarten
-			</p>
 		</div>
 
 		<div class="lb_right">

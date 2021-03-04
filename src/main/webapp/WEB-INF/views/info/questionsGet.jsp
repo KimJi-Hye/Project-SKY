@@ -16,7 +16,37 @@
 		border-bottom: 3px solid #0a69cc;
 	}
 	#QApwCheck .boardTitle h3{
-	fotn-size: ; }
+		height: 50px; margin-bottom: 10px;
+		font-size: 32px;
+	}
+	#QApwCheck .pwBox{
+		width: 80%; margin: 0 auto;
+	} 
+	#QApwCheck .pwBox h3{
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	#QApwCheck .pwBox .inputBox{
+		margin-bottom: 10px;
+	    font-size: 16px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	}
+	#QApwCheck .pwBox .inputBox label{
+		width: 100px; padding-right: 10px;
+		font-size: 16px;
+    	display: block;
+	}
+	#QApwCheck .pwBox .inputBox input{
+		width: 240px;
+	}
+	#QApwCheck .pwBox .btn_reg{
+		width: 340px; padding: 10px; margin: 30px auto;
+	    font-size: 18px;
+	    font-weight: bold;
+	    transition: .2s;
+	}
 	@media screen and (min-width: 768px){
 		.navBox .main_nav a{
 			margin-top: 27px;
@@ -29,11 +59,13 @@
 		<h3>Q&A 비밀번호 조회</h3>
 	</div>
 	<div class="form-group">
-		<h3>비밀번호를 입력하세요.</h3>
-		<div>
-			<label for="QNApw">비밀번호</label>
-			<input type="password" id="pw_qna" name="pw_qna">
-			<button type="button" class="pw_btn">확인</button>
+		<div class="pwBox">
+			<h3>비밀번호를 입력하세요.</h3>
+			<div class="inputBox">
+				<label for="QNApw">비밀번호</label>
+				<input type="password" id="pw_qna" name="pw_qna">
+			</div>
+			<button type="button" class="pw_btn btn_reg">확인</button>
 		</div>
 	</div>
 </div>
@@ -487,15 +519,18 @@ $(document).ready(function() {
 		});
 	});
 </script>
-			<sec:authentication property="principal" var="pinfo" />
+
+<sec:authentication property="principal" var="pinfo" />
 			
-			<sec:authorize access="isAuthenticated()">
-				<c:if test="${pinfo.username eq 'admin'}">
-					<script>
-						$("#reply_w").val("관리자");
-						wrap.show();
-	    				$("#QApwCheck").hide();
-					</script>
-				</c:if>
-			</sec:authorize>
+<sec:authorize access="isAuthenticated()">
+	<c:if test="${pinfo.username eq 'admin'}">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#reply_w").val("관리자");
+			wrap.show();
+  			$("#QApwCheck").hide();
+		});
+	</script>
+	</c:if>
+</sec:authorize>
 <%@include file="../includes/footer.jsp"%>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
     
 <%@ include file="includes/header.jsp"%>
@@ -31,31 +33,29 @@
             <section class="section_1">
 
                 <div class="banner_box">
-                    <a href="#"><img src="/resources/img/5-1.jpg"></a>
+                    <a href="/apply/applyRegister"><img src="/resources/img/5-1.jpg"></a>
                 </div>
 
                 <div class="banner_box2">
 
                     <div class="notice">
-                        <h2><a href="">공지사항</a></h2>
+                        <h2><a href="/board/noticeList">공지사항</a></h2>
                         <!-- Swiper -->
                         <div class="swiper-container swiper2">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="#">기존일정 클릭시 팝업을 통한 수정, 삭제</a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">기존일정 클릭시 팝업을 통한 수정, 삭제</a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">기존일정 클릭시 팝업을 통한 수정, 삭제</a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">기존일정 클릭시 팝업을 통한 수정, 삭제</a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">기존일정 클릭시 팝업을 통한 수정, 삭제</a>
-                                </div>
+                            
+	                            <c:if test="${empty homeN}">
+	                                <div class="swiper-slide">
+	                                    <p>등록된 공지사항이 없습니다.</p>
+	                                </div>
+								</c:if>
+								
+                                <c:forEach items="${homeN}" var="notice">
+	                                <div class="swiper-slide">
+	                                    <a href="/board/noticeList?bno=<c:out value="${notice.bno}"/>"><c:out value="${notice.title}" /></a>
+	                                </div>
+								</c:forEach>
+								
                             </div>
                             <!-- Add Arrows -->
                             <div class="slide_btn">
@@ -67,25 +67,25 @@
 
                     <div class="icon_box">
                         <div class="con_bn banner2">
-                            <a href="#">
+                            <a href="/board/noteList">
                                 <img src="/resources/img/notes.png">
                                 <p>알림장</p>
                             </a>
                         </div>
                         <div class="con_bn banner3">
-                            <a href="#">
+                            <a href="/board/eventList">
                                 <img src="/resources/img/calendar.png">
                                 <p>이달의 행사</p>
                             </a>
                         </div>
                         <div class="con_bn banner4">
-                            <a href="#"> 
+                            <a href="/board/cphotoList"> 
                                 <img src="/resources/img/restaurant.png">
-                                <p>급식안내</p>
+                                <p>반 앨범</p>
                             </a>
                         </div>
                         <div class="con_bn banner5">
-                            <a href="#">
+                            <a href="/info/Map">
                                 <img src="/resources/img/map.png">
                                 <p>오시는 길</p>
                             </a>
