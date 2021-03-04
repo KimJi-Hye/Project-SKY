@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/resources/css/member.css">
 <style>
 	.memberBox{
-		margin-top: 130px; padding: 50px;
+		margin-top: 125px; padding: 50px;
 	}
 	.memberBox.signup2{
 		padding: 100px 20px;

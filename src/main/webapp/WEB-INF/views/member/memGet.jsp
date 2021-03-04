@@ -125,6 +125,7 @@ $(document).ready(function(){
 		operForm.submit();
 	});
 	$(".btn_del").click(function(){
+		operForm.append("<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />");
 		operForm.attr("action", "/member/memRemove").attr("method", "post");
 		operForm.submit();
 	});

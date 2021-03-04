@@ -35,19 +35,24 @@
             <div class="hd_nav pc">
                 <ul>
                   <sec:authorize access="isAnonymous()">
-		          	<h5><a href="/member/login" class="badge badge-pill badge-info">LOGIN</a> 로그인 해주세요.</h5>
+                  	<li><a href="/member/login" class="badge badge-pill badge-info">로그인</a></li>
+                    <li><a href="/member/join">회원가입</a></li>
+		          	<!-- <h5><a href="/member/login" class="badge badge-pill badge-info">LOGIN</a> 로그인 해주세요.</h5> -->
 		          </sec:authorize>
 		          <sec:authorize access="isAuthenticated()">
-		          	<h5><%=name %>님, 반갑습니다.</h5>
+		          	<li><p><%=name %>님, 반갑습니다.</p></li>
 			        <form action="/" method="POST">
-			                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			                <button type="submit" class="btn btn-dark btn-sm">LOGOUT</button>
-			                <li><a href="/member/myPage?userId=tea&userType=T">마이페이지</a></li>
+			        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			        <li><button type="submit" class="btn btn-dark btn-sm">로그아웃</button></li>
 			        </form>
+			        <li><a href="/member/myPage?userId=tea&userType=T">마이페이지</a></li>
 		          </sec:authorize>
-                    <li><a href="/member/login">로그인</a></li>
+		          <sec:authorize access="hasRole('ROLE_A')">
+		          <li><a href="../admin/admin_index">관리자</a></li>
+		          </sec:authorize>
+                    <!-- <li><a href="/member/login">로그인</a></li>
                     <li><a href="/member/join">회원가입</a></li>
-                    <li><a href="../admin/admin_index">관리자</a></li>
+                    <li><a href="../admin/admin_index">관리자</a></li> -->
                 </ul>
             </div>
             <div class="hd mobile">

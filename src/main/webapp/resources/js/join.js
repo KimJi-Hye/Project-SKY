@@ -13,7 +13,6 @@ function popupOff(){
     popup.hide();
 }
 
-
 // 회원가입 검사
 var jid = RegExp(/^[a-zA-Z0-9]{4,12}$/);
 var jpass = RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/);
@@ -91,7 +90,7 @@ pw.keyup(function(){
 	}
 
     // 비밀번호 정규식으로 테스트
-    if(!pass.test(pw.val())){
+    if(!jpass.test(pw.val())){
         $("#pwLog").text("형식에 맞게 입력해주세요");
         $("#pwLog").addClass("on");
         pw.focus();
@@ -170,7 +169,7 @@ $("input[type=submit]").click(function(e){
 		return false;
 	} else if (idPass == false){
 		popupOn();
-		popup_m.text("사용할 수 없는 아이디입니다.");
+		popup_m.text("아이디 중복확인을 해주세요.");
 		id.focus();
 		return false;
 	}
@@ -220,6 +219,16 @@ $("input[type=submit]").click(function(e){
 		popupOn();
 		popup_m.text("이메일을 입력하세요.");
 		uemail.focus();
+		return false;
+	}
+	if(mailPass == undefined){
+		popupOn();
+		popup_m.text("이메일 중복확인을 해주세요.");
+ 		return false;
+	}
+	if(mailPass == false){
+	 	popupOn();
+   		popup_m.text("이메일 중복확인을 해주세요.");
 		return false;
 	}
 	

@@ -104,6 +104,7 @@
 .login_contents .lb_con input[type="text"], .login_contents .lb_con input[type="password"]{
     width: 100%; padding: 7px 15px; margin-bottom: 20px;
     border: none;
+    border-radius: 0;
     border-bottom: 2px solid #0A69CC;;
     font-size: 16px;
     display: block;

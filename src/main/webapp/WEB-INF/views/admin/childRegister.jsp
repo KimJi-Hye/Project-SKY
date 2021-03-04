@@ -64,7 +64,7 @@
 	    		</div>
 		    	
 		    	<div class="btn_box">
-					<button type="submit" class="btn btn-default btn_reg">접수 신청</button>
+					<button type="submit" class="btn btn-default btn_reg">등록</button>
 				</div>
 
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />		
