@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/cphoto.css">
@@ -46,9 +47,11 @@
 
 <!-- 글쓰기 -->
 <div class="bo_register">
+<sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
 	<a href="cphotoRegister" class="pg_regi"> <span
 		class="material-icons"> create </span>글쓰기
 	</a>
+</sec:authorize>
 </div>
 
 <!-- Pagination -->

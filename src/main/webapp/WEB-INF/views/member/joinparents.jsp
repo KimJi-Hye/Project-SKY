@@ -73,7 +73,10 @@
                                 <li>원아 고유번호 : <input type="text" name="cunicode" id="cunicode" value="${apply.cunicode}" readonly></li>
                                 <li>원아명 : <c:out value="${apply.cname}" /></li>
                                 <li>성별 : <c:out value="${apply.cgender}" /></li>
-                                <li>생년월일 : <c:out value="${apply.cbirth}" /></li>
+                                <li>생년월일 : 
+                                <fmt:parseDate var="cbirth" value="${apply.cbirth}" pattern="yyyy-MM-dd" />
+                                <fmt:formatDate pattern="yyyy-MM-dd" value="${cbirth}" />
+                                </li>
                                 <li>반이름 : <c:out value="${apply.cclass}" /></li>
                                 <li class="join_info">* 원아 정보 상이 시 회원가입 후 원으로 연락 바랍니다^^</li>
                                 </ul>
@@ -84,7 +87,7 @@
                                 <input type="reset" class="btn_reset" value="초기화">
                             </div>
                             
-                            <input type="hidden" name="auth" value="ROLE_z">
+                            <input type="hidden" name="auth" value="ROLE_b">
                             <input type="hidden" name="userType" value="P">
 
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

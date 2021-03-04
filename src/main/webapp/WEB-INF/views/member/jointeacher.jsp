@@ -79,7 +79,7 @@
 					<input type="reset" class="btn_reset" value="초기화">
 				</div>
 
-				<input type="hidden" name="auth" value="ROLE_Z"> 
+				<input type="hidden" name="auth" value="ROLE_B"> 
 				<input type="hidden" name="userType" value="T">
 				
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -99,6 +99,42 @@
 </div>
 
 
+<script type="text/javascript">
+	
+var mail = $("#userEmail");
+var mailPass;
+$("#emailCheck").click(function(){
+   	var emailCheck = mail.val();
+   	//alert(emailCheck);
+   	if(emailCheck == ""){
+		alert("email을 입력하세요");
+   		email.focus();
+   		return;
+   	}
+   	$.ajax({
+   		url:'/member/emailCheck?userEmail=' + emailCheck,
+   		type:'get',
+   		contentType: "text/html; charset=utf-8", 
+   		dataType: 'text',
+   		success:function(data){
+   			if(data > 0){
+   				mailPass = false;
+   				popupOn();
+   				popup_m.text("사용할 수 없는 이메일 입니다.");
+   				mail.val("");
+   				mail.focus();
+   				return false;
+   			} else {
+   				mailPass = true;
+   				popupOn();
+   				popup_m.text("사용할 수 있는 이메일 입니다.");
+   				return true;
+   			}
+   		}
+   	})
+});
+
+</script>
 <script src="/resources/js/join.js"></script>
 <script>
    	$(document).ready(function(){
@@ -115,6 +151,14 @@
    			popup_m.text("");
    			popupOff();
    		});
+<<<<<<< HEAD
+		
+		// 전송
+		/* $("input[type=submit]").click(function(e){
+
+			
+			
+=======
    		
 		var mail = $("#userEmail");
 		$("#emailCheck").click(function(){
@@ -126,7 +170,7 @@
 		   		return;
 		   	}
 		   	$.ajax({
-		   		url:'/member/emailCheck?useremail=' + emailCheck,
+		   		url:'/member/emailCheck?userEmail=' + emailCheck,
 		   		type:'get',
 		   		contentType: "text/html; charset=utf-8", 
 		   		dataType: 'text',
@@ -144,8 +188,9 @@
 		   			}
 		   		}
 		   	})
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 		});
-   		
+   		 */
    	});
 </script>
 

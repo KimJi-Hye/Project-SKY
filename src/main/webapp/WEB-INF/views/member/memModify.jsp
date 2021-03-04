@@ -94,11 +94,11 @@
 				    		</li>
 				    		<li>
 			    				<p>아동명</p>
-			    				<input type="text" name="cunicode" value="${member.cname}" readonly>
+			    				<input type="text" name="cname" value="${member.cname}" readonly>
 				    		</li>
 				    		<li>
 			    				<p>아동 고유번호</p>
-			    				<p>${member.cunicode}</p>
+			    				<input type="text" name="cunicode" value="${member.cunicode}" readonly>
 				    		</li>
 				    		<li>
 			    				<p>반이름 </p>

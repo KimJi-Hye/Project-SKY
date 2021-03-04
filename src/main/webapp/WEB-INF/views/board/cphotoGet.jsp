@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<<<<<<< HEAD
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 
+=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
 
@@ -16,6 +21,7 @@
 		<h3>반앨범</h3>
 	</div>
 
+<<<<<<< HEAD
 	<div class="cphoto">
 		<div class="row2">
 			<div class="col-lg-12">
@@ -31,6 +37,15 @@
 						</div>
 					</div>
 					<!--  end panel-body -->
+=======
+				
+				<div class="btn_box">
+					<button type="button" class="btn_list">목록</button>
+					 <sec:authorize access="hasAnyRole('B, C, D, E, F, G, ROLE_A')">
+						<button type="button" class="btn_mod">수정</button>
+						<!-- <button type="button" class="btn_del">삭제</button> -->
+		            </sec:authorize>
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 				</div>
 				<!--  end panel-body -->
 			</div>

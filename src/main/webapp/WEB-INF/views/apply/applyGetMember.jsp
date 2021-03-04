@@ -72,10 +72,6 @@
 								<label>소속반</label>
 				    			<input type="text" name='cclass' value='<c:out value="${board.cclass}"/>' readonly>
 							</li>
-				    		<li>
-								<label>비밀번호</label>
-				    			<input type="text" name='pw' required>
-							</li>
 				    	</ul>
 		    	
 		    	<div class="form-button">

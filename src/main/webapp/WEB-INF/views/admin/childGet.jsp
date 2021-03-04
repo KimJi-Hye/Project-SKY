@@ -55,8 +55,8 @@
     	
 		    	<div class="btn_box">
 					<button data-oper='childModify' class="btn btn-default btn_mod">수정</button>
-					<button data-oper='childList' class="btn btn-info btn_reset">돌아가기</button>
-					<button data-oper='childRemove' class="btn btn-default btn_del">탈퇴하기</button>
+					<button data-oper='childList' class="btn btn-info btn_reset">목록</button>
+					<button data-oper='childRemove' class="btn btn-default btn_del">삭제</button>
 				</div>
 				
 				<input type="hidden" name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
