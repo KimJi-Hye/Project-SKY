@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
@@ -39,7 +40,7 @@
 
 				<li><label>작성자</label> <input type="text"
 					class="input_tx input_tx2" name='writer'
-					value='<c:out value="${board.writer}"/>'></li>
+					value='<sec:authentication property="principal.username"/>' readonly="readonly"></li>
 			</ul>
 
 			<div class="form-button">

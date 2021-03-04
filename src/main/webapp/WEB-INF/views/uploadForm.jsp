@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<form action="uploadFormAction" method="post" enctype="multipart/form-data">
-<input type='file' name='uploadFile' multiple>
+<form action="uploadFormAction" method="post">
+<input type='file' name='uploadFile' >
 <button>Submit</button>
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
