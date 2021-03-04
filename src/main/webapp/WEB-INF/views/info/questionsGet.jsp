@@ -7,14 +7,35 @@
 
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
+<style>
+	#QApwCheck{
+		width: 900px; margin: 200px auto;
+	}
+	#QApwCheck .boardTitle{
+		margin-bottom: 30px;
+		border-bottom: 3px solid #0a69cc;
+	}
+	#QApwCheck .boardTitle h3{
+	fotn-size: ; }
+	@media screen and (min-width: 768px){
+		.navBox .main_nav a{
+			margin-top: 27px;
+		}
+	}
+</style>
 
 <div id="QApwCheck">
+	<div class="boardTitle">
+		<h3>Q&A 비밀번호 조회</h3>
+	</div>
+	<div class="form-group">
 		<h3>비밀번호를 입력하세요.</h3>
 		<div>
 			<label for="QNApw">비밀번호</label>
 			<input type="password" id="pw_qna" name="pw_qna">
 			<button type="button" class="pw_btn">확인</button>
 		</div>
+	</div>
 </div>
 
 <div id="wrapper">
