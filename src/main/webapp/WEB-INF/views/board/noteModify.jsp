@@ -23,20 +23,24 @@
 				<li><label>No</label> <input type="text"
 					class="input_tx input_tx2" name='bno'
 					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+					
 				<li><label>반 이름</label> <input type="text"
 					class="input_tx input_tx2" name='classname'
 					value='<c:out value="${board.classname}"/>' readonly="readonly"></li>
+					
 				<li><label>원아 이름</label> <input type="text"
 					class="input_tx input_tx2" name='cname'
 					value='<c:out value="${board.cname}"/>' readonly="readonly"></li>
+					
 				<li><label>제목</label> <input type="text"
 					class="input_tx input_tx2" name='title'
-					value='<c:out value="${board.title}"/>'></li>
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'
-					value='<c:out value="${board.content}"/>'></li>
+					value='<c:out value="${board.title}"/>' required></li>
+					
+				<li><label>내용</label> <textarea class="input_tx input_tx2 input_tx3 textareaBox" 
+					name='content' required><c:out value="${board.content}"/></textarea></li>
+					
 				<li><label>작성자</label> <input type="text"
-					class="input_tx input_tx2" name='writer'
+					class="input_tx input_tx2" name='writer' required
 					value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
 			</ul>
 

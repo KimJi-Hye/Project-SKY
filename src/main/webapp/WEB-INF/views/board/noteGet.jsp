@@ -31,7 +31,7 @@
 			<ul>
 				<li><label>No</label> <input type="text"
 					class="input_tx input_tx2" name='bno'
-					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+					value='<c:out value="${board.bno}"/>' readonly="readonly" ></li>
 				<li><label>반 이름</label> <input type="text"
 					class="input_tx input_tx2" name='classname'
 					value='<c:out value="${board.classname}"/>' readonly="readonly"></li>
@@ -41,9 +41,8 @@
 				<li><label>제목</label> <input type="text"
 					class="input_tx input_tx2" name='title'
 					value='<c:out value="${board.title}"/>' readonly="readonly"></li>
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'
-					value='<c:out value="${board.content}"/>' readonly="readonly"></li>
+				<li><label>내용</label> <textarea class="input_tx input_tx2 input_tx3 textareaBox" 
+					name='content' required><c:out value="${board.content}"/></textarea></li>
 				<li><label>작성자</label> <input type="text"
 					class="input_tx input_tx2" name='writer'
 					value='<c:out value="${board.writer}"/>' readonly="readonly"></li>
@@ -103,8 +102,16 @@
 				name='content' value=''>
 		</div>
 		<div class="form-reply">
-			<label>작성자</label> <input type="text" class="input_1 form-control2"
-				name='writer' value=''>
+			<label>작성자</label> 
+			
+
+<sec:authentication property="principal" var="pinfo" />
+			
+<sec:authorize access="isAuthenticated()">
+			<input type="text" class="input_1 form-control2"
+				name='writer' value='${pinfo.username}' readonly>
+</sec:authorize>
+			
 		</div>
 
 		<div class="form-button2">
@@ -398,9 +405,6 @@ $(document).ready(function() {
 });
 	
 </script>
-
-
-
 
 
 

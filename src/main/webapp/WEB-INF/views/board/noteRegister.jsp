@@ -18,7 +18,7 @@
 		<form role="form" action="/board/noteRegister" method="post">
 
 			<ul>
-				<li><label>반 이름</label> <select name="classname">
+				<li><label>반 이름</label> <select name="classname" required>
 						<option value="" selected>선택</option>
 						<c:forEach items="${mngList}" var="boardMng">
 							<option value="${boardMng.className}">${boardMng.className}</option>
@@ -26,21 +26,23 @@
 				</select></li>
 
 
-				<li><label>원아 이름</label> <select name="cunicode">
+				<li><label>원아 이름</label> <select name="cunicode" required>
 						<option value="" selected>선택</option>
 				</select></li>
 
 				<li><label>제목</label> <input type="text"
 					class="input_tx input_tx2" name='title'
-					value='<c:out value="${board.title}"/>'></li>
+					value='<c:out value="${board.title}"/>' required></li>
 
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'
-					value='<c:out value="${board.content}"/>'></li>
+				<li><label>내용</label> <textarea class="input_tx input_tx2 input_tx3 textareaBox" 
+					name='content' required></textarea></li>
 
 				<li><label>작성자</label> <input type="text"
 					class="input_tx input_tx2" name='writer'
 					value='<sec:authentication property="principal.username"/>' readonly="readonly"></li>
+					
+									
+	
 			</ul>
 
 			<div class="form-button">
@@ -58,7 +60,7 @@
 
 	</div>
 
-
+</div>
 
 	<script type="text/javascript">
 		$(document)

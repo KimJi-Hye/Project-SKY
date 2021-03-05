@@ -43,7 +43,7 @@ table{width: 100%; border-collapse: collapse;}
 }
 
 /* input */
-input[type="text"], input[type="password"], input[type="date"]{
+input[type="text"], input[type="password"], input[type="date"], textarea{
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -53,6 +53,13 @@ input[type="text"], input[type="password"], input[type="date"]{
     width: 100%;
     border-radius: 5px;
 }
+
+.textareaBox{
+	width: 100%;
+	height: 300px;
+	resize: none;
+}
+
 
 select{
     width: 50%; padding: 5px 10px;

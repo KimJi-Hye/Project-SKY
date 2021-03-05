@@ -2,12 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<<<<<<< HEAD
 
 
-=======
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
->>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
 
@@ -85,7 +82,7 @@ select {
 		<form role="form" action="/board/cphotoRegister" method="post">
 
 			<ul>
-				<li><label>반 이름</label> <select name="className">
+				<li><label>반 이름</label> <select name="className" required>
 						<option value="" selected>선택</option>
 						<c:forEach items="${mngList}" var="boardMng">
 							<option value="${boardMng.className}">${boardMng.className}</option>
@@ -93,15 +90,18 @@ select {
 				</select></li>
 
 
-				<li><label>태그</label> <select name="tag">
+				<li><label>태그</label> <select name="tag" required>
 						<option value="" selected>선택</option>
 						<option value="교내사진">교내사진</option>
 						<option value="외부행사">외부행사</option>
 				</select></li>
+				
 				<li><label>제목</label> <input type="text"
-					class="input_tx input_tx2" name='title'></li>
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'></li>
+					class="input_tx input_tx2" name='title'
+					value='<c:out value="${board.title}"/>' required></li>
+					
+				<li><label>내용</label> <textarea class="input_tx input_tx2 input_tx3 textareaBox"  
+					name='content' required></textarea></li>
 			</ul>
 
 
