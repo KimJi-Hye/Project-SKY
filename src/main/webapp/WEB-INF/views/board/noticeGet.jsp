@@ -18,13 +18,13 @@
 			<ul>
 				<li><label>No</label> <input type="text"
 					class="input_tx input_tx2" name='bno'
-					value='<c:out value="${board.bno}"/>' readonly="readonly"></li>
+					value='<c:out value="${board.bno}"/>' readonly="readonly" required></li>
 				<li><label>제목</label> <input type="text"
 					class="input_tx input_tx2" name='title'
-					value='<c:out value="${board.title}"/>'></li>
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'
-					value='<c:out value="${board.content}"/>'></li>
+					value='<c:out value="${board.title}"/>' required></li>
+				<li><label>내용</label> 
+					<textarea name="content" class="textareaBox" required><c:out value="${board.content}"/></textarea>
+				</li>
 			</ul>
 
 			<div class="form-button">

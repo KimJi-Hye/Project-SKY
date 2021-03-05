@@ -74,7 +74,7 @@
 					</div>
 				</li>	
 						
-				<li><label>비밀번호</label> <input type="text"
+				<li><label>비밀번호</label> <input type="password"
 					class="input_tx input_tx2" name='pw' required></li>															
 			</ul>
 

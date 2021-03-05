@@ -21,9 +21,11 @@
 
 			<ul>
 				<li><label>제목</label> <input type="text"
-					class="input_tx input_tx2" name='title'></li>
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'></li>
+					class="input_tx input_tx2" name='title' required></li>
+				<li>
+					<label>내용</label> 
+					<textarea name="content" class="textareaBox" required></textarea>
+				</li>
 			</ul>
 
 			<div class="form-button">

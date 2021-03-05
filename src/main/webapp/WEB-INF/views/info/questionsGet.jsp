@@ -85,15 +85,17 @@
 					
 				<li><label>제목</label> <input type="text"
 					class="input_tx input_tx2" name='title'
-					value='<c:out value="${board.title}"/>' ></li>
+					value='<c:out value="${board.title}"/>' required></li>
 					
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'
-					value='<c:out value="${board.content}"/>' ></li>
+				<li><label>내용</label> 
+					<textarea name='content' class="textareaBox" required>
+						<c:out value="${board.content}"/>
+					</textarea>
+				</li>
 					
 				<li><label>작성자</label> <input type="text"
 					class="input_tx input_tx2" name='writer'
-					value='<c:out value="${board.writer}"/>' ></li>									
+					value='<c:out value="${board.writer}"/>' readonly></li>									
 					
 			</ul>			
 				
@@ -521,9 +523,8 @@ $(document).ready(function() {
 </script>
 
 <sec:authentication property="principal" var="pinfo" />
-			
+
 <sec:authorize access="isAuthenticated()">
-	<c:if test="${pinfo.username eq 'admin'}">
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#reply_w").val("관리자");
@@ -531,6 +532,6 @@ $(document).ready(function() {
   			$("#QApwCheck").hide();
 		});
 	</script>
-	</c:if>
 </sec:authorize>
+
 <%@include file="../includes/footer.jsp"%>

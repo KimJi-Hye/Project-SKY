@@ -91,10 +91,6 @@
 								<p>소속반</p>
 				    			<input type="text" name='cclass' value='<c:out value="${board.cclass}"/>' readonly>
 							</li>
-				    		<li>
-								<p>비밀번호</p>
-				    			<input type="text" name='pw'>
-							</li>
 				    	</ul>
 			    	</div>
 			    </div>

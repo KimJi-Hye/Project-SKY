@@ -17,17 +17,14 @@
 		<form id='operForm' action="/info/questionsRegister" method="post">
 			<ul>
 				<li><label>제목</label> <input type="text"
-					class="input_tx input_tx2" name='title'
-					value='<c:out value="${board.title}"/>'></li>
-				<li><label>내용</label> <input type="text"
-					class="input_tx input_tx2 input_tx3" name='content'
-					value='<c:out value="${board.content}"/>'></li>
-				<li><label>작성자</label> <input type="text"
-					class="input_tx input_tx2" name='writer'
-					value='<c:out value="${board.writer}"/>'></li>	
-				<li><label>비밀번호</label> <input type="text"
-					class="input_tx input_tx2" name='pw'
-					value='<c:out value="${board.pw}"/>'></li>									
+					class="input_tx input_tx2" name='title' required></li>
+				<li><label>내용</label>
+					<textarea name='content' class="textareaBox" required></textarea></li>
+				<li><label>작성자</label> 
+				<input type="text"
+					class="input_tx input_tx2" name='writer' maxlength="7" required></li>	
+				<li><label>비밀번호</label> <input type="password"
+					class="input_tx input_tx2" name='pw' required></li>									
 			</ul>
 
 			<div class="form-button">
