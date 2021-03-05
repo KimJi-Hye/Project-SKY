@@ -495,6 +495,14 @@ $(document).ready(function() {
         var pwQna = $("#pw_qna").val();
 		//wrap.html("");
 		wrap.hide();
+
+		<sec:authentication property="principal" var="pinfo" />
+
+		<sec:authorize access="hasRole('ROLE_A')">
+			$("#reply_w").val("관리자");
+			wrap.show();
+		  	$("#QApwCheck").hide();
+		</sec:authorize>
 		
 		$(".pw_btn").click(function(){
 	        var pwQna = $("#pw_qna").val();
@@ -521,17 +529,5 @@ $(document).ready(function() {
 		});
 	});
 </script>
-
-<sec:authentication property="principal" var="pinfo" />
-
-<sec:authorize access="isAuthenticated()">
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#reply_w").val("관리자");
-			wrap.show();
-  			$("#QApwCheck").hide();
-		});
-	</script>
-</sec:authorize>
 
 <%@include file="../includes/footer.jsp"%>
