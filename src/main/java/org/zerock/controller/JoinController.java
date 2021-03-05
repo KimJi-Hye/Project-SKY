@@ -43,16 +43,10 @@ public class JoinController {
 	
 	// 마이페이지
 	@GetMapping("/myPage")
-	public void myPage(@RequestParam("userId") String userId, @RequestParam("userType") String userType, Model model) {
+	public void myPage(@RequestParam("userId") String userId, String userType, Model model) {
 		log.info("/myPage Get");
-		log.info("UserType = " + userType);
-		if(userType.charAt(0) == 'T') {
-			log.info("teacher get");
-			model.addAttribute("member", serviceT.get(userId));
-		} else {
-			log.info("paretns get");
-			model.addAttribute("member", serviceP.get(userId));
-		}
+		model.addAttribute("memberT", serviceT.get(userId));
+		model.addAttribute("memberP", serviceP.get(userId));
 	}
 	// 마이페이지 수정
 	@PostMapping("/myPage")

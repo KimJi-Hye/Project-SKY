@@ -45,7 +45,7 @@
 			        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			        <li><button type="submit" class="btn btn-dark btn-sm">로그아웃</button></li>
 			        </form>
-			        <li><a href="/member/myPage?userId=tea&userType=T">마이페이지</a></li>
+			        <li><a href="/member/myPage?userId=<%=name %>">마이페이지</a></li>
 		          </sec:authorize>
 		          <sec:authorize access="hasRole('ROLE_A')">
 		          <li><a href="../admin/admin_index">관리자</a></li>

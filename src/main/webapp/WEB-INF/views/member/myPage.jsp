@@ -35,76 +35,111 @@
 
 			<div class="get_box_con">
 			
-				<div class="get_box">
-					<h3>회원 정보</h3>
-			    	<ul>
-			    		<li>
-			    			<label>아이디</label>
-			    			<input type="text" name='userId' value='<c:out value="${member.userId}"/>' readonly>
-			    		</li>
-			    		<li>
-			    			<label>이름</label>
-			    			<input type="text" name='userName' value='<c:out value="${member.userName}"/>' readonly>
-			    		</li>
-			    		<li>
-			    			<label>생년월일</label>
-			    			<fmt:parseDate var="pbirth" value="${member.userBirth}" pattern="yyyy-MM-dd" />
-							<input name='userBirth' type='date' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />' required>
-			    		</li>
-			    		<li>
-			    			<label>연락처</label>
-			    			<input type="text" name='userPhone' value='<c:out value="${member.userPhone}"/>' readonly>
-			    		</li>
-			    		<li>
-			    			<label>주소</label>
-			    			<input type="text" name='userAddr' value='<c:out value="${member.userAddr}"/>' readonly>
-			    		</li>
-			    		<li>
-			    			<label>이메일</label>
-			    			<input type="text" name='userEmail' value='<c:out value="${member.userEmail}"/>' readonly>
-			    		</li>
-			    		<li>
-			    			<label>권한</label>
-			    			<input type="text" name='auth' value='<c:out value="${member.auth}"/>' readonly>
-			    		</li>
-			    	</ul>
-			    </div>
 			
-				<c:if test="${param.userType eq 'T'}">
+				<c:if test="${memberT.userType eq 'T'}">
+					<div class="get_box">
+						<h3>회원 정보</h3>
+				    	<ul>
+				    		<li>
+				    			<label>아이디</label>
+				    			<input type="text" name='userId' value='<c:out value="${memberT.userId}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>이름</label>
+				    			<input type="text" name='userName' value='<c:out value="${memberT.userName}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>생년월일</label>
+				    			<fmt:parseDate var="pbirth" value="${memberT.userBirth}" pattern="yyyy-MM-dd" />
+								<input name='userBirth' type='date' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />' required>
+				    		</li>
+				    		<li>
+				    			<label>연락처</label>
+				    			<input type="text" name='userPhone' value='<c:out value="${memberT.userPhone}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>주소</label>
+				    			<input type="text" name='userAddr' value='<c:out value="${memberT.userAddr}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>이메일</label>
+				    			<input type="text" name='userEmail' value='<c:out value="${memberT.userEmail}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>권한</label>
+				    			<input type="text" name='auth' value='<c:out value="${memberT.auth}"/>' readonly>
+				    		</li>
+				    	</ul>
+				    </div>
 					<div class="get_box">
 						<h3>반 정보</h3>
 				    	<ul>
 					    	<li>
 					    		<label>반이름</label>
-			    				<input type="text" name='classname' value='<c:out value="${member.classname}"/>' readonly>
+			    				<input type="text" name='classname' value='<c:out value="${memberT.classname}"/>' readonly>
                             </li>
 				    	</ul>
 				    </div>
 				</c:if>
 
-				<c:if test="${param.userType eq 'P'}">
+				<c:if test="${memberP.userType eq 'P'}">
+					<div class="get_box">
+						<h3>회원 정보</h3>
+				    	<ul>
+				    		<li>
+				    			<label>아이디</label>
+				    			<input type="text" name='userId' value='<c:out value="${memberP.userId}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>이름</label>
+				    			<input type="text" name='userName' value='<c:out value="${memberP.userName}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>생년월일</label>
+				    			<fmt:parseDate var="pbirth" value="${memberP.userBirth}" pattern="yyyy-MM-dd" />
+								<input name='userBirth' type='date' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${pbirth}" />' required>
+				    		</li>
+				    		<li>
+				    			<label>연락처</label>
+				    			<input type="text" name='userPhone' value='<c:out value="${memberP.userPhone}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>주소</label>
+				    			<input type="text" name='userAddr' value='<c:out value="${memberP.userAddr}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>이메일</label>
+				    			<input type="text" name='userEmail' value='<c:out value="${memberP.userEmail}"/>' readonly>
+				    		</li>
+				    		<li>
+				    			<label>권한</label>
+				    			<input type="text" name='auth' value='<c:out value="${memberP.auth}"/>' readonly>
+				    		</li>
+				    	</ul>
+				    </div>
+				    
 					<div class="get_box">
 						<h3>원아 정보</h3>
 				    	<ul>
 					    	<li>
 					    		<label>관계</label>
-			    				<input type="text" name='relation' value='<c:out value="${member.relation}"/>' readonly>
+			    				<input type="text" name='relation' value='<c:out value="${memberP.relation}"/>' readonly>
 					    	</li>
 				    		<li>
 				    			<label>아동명</label>
-			    				<input type="text" name='cname' value='<c:out value="${member.cname}"/>' readonly>
+			    				<input type="text" name='cname' value='<c:out value="${memberP.cname}"/>' readonly>
 				    		</li>
 				    		<li>
 				    			<label>아동 고유번호</label>
-			    				<input type="text" name='cunicode' value='<c:out value="${member.cunicode}"/>' readonly>
+			    				<input type="text" name='cunicode' value='<c:out value="${memberP.cunicode}"/>' readonly>
 				    		</li>
 				    		<li>
 				    			<label>반이름</label>
-			    				<input type="text" name='classname' value='<c:out value="${member.classname}"/>' readonly>
+			    				<input type="text" name='classname' value='<c:out value="${memberP.classname}"/>' readonly>
 				    		</li>
 				    		<li>
 				    			<label>생년월일</label>
-			    				<fmt:parseDate var="cbirth" value="${member.cbirth}" pattern="yyyy-MM-dd" />
+			    				<fmt:parseDate var="cbirth" value="${memberP.cbirth}" pattern="yyyy-MM-dd" />
 								<input name='cbirth' type='date' value='<fmt:formatDate pattern="yyyy-MM-dd" value="${cbirth}" />' required>
 				    		</li>
 				    	</ul>
@@ -115,7 +150,7 @@
 				    	<ul>
 				    		<li>
 				    			<label>접수유형</label>
-			    				<input type="text" name='apptype' value='<c:out value="${member.apptype}"/>' readonly>
+			    				<input type="text" name='apptype' value='<c:out value="${memberP.apptype}"/>' readonly>
 				    		</li>
 				    	</ul>
 					</div>
