@@ -73,5 +73,12 @@ public class NoticeServiceImpl implements NoticeService{
 		return mapper.delete(ano) == 1;
 	}
 
+	@Override
+	public List<NoticeVO> getMainList() {
+		
+		log.info("main notice list");
+		return mapper.getList();
+	}
+
 
 }

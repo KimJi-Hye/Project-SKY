@@ -120,7 +120,7 @@
     align-items: center;
     padding: 10px 15px;
 }
-.swiper-container.swiper2 .swiper-slide a{
+.swiper-container.swiper2 .swiper-slide a,.swiper-container.swiper2 .swiper-slide p{
     width: 100%;
     text-align: left;
     display: block;

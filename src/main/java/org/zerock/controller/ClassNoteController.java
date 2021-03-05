@@ -54,6 +54,7 @@ public class ClassNoteController {
 	}
 	
 	@GetMapping("/noteRegister")
+	@PreAuthorize("isAuthenticated()")
 	public void register(Model model) {
 
 		model.addAttribute("mngList", mngService.getList());
@@ -63,6 +64,7 @@ public class ClassNoteController {
 	
 	
 	@PostMapping("/noteRegister")
+	@PreAuthorize("isAuthenticated()")	
 	public String register(ClassNoteVO board, RedirectAttributes rttr) {
 		
 		log.info("noteRegister: " + board);

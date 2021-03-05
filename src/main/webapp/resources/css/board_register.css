@@ -21,6 +21,12 @@
 	margin: 15px auto 0;
 }
 
+.cphoto {/* padding: 50px; *//* justify-content: center; */}
+
+.uploadResult img {
+	width: 100%
+}
+
 .form-group {
     font-size: 18px;
     font-weight: 400;
@@ -51,6 +57,24 @@
     height: 300px;
 }
 
+.form-group .input_tx4{
+    height: 150px;
+}
+
+.form-group .form-group2{
+	display: flex;
+}
+.row {
+    margin: 0 auto;
+    font-size: 15px;
+    width: 80%;
+}
+
+.row2 {
+    /* display: flex; */
+    /* float: left; */
+    padding: 65px;
+}
 
 
 .form-button {

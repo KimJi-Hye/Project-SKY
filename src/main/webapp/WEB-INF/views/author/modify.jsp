@@ -17,7 +17,7 @@
 			    		<ul>
 			    			<li>
 			    				<p>권한등급</p>
-			    				<input type="text" name="auth" value='<c:out value="${auth.auth}" />' >
+			    				<input type="text" name="auth" value='<c:out value="${auth.auth}" />' readonly>
 			    			</li>
 			    			<li>
 			    				<p>권한명 </p>

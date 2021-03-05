@@ -55,6 +55,7 @@
 .cardBox{
     background: #fff;
     border-radius: 10px;
+    border: 1px solid #dbdbdb;
     box-shadow: 5px 5px 10px rgba(50, 50, 50, .2);
     overflow: hidden;
 }
@@ -65,7 +66,9 @@
 }
 .login_contents .lb_left{
     height: 200px;
-    background: url(../img/login_bg.PNG) no-repeat center;
+    background: url(../img/login_bg.jpg) no-repeat center;
+    background-size: cover;
+    border-bottom: 1px solid #dbdbdb;
 }
 .login_contents .lb_left p{
     padding: 20px;
@@ -104,6 +107,7 @@
 .login_contents .lb_con input[type="text"], .login_contents .lb_con input[type="password"]{
     width: 100%; padding: 7px 15px; margin-bottom: 20px;
     border: none;
+    border-radius: 0;
     border-bottom: 2px solid #0A69CC;;
     font-size: 16px;
     display: block;
@@ -290,6 +294,8 @@
     }
     .login_contents .lb_left{
         height: auto;
+        border-bottom: 0;
+        border-right: 1px solid #eee;
     }
     .login_contents .lb_right{
         padding: 50px 30px;

@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<<<<<<< HEAD
+
+
+=======
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+>>>>>>> branch 'develop' of https://github.com/KimJi-Hye/Project-SKY.git
 <%@include file="../includes/header.jsp"%>
 <link rel="stylesheet" href="/resources/css/board_register.css">
 
@@ -105,11 +110,11 @@ select {
 				<div class="col-lg-12">
 					<div class="panel panel-default">
 
-						<div class="panel-heading">File Attach</div>
+						<div class="panel-heading">파일첨부</div>
 						<!--  /.panel-heading -->
 						<div class="panel-body">
 							<div class="form-group uploadDiv">
-								<input type="file" name='uploadFile' multiple>
+								<input type="file" name='uploadFile'>
 							</div>
 
 							<div class='uploadResult'>

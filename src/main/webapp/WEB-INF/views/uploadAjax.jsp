@@ -66,7 +66,7 @@
 </style>
 
 <div class='uploadDiv'>
-   <input type='file' name='uploadFile' multiple>
+   <input type='file' name='uploadFile' >
 </div>
 
 <div class='bigPictureWrapper'>

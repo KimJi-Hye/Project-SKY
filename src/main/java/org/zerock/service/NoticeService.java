@@ -18,4 +18,7 @@ public interface NoticeService {
 	public List<NoticeVO> getList(Criteria cri);
 	
 	public int getTotal(Criteria cri);
+	
+	public List<NoticeVO> getMainList();
+	
 }

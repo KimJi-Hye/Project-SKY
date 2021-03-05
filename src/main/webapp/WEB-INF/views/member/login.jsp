@@ -12,9 +12,6 @@
 	<div class="cardBox login_contents">
 
 		<div class="lb_left">
-			<p>
-				welcome!<br>Sky Kindergarten
-			</p>
 		</div>
 
 		<div class="lb_right">
@@ -24,12 +21,12 @@
 			</div>
 			<div class="lb_con">
 				<form action="/login" method="post">
-					<div class="radioBox">
+					<!-- <div class="radioBox">
 						<input type="radio" name="usertype" id="ut1" class="radioBtn" checked> 
 						<label for="ut1"><span></span> 학부모</label> 
 						<input type="radio" name="usertype" id="ut2" class="radioBtn"> 
 						<label for="ut2"><span></span> 교직원</label>
-					</div>
+					</div> -->
 					<input type="text" name="userId" placeholder="ID" required>
 					<input type="password" name="userPw" placeholder="PASSWORD" required> 
 					<input type="submit" value="LOGIN">

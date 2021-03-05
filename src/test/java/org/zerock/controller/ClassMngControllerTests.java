@@ -35,34 +35,34 @@ public class ClassMngControllerTests {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
 	}
 
-//	@Test
-//	public void testList() throws Exception {
-//
-//		log.info(
-//				mockMvc.perform(MockMvcRequestBuilders.get("/board/classList"))
-//				.andReturn()
-//				.getModelAndView()
-//				.getModel());
-//	}
+	@Test
+	public void testList() throws Exception {
+
+		log.info(
+				mockMvc.perform(MockMvcRequestBuilders.get("/admin/classList"))
+				.andReturn()
+				.getModelAndView()
+				.getModel());
+	}
 	
 //	@Test
 //	public void testRegister() throws Exception {
-//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/classRegister")
-//				.param("className", "반이름")
+//		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/admin/classRegister")
+//				.param("className", "테스트")
 //				.param("classAge", "7")
 //				.param("classTotal", "20")
 //				).andReturn().getModelAndView().getViewName();
 //		log.info(resultPage);
 //	}
 	
-	@Test
-	public void testGet() throws Exception {
-		log.info(mockMvc.perform(MockMvcRequestBuilders
-				.get("/board/classGet")
-				.param("className", "하늘반"))
-				.andReturn()
-				.getModelAndView().getModelMap());
-	}
+//	@Test
+//	public void testGet() throws Exception {
+//		log.info(mockMvc.perform(MockMvcRequestBuilders
+//				.get("/board/classGet")
+//				.param("className", "하늘반"))
+//				.andReturn()
+//				.getModelAndView().getModelMap());
+//	}
 	
 //	@Test
 //	public void testModify() throws Exception {

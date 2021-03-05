@@ -45,6 +45,10 @@
 		    	login-page="/member/login"
 		    	default-target-url="/"/>
    	  <security:logout logout-url="/" invalidate-session="true" logout-success-url="/"/>
+   	  
+   	  <!-- 에러페이지 -->
+   	  <security:access-denied-handler error-page="/accessError/" />
+   	  
    </security:http>
 
    <security:authentication-manager>
