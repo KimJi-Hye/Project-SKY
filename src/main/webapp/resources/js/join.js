@@ -90,7 +90,7 @@ pw.keyup(function(){
 	}
 
     // 비밀번호 정규식으로 테스트
-    if(!jpass.test(pw.val())){
+    /*if(!jpass.test(pw.val())){
         $("#pwLog").text("형식에 맞게 입력해주세요");
         $("#pwLog").addClass("on");
         pw.focus();
@@ -98,7 +98,7 @@ pw.keyup(function(){
     } else { // 합당한 경우
         $("#pwLog").text("");
         $("#pwLog").removeClass("on");
-    }
+    }*/
 
 });
 
@@ -221,7 +221,7 @@ $("input[type=submit]").click(function(e){
 		uemail.focus();
 		return false;
 	}
-	if(mailPass == undefined){
+	/*if(mailPass == undefined){
 		popupOn();
 		popup_m.text("이메일 중복확인을 해주세요.");
  		return false;
@@ -230,7 +230,7 @@ $("input[type=submit]").click(function(e){
 	 	popupOn();
    		popup_m.text("이메일 중복확인을 해주세요.");
 		return false;
-	}
+	}*/
 	
 	$("form").submit();
 	
