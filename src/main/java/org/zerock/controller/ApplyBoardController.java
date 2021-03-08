@@ -50,8 +50,8 @@ public class ApplyBoardController {
 		log.info("이메일 데이터 전송 확인");
 		log.info("이메일주소 : " + email);
 		
-        String subject = "test 메일";
-        String content = "메일 테스트 내용" + cunicode;
+		String subject = "안녕하세요 Sky Kindergarten 입니다. 최종 승인 완료 되었습니다.";
+        String content = "원아 고유번호는 " + cunicode + " 입니다. 고유번호로 회원가입을 해주세요.";
         String from = "erdskykindergarten@gmail.com";
         String to = email;
         
@@ -78,8 +78,8 @@ public class ApplyBoardController {
 		log.info("이메일 데이터 전송 확인");
 		log.info("이메일주소 : " + email);
 		
-        String subject = "test 메일";
-        String content = "메일 테스트 내용" + ano;
+		String subject = "안녕하세요 Sky Kindergarten 입니다. 접수 완료 email 입니다.";
+        String content = "게시물 번호는" + ano + "입니다. 접수 조회시 알고 계셔야 조회가 가능합니다.";
         String from = "erdskykindergarten@gmail.com";
         String to = email;
         
