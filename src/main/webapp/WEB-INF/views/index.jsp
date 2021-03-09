@@ -44,7 +44,14 @@
                         <div class="swiper-container swiper2">
                             <div class="swiper-wrapper">
                             
-	                            <c:if test="${empty homeN}">
+                            	<div class="swiper-slide">
+	                            	<a href="/board/noticeGet?bno=322">공지사항 입니다.</a>
+	                            </div>
+                            
+                            	<div class="swiper-slide">
+	                            	<a href="/board/noticeGet?bno=322">공지사항 입니다.</a>
+	                            </div>
+	                            <%-- <c:if test="${empty homeN}">
 	                                <div class="swiper-slide">
 	                                    <p>등록된 공지사항이 없습니다.</p>
 	                                </div>
@@ -54,7 +61,7 @@
 	                                <div class="swiper-slide">
 	                                    <a href="/board/noticeList?bno=<c:out value="${notice.bno}"/>"><c:out value="${notice.title}" /></a>
 	                                </div>
-								</c:forEach>
+								</c:forEach> --%>
 								
                             </div>
                             <!-- Add Arrows -->

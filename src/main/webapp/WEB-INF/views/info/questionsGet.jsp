@@ -88,9 +88,7 @@
 					value='<c:out value="${board.title}"/>' required></li>
 					
 				<li><label>내용</label> 
-					<textarea name='content' class="textareaBox" required>
-						<c:out value="${board.content}"/>
-					</textarea>
+					<textarea name='content' class="textareaBox" required><c:out value="${board.content}"/></textarea>
 				</li>
 					
 				<li><label>작성자</label> <input type="text"
